@@ -13,7 +13,7 @@
 		<jsp:include page="fenster.jsp" >
 			<jsp:param name="titel" value="Beispiel Submit-Umleitung mit Ajax ©Benedikt Brüntrup" />
 			<jsp:param name="id" value="0" />
-			<jsp:param name="inhalt" value="helloWorld.jsp" />
+			<jsp:param name="inhalt" value="beispielFormular.jsp" />
 			<jsp:param name="left" value ="60px" />
 			<jsp:param name="top" value="60px" />
 			<jsp:param name="minWidth" value="434px" />
