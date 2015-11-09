@@ -46,7 +46,7 @@ function anfrageResult(){
 		
 		var array_text = [];
 		var richtige_methode = false;
-		methoden = ['\r\n', '\n', "'\r'"]
+		methoden = ['\r\n', '\n', "'\r'"];
 		for (var i = 0; i < 3 && !richtige_methode; i++){
 			array_text = text.split(methoden[i]);
 			richtige_methode = array_text.length > 1;
