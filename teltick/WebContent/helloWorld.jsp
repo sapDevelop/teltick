@@ -18,7 +18,7 @@
 	}
 </style>
 <form action="begruessung.jsp" method="post" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
-	<div class="eingabe_bereich_text">Bitte geben Sie Ihren Namen ein.</div>
+	<div class="eingabe_bereich_text">Bitte geben Sie Ihren Namen ein...</div>
 	<div class="eingabebereich_beispiel">
 		<label>Name:</label>
 		<input type="text" name="name"  required="required"  />
