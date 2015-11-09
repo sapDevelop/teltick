@@ -16,7 +16,7 @@
 			<jsp:param name="inhalt" value="beispielFormular.jsp" />
 			<jsp:param name="left" value ="60px" />
 			<jsp:param name="top" value="60px" />
-			<jsp:param name="minWidth" value="434px" />
+			<jsp:param name="minWidth" value="435px" />
 		</jsp:include>
 	</body>
 </html>
