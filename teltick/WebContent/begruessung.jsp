@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<%-- Id des Divs, wo mit Ajax die Antwort reingeschrieben werden soll (Nur die Ziffer) --%>
+<%-- Id des Divs, wo mit Ajax die Antwort reingeschrieben werden soll (Nur die Ziffer)--%>
 <c:out value="${ param.ajax_id}" />
 
 <form action="beispielFormular.jsp" name="form" method="post" onsubmit="return submitUmleiten(this, '<c:out value="${param.ajax_id}" />');" >
