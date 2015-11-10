@@ -19,5 +19,4 @@
 			<jsp:param name="minWidth" value="435px" />
 		</jsp:include>
 	</body>
-	test
 </html>
