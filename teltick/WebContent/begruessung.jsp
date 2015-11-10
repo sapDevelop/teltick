@@ -7,7 +7,7 @@
 <c:out value="${ param.ajax_id}" />
 
 <form action="beispielFormular.jsp" name="form" method="post" onsubmit="return submitUmleiten(this, '<c:out value="${param.ajax_id}" />');" >
-	<h3>Guten Tag1 <c:out value="${param.name}" /> !!!</h3>
+	<h3>Guten Tag <c:out value="${param.name}" /> !!!</h3>
 	<input type="hidden" value="<c:out value="${param.ajax_id}" />" name="id" />
 	<input type="submit" value="Zurück" style="float: right;"  />
 	<div style="clear:right" ></div>
