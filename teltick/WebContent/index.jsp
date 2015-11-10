@@ -10,7 +10,6 @@
 		</script>
 	</head>
 	<body>
-		fdjdjdjsdkjk
 		<jsp:include page="fenster.jsp" >
 			<jsp:param name="titel" value="Beispiel Submit-Umleitung mit Ajax ©Benedikt Brüntrup" />
 			<jsp:param name="id" value="0" />
