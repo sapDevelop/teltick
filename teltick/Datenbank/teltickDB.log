@@ -3,3 +3,4 @@ create table Mitarbeiter(\u000aMitarbeiter_Id INTEGER IDENTITY PRIMARY KEY,\u000
 create table Ticket(\u000aTicket_Id INTEGER IDENTITY PRIMARY KEY,\u000aErstelldatum date,\u000aBeschreibung varchar(255),\u000aTitel varchar(255),\u000aVerfasser integer,\u000aforeign key (Verfasser) references Mitarbeiter(Mitarbeiter_Id)\u000a)
 create table Rechte(\u000aRechte_Id INTEGER IDENTITY PRIMARY KEY,\u000aBezeichnung varchar(50),\u000aWert INTEGER,\u000aMitarbeiter_Id integer,\u000aforeign key (Mitarbeiter_Id) references Mitarbeiter(Mitarbeiter_Id)\u000a)
 create table Ticketzuweisung(\u000aZuweisung_Id INTEGER IDENTITY PRIMARY KEY,\u000aZeitpunkt datetime,\u000aMitarbeiter_Id integer,\u000aTicket_Id integer,\u000aforeign key (Mitarbeiter_Id) references Mitarbeiter(Mitarbeiter_Id),\u000aforeign key (Ticket_Id) references Ticket(Ticket_Id)\u000a)
+DISCONNECT
