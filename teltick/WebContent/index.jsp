@@ -18,6 +18,5 @@
 			<jsp:param name="top" value="60px" />
 			<jsp:param name="minWidth" value="435px" />
 		</jsp:include>
-		test2222
 	</body>
 </html>
