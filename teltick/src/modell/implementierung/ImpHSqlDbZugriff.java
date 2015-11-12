@@ -1,4 +1,4 @@
-package modell.implementation;
+package modell.implementierung;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,7 +13,7 @@ import modell.interfaces.DBZugriff;
 
 import java.util.Properties;
 
-public class HSqlDbZugriff implements DBZugriff{
+public class ImpHSqlDbZugriff implements DBZugriff{
 	
 	private String dbdriver;
 	private String dburl, dbdatei;
@@ -21,10 +21,10 @@ public class HSqlDbZugriff implements DBZugriff{
 	private String password;
 	private String urlAbsolut;
 	
-	private Log logger = LogFactory.getLog(HSqlDbZugriff.class) ;
+	private Log logger = LogFactory.getLog(ImpHSqlDbZugriff.class) ;
 	
 	
-	public HSqlDbZugriff() {
+	public ImpHSqlDbZugriff() {
 		Properties dbprops = new Properties();
 		try {
 						

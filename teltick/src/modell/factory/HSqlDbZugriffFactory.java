@@ -1,12 +1,12 @@
 package modell.factory;
 
-import modell.implementation.HSqlDbZugriff;
+import modell.implementierung.ImpHSqlDbZugriff;
 import modell.interfaces.DBZugriff;
 
 public class HSqlDbZugriffFactory {
 
 	public static DBZugriff getInstance(){
-		return new HSqlDbZugriff();
+		return new ImpHSqlDbZugriff();
 	}
 
 }
