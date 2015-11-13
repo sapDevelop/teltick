@@ -12,15 +12,13 @@
 		<script type="text/javascript" src="js/fenster.js" >
 		</script>
 		<jsp:useBean id="angemeldeterMitarbeiter" class="modell.entitaeten.implementierung.ImpMitarbeiter" scope="session" />
-		<meta name="viewport" content="width=320, initial-scale=1" />
 	</head>
 	<body>
-		<c:out value="Hallo: ${ mitarbeiter.angemeldet}" />
 		<%-- Muss hinterher gelöscht werden nur für Versuchszwecke --%>
 		<c:choose>
 			<%-- Wenn der Mitarbeiter angemeldet ist wird der Desktop angezeigt --%>
 			
-			<c:when test="${ mitarbeiter.angemeldet == true }">
+			<c:when test="${ angemeldeterMitarbeiter.angemeldet == true }">
 				<jsp:include page="desktop.jsp" />
 			</c:when>
 			<%-- Wenn der Mitarbeiter noch nicht angemeldet ist das Login-Formular --%>
