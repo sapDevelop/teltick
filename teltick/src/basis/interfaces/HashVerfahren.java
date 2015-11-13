@@ -1,4 +1,4 @@
-package kernSystem.interfaces;
+package basis.interfaces;
 
 /**
  * Interface für die Passwort-Chiffrierung

@@ -1,4 +1,0 @@
-/*C3*/SET SCHEMA PUBLIC
-INSERT INTO MITARBEITER VALUES(0,'admin@admin.de','Max','Admin','Mustermann','161ebd7d45089b3446ee4e0d86dbcf92')
-COMMIT
-DISCONNECT

@@ -1,7 +1,7 @@
-package kernSystem.factory;
+package basis.factory;
 
-import kernSystem.implementierung.ImpMd5HashVerfahren;
-import kernSystem.interfaces.HashVerfahren;
+import basis.implementierung.ImpMd5HashVerfahren;
+import basis.interfaces.HashVerfahren;
 
 public class Md5HashVerfahrenSingletonFactory {
 

@@ -1,10 +1,10 @@
-package test.kernSystem;
-
-import kernSystem.factory.Md5HashVerfahrenSingletonFactory;
-import kernSystem.interfaces.HashVerfahren;
+package test.basis;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import basis.factory.Md5HashVerfahrenSingletonFactory;
+import basis.interfaces.HashVerfahren;
 
 /**
  * JUnit-Text zum Test des MD5-Hash-Verfahrens

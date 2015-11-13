@@ -1,10 +1,10 @@
-package kernSystem.implementierung;
+package basis.implementierung;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import kernSystem.interfaces.HashVerfahren;
+import basis.interfaces.HashVerfahren;
 
 
 public class ImpMd5HashVerfahren implements HashVerfahren{
