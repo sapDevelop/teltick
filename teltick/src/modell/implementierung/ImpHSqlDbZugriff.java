@@ -1,5 +1,6 @@
 package modell.implementierung;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -21,16 +22,14 @@ public class ImpHSqlDbZugriff implements DBZugriff{
 	private String password;
 	private String urlAbsolut;
 	
-	private Log logger = LogFactory.getLog(ImpHSqlDbZugriff.class) ;
+	//private Log logger = LogFactory.getLog(ImpHSqlDbZugriff.class) ;
 	
 	
 	public ImpHSqlDbZugriff() {
 		Properties dbprops = new Properties();
 		try {
-						
-			URL url = getClass().getClassLoader().getResource("database.properties");
-			urlAbsolut = url.getPath().replace("database.properties", "");
-			
+			URL url = getClass().getClassLoader().getResource("db_zugangsdaten.properties");
+			urlAbsolut = url.getPath().replace("db_zugangsdaten.properties", "");
 			
 			dbprops.load(url.openStream());
 
@@ -50,9 +49,11 @@ public class ImpHSqlDbZugriff implements DBZugriff{
 			
 
 		} catch (ClassNotFoundException cnfe) {
-			logger.error("Datenbanktreiber konnte nicht geladen werden", cnfe);
+			//logger.error("Datenbanktreiber konnte nicht geladen werden", cnfe);
+			System.out.println(cnfe);
 		}catch (IOException e) {
-			logger.error("Could not establish a database connection", e);
+			//logger.error("Could not establish a database connection", e);
+			System.out.println(e);
 		}
 	}
 

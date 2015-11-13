@@ -1,6 +1,4 @@
-/*C4*/SET SCHEMA PUBLIC
-create table Mitarbeiter(\u000aMitarbeiter_Id INTEGER IDENTITY PRIMARY KEY,\u000aEmail varchar(50),\u000aVorname varchar(50),\u000aLogin_Name varchar(50),\u000aName varchar(50),\u000aPasswort varchar(128)\u000a)
-create table Ticket(\u000aTicket_Id INTEGER IDENTITY PRIMARY KEY,\u000aErstelldatum date,\u000aBeschreibung varchar(255),\u000aTitel varchar(255),\u000aVerfasser integer,\u000aforeign key (Verfasser) references Mitarbeiter(Mitarbeiter_Id)\u000a)
-create table Rechte(\u000aRechte_Id INTEGER IDENTITY PRIMARY KEY,\u000aBezeichnung varchar(50),\u000aWert INTEGER,\u000aMitarbeiter_Id integer,\u000aforeign key (Mitarbeiter_Id) references Mitarbeiter(Mitarbeiter_Id)\u000a)
-create table Ticketzuweisung(\u000aZuweisung_Id INTEGER IDENTITY PRIMARY KEY,\u000aZeitpunkt datetime,\u000aMitarbeiter_Id integer,\u000aTicket_Id integer,\u000aforeign key (Mitarbeiter_Id) references Mitarbeiter(Mitarbeiter_Id),\u000aforeign key (Ticket_Id) references Ticket(Ticket_Id)\u000a)
+/*C3*/SET SCHEMA PUBLIC
+INSERT INTO MITARBEITER VALUES(0,'admin@admin.de','Max','Admin','Mustermann','161ebd7d45089b3446ee4e0d86dbcf92')
+COMMIT
 DISCONNECT
