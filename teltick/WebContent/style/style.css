@@ -14,6 +14,7 @@
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+	border: 1px solid grey;
 }
 
 .fenster_kopf{
@@ -24,7 +25,7 @@
 }
 
 html body{
-	background-color: lightblue;
+	background-color: #3E0A55;
 }
 
 .bereich_fenster_buttons{
@@ -94,4 +95,36 @@ html body{
 	background: transparent linear-gradient(to bottom, #fff,  lightgrey) repeat scroll 0% 0%;
 	box-shadow: 2px 2px 2px grey;
 	border-radius: 6px 0px 0px 6px;
+}
+
+.startmenue_content_aufteiler{
+	display: table;
+	height: 100%;
+}
+
+.startknopf{
+	display: table-cell;
+	vertical-align: middle;
+	width: 115px;
+	height: 100;
+	letter-spacing: 3px;
+	color: #6F2E9B;
+	font-weight: bold;
+	font-size:20px;
+	cursor: pointer;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	text-align: center;
+}
+
+.startknopf:hover{
+	color: #176265;
+	background-color: #D5D5D5;
+	border-radius: 6px 0px 0px 6px;
+}
+
+.startleiste_geoeffnete_fenster{
+	display: table-cell;
 }

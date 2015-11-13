@@ -2,9 +2,16 @@
 	<div class="startmenu_leiste_platzhalter" >
 		<div class="startmenue_platzhalter_links" >
 		</div>
-		<div class="startmenue_platzhalter_leiste" id="text" >
+		<div class="startmenue_platzhalter_leiste">
+			<div class="startmenue_content_aufteiler">
+				<span class="startknopf">TelTick</span>
+				<span class="startleiste_geoeffnete_fenster" >
+				</span>
+			</div>
 		</div>
 	</div>
+	
+	
 	<jsp:include page="fenster.jsp" >
 		<jsp:param name="titel" value="Beispiel Submit-Umleitung mit Ajax ©Benedikt Brüntrup" />
 		<jsp:param name="id" value="0" />
