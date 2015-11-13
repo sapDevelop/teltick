@@ -15,12 +15,12 @@
 		<meta name="viewport" content="width=320, initial-scale=1" />
 	</head>
 	<body>
+		<c:out value="Hallo: ${ mitarbeiter.angemeldet}" />
 		<%-- Muss hinterher gelöscht werden nur für Versuchszwecke --%>
-		<jsp:setProperty name="angemeldeterMitarbeiter" property="angemeldet" value="true" />	
-	
 		<c:choose>
 			<%-- Wenn der Mitarbeiter angemeldet ist wird der Desktop angezeigt --%>
-			<c:when test="${ angemeldeterMitarbeiter.angemeldet == true }">
+			
+			<c:when test="${ mitarbeiter.angemeldet == true }">
 				<jsp:include page="desktop.jsp" />
 			</c:when>
 			<%-- Wenn der Mitarbeiter noch nicht angemeldet ist das Login-Formular --%>
@@ -28,5 +28,6 @@
 				<jsp:include page="login.jsp"></jsp:include>
 			</c:otherwise>
 		</c:choose>
+		
 	</body>
 </html>
