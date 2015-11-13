@@ -2,7 +2,7 @@ package modell.entitaeten.implementierung;
 
 import modell.entitaeten.interfaces.Mitarbeiter;
 
-public class ImpMitarbeiter implements Mitarbeiter {
+public class ImpMitarbeiter implements Mitarbeiter{
 
 	private int mitarbeiterId;
 	private String email, vorname, loginName, name;
@@ -64,7 +64,4 @@ public class ImpMitarbeiter implements Mitarbeiter {
 	public void setAngemeldet(boolean angemeldet) {
 		this.angemeldet = angemeldet;
 	}
-	
-	
-	
 }

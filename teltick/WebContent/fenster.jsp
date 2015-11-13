@@ -21,6 +21,7 @@
 		<c:set var="inhalt" value="helloWorld.jsp" />
 		<c:set var="left" value ="100px" />
 		<c:set var="top" value="100px" />
+		<c:set var="z_index" value="1" />
 	</c:when>
 	<c:otherwise>
 		<c:set var="titel" value="${param.titel}" />
@@ -28,6 +29,7 @@
 		<c:set var="inhalt" value="${param.inhalt}" />
 		<c:set var="left" value ="${param.left }" />
 		<c:set var="top" value="${param.top}" />
+		<c:set var="z_index" value="${param.z_index}" />
 	</c:otherwise>
 </c:choose>
 
@@ -36,7 +38,7 @@
 <div 
 	class="fenster" 
 	id="fenster_<c:out value="${id }" />"
-	style="left:<c:out value="${left}" />; top:<c:out value="${top}" />;<c:if test="${param.minWidth != null}">min-width: <c:out value="${param.minWidth}" /></c:if>"
+	style="left:<c:out value="${left}" />; top:<c:out value="${top}" />;<c:if test="${param.minWidth != null}">min-width: <c:out value="${param.minWidth}" /></c:if>; z-index:<c:out value="${param.z_index}" />;"
 >
 	<div class="fenster_kopf" >
 		<c:out value="${titel}" />

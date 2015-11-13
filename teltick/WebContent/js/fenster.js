@@ -15,7 +15,7 @@ function movemouse(e)
 	var left_neu = nn6 ? tx + e.clientX - x : tx + event.clientX - x;
 	var top_neu = nn6 ? ty + e.clientY - y : ty + event.clientY - y;
     if ( left_neu > 0) dobj.style.left = left_neu + "px";
-    if (top_neu > 0) dobj.style.top  = top_neu + "px";
+    if (top_neu > 51) dobj.style.top  = top_neu + "px";
     return false;
   }
 }
