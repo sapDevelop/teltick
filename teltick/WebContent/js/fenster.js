@@ -14,18 +14,27 @@ function movemouse(e)
   {
 	  var fenster_breite = window.innerWidth
 	  	|| document.documentElement.clientWidth
-	  	|| document.body.clientWidth;  
+	  	|| document.body.clientWidth; 
+	  
+	  var fenster_hoehe = window.innerHeight
+	  	|| document.documentElement.clientHeight
+	  	|| document.body.clientHeight; 
 	  
 	var left_neu = nn6 ? tx + e.clientX - x : tx + event.clientX - x;
 	var top_neu = nn6 ? ty + e.clientY - y : ty + event.clientY - y;
-	var pos_groesser_desktop = parseInt(parseInt(dobj.style.left)+parseInt(dobj.style.minWidth));
+	var pos_groesser_desktop_breite = parseInt(parseInt(dobj.style.left)+parseInt(dobj.style.minWidth));
 	var fenster_koord_rechts = left_neu+parseInt(dobj.style.minWidth);
 	
-    if (left_neu > 0 && (fenster_koord_rechts  <=  fenster_breite || (fenster_breite < pos_groesser_desktop && fenster_koord_rechts <pos_groesser_desktop) )){
+	var pos_groesser_desktop_hoehe = parseInt(parseInt(dobj.style.top)+parseInt(dobj.style.minHeight));
+	var fenster_koord_unten = top_neu+parseInt(dobj.style.minHeight);
+	
+    if (left_neu > 0 && (fenster_koord_rechts  <=  fenster_breite || (fenster_breite < pos_groesser_desktop_breite && fenster_koord_rechts < pos_groesser_desktop_breite) )){
     	dobj.style.left = left_neu + "px";
     }
     
-    if (top_neu > 51) dobj.style.top  = top_neu + "px";
+    if (top_neu > 51 && (fenster_koord_unten  <=  fenster_hoehe || (fenster_hoehe < pos_groesser_desktop_hoehe && fenster_koord_unten < pos_groesser_desktop_hoehe) )){
+    	dobj.style.top  = top_neu + "px";
+    }
     return false;
   }
 }

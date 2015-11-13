@@ -12,5 +12,6 @@
 		<jsp:param name="left" value ="60px" />
 		<jsp:param name="top" value="60px" />
 		<jsp:param name="minWidth" value="435px" />
+		<jsp:param name="minHeight" value="152px" />
 		<jsp:param name="z_index" value="1" />
 	</jsp:include>

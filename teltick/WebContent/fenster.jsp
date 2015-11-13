@@ -22,6 +22,8 @@
 		<c:set var="left" value ="100px" />
 		<c:set var="top" value="100px" />
 		<c:set var="z_index" value="1" />
+		<c:set var="minWidth" value="435px" />
+		<c:set var="minHeight" value="152px" />
 	</c:when>
 	<c:otherwise>
 		<c:set var="titel" value="${param.titel}" />
@@ -30,6 +32,8 @@
 		<c:set var="left" value ="${param.left }" />
 		<c:set var="top" value="${param.top}" />
 		<c:set var="z_index" value="${param.z_index}" />
+		<c:set var="minWidth" value="${param.minWidth}" />
+		<c:set var="minHeight" value="${param.minHeight}" />
 	</c:otherwise>
 </c:choose>
 
@@ -38,7 +42,7 @@
 <div 
 	class="fenster" 
 	id="fenster_<c:out value="${id }" />"
-	style="left:<c:out value="${left}" />; top:<c:out value="${top}" />;<c:if test="${param.minWidth != null}">min-width: <c:out value="${param.minWidth}" /></c:if>; z-index:<c:out value="${param.z_index}" />;"
+	style="left:<c:out value="${left}" />; top:<c:out value="${top}" />;min-width: <c:out value="${param.minWidth}" />;min-height: <c:out value="${param.minHeight}" />; z-index:<c:out value="${z_index}" />;"
 >
 	<div class="fenster_kopf" >
 		<c:out value="${titel}" />

@@ -4,7 +4,7 @@
 	display: block;
 	position: absolute;
 	margin: 0px auto;
-	background-color: white;
+	background-color: #D7D7D7;
 	background: transparent linear-gradient(to bottom, #fff,  lightgrey) repeat scroll 0% 0%;
 	box-shadow: 2px 2px 2px grey;
 	border-radius: 6px 6px 0px 0px;
@@ -90,7 +90,7 @@ html body{
 
 .startmenue_platzhalter_leiste{
 	display: table-cell;
-	background-color: white;
+	background-color: #D7D7D7;
 	background: transparent linear-gradient(to bottom, #fff,  lightgrey) repeat scroll 0% 0%;
 	box-shadow: 2px 2px 2px grey;
 	border-radius: 6px 0px 0px 6px;
