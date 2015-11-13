@@ -29,11 +29,11 @@ function movemouse(e)
 	var pos_groesser_desktop_hoehe = parseInt(parseInt(dobj.style.top)+parseInt(dobj.style.minHeight));
 	var fenster_koord_unten = top_neu+parseInt(dobj.style.minHeight);
 	
-    if (left_neu > 0 && (fenster_koord_rechts  <=  fenster_breite || (fenster_breite < pos_groesser_desktop_breite && fenster_koord_rechts < pos_groesser_desktop_breite) )){
+    if (left_neu > 0 && (fenster_koord_rechts  <  fenster_breite || (fenster_breite < pos_groesser_desktop_breite && fenster_koord_rechts < pos_groesser_desktop_breite) )){
     	dobj.style.left = left_neu + "px";
     }
     
-    if (top_neu > 51 && (fenster_koord_unten  <=  fenster_hoehe || (fenster_hoehe < pos_groesser_desktop_hoehe && fenster_koord_unten < pos_groesser_desktop_hoehe) )){
+    if (top_neu > 51 && (fenster_koord_unten  <  fenster_hoehe || (fenster_hoehe < pos_groesser_desktop_hoehe && fenster_koord_unten < pos_groesser_desktop_hoehe) )){
     	dobj.style.top  = top_neu + "px";
     }
     return false;
@@ -68,15 +68,18 @@ function selectmouse(e)
   }
 }
 
+//Schließt das Fenster mit der übergebenen ID
 function fenster_schliessen(id_fenster){
 	document.getElementById(id_fenster).style.display='none';
 	geschlossene_fenster[geschlossene_fenster.length] = id_fenster;
 }
 
+//Minimiert das Fenster mit der übergebenen Id
 function fenster_minimieren(id_fenster){
 	document.getElementById(id_fenster).style.display='none';
 }
 
+//Maximiert das Fenster mit der ibergebenen Id
 function fenster_maximieren(id_fenster){
 	if (fenster_maximiert != id_fenster){		
 		document.getElementById(id_fenster).style.left='0px';
@@ -93,6 +96,7 @@ function fenster_maximieren(id_fenster){
 	}
 }
 
+//Holt das als Parameter übergebene Fenster in den Vordergrund
 function fenster_in_vodergrund_holen(id_fenster){
 	var arr_fenster = document.getElementsByClassName("fenster");
 	
@@ -102,6 +106,26 @@ function fenster_in_vodergrund_holen(id_fenster){
 	}
 	
 	document.getElementById(id_fenster).style.zIndex ='2';
+}
+
+//Zeigt in der Startleiste die aktuelle Uhrzeit an
+function zeigeAktuelleUhrzeitStartleiste() {
+    var now = new Date();
+    hours = now.getHours();
+    minutes = now.getMinutes();
+    seconds = now.getSeconds();
+ 
+    thetime = (hours < 10) ? "0" + hours + ":" : hours + ":";
+    thetime += (minutes < 10) ? "0" + minutes  : minutes;
+ 
+    document.getElementById("startmenue_uhr").innerHTML = thetime;
+    document.getElementById("startmenue_uhr").title= 'Uhrzeit: ' + thetime;
+}
+
+//Startet die Uhr
+function uhr_starten(){
+	zeigeAktuelleUhrzeitStartleiste()
+	window.setInterval("zeigeAktuelleUhrzeitStartleiste()", 1000);
 }
 
 document.onmousedown=selectmouse;

@@ -4,9 +4,10 @@
 		</div>
 		<div class="startmenue_platzhalter_leiste">
 			<div class="startmenue_content_aufteiler">
-				<span class="startknopf">TelTick</span>
+				<span class="startknopf" title="Startknopf" >TelTick</span>
 				<span class="startleiste_geoeffnete_fenster" >
 				</span>
+				<span id="startmenue_uhr" >00:00</span>
 			</div>
 		</div>
 	</div>
