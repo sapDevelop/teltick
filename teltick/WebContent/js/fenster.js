@@ -8,6 +8,7 @@ var dobj;
 var geschlossene_fenster = [];
 var fenster_maximiert = '';
 
+//Verschiebt das Fenster
 function movemouse(e)
 {
   if (verschieben)
@@ -40,7 +41,7 @@ function movemouse(e)
 }
 
 
-
+//Wenn die Maus gedrückt ist wird der Verschiebevorgang gestartet
 function selectmouse(e)
 {
   var fobj       = nn6 ? e.target : event.srcElement;
@@ -57,6 +58,11 @@ function selectmouse(e)
     ty = parseInt(dobj.style.top+0);
     x = nn6 ? e.clientX : event.clientX;
     y = nn6 ? e.clientY : event.clientY;
+    
+    //bringt das Fenster in den Vordergrund   
+    fenster_in_vodergrund_holen(dobj.id);
+    
+    //Lässt das Fenster der Maus folgen
     document.onmousemove=movemouse;
     return false;
   }
@@ -85,6 +91,17 @@ function fenster_maximieren(id_fenster){
 		document.getElementById(id_fenster).style.left='100px';
 		document.getElementById(id_fenster).style.top='100px';
 	}
+}
+
+function fenster_in_vodergrund_holen(id_fenster){
+	var arr_fenster = document.getElementsByClassName("fenster");
+	
+	//alle Fenster auf Z-Index = '1' setzen
+	for (var i = 0; i < arr_fenster.length; i++){
+		arr_fenster[i].style.zIndex = '1';
+	}
+	
+	document.getElementById(id_fenster).style.zIndex ='2';
 }
 
 document.onmousedown=selectmouse;
