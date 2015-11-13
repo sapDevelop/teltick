@@ -2,7 +2,7 @@
 	<div class="startmenu_leiste_platzhalter" >
 		<div class="startmenue_platzhalter_links" >
 		</div>
-		<div class="startmenue_platzhalter_leiste" >
+		<div class="startmenue_platzhalter_leiste" id="text" >
 		</div>
 	</div>
 	<jsp:include page="fenster.jsp" >

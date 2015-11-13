@@ -12,9 +12,19 @@ function movemouse(e)
 {
   if (verschieben)
   {
+	  var fenster_breite = window.innerWidth
+	  	|| document.documentElement.clientWidth
+	  	|| document.body.clientWidth;  
+	  
 	var left_neu = nn6 ? tx + e.clientX - x : tx + event.clientX - x;
 	var top_neu = nn6 ? ty + e.clientY - y : ty + event.clientY - y;
-    if ( left_neu > 0) dobj.style.left = left_neu + "px";
+	var pos_groesser_desktop = parseInt(parseInt(dobj.style.left)+parseInt(dobj.style.minWidth));
+	var fenster_koord_rechts = left_neu+parseInt(dobj.style.minWidth);
+	
+    if (left_neu > 0 && (fenster_koord_rechts  <=  fenster_breite || (fenster_breite < pos_groesser_desktop && fenster_koord_rechts <pos_groesser_desktop) )){
+    	dobj.style.left = left_neu + "px";
+    }
+    
     if (top_neu > 51) dobj.style.top  = top_neu + "px";
     return false;
   }
