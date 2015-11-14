@@ -76,12 +76,13 @@ html body{
 
 .startmenu_leiste_platzhalter{
 	height: 36px;
-	position: fixed;
+	position: absolute;
 	z-index: 0;
 	width: 100%;
 	left: 0px;
 	top:11px;
 	display: table;
+	min-width: 500px;
 }
 
 .startmenue_platzhalter_links{
@@ -103,11 +104,10 @@ html body{
 	width: 100%;
 }
 
-.startknopf{
+.startknopf_platzhalter{
 	display: table-cell;
 	vertical-align: middle;
 	width: 115px;
-	height: 100;
 	letter-spacing: 3px;
 	color: #6F2E9B;
 	font-weight: bold;
@@ -120,7 +120,7 @@ html body{
 	text-align: center;
 }
 
-.startknopf:hover{
+#startknopf_button_leiste:hover{
 	color: #176265;
 	background-color: #D5D5D5;
 	border-radius: 6px 0px 0px 6px;
@@ -128,6 +128,7 @@ html body{
 
 .startleiste_geoeffnete_fenster{
 	display: table-cell;
+	vertical-align: middle;
 }
 
 #startmenue_uhr{
@@ -139,4 +140,51 @@ html body{
 	padding-right: 15px;
 	color: #6F2E9B;
 	cursor: pointer;
+}
+
+.menue{
+	
+	position: absolute;
+	width: 640px;
+	z-index: 99999;
+	margin-left: -5px;
+	visibility: hidden;
+}
+
+#startknopf_button_leiste:hover > .menue{
+	visibility: visible;
+}
+
+#startknopf_button_leiste{
+	letter-spacing: 3px;
+	color: #6F2E9B;
+	font-weight: bold;
+	font-size:20px;
+	cursor: pointer;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	text-align: center;
+	position: absolute;
+	display: table-cell;
+	vertical-align: middle;
+	top: 10px;
+	left:128px;
+	padding: 5px;
+}
+
+.platzhalter_menu_leiste{
+	height: 10px;
+}
+
+.menu_content{
+	border: 1px solid;
+	min-height: 64px;
+	color: #fff;
+	border-color: #6F2E9B;
+	background-color: #C7BFD9;
+	box-shadow: 2px 2px 2px grey;
+	border-radius: 0px 0px 6px 6px;
+	cursor:default;
 }
