@@ -26,6 +26,7 @@
 
 html body{
 	background-color: #3E0A55;
+	font-size: 16px;
 }
 
 .bereich_fenster_buttons{
@@ -120,6 +121,20 @@ html body{
 	text-align: center;
 }
 
+.login_ueberschrift{
+	letter-spacing: 3px;
+	color: #6F2E9B;
+	font-weight: bold;
+	font-size:20px;
+	cursor: pointer;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	text-align: center;
+	height: 36px;
+}
+
 #startknopf_button_leiste:hover{
 	color: #176265;
 	background-color: #D5D5D5;
@@ -187,4 +202,38 @@ html body{
 	box-shadow: 2px 2px 2px grey;
 	border-radius: 0px 0px 6px 6px;
 	cursor:default;
+}
+
+.login_formularzeile{
+	margin-top: 5px;
+}
+
+.login_formularzeile label{
+	display: inline-block;
+	width: 130px;
+}
+
+.login_formularzeile .eingabefeld{
+	margin-left: 25px;
+	width: 225px;
+}
+
+#login_form{
+	border: solid 1px;
+	width: 350px;
+	padding: 20px;
+	background-color: #D7D7D7;
+	background: transparent linear-gradient(to bottom, #fff,  lightgrey) repeat scroll 0% 0%;
+	border-radius: 6px 6px 6px 6px;
+	margin: 90px auto;
+	box-shadow: 2px 2px 2px grey;
+}
+
+#LoginButton{
+	float: right;
+}
+
+#LoginFehler{
+	color: red;
+	padding: 10px;
 }
