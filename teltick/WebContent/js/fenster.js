@@ -36,6 +36,8 @@ function movemouse(e)
     if (top_neu > 51 && (fenster_koord_unten  <  fenster_hoehe || (fenster_hoehe < pos_groesser_desktop_hoehe && fenster_koord_unten < pos_groesser_desktop_hoehe) )){
     	dobj.style.top  = top_neu + "px";
     }
+    
+    dobj.style.opacity = '0.7';
     return false;
   }
 }
@@ -129,4 +131,4 @@ function uhr_starten(){
 }
 
 document.onmousedown=selectmouse;
-document.onmouseup=new Function("verschieben=false");
+document.onmouseup=new Function("verschieben=false; dobj.style.opacity = '';");

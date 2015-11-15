@@ -13,7 +13,7 @@
 		</script>
 		<jsp:useBean id="angemeldeterMitarbeiter" class="modell.entitaeten.implementierung.ImpMitarbeiter" scope="session" />
 	</head>
-	<body <c:if test="${ angemeldeterMitarbeiter.angemeldet == true }">onload="uhr_starten();"</c:if> >
+	<body onload="uhr_starten();" >
 		<c:choose>
 			<%-- Wenn der Mitarbeiter angemeldet ist wird der Desktop angezeigt --%>
 			

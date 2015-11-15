@@ -1,2 +1,3 @@
-/*C2*/SET SCHEMA PUBLIC
+/*C3*/SET SCHEMA PUBLIC
+alter table fenster add icon varchar(255)
 DISCONNECT
