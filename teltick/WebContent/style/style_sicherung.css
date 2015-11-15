@@ -7,6 +7,7 @@
 	background-color: #D7D7D7;
 	background: transparent linear-gradient(to bottom, #fff,  lightgrey) repeat scroll 0% 0%;
 	box-shadow: 2px 2px 2px grey;
+	border-radius: 6px 6px 0px 0px;
 	padding: 0px;
 	
 	-ms-user-select: none;
@@ -21,7 +22,6 @@
 	font-size: 13px;
 	color: #000;
 	cursor: move;
-	background-color:#C7BFD9;
 }
 
 html body{
@@ -42,22 +42,21 @@ html body{
 
 
 .fensterbutton{
-	background-image: url('../bilder/fenster_button1.png');
+	background-image: url('../bilder/fenster_button.png');
 	display: inline-block;
 	background-repeat: no-repeat;
-	width: 15px;
-	height: 15px;
+	width: 14px;
+	height: 13px;
 	cursor: pointer;
-	margin-left: 7px;
 }
 
 .fensterbutton_schliessen{
-	background-position: -48px 0px;
+	background-position: -30px 0px;
 }
 
 
 .fensterbutton:HOVER {
-	background-image: url('../bilder/fenster_button_dunkel1.png');
+	background-image: url('../bilder/fenster_button_dunkel.png');
 }
 
 .fensterbutton:ACTIVE {
