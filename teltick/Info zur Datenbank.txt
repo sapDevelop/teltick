@@ -1,0 +1,1 @@
+Die Datei "db_zugangsdaten.properties" und den Ordner "Datenbank" in das Verzeichnis "build/classes" kopieren, falls die Dateien wieder beim Kompilieren gelöscht wurden!!!!!

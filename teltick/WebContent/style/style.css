@@ -4,9 +4,9 @@
 	display: block;
 	position: absolute;
 	margin: 0px auto;
-	background-color: white;
+	background-color: #D7D7D7;
 	background: transparent linear-gradient(to bottom, #fff,  lightgrey) repeat scroll 0% 0%;
-	box-shadow: 4px 4px 4px grey;
+	box-shadow: 2px 2px 2px grey;
 	border-radius: 6px 6px 0px 0px;
 	padding: 0px;
 	
@@ -14,6 +14,7 @@
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+	border: 1px solid grey;
 }
 
 .fenster_kopf{
@@ -24,11 +25,7 @@
 }
 
 html body{
-	background-color: lightblue;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-image: url('../bilder/hintergrund.JPG');
-	background-size:100% 100%;	
+	background-color: #3E0A55;
 }
 
 .bereich_fenster_buttons{
@@ -75,4 +72,71 @@ html body{
 
 .content{
 	padding: 0px 15px 15px 15px;
+}
+
+.startmenu_leiste_platzhalter{
+	height: 36px;
+	position: fixed;
+	z-index: 0;
+	width: 100%;
+	left: 0px;
+	top:11px;
+	display: table;
+}
+
+.startmenue_platzhalter_links{
+	display: table-cell;
+	width: 128px;
+}
+
+.startmenue_platzhalter_leiste{
+	display: table-cell;
+	background-color: #D7D7D7;
+	background: transparent linear-gradient(to bottom, #fff,  lightgrey) repeat scroll 0% 0%;
+	box-shadow: 2px 2px 2px grey;
+	border-radius: 6px 0px 0px 6px;
+}
+
+.startmenue_content_aufteiler{
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+.startknopf{
+	display: table-cell;
+	vertical-align: middle;
+	width: 115px;
+	height: 100;
+	letter-spacing: 3px;
+	color: #6F2E9B;
+	font-weight: bold;
+	font-size:20px;
+	cursor: pointer;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	text-align: center;
+}
+
+.startknopf:hover{
+	color: #176265;
+	background-color: #D5D5D5;
+	border-radius: 6px 0px 0px 6px;
+}
+
+.startleiste_geoeffnete_fenster{
+	display: table-cell;
+}
+
+#startmenue_uhr{
+	display: table-cell;
+	width: 65px;
+	vertical-align: middle;
+	font-size: 18px;
+	text-align: right;
+	padding-right: 15px;
+	color: #6F2E9B;
+	cursor: pointer;
 }
