@@ -1,2 +1,7 @@
 /*C3*/SET SCHEMA PUBLIC
+alter table rechte drop wert
+alter table rechte add fensterautostart boolean
+create table fenster(\u000afenster_id INTEGER IDENTITY PRIMARY KEY,\u000amin_breite integer,\u000amin_hoehe integer,\u000adialog_von integer,\u000atitel varchar(50),\u000ajsp_datei varchar(100)\u000a)
+alter table rechte add fenster_id integer
+alter table rechte add foreign key (fenster_id) references fenster(fenster_id)
 DISCONNECT
