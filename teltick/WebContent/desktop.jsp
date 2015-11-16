@@ -8,6 +8,12 @@
 				<span class="startleiste_geoeffnete_fenster" >
 					{Icons}
 				</span>
+				<span class="startleiste_abmelde_button">
+					<a href="./LogoutController" id="abmelde_button" title="Abmelden">
+						Abmelden
+					</a>
+					
+				</span>
 				<span id="startmenue_uhr" >00:00</span>
 			</div>
 		</div>
