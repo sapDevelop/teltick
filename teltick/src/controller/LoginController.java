@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import basis.factory.Md5HashVerfahrenSingletonFactory;
+import basis.interfaces.HashVerfahren;
 import modell.entitaeten.factory.MitarbeiterFactory;
 import modell.entitaeten.implementierung.ImpMitarbeiter;
 import modell.entitaeten.interfaces.Mitarbeiter;
@@ -35,6 +37,10 @@ public class LoginController extends HttpServlet {
 				
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
+		HashVerfahren hash = Md5HashVerfahrenSingletonFactory.getInstance();
+		String chiffrat = hash.chiffriereText(password);
+		char[] passwordChar = chiffrat.toCharArray();
 		
 		HttpSession session = request.getSession();
 		
