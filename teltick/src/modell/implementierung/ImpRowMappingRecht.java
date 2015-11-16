@@ -21,7 +21,7 @@ public class ImpRowMappingRecht implements RowMappingRecht {
 		r.setIndexDb(dbResult.getInt("rechte_id"));
 		r.setBezeichung(dbResult.getString("bezeichnung"));
 		r.setAutostart(dbResult.getBoolean("fensterautostart"));
-		//r.setZugehoerigesFenster(zugehoerigesFenster);
+		r.setZugehoerigesFenster(f);
 		
 		return r;
 	}

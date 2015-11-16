@@ -35,7 +35,7 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 				m = RowMappingMitarbeiterSingletonFactory.getInstance().mapRow(result);
 			}
 			
-			m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
+			if (m != null) m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
 			
 			
 			
@@ -118,6 +118,9 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			pstmt.executeUpdate();
 		
 			verbindung.close();
+			
+			updateRechteMitarbeiter(r);
+			
 		}catch (SQLException e) {
 			fehler = true;
 			// TODO Auto-generated catch block
@@ -146,7 +149,7 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			}
 			
 			verbindung.close();
-			m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
+			if (m != null) m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -226,6 +229,63 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 		
 		
 		return rechte;
+	}
+
+	@Override
+	public boolean updateRechteMitarbeiter(Mitarbeiter r) {
+		
+		boolean fehler = false;
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		Connection verbindung = null;
+		try {
+			verbindung = dbZugriff1.verbinden();
+			verbindung.setAutoCommit(false);
+			
+			//alle alten Rechte löschen
+			String query = "delete from rechte where mitarbeiter_id = ?";
+			PreparedStatement pstmt = verbindung.prepareStatement(query);
+			pstmt.setInt(1, r.getMitarbeiterId());
+			pstmt.executeUpdate();
+			
+			//alle neuen Rechte aus den Vector übernehmen
+			Vector<Recht> rechte = r.getRechte();
+			query= "insert into rechte (bezeichnung, mitarbeiter_id, fensterautostart, fenster_id) values ";
+			for(int i = 0; i < rechte.size(); i++){
+				if (i > 0) query += ",";
+				query += "(?, ?, ?, ?)";
+			}
+			
+			pstmt = verbindung.prepareStatement(query);
+			int j= 1;
+			
+			for (Recht r1 : rechte){				
+				pstmt.setString(j, r1.getBezeichung());
+				j++;
+				pstmt.setInt(j, r.getMitarbeiterId());
+				j++;
+				pstmt.setBoolean(j, r1.isAutostart());
+				j++;
+				pstmt.setInt(j, r1.getZugehoerigesFenster().getId());
+				j++;
+			}
+			pstmt.executeUpdate();
+			
+			verbindung.commit();
+			
+			verbindung.close();
+		}catch (SQLException e) {
+			fehler = true;
+			if (verbindung != null){
+				try {
+					verbindung.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+			e.printStackTrace();
+		}
+		
+		return !fehler;
 	}
 
 }
