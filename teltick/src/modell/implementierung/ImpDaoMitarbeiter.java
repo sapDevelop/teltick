@@ -82,19 +82,34 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 	public boolean loescheVonDB(Mitarbeiter r) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 		boolean fehler = false;
+		Connection verbindung = null;
 		try {
-			Connection verbindung = dbZugriff1.verbinden();
+			verbindung = dbZugriff1.verbinden();
+			
+			String anfrage1 = "delete from rechte where mitarbeiter_id = ?";
+			PreparedStatement pstmt1 = verbindung.prepareStatement(anfrage1);
+			pstmt1.setInt(1, r.getMitarbeiterId());
+			pstmt1.executeUpdate();
+			
 			String anfrage = "delete from mitarbeiter where mitarbeiter_id = ?";
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
 			
 			pstmt.setInt(1, r.getMitarbeiterId());
 			pstmt.executeUpdate();
+			
+			verbindung.commit();
 		
 			verbindung.close();
 		}catch (SQLException e) {
 			fehler = true;
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			try {
+				verbindung.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
 		return !fehler;
