@@ -15,6 +15,8 @@ import basis.interfaces.HashVerfahren;
 import modell.entitaeten.factory.MitarbeiterFactory;
 import modell.entitaeten.implementierung.ImpMitarbeiter;
 import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.factory.DaoMitarbeiterFactory;
+import modell.interfaces.DaoMitarbeiter;
 
 /**
  * Servlet implementation class LoginController
@@ -44,13 +46,13 @@ public class LoginController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		Mitarbeiter m1 = (Mitarbeiter)session.getAttribute("angemeldeterMitarbeiter");
-		if (m1 == null) m1 = (Mitarbeiter)MitarbeiterFactory.getInstance();
+		DaoMitarbeiter dao = DaoMitarbeiterFactory.getInstance();
+		Mitarbeiter m = dao.getValue(username, passwordChar);
 	
 		//Abfragen ob Benutzer vorhanden
-		if (username.equals("test") && password.equals("test")) {
-			m1.setAngemeldet(true);
-			session.setAttribute("angemeldeterMitarbeiter", m1);
+		if ( m != null) {
+			m.setAngemeldet(true);
+			session.setAttribute("angemeldeterMitarbeiter", m);
 			response.sendRedirect("./");
 		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
