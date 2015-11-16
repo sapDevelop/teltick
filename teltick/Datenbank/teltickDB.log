@@ -1,3 +1,6 @@
 /*C3*/SET SCHEMA PUBLIC
-alter table fenster add icon varchar(255)
+INSERT INTO FENSTER VALUES(0,435,335,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp',NULL)
+COMMIT
+INSERT INTO RECHTE VALUES(0,'Benutzerverwaltung',0,TRUE,0)
+COMMIT
 DISCONNECT

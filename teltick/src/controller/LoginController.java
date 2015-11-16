@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import basis.factory.Md5HashVerfahrenSingletonFactory;
-import modell.entitaeten.factory.MitarbeiterFactory;
-import modell.entitaeten.implementierung.ImpMitarbeiter;
+import basis.interfaces.HashVerfahren;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.factory.DaoMitarbeiterFactory;
 import modell.interfaces.DaoMitarbeiter;
@@ -37,13 +36,19 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
 		String username = request.getParameter("username");
-		char[] password = Md5HashVerfahrenSingletonFactory.getInstance().chiffriereText(request.getParameter("password")).toCharArray();
+		String password = request.getParameter("password");
+		
+		HashVerfahren hash = Md5HashVerfahrenSingletonFactory.getInstance();
+		String chiffrat = hash.chiffriereText(password);
+		char[] passwordChar = chiffrat.toCharArray();
 		
 		HttpSession session = request.getSession();
 				
-		//Login mit DAO-Verwendung
+
 		DaoMitarbeiter dao = DaoMitarbeiterFactory.getInstance();
-		Mitarbeiter m = dao.getValue(username, password );
+		Mitarbeiter m = dao.getMitarbeiter(username, passwordChar );
+		
+		//Abfragen ob Benutzer vorhanden
 		if ( m != null ){
 			m.setAngemeldet(true);
 			session.setAttribute("angemeldeterMitarbeiter", m);

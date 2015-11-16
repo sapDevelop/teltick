@@ -8,6 +8,12 @@
 				<span class="startleiste_geoeffnete_fenster" >
 					{Icons}
 				</span>
+				<span class="startleiste_abmelde_button">
+					<a href="./LogoutController" id="abmelde_button" title="Abmelden">
+						Abmelden
+					</a>
+					
+				</span>
 				<span id="startmenue_uhr" >00:00</span>
 			</div>
 		</div>
@@ -38,6 +44,6 @@
 		<jsp:param name="left" value ="120px" />
 		<jsp:param name="top" value="120px" />
 		<jsp:param name="minWidth" value="435px" />
-		<jsp:param name="minHeight" value="325px" />
+		<jsp:param name="minHeight" value="335px" />
 		<jsp:param name="z_index" value="1" />
 	</jsp:include>
