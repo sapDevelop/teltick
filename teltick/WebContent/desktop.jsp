@@ -9,7 +9,7 @@
 					{Icons}
 				</span>
 				<span class="startleiste_abmelde_button">
-					<div id="abmelde_button" onclick="">>
+					<div id="abmelde_button" onclick="">
 						<span title="Abmelden" >Abmelden</span>
 					</div>
 				</span>
