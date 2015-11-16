@@ -4,31 +4,40 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 
+import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.entitaeten.interfaces.Recht;
 import modell.factory.HSqlDbZugriffFactory;
+import modell.factory.RowMappingFensterSingletonFactory;
 import modell.factory.RowMappingMitarbeiterSingletonFactory;
+import modell.factory.RowMappingRechtSingletonFactory;
 import modell.interfaces.DBZugriff;
 import modell.interfaces.DaoMitarbeiter;
 
 public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 
 	@Override
-	public Mitarbeiter getValue(int id) {
+	public Mitarbeiter getMitarbeiter(int id) {
 		Mitarbeiter m = null;
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 		
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
-			
-			String abfrage = "select * from mitarbeiter where mitarbeiter_id = ?";
+						
+			//Lädt den Mitarbeiter aus der DB
+			String abfrage = "select *  from mitarbeiter where mitarbeiter_id = ?";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setInt(1,id);
-			
 			ResultSet result = pstmt.executeQuery();
 			while(result.next()){
 				m = RowMappingMitarbeiterSingletonFactory.getInstance().mapRow(result);
 			}
+			
+			m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
+			
+			
 			
 			verbindung.close();
 		} catch (SQLException e) {
@@ -119,7 +128,7 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 	}
 
 	@Override
-	public Mitarbeiter getValue(String login_name, char[] passwort) {
+	public Mitarbeiter getMitarbeiter(String login_name, char[] passwort) {
 		Mitarbeiter m = null;
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 		
@@ -137,22 +146,24 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			}
 			
 			verbindung.close();
+			m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		return m;
 	}
 
 	@Override
 	public boolean inDBvorhanden(int id) {
-		return getValue(id) != null;
+		return getMitarbeiter(id) != null;
 	}
 
 	@Override
 	public boolean zugangsdatenRichtig(String login_name, char[] passwort) {
-		return getValue(login_name,passwort) != null;
+		return getMitarbeiter(login_name,passwort) != null;
 	}
 
 	@Override
@@ -180,6 +191,41 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 		}
 		
 		return menge != 0;
+	}
+
+	@Override
+	public Vector<Recht> getMitarbeiterRechte(int idMitarbeiter) {
+		
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		Vector<Recht> rechte = new Vector<Recht>();
+		
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+			
+			//Bestimmt die Rechte des Mitarbeiters
+			String abfrage = "select * "
+					+ "from rechte r "
+					+ " inner join fenster f using (fenster_id)"
+					+ "where r.mitarbeiter_id = ?";
+			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
+			pstmt.setInt(1,idMitarbeiter);
+			
+			ResultSet result = pstmt.executeQuery();
+			
+			while(result.next()){
+				Fenster f = RowMappingFensterSingletonFactory.getInstance().mapRow(result);
+				Recht r =  RowMappingRechtSingletonFactory.getInstance().mapRow(result, f);
+				rechte.add(r);
+			}		
+			
+			verbindung.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rechte;
 	}
 
 }

@@ -1,5 +1,7 @@
 package modell.entitaeten.interfaces;
 
+import java.util.Vector;
+
 public interface Mitarbeiter {
 	
 	public String getEmail();
@@ -29,4 +31,8 @@ public interface Mitarbeiter {
 	public boolean isAngemeldet(); 
 
 	public void setAngemeldet(boolean angemeldet);
+	
+	public Vector<Recht> getRechte();
+
+	public void setRechte(Vector<Recht> rechte); 
 }

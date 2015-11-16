@@ -272,7 +272,7 @@ input{
 	margin-top: 5px;
 	height: 200px;
 	border: 1px inset;
-	color: white;
+	background-color: white;
 	overflow: scroll;
 }
 
@@ -284,4 +284,9 @@ input{
 
 .admin_benutzeruebersicht_platzierung{
 	margin-top: 30px;
+}
+
+.button_schliessen_gross_fenster{
+	margin-top: 15px;
+	float: right;
 }

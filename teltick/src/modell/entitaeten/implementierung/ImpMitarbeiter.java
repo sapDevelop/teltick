@@ -1,6 +1,9 @@
 package modell.entitaeten.implementierung;
 
+import java.util.Vector;
+
 import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.entitaeten.interfaces.Recht;
 
 public class ImpMitarbeiter implements Mitarbeiter{
 
@@ -8,6 +11,7 @@ public class ImpMitarbeiter implements Mitarbeiter{
 	private String email, vorname, loginName, name;
 	boolean angemeldet = false;
 	private char[] passwort;
+	private Vector<Recht> rechte;
 	
 	
 	public String getEmail() {
@@ -64,4 +68,14 @@ public class ImpMitarbeiter implements Mitarbeiter{
 	public void setAngemeldet(boolean angemeldet) {
 		this.angemeldet = angemeldet;
 	}
+
+	public Vector<Recht> getRechte() {
+		return rechte;
+	}
+
+	public void setRechte(Vector<Recht> rechte) {
+		this.rechte = rechte;
+	}
+	
+	
 }
