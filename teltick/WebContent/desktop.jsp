@@ -9,9 +9,10 @@
 					{Icons}
 				</span>
 				<span class="startleiste_abmelde_button">
-					<div id="abmelde_button" onclick="">
-						<span title="Abmelden" >Abmelden</span>
-					</div>
+					<a href="./LogoutController" id="abmelde_button" title="Abmelden">
+						Abmelden
+					</a>
+					
 				</span>
 				<span id="startmenue_uhr" >00:00</span>
 			</div>
