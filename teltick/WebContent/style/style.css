@@ -285,3 +285,31 @@ input{
 .admin_benutzeruebersicht_platzierung{
 	margin-top: 30px;
 }
+
+
+/* Abmelde Button */
+.startleiste_abmelde_button{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#abmelde_button {
+	float: right;
+	color: #6F2E9B;
+	font-weight: bold;
+	cursor: pointer;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	text-align: center;
+	padding: 8px;
+	
+}
+
+#abmelde_button:HOVER{
+	color: #176265;
+	background-color: #D5D5D5;
+	border-radius: 6px 6px 6px 6px;
+}
+

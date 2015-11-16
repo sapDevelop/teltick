@@ -8,6 +8,11 @@
 				<span class="startleiste_geoeffnete_fenster" >
 					{Icons}
 				</span>
+				<span class="startleiste_abmelde_button">
+					<div id="abmelde_button" onclick="">>
+						<span title="Abmelden" >Abmelden</span>
+					</div>
+				</span>
 				<span id="startmenue_uhr" >00:00</span>
 			</div>
 		</div>
