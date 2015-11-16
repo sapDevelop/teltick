@@ -242,3 +242,46 @@ html body{
 input{
 	font-size: 14px;
 }
+
+
+/* Fenster Benutzerverwaltung */
+.admin_benutzeruebersicht_content_aufteiler{
+	display: table;
+	width: 100%;
+	margin-top: 15px;
+}
+
+.admin_benutzeruebersicht_content_bereich_benutzerauflistung{
+	display: table-cell;
+	width: 260px;
+	vertical-align: top;
+}
+
+.admin_benutzeruebersicht_content_bereich_buttons{
+	display: table-cell;
+	width: 143px;
+	text-align: center;
+	vertical-align: top;
+}
+
+.ueberschrift_content_fenster{
+	font-size: 14px;
+}
+
+#admin_benutzeruebersicht_liste{
+	margin-top: 5px;
+	height: 200px;
+	border: 1px inset;
+	color: white;
+	overflow: scroll;
+}
+
+.button_benutzerverwaltung{
+	width: 132px;
+	display: block;
+	margin: 5px auto;
+}
+
+.admin_benutzeruebersicht_platzierung{
+	margin-top: 30px;
+}
