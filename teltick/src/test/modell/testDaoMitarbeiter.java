@@ -3,6 +3,7 @@ package test.modell;
 import junit.framework.Assert;
 import modell.entitaeten.factory.MitarbeiterFactory;
 import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.entitaeten.interfaces.Recht;
 import modell.factory.DaoMitarbeiterFactory;
 import modell.interfaces.DaoMitarbeiter;
 
@@ -22,6 +23,11 @@ public class testDaoMitarbeiter {
 		
 		//Test der Überprüffunktion
 		Assert.assertEquals(dao.inDBvorhanden(0), true);
+		
+		Assert.assertEquals(m.getRechte().size(), 1);
+		Recht r = m.getRechte().get(0);
+		Assert.assertNotNull(r);
+		Assert.assertEquals(r.getBezeichung(), "Benutzerverwaltung");
 	}
 
 	@Test

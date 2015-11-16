@@ -23,7 +23,7 @@ public class ImpRowMappingRecht implements RowMappingRecht {
 		r.setAutostart(dbResult.getBoolean("fensterautostart"));
 		//r.setZugehoerigesFenster(zugehoerigesFenster);
 		
-		return null;
+		return r;
 	}
 
 }
