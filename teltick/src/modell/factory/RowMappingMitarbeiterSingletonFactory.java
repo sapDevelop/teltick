@@ -1,14 +1,13 @@
 package modell.factory;
 
-import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.implementierung.ImpRowMappingMitarbeiter;
-import modell.interfaces.RowMappingBasis;
+import modell.interfaces.RowMappingMitarbeiter;
 
 public class RowMappingMitarbeiterSingletonFactory {
 
-	private static RowMappingBasis<Mitarbeiter> obj = null;
+	private static RowMappingMitarbeiter obj = null;
 	
-	public static RowMappingBasis<Mitarbeiter> getInstance(){
+	public static RowMappingMitarbeiter getInstance(){
 		if ( obj == null) obj = new ImpRowMappingMitarbeiter();
 		return obj;
 	}

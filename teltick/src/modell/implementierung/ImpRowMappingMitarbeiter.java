@@ -5,9 +5,9 @@ import java.sql.SQLException;
 
 import modell.entitaeten.factory.MitarbeiterFactory;
 import modell.entitaeten.interfaces.Mitarbeiter;
-import modell.interfaces.RowMappingBasis;
+import modell.interfaces.RowMappingMitarbeiter;
 
-public class ImpRowMappingMitarbeiter implements RowMappingBasis<Mitarbeiter> {
+public class ImpRowMappingMitarbeiter implements RowMappingMitarbeiter {
 
 	@Override
 	public Mitarbeiter mapRow(ResultSet dbResult) throws SQLException {

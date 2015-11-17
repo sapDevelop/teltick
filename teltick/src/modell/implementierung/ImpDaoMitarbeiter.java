@@ -4,31 +4,40 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 
+import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.entitaeten.interfaces.Recht;
 import modell.factory.HSqlDbZugriffFactory;
+import modell.factory.RowMappingFensterSingletonFactory;
 import modell.factory.RowMappingMitarbeiterSingletonFactory;
+import modell.factory.RowMappingRechtSingletonFactory;
 import modell.interfaces.DBZugriff;
 import modell.interfaces.DaoMitarbeiter;
 
 public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 
 	@Override
-	public Mitarbeiter getValue(int id) {
+	public Mitarbeiter getMitarbeiter(int id) {
 		Mitarbeiter m = null;
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 		
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
-			
-			String abfrage = "select * from mitarbeiter where mitarbeiter_id = ?";
+						
+			//Lädt den Mitarbeiter aus der DB
+			String abfrage = "select *  from mitarbeiter where mitarbeiter_id = ?";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setInt(1,id);
-			
 			ResultSet result = pstmt.executeQuery();
 			while(result.next()){
 				m = RowMappingMitarbeiterSingletonFactory.getInstance().mapRow(result);
 			}
+			
+			if (m != null) m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
+			
+			
 			
 			verbindung.close();
 		} catch (SQLException e) {
@@ -73,19 +82,34 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 	public boolean loescheVonDB(Mitarbeiter r) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 		boolean fehler = false;
+		Connection verbindung = null;
 		try {
-			Connection verbindung = dbZugriff1.verbinden();
+			verbindung = dbZugriff1.verbinden();
+			
+			String anfrage1 = "delete from rechte where mitarbeiter_id = ?";
+			PreparedStatement pstmt1 = verbindung.prepareStatement(anfrage1);
+			pstmt1.setInt(1, r.getMitarbeiterId());
+			pstmt1.executeUpdate();
+			
 			String anfrage = "delete from mitarbeiter where mitarbeiter_id = ?";
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
 			
 			pstmt.setInt(1, r.getMitarbeiterId());
 			pstmt.executeUpdate();
+			
+			verbindung.commit();
 		
 			verbindung.close();
 		}catch (SQLException e) {
 			fehler = true;
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			try {
+				verbindung.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
 		return !fehler;
@@ -109,6 +133,9 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			pstmt.executeUpdate();
 		
 			verbindung.close();
+			
+			updateRechteMitarbeiter(r);
+			
 		}catch (SQLException e) {
 			fehler = true;
 			// TODO Auto-generated catch block
@@ -119,7 +146,7 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 	}
 
 	@Override
-	public Mitarbeiter getValue(String login_name, char[] passwort) {
+	public Mitarbeiter getMitarbeiter(String login_name, char[] passwort) {
 		Mitarbeiter m = null;
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 		
@@ -137,22 +164,24 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			}
 			
 			verbindung.close();
+			if (m != null) m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		return m;
 	}
 
 	@Override
 	public boolean inDBvorhanden(int id) {
-		return getValue(id) != null;
+		return getMitarbeiter(id) != null;
 	}
 
 	@Override
 	public boolean zugangsdatenRichtig(String login_name, char[] passwort) {
-		return getValue(login_name,passwort) != null;
+		return getMitarbeiter(login_name,passwort) != null;
 	}
 
 	@Override
@@ -180,6 +209,98 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 		}
 		
 		return menge != 0;
+	}
+
+	@Override
+	public Vector<Recht> getMitarbeiterRechte(int idMitarbeiter) {
+		
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		Vector<Recht> rechte = new Vector<Recht>();
+		
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+			
+			//Bestimmt die Rechte des Mitarbeiters
+			String abfrage = "select * "
+					+ "from rechte r "
+					+ " inner join fenster f using (fenster_id)"
+					+ "where r.mitarbeiter_id = ?";
+			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
+			pstmt.setInt(1,idMitarbeiter);
+			
+			ResultSet result = pstmt.executeQuery();
+			
+			while(result.next()){
+				Fenster f = RowMappingFensterSingletonFactory.getInstance().mapRow(result);
+				Recht r =  RowMappingRechtSingletonFactory.getInstance().mapRow(result, f);
+				rechte.add(r);
+			}		
+			
+			verbindung.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rechte;
+	}
+
+	@Override
+	public boolean updateRechteMitarbeiter(Mitarbeiter r) {
+		
+		boolean fehler = false;
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		Connection verbindung = null;
+		try {
+			verbindung = dbZugriff1.verbinden();
+			verbindung.setAutoCommit(false);
+			
+			//alle alten Rechte löschen
+			String query = "delete from rechte where mitarbeiter_id = ?";
+			PreparedStatement pstmt = verbindung.prepareStatement(query);
+			pstmt.setInt(1, r.getMitarbeiterId());
+			pstmt.executeUpdate();
+			
+			//alle neuen Rechte aus den Vector übernehmen
+			Vector<Recht> rechte = r.getRechte();
+			query= "insert into rechte (bezeichnung, mitarbeiter_id, fensterautostart, fenster_id) values ";
+			for(int i = 0; i < rechte.size(); i++){
+				if (i > 0) query += ",";
+				query += "(?, ?, ?, ?)";
+			}
+			
+			pstmt = verbindung.prepareStatement(query);
+			int j= 1;
+			
+			for (Recht r1 : rechte){				
+				pstmt.setString(j, r1.getBezeichung());
+				j++;
+				pstmt.setInt(j, r.getMitarbeiterId());
+				j++;
+				pstmt.setBoolean(j, r1.isAutostart());
+				j++;
+				pstmt.setInt(j, r1.getZugehoerigesFenster().getId());
+				j++;
+			}
+			pstmt.executeUpdate();
+			
+			verbindung.commit();
+			
+			verbindung.close();
+		}catch (SQLException e) {
+			fehler = true;
+			if (verbindung != null){
+				try {
+					verbindung.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+			e.printStackTrace();
+		}
+		
+		return !fehler;
 	}
 
 }

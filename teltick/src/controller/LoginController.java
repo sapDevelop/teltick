@@ -12,8 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import basis.factory.Md5HashVerfahrenSingletonFactory;
 import basis.interfaces.HashVerfahren;
-import modell.entitaeten.factory.MitarbeiterFactory;
-import modell.entitaeten.implementierung.ImpMitarbeiter;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.factory.DaoMitarbeiterFactory;
 import modell.interfaces.DaoMitarbeiter;
@@ -45,16 +43,17 @@ public class LoginController extends HttpServlet {
 		char[] passwordChar = chiffrat.toCharArray();
 		
 		HttpSession session = request.getSession();
-		
+				
+
 		DaoMitarbeiter dao = DaoMitarbeiterFactory.getInstance();
-		Mitarbeiter m = dao.getValue(username, passwordChar);
-	
+		Mitarbeiter m = dao.getMitarbeiter(username, passwordChar );
+		
 		//Abfragen ob Benutzer vorhanden
-		if ( m != null) {
+		if ( m != null ){
 			m.setAngemeldet(true);
 			session.setAttribute("angemeldeterMitarbeiter", m);
 			response.sendRedirect("./");
-		} else {
+		}else{
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 		}
