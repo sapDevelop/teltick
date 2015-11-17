@@ -9,8 +9,8 @@
 		<title>Teltick</title>
 		<link rel="stylesheet"  href="style/style.css" type='text/css' media="all" />
 		<link rel="stylesheet"  href="style/screen.css" type='text/css' media="screen" />
-		<script type="text/javascript" src="js/fenster.js" >
-		</script>
+		<script type="text/javascript" src="js/fenster.js" ></script>
+		<script type="text/javascript" src="js/submitUmleiten.js" ></script>
 		<jsp:useBean id="angemeldeterMitarbeiter" class="modell.entitaeten.implementierung.ImpMitarbeiter" scope="session" />
 	</head>
 	<body onload="uhr_starten();" >

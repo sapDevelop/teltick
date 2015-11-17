@@ -65,16 +65,22 @@ public class NeuesFensterController extends HttpServlet {
 			if ( f != null){
 				
 				Random zufallszahlen = new Random();
-				int zufallLeft = zufallszahlen.nextInt(300);
-				int zufallTop = zufallszahlen.nextInt(300);
 				
+				int position[] = new int[2];
+				
+				for ( int i = 0; i < position.length; i++){
+					do{
+						position[i] = zufallszahlen.nextInt(300);
+					}while( position[i] < 55);
+				}
+								
 				
 				//Attribute womit das Fenster gefüllt werden soll
 				request.setAttribute("titel", f.getTitel());
 				request.setAttribute("id", fensterZaehlVariable.intValue());
 				request.setAttribute("inhalt", f.getPfadJspDatei());
-				request.setAttribute("left", new String (zufallLeft + "px"));
-				request.setAttribute("top", new String (zufallTop +"px"));
+				request.setAttribute("left", new String (position[0] + "px"));
+				request.setAttribute("top", new String (position[1] +"px"));
 				request.setAttribute("z_index", "1");
 				request.setAttribute("minWidth", new String(f.getMinBreite() + "px"));
 				request.setAttribute("minHeight", new String (f.getMinHoehe() + "px"));

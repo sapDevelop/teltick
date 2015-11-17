@@ -11,8 +11,6 @@
 		Top	
 --%>
 
-<script type="text/javascript" src="js/submitUmleiten.js" ></script>
-
 <%-- Überprüft, ob alle benötigten Werte übergeben wurden --%>
 <c:choose>
 	<c:when test="${ param.titel != null && param.id != null && param.inhalt != null }">

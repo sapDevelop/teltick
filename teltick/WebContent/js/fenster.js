@@ -160,5 +160,10 @@ function resultAnfrageNeuesFenster(){
 	}
 }
 
+function verschiebevorgangBeenden(){
+	verschieben=false;
+	if ( dobj ) dobj.style.opacity = '';
+}
+
 document.onmousedown=selectmouse;
-document.onmouseup=new Function("verschieben=false; dobj.style.opacity = '';");
+document.onmouseup=verschiebevorgangBeenden;
