@@ -12,7 +12,7 @@ import org.junit.Test;
 import basis.factory.Md5HashVerfahrenSingletonFactory;
 
 
-public class testDaoMitarbeiter {
+public class TestDaoMitarbeiter {
 
 	@Test
 	public void testMitarbeiter0Laden() {

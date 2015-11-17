@@ -22,21 +22,12 @@
 		<span title="Startmen&uuml; anzeigen" >TelTick</span>
 		<div class="menue">
 			<div class="platzhalter_menu_leiste"></div>
-			<div class="menu_content"></div>
+			<div class="menu_content">
+				<input type="button" onclick="oeffne_fenster(0);"  value="Benutzerverwaltung" />
+			</div>
 		</div>
 	</div>
 	
-	<jsp:include page="fenster.jsp" >
-		<jsp:param name="titel" value="Benutzerverwaltung" />
-		<jsp:param name="id" value="3333" />
-		<jsp:param name="inhalt" value="admin_benutzeruebersicht.jsp" />
-		<jsp:param name="left" value ="120px" />
-		<jsp:param name="top" value="120px" />
-		<jsp:param name="minWidth" value="435px" />
-		<jsp:param name="minHeight" value="335px" />
-		<jsp:param name="z_index" value="1" />
-	</jsp:include>
+	<div id="fenster_bereich_desktop" >
+	</div>
 	
-	<!--<div id="fenster_bereich_desktop" ></div>-->
-	
-	<input type="button" onclick="oeffne_fenster(0);" style="margin-top: 100px;" value="neues Fenster test" />

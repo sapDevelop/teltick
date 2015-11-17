@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.factory.DaoFensterFactory;
 
 /**
  * Servlet implementation class NeuesFensterController
@@ -35,6 +39,8 @@ public class NeuesFensterController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
+		PrintWriter out = response.getWriter();
+		
 		
 		HttpSession session =  request.getSession();
 		//Überprüft, ob der Benutzer angemeldet ist
@@ -44,23 +50,47 @@ public class NeuesFensterController extends HttpServlet {
 			if (fensterZaehlVariable == null) fensterZaehlVariable = new Integer(-1);
 			fensterZaehlVariable++;
 			
-			request.setAttribute("titel", "Beispiel Submit-Umleitung mit Ajax ©Benedikt Brüntrup");
-			request.setAttribute("id", fensterZaehlVariable.intValue());
-			request.setAttribute("inhalt", "beispielFormular.jsp");
-			request.setAttribute("left", "60px");
-			request.setAttribute("top", "60px");
-			request.setAttribute("z_index", "1");
-			request.setAttribute("minWidth", "435px");
-			request.setAttribute("minHeight", "152px");
+			int fensterId = -1;
 			
-			session.setAttribute("fensterZaehlVariable", fensterZaehlVariable);
+			try{
+			fensterId = Integer.valueOf(request.getParameter("id"));
+			}catch(NumberFormatException e){
+			}
 			
-			RequestDispatcher rd = request.getRequestDispatcher("./fenster.jsp");
-			rd.forward(request, response);
+			out.println(fensterId);
+			
+			//Sucht das Fenster in der DB und gibt ein Instance von Typ "Fenster" aus, wenn es gefunden wurde
+			Fenster f = DaoFensterFactory.getInstance().getFenster(fensterId);
+			
+			if ( f != null){
+				
+				Random zufallszahlen = new Random();
+				int zufallLeft = zufallszahlen.nextInt(300);
+				int zufallTop = zufallszahlen.nextInt(300);
+				
+				
+				//Attribute womit das Fenster gefüllt werden soll
+				request.setAttribute("titel", f.getTitel());
+				request.setAttribute("id", fensterZaehlVariable.intValue());
+				request.setAttribute("inhalt", f.getPfadJspDatei());
+				request.setAttribute("left", new String (zufallLeft + "px"));
+				request.setAttribute("top", new String (zufallTop +"px"));
+				request.setAttribute("z_index", "1");
+				request.setAttribute("minWidth", new String(f.getMinBreite() + "px"));
+				request.setAttribute("minHeight", new String (f.getMinHoehe() + "px"));
+				
+				//Fensterzählvariable in der Session ablegen
+				session.setAttribute("fensterZaehlVariable", fensterZaehlVariable);
+				
+				RequestDispatcher rd = request.getRequestDispatcher("./fenster.jsp");
+				rd.forward(request, response);
+			}else{
+				out.println("<h1 class=\"\">Sie haben keine Rechte das Formular zu &ouml;ffnen</h1>");
+			}
 		}
 		//Wenn der Benutzer nicht angemeldet ist
 		else{
-			response.getOutputStream().println("<h1>Sitzung ist abgelaufen. Sie m&uuml;ssen angemeldet sein, um ein Fenster &ouml;ffnen zu k&ouml;nnen.</h1>");
+			out.println("<h1 class=\"\">Sitzung ist abgelaufen. Sie m&uuml;ssen angemeldet sein, um ein Fenster &ouml;ffnen zu k&ouml;nnen.</h1>");
 		}
 				
 	}
