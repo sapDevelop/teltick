@@ -2,6 +2,7 @@ package modell.entitaeten.implementierung;
 
 import java.util.Vector;
 
+import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Recht;
 
@@ -75,6 +76,18 @@ public class ImpMitarbeiter implements Mitarbeiter{
 
 	public void setRechte(Vector<Recht> rechte) {
 		this.rechte = rechte;
+	}
+
+	@Override
+	public boolean zugriffsRechtFenster(Fenster f) {
+		
+		boolean gefunden = false;
+		
+		for ( Recht r : getRechte()){
+			if (r.getZugehoerigesFenster().getId() == f.getId()) gefunden = true;
+		}
+		
+		return gefunden;
 	}
 	
 	

@@ -1,6 +1,5 @@
 /*C3*/SET SCHEMA PUBLIC
-INSERT INTO FENSTER VALUES(0,435,335,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp',NULL)
-COMMIT
-INSERT INTO RECHTE VALUES(0,'Benutzerverwaltung',0,TRUE,0)
+DELETE FROM FENSTER WHERE FENSTER_ID=0
+INSERT INTO FENSTER VALUES(0,600,335,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp',NULL)
 COMMIT
 DISCONNECT

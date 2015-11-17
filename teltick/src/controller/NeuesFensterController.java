@@ -56,13 +56,11 @@ public class NeuesFensterController extends HttpServlet {
 			fensterId = Integer.valueOf(request.getParameter("id"));
 			}catch(NumberFormatException e){
 			}
-			
-			out.println(fensterId);
-			
+						
 			//Sucht das Fenster in der DB und gibt ein Instance von Typ "Fenster" aus, wenn es gefunden wurde
 			Fenster f = DaoFensterFactory.getInstance().getFenster(fensterId);
 			
-			if ( f != null){
+			if ( f != null && m != null && m.zugriffsRechtFenster(f)){
 				
 				Random zufallszahlen = new Random();
 				
@@ -72,8 +70,7 @@ public class NeuesFensterController extends HttpServlet {
 					do{
 						position[i] = zufallszahlen.nextInt(300);
 					}while( position[i] < 55);
-				}
-								
+				}			
 				
 				//Attribute womit das Fenster gefüllt werden soll
 				request.setAttribute("titel", f.getTitel());
@@ -90,8 +87,12 @@ public class NeuesFensterController extends HttpServlet {
 				
 				RequestDispatcher rd = request.getRequestDispatcher("./fenster.jsp");
 				rd.forward(request, response);
-			}else{
+				
+			}else if (f != null && m != null && !m.zugriffsRechtFenster(f)){
 				out.println("<h1 class=\"\">Sie haben keine Rechte das Formular zu &ouml;ffnen</h1>");
+			}			
+			else{
+				out.println("<h1 class=\"\">Fenster konnte nicht gefunden werden.</h1>");
 			}
 		}
 		//Wenn der Benutzer nicht angemeldet ist

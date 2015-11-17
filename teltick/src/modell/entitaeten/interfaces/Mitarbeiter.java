@@ -34,5 +34,7 @@ public interface Mitarbeiter {
 	
 	public Vector<Recht> getRechte();
 
-	public void setRechte(Vector<Recht> rechte); 
+	public void setRechte(Vector<Recht> rechte);
+	
+	public boolean zugriffsRechtFenster(Fenster f);
 }
