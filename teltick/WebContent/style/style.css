@@ -302,7 +302,6 @@ input{
 #abmelde_button {
 	float: right;
 	color: #6F2E9B;
-	font-weight: bold;
 	cursor: pointer;
 	-ms-user-select: none;
 	-webkit-user-select: none;
@@ -311,6 +310,8 @@ input{
 	text-align: center;
 	padding: 8px;
 	text-decoration: none;
+	font-size: 18px;
+
 	
 }
 
