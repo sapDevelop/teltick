@@ -32,8 +32,10 @@ public class LogoutController extends HttpServlet {
 		HttpSession session = request.getSession();
 		Mitarbeiter m = (Mitarbeiter) session.getAttribute("angemeldeterMitarbeiter");
 		
-		m.setAngemeldet(false);
-		session.setAttribute("angemeldeterMitarbeiter", m);
+		if (m != null){
+			m.setAngemeldet(false);
+			session.setAttribute("angemeldeterMitarbeiter", m);
+		}
 		response.sendRedirect("./");
 		
 	}
