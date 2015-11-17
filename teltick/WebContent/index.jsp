@@ -13,7 +13,7 @@
 		</script>
 		<jsp:useBean id="angemeldeterMitarbeiter" class="modell.entitaeten.implementierung.ImpMitarbeiter" scope="session" />
 	</head>
-	<body onload="uhr_starten();" >
+	<body onload="uhr_starten();" id="fenster_bereich_desktop" >
 		<c:choose>
 			<%-- Wenn der Mitarbeiter angemeldet ist wird der Desktop angezeigt --%>
 			
@@ -25,6 +25,5 @@
 				<jsp:include page="login.jsp"></jsp:include>
 			</c:otherwise>
 		</c:choose>
-		
 	</body>
 </html>

@@ -26,20 +26,9 @@
 		</div>
 	</div>
 	
-	
-	<jsp:include page="fenster.jsp" >
-		<jsp:param name="titel" value="Beispiel Submit-Umleitung mit Ajax ©Benedikt Brüntrup" />
-		<jsp:param name="id" value="0" />
-		<jsp:param name="inhalt" value="beispielFormular.jsp" />
-		<jsp:param name="left" value ="60px" />
-		<jsp:param name="top" value="60px" />
-		<jsp:param name="minWidth" value="435px" />
-		<jsp:param name="minHeight" value="152px" />
-		<jsp:param name="z_index" value="1" />
-	</jsp:include>
 	<jsp:include page="fenster.jsp" >
 		<jsp:param name="titel" value="Benutzerverwaltung" />
-		<jsp:param name="id" value="1" />
+		<jsp:param name="id" value="3333" />
 		<jsp:param name="inhalt" value="admin_benutzeruebersicht.jsp" />
 		<jsp:param name="left" value ="120px" />
 		<jsp:param name="top" value="120px" />
@@ -47,3 +36,7 @@
 		<jsp:param name="minHeight" value="335px" />
 		<jsp:param name="z_index" value="1" />
 	</jsp:include>
+	
+	<!--<div id="fenster_bereich_desktop" ></div>-->
+	
+	<input type="button" onclick="oeffne_fenster(0);" style="margin-top: 100px;" value="neues Fenster test" />
