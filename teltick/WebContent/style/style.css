@@ -19,7 +19,6 @@
 
 .fenster_kopf{
 	padding: 8px;
-	font-size: 13px;
 	color: #000;
 	cursor: move;
 	background-color:#C7BFD9;
@@ -62,7 +61,7 @@ html body{
 }
 
 .fensterbutton:ACTIVE {
-	background-image: url('../bilder/fenster_button_rot.png');
+	background-image: url('../bilder/fenster_button1_rot.png');
 }
 
 .fensterbutton_maximieren{
@@ -254,6 +253,34 @@ input{
 	margin-top: 15px;
 }
 
+.benutzer_radio{
+	display: none;
+}
+
+#admin_benutzeruebersicht_liste_tabelle{
+	display: table;
+}
+
+.benutzer_radio:checked + .div_tabelle_zeile, .benutzer_radio + .div_tabelle_zeile:hover{
+	background-color: #C7BFD9;
+}
+
+#admin_benutzeruebersicht_liste_tabelle .div_tabelle_zeile{
+	display: table-row;
+}
+
+#admin_benutzeruebersicht_liste_tabelle .div_tabelle_zelle{
+	display: table-cell;
+	padding: 5px;
+	vertical-align: middle;
+	border: 1px solid #888A85;
+	white-space:nowrap;
+}
+
+#admin_benutzeruebersicht_liste_tabelle .div_tabelle_zelle_kopf{
+		background-color: #D7D7D7; 
+}
+
 .admin_benutzeruebersicht_content_bereich_benutzerauflistung{
 	display: table-cell;
 	width: 260px;
@@ -270,13 +297,13 @@ input{
 .ueberschrift_content_fenster{
 	font-size: 14px;
 }
-
 #admin_benutzeruebersicht_liste{
 	margin-top: 5px;
 	height: 200px;
 	border: 1px inset;
 	background-color: white;
 	overflow: scroll;
+	width:437px;
 }
 
 .button_benutzerverwaltung{
@@ -313,6 +340,7 @@ input{
 	padding: 8px;
 	text-decoration: none;
 	font-size: 18px;
+	border: none;
 
 	
 }

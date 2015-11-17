@@ -14,6 +14,49 @@
 			<div class="admin_benutzeruebersicht_content_bereich_benutzerauflistung" >
 				<div class="ueberschrift_content_fenster">Benutzer:</div>
 				<div id="admin_benutzeruebersicht_liste" >
+				
+					<div id="admin_benutzeruebersicht_liste_tabelle">
+					
+					
+						<div class="div_tabelle_zeile" >
+							<div class="div_tabelle_zelle div_tabelle_zelle_kopf" >
+								Login-Name
+							</div>
+							<div class="div_tabelle_zelle div_tabelle_zelle_kopf" >
+								Vorname
+							</div>
+							<div class="div_tabelle_zelle div_tabelle_zelle_kopf" >
+								Name
+							</div>
+							<div class="div_tabelle_zelle div_tabelle_zelle_kopf" >
+								Email
+							</div>
+							<div class="div_tabelle_zelle div_tabelle_zelle_kopf" >
+								Rechte
+							</div>
+						</div>
+						
+						<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_1" />
+						<label class="div_tabelle_zeile" for="benutzer_radio_1" >
+							<div class="div_tabelle_zelle" >
+								Tester
+							</div>
+							<div class="div_tabelle_zelle" >
+								Otto
+							</div>
+							<div class="div_tabelle_zelle" >
+								Lotto
+							</div>
+							<div class="div_tabelle_zelle" >
+								o.t@tester.de
+							</div>
+							<div class="div_tabelle_zelle" >
+								Benutzerverwaltung
+							</div>
+						</label>
+						
+					</div>
+					
 				</div>
 			</div>
 			<div class="admin_benutzeruebersicht_content_bereich_buttons" >
