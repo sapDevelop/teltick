@@ -1,15 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%--
-	Benötigte Parameter (Get):
-		titel -> Fenster-Titel
-		id -> Fenster-ID
-		inhalt -> zu importierende Seite
-		action_link -> Link für den Formular-Action
-		Left
-		Top	
---%>
+
 
 <%-- Überprüft, ob alle benötigten Werte übergeben wurden --%>
 <c:choose>
@@ -35,6 +27,8 @@
 	</c:when>
 </c:choose>
 
+<%-- Angaben für die Task-Leiste --%>
+<c:out value="${id }" />,bilder/fenster_button.png,<c:out value="${titel}" />
 
 <%-- Zeichnet das Fenster --%>
 <div 

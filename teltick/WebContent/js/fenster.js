@@ -75,12 +75,16 @@ function selectmouse(e)
 //Schließt das Fenster mit der übergebenen ID
 function fenster_schliessen(id_fenster){
 	document.getElementById(id_fenster).style.display='none';
+	var id = id_fenster.replace('fenster_', '');
+	var id_taskleiste = 'icon_task_leiste_' + id;
+	document.getElementById(id_taskleiste).style.display='none';
 	geschlossene_fenster[geschlossene_fenster.length] = id_fenster;
 }
 
 //Minimiert das Fenster mit der übergebenen Id
 function fenster_minimieren(id_fenster){
 	document.getElementById(id_fenster).style.display='none';
+	task_leiste_alte_markierung_loeschen();
 }
 
 //Maximiert das Fenster mit der ibergebenen Id
@@ -110,6 +114,12 @@ function fenster_in_vodergrund_holen(id_fenster){
 	}
 	
 	document.getElementById(id_fenster).style.zIndex ='2';
+	
+	//Fenster in der Taskleiste markieren
+	task_leiste_alte_markierung_loeschen();
+	var id = id_fenster.replace('fenster_', '');
+	var id_taskleiste = 'icon_task_leiste_' + id;
+	document.getElementById(id_taskleiste).className = 'icon_task_leiste icon_task_leiste_markiert';
 }
 
 //Zeigt in der Startleiste die aktuelle Uhrzeit an
@@ -156,13 +166,58 @@ function oeffne_fenster(id_fenster){
 
 function resultAnfrageNeuesFenster(){
 	if ( html_ajax_neues_fenster.readyState == 4 && html_ajax_neues_fenster.responseText != ""){
-		document.getElementById('fenster_bereich_desktop').innerHTML += html_ajax_neues_fenster.responseText;
+		
+		var text = html_ajax_neues_fenster.responseText.trim();
+				
+		//legt den Rückgabewert in einen Array ab
+		var array_text = [];
+		var richtige_methode = false;
+		methoden = ['\r\n', '\n', "'\r'"];
+		for (var i = 0; i < 3 && !richtige_methode; i++){
+			array_text = text.split(methoden[i]);
+			richtige_methode = array_text.length > 1;
+		}
+		
+		//gibt alle Einträge (bis auf den ersten Index) des Array aus 
+		var result = '';
+		for(var i = 1; i < array_text.length; i++) result += array_text[i];
+		
+		
+		//In der Taskleiste die Auswahlmarkierung der anderen Fenster entfernen
+		task_leiste_alte_markierung_loeschen();
+		
+		
+		//Holt aus der ersten Zeile angaben für die Taskleiste
+		if ( array_text.length > 0 ){		
+			var task_leite_zeile = array_text[0];
+			var werte = task_leite_zeile.split(',');
+			document.getElementById('task_leiste').innerHTML += '<img class="icon_task_leiste icon_task_leiste_markiert" src="' + werte[1] + '" id="icon_task_leiste_' + werte[0] + '" title=" '+ werte[2] +'" onclick="task_leiste_icon_clicked(this)" />'
+		}
+			
+		document.getElementById('fenster_bereich_desktop').innerHTML += result;
 	}
 }
 
 function verschiebevorgangBeenden(){
 	verschieben=false;
 	if ( dobj ) dobj.style.opacity = '';
+}
+
+function task_leiste_alte_markierung_loeschen(){
+	var icons_taskleiste = document.getElementsByClassName('icon_task_leiste icon_task_leiste_markiert');
+	for ( var i = 0; i < icons_taskleiste.length; i++){
+		icons_taskleiste[i].className = 'icon_task_leiste';
+	}
+}
+
+function task_leiste_icon_clicked(sender){
+	task_leiste_alte_markierung_loeschen();
+	sender.className = 'icon_task_leiste icon_task_leiste_markiert';
+	
+	var fenster_id = sender.id;
+	fenster_id = fenster_id.replace('icon_task_leiste_', 'fenster_');
+	document.getElementById(fenster_id).style.display='block';
+	fenster_in_vodergrund_holen(fenster_id);
 }
 
 document.onmousedown=selectmouse;

@@ -355,3 +355,17 @@ input{
 	color: white;
 	margin-top: 55px;
 }
+
+.icon_task_leiste{
+	padding: 5px;
+	border-radius: 6px 6px 6px 6px;
+}
+
+.icon_task_leiste:hover{
+	color: #176265;
+	background-color: #D5D5D5;
+}
+
+.icon_task_leiste_markiert{
+	background-color: #C7BFD9;
+}

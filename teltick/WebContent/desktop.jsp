@@ -5,8 +5,7 @@
 		<div class="startmenue_platzhalter_leiste">
 			<div class="startmenue_content_aufteiler">
 				<span class="startknopf_platzhalter" ></span>
-				<span class="startleiste_geoeffnete_fenster" >
-					{Icons}
+				<span class="startleiste_geoeffnete_fenster" id="task_leiste" >
 				</span>
 				<span class="startleiste_abmelde_button">
 					<a href="./LogoutController" id="abmelde_button" title="Abmelden">
