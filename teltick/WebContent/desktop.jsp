@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="teltick" uri="/WEB-INF/tags.tld" %>
 	<div class="startmenu_leiste_platzhalter" >
 		<div class="startmenue_platzhalter_links" >
 		</div>
@@ -22,7 +23,10 @@
 		<span title="Startmen&uuml; anzeigen" >TelTick</span>
 		<div class="menue">
 			<div class="platzhalter_menu_leiste"></div>
-			<div class="menu_content"></div>
+			<div class="menu_content">
+			<teltick:icons ort="test"/>
+			
+			</div>
 		</div>
 	</div>
 	
