@@ -32,4 +32,7 @@
 		</div>
 	</div>
 	
+	<div id="fenster_bereich_desktop">
+	</div>
+	
 	
