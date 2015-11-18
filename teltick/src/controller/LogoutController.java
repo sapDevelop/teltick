@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
+import logger.LogFactory;
 import modell.entitaeten.interfaces.Mitarbeiter;
 
 /**
@@ -16,7 +19,9 @@ import modell.entitaeten.interfaces.Mitarbeiter;
 @WebServlet("/LogoutController")
 public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+      
+	private static Logger log = LogFactory.getInstance(LogoutController.class.getName());
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,7 +33,9 @@ public class LogoutController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		log.info("LogoutController aufgerufen");
+		
 		HttpSession session = request.getSession();
 		Mitarbeiter m = (Mitarbeiter) session.getAttribute("angemeldeterMitarbeiter");
 		
@@ -37,10 +44,5 @@ public class LogoutController extends HttpServlet {
 			session.setAttribute("angemeldeterMitarbeiter", m);
 		}
 		response.sendRedirect("./");
-		
 	}
-
-	
-	
-
 }
