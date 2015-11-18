@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	
+	<tag>
+		<name>icons</name>
+		<tag-class>tags.TagIcon</tag-class>
+		<attribute>
+			<name>ort</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+	</tag>
+</taglib>

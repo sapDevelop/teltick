@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="teltick" uri="/WEB-INF/tags.tld" %>
 	<div class="startmenu_leiste_platzhalter" >
 		<div class="startmenue_platzhalter_links" >
 		</div>
@@ -22,11 +23,12 @@
 		<div class="menue">
 			<div class="platzhalter_menu_leiste"></div>
 			<div class="menu_content">
-				<input type="button" onclick="oeffne_fenster(0);"  value="Benutzerverwaltung" />
+			<teltick:icons ort="test"/>
+			<input type="button" onclick="oeffne_fenster(0);"  value="Benutzerverwaltung" />
 			</div>
+			
+				
 		</div>
 	</div>
 	
-	<div id="fenster_bereich_desktop" >
-	</div>
 	
