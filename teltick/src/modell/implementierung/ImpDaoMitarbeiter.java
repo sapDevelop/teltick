@@ -303,4 +303,32 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 		return !fehler;
 	}
 
+	@Override
+	public Vector<Mitarbeiter> getAlleMitarbeiter() {
+		
+		Vector<Mitarbeiter> mitarbeiter = new Vector<Mitarbeiter>();
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+						
+			//Lädt den Mitarbeiter aus der DB
+			String abfrage = "select *  from mitarbeiter";
+			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
+			ResultSet result = pstmt.executeQuery();
+			while(result.next()){
+				Mitarbeiter m = RowMappingMitarbeiterSingletonFactory.getInstance().mapRow(result);
+				if (m != null) m.setRechte(getMitarbeiterRechte(m.getMitarbeiterId()));
+				mitarbeiter.add(m);
+			}
+			
+			verbindung.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return mitarbeiter;
+	}
+
 }

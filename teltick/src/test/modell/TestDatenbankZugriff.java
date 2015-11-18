@@ -9,7 +9,7 @@ import modell.interfaces.DBZugriff;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class testDatenbankZugriff {
+public class TestDatenbankZugriff {
 
 	@Test
 	public void testVerbindungsAufbau(){

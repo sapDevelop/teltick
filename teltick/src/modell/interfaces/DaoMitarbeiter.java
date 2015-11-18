@@ -25,4 +25,6 @@ public interface DaoMitarbeiter{
 	public boolean inDBvorhanden(String login_name);
 	
 	public boolean zugangsdatenRichtig(String login_name, char[] passwort);
+	
+	public Vector<Mitarbeiter> getAlleMitarbeiter();
 }

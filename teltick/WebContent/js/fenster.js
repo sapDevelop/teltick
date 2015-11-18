@@ -5,6 +5,8 @@ var verschieben=false;
 var x,y;
 var dobj;
 
+var html_ajax_neues_fenster;
+
 var geschlossene_fenster = [];
 var fenster_maximiert = '';
 
@@ -130,5 +132,38 @@ function uhr_starten(){
 	window.setInterval("zeigeAktuelleUhrzeitStartleiste()", 1000);
 }
 
+//öffnet ein neues 
+function oeffne_fenster(id_fenster){
+		
+	if ( window.XMLHttpRequest)
+	{
+		html_ajax_neues_fenster = new XMLHttpRequest();
+	}
+	else if ( window.ActiveXObject )
+	{
+		html_ajax_neues_fenster = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	if (html_ajax_neues_fenster != ''){
+		var url = './NeuesFenster';
+		var werte = 'id=' + id_fenster;
+		html_ajax_neues_fenster.open('post', url  , true);
+		html_ajax_neues_fenster.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		html_ajax_neues_fenster.onreadystatechange = resultAnfrageNeuesFenster;
+		html_ajax_neues_fenster.send(werte);
+	}
+}
+
+function resultAnfrageNeuesFenster(){
+	if ( html_ajax_neues_fenster.readyState == 4 && html_ajax_neues_fenster.responseText != ""){
+		document.getElementById('fenster_bereich_desktop').innerHTML += html_ajax_neues_fenster.responseText;
+	}
+}
+
+function verschiebevorgangBeenden(){
+	verschieben=false;
+	if ( dobj ) dobj.style.opacity = '';
+}
+
 document.onmousedown=selectmouse;
-document.onmouseup=new Function("verschieben=false; dobj.style.opacity = '';");
+document.onmouseup=verschiebevorgangBeenden;
