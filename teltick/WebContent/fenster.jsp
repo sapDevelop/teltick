@@ -14,6 +14,7 @@
 		<c:set var="z_index" value="${param.z_index}" />
 		<c:set var="minWidth" value="${param.minWidth}" />
 		<c:set var="minHeight" value="${param.minHeight}" />
+		<c:set var="icon" value="${param.icon}" />
 	</c:when>
 	<c:when test="${ requestScope.titel != null && requestScope.id != null && requestScope.inhalt != null }">
 		<c:set var="titel" value="${requestScope.titel}" />
@@ -24,11 +25,12 @@
 		<c:set var="z_index" value="${requestScope.z_index}" />
 		<c:set var="minWidth" value="${requestScope.minWidth}" />
 		<c:set var="minHeight" value="${requestScope.minHeight}" />
+		<c:set var="icon" value="${requestScope.icon}" />
 	</c:when>
 </c:choose>
 
 <%-- Angaben für die Task-Leiste --%>
-<c:out value="${id }" />,bilder/fenster_button.png,<c:out value="${titel}" />
+<c:out value="${id }" />,<c:out value="${icon}" />,<c:out value="${titel}" />
 
 <%-- Zeichnet das Fenster --%>
 <div 
@@ -37,6 +39,7 @@
 	style="left:<c:out value="${left}" />; top:<c:out value="${top}" />;min-width: <c:out value="${minWidth}" />;min-height: <c:out value="${minHeight}" />; z-index:<c:out value="${z_index}" />;"
 >
 	<div class="fenster_kopf" >
+		<img class="icon_fenster" src="<c:out value="${icon}" />" />
 		<c:out value="${titel}" />
 		<span class="bereich_fenster_buttons" >
 			<span onclick="fenster_minimieren('fenster_<c:out value="${ id }" />');" class="fensterbutton fensterbutton_minimieren" title="Minimieren" ></span>

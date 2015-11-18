@@ -1,5 +1,5 @@
 /*C3*/SET SCHEMA PUBLIC
 DELETE FROM FENSTER WHERE FENSTER_ID=0
-INSERT INTO FENSTER VALUES(0,600,335,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp',NULL)
+INSERT INTO FENSTER VALUES(0,600,335,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp','bilder/fenstericons/benutzerverwaltung.png')
 COMMIT
 DISCONNECT
