@@ -36,8 +36,8 @@
 							</div>
 						</div>
 						
-						<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_1" />
-						<label class="div_tabelle_zeile" for="benutzer_radio_1" >
+						<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ param.id }" />_1" value="1" />
+						<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ param.id }" />_1" onclick="button_enable('<c:out value="${ param.id }" />');" >
 							<div class="div_tabelle_zelle" >
 								Tester
 							</div>
@@ -62,8 +62,8 @@
 			<div class="admin_benutzeruebersicht_content_bereich_buttons" >
 				<div class="admin_benutzeruebersicht_platzierung" >
 					<input type="submit" value="Neuer Benutzer" name="button_benutzerverwaltung"  class="button_benutzerverwaltung" title="Neuen Benutzer hinzufügen" />
-					<input type="submit" value="Benutzer ändern" name="button_benutzerverwaltung"  class="button_benutzerverwaltung" title="Markierten Benutzer ändern" />
-					<input type="submit" value="Benutzer löschen" name="button_benutzerverwaltung"  class="button_benutzerverwaltung" title="Markierten Benutzer löschen" />
+					<input type="submit" value="Benutzer ändern" name="button_benutzerverwaltung"  class="button_benutzerverwaltung" title="Markierten Benutzer ändern" disabled="disabled"  id="button_benutzerverwaltung_aendern_<c:out value="${ param.id }" />"  />
+					<input type="submit" value="Benutzer löschen" name="button_benutzerverwaltung"  class="button_benutzerverwaltung" title="Markierten Benutzer löschen" disabled="disabled" id="button_benutzerverwaltung_loeschen_<c:out value="${ param.id }" />" />
 				</div>
 			</div>
 		</div>
