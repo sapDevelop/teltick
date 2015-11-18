@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +45,14 @@ public class LogoutController extends HttpServlet {
 			m.setAngemeldet(false);
 			session.setAttribute("angemeldeterMitarbeiter", m);
 		}
-		response.sendRedirect("./");
+		
+		request.setAttribute("username", m.getLoginName());
+		
+		
+		log.info("User: " +  m.getLoginName() + " hat sich abgemeldet!");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+		
+		rd.forward(request, response);
 	}
 }

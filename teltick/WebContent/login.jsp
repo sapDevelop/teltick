@@ -20,8 +20,8 @@
 		</div>
 		<div class="login_formularzeile">
 			<label for="username" >Benutzername:</label>
-			<input type="text" name="username" class="eingabefeld" value="<c:if test="${param.username != null }"><c:out value="${param.username}" /></c:if>" />
-		</div>
+			<input type="text" name="username" class="eingabefeld" value="<c:choose><c:when test="${param.username != null }"><c:out value="${param.username}"/></c:when><c:otherwise><c:out value="${requestScope.username}"/></c:otherwise></c:choose>" />
+		</div>										
 		<div class="login_formularzeile">
 			<label for="password">Passwort:</label>
 			<input type="password" name="password" class="eingabefeld" />
