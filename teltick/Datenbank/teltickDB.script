@@ -57,4 +57,4 @@ INSERT INTO BLOCKS VALUES(0,2147483647,0)
 SET SCHEMA PUBLIC
 INSERT INTO MITARBEITER VALUES(0,'admin@admin.de','Max','Admin','Mustermann','161ebd7d45089b3446ee4e0d86dbcf92')
 INSERT INTO RECHTE VALUES(0,'Benutzerverwaltung',0,TRUE,0)
-INSERT INTO FENSTER VALUES(0,600,335,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp',NULL)
+INSERT INTO FENSTER VALUES(0,600,335,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp','bilder/fenstericons/benutzerverwaltung.png')

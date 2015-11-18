@@ -17,6 +17,15 @@
 	color: black;
 }
 
+.meldungsbox_bereich_button{
+	padding: 15px;
+}
+
+.content_meldungsbox{
+	margin-top: 30px;
+	text-align: center;
+}
+
 .icon_fenster{
 	height: 16px;
 }

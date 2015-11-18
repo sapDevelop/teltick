@@ -12,4 +12,29 @@
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>
 	</tag>
+	<tag>
+		<name>meldungsbox</name>
+		<tag-class>tags.MeldungsboxTag</tag-class>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>icon</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+		<attribute>
+			<name>titel</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+		<attribute>
+			<name>breite</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+		<attribute>
+			<name>hoehe</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+	</tag>
 </taglib>

@@ -188,7 +188,7 @@ function resultAnfrageNeuesFenster(){
 		
 		
 		//Holt aus der ersten Zeile angaben für die Taskleiste
-		if ( array_text.length > 0 ){		
+		if ( array_text.length > 0 && array_text[0] != 'meldung'){		
 			var task_leite_zeile = array_text[0];
 			var werte = task_leite_zeile.split(',');
 			document.getElementById('task_leiste').innerHTML += '<img class="icon_task_leiste icon_task_leiste_markiert" src="' + werte[1] + '" id="icon_task_leiste_' + werte[0] + '" title=" '+ werte[2] +'" onclick="task_leiste_icon_clicked(this)" />'

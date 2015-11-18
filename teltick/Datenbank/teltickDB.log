@@ -1,5 +1,7 @@
 /*C3*/SET SCHEMA PUBLIC
-DELETE FROM FENSTER WHERE FENSTER_ID=0
-INSERT INTO FENSTER VALUES(0,600,335,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp','bilder/fenstericons/benutzerverwaltung.png')
+INSERT INTO MITARBEITER VALUES(7,'otto.lotto@tester.de','Otto','Otto','Lotto','161ebd7d45089b3446ee4e0d86dbcf92')
+COMMIT
+DELETE FROM MITARBEITER WHERE MITARBEITER_ID=7
+INSERT INTO MITARBEITER VALUES(1,'otto.lotto@tester.de','Otto','Otto','Lotto','161ebd7d45089b3446ee4e0d86dbcf92')
 COMMIT
 DISCONNECT

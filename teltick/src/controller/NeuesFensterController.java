@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import basis.factory.VorlagenFensterFactory;
+import tags.MeldungsboxTag;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.factory.DaoFensterFactory;
@@ -38,14 +40,16 @@ public class NeuesFensterController extends HttpServlet {
 		//Zeichensatz festlegen
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+				
 		PrintWriter out = response.getWriter();
 		
 		
 		HttpSession session =  request.getSession();
 		//Überprüft, ob der Benutzer angemeldet ist
 		Mitarbeiter m = (Mitarbeiter) session.getAttribute("angemeldeterMitarbeiter");
-		if ( m != null  && m.isAngemeldet()){		
+		if ( m != null  && m.isAngemeldet()){	
+			
+			//Zählvariable, um den Fenster eine eindeutige Id zu vergeben
 			Integer fensterZaehlVariable = (Integer)session.getAttribute("fensterZaehlVariable");
 			if (fensterZaehlVariable == null) fensterZaehlVariable = new Integer(-1);
 			fensterZaehlVariable++;
@@ -88,17 +92,21 @@ public class NeuesFensterController extends HttpServlet {
 				
 				RequestDispatcher rd = request.getRequestDispatcher("./fenster.jsp");
 				rd.forward(request, response);
-				
+			
+			//Wenn der Benutzer keine Zugriffsrechte besitzt
 			}else if (f != null && m != null && !m.zugriffsRechtFenster(f)){
-				out.println("<h1 class=\"\">Sie haben keine Rechte das Formular zu &ouml;ffnen</h1>");
+				String meldung = VorlagenFensterFactory.getInstance().getMeldungsbox("Sie haben keine Rechte das Formular zu &ouml;ffnen.", "Fehler", "300px", "150px", "fehler", session, true);
+				out.print(meldung);
 			}			
 			else{
-				out.println("<h1 class=\"\">Fenster konnte nicht gefunden werden.</h1>");
+				String meldung = VorlagenFensterFactory.getInstance().getMeldungsbox("Fenster konnte nicht gefunden werden.", "Fehler", "300px", "150px", "fehler", session, true);
+				out.print(meldung);
 			}
 		}
 		//Wenn der Benutzer nicht angemeldet ist
 		else{
-			out.println("<h1 class=\"\">Sitzung ist abgelaufen. Sie m&uuml;ssen angemeldet sein, um ein Fenster &ouml;ffnen zu k&ouml;nnen.</h1>");
+			String meldung = VorlagenFensterFactory.getInstance().getMeldungsbox("Sitzung ist abgelaufen. Sie m&uuml;ssen angemeldet sein, um ein Fenster &ouml;ffnen zu k&ouml;nnen.", "Fehler", "300px", "150px", "fehler", session, true);
+			out.print(meldung);
 		}
 				
 	}
