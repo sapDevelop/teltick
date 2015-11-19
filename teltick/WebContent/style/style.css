@@ -382,3 +382,12 @@ input{
 .icon_task_leiste_markiert{
 	background-color: #C7BFD9;
 }
+
+/* Fenster Benutzer anlegen */
+.standard_fenster_content{
+	padding: 15px;
+}
+
+.formular_bereich_neuer_benutzer{
+	margin-top: 15px;
+}

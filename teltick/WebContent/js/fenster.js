@@ -156,7 +156,7 @@ function oeffne_fenster(id_fenster){
 	
 	if (html_ajax_neues_fenster != ''){
 		var url = './NeuesFenster';
-		var werte = 'id=' + id_fenster;
+		var werte = 'id=' + encodeURIComponent(id_fenster);
 		html_ajax_neues_fenster.open('post', url  , true);
 		html_ajax_neues_fenster.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		html_ajax_neues_fenster.onreadystatechange = resultAnfrageNeuesFenster;

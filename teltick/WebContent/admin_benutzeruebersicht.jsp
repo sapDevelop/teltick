@@ -9,7 +9,8 @@
 <c:out value="${ param.ajax_id}" />
 
 <m:hatZugriffrechteFenster fensterId="0" >
-	<form action="" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
+	<form action="BenutzerverwaltungController" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
+		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
 		<div class="admin_benutzeruebersicht_content_aufteiler">
 			<div class="admin_benutzeruebersicht_content_bereich_benutzerauflistung" >
 				<div class="ueberschrift_content_fenster">Benutzer:</div>
@@ -61,9 +62,9 @@
 			</div>
 			<div class="admin_benutzeruebersicht_content_bereich_buttons" >
 				<div class="admin_benutzeruebersicht_platzierung" >
-					<input type="submit" value="Neuer Benutzer" name="button_benutzerverwaltung"  class="button_benutzerverwaltung" title="Neuen Benutzer hinzufügen" />
-					<input type="submit" value="Benutzer ändern" name="button_benutzerverwaltung"  class="button_benutzerverwaltung" title="Markierten Benutzer ändern" disabled="disabled"  id="button_benutzerverwaltung_aendern_<c:out value="${ param.id }" />"  />
-					<input type="submit" value="Benutzer löschen" name="button_benutzerverwaltung"  class="button_benutzerverwaltung" title="Markierten Benutzer löschen" disabled="disabled" id="button_benutzerverwaltung_loeschen_<c:out value="${ param.id }" />" />
+					<input type="submit" value="Neuer Benutzer" name="submit"  class="button_benutzerverwaltung" title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;"  />
+					<input type="submit" value="Benutzer ändern" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer ändern" disabled="disabled"  id="button_benutzerverwaltung_aendern_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
+					<input type="submit" value="Benutzer löschen" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer löschen" disabled="disabled" id="button_benutzerverwaltung_loeschen_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
 				</div>
 			</div>
 		</div>

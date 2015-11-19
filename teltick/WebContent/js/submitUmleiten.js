@@ -1,4 +1,6 @@
 var html= '';
+var submit_button;
+
 //Leitet den Submit auf Ajax um
 function submitUmleiten(sender, id)
 {
@@ -15,15 +17,21 @@ function submitUmleiten(sender, id)
 	{
 		var url = sender.method == 'get' ? sender.action + '?' : sender.action;
 		
-		var werte = 'ajax_id=' + id;
+		var werte = 'ajax_id=' + encodeURIComponent(id);
+		
+		//Denn gewählten Submitbutton übermitteln
+		werte += '&submit=' + encodeURIComponent(submit_button);
+		
+				
+		//Leitet alle Inputfelder über Ajax um
 		for (var i = 0; i < sender.elements.length; i++){
-			werte += '&' + sender.elements[i].name + '=' + sender.elements[i].value;
+			if(sender.elements[i].type != 'submit')  werte += '&' + sender.elements[i].name + '=' + encodeURIComponent(sender.elements[i].value);
 		}
 		
 		var url = sender.method == 'get' & werte != '' ? sender.action + '?' + werte : sender.action;
 		
 		
-		
+		//Ajax-Anfrage senden
 		html.open(sender.method, url  , true);
 		html.onreadystatechange = anfrageResult;
 		
