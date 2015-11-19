@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="WEB-INF/tagsMRechte.tld" prefix="m" %>
 <%@ taglib uri="WEB-INF/tags.tld" prefix="teltick" %>
-<jsp:useBean id="daoMitarbeiter" class="modell.implementierung.ImpDaoMitarbeiter" scope="page" />
+
 
 <%-- Id des Divs, wo mit Ajax die Antwort reingeschrieben werden soll (Nur die Ziffer) --%>
 <c:out value="${ param.ajax_id}" />
@@ -42,7 +42,7 @@
 						<!-- Gibt die Mitarbeiter des Systems aus -->
 						<teltick:forEachMitarbeiter var="m" mitAdmin="false" >
 							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" value="1" />
-							<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" onclick="button_enable('<c:out value="${ m.mitarbeiterId }" />');" >
+							<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" onclick="button_enable('<c:out value="${ param.id }" />');" >
 								<div class="div_tabelle_zelle" >
 									<c:out value="${ m.loginName }" />
 								</div>
