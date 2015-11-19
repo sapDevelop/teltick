@@ -263,7 +263,44 @@ input{
 .admin_benutzeruebersicht_content_aufteiler{
 	display: table;
 	width: 100%;
-	margin-top: 15px;
+	margin-top: 10px;
+}
+
+.neuerbenutzer_formularzeile{
+	margin-top: 5px;
+}
+
+.neuerbenutzer_formularzeile label{
+	width: 110px;
+	display: inline-block;
+}
+
+.neuerbenutzer_formularzeile input{
+	width: 220px;
+}
+
+.neuerbenutzer_formularzeile .neuerbenutzer_namenfelder{
+	width: 150px;
+}
+
+.neuerbenutzer_formularzeile .neuerbenutzer_label_name{
+	width: auto;
+	padding-right: 15px;
+	margin-left: 15px;
+}
+
+.neuerbenutzer_box_rechte{
+	background-color: #fff;
+	border: 1px  inset;
+	height: 60px;
+	color: black;
+	overflow: scroll;
+	width: 540px;
+	margin-top: 5px;
+}
+
+.neuerbenutzer_ueberschrift_bereich_rechte{
+	margin-top: 10px;
 }
 
 .benutzer_radio{
@@ -334,6 +371,22 @@ input{
 	float: right;
 }
 
+.button_schliessen_benutzerverwaltung{
+	margin-top: 30px;
+	float: right;
+	margin-right: 5px;
+}
+
+.button_box_rechts{
+	float: right;
+	margin-top: 15px;
+	padding: 0px;
+}
+
+.button_box_rechts input{
+	width: 132px;
+}
+
 
 /* Abmelde Button */
 .startleiste_abmelde_button{
@@ -385,9 +438,15 @@ input{
 
 /* Fenster Benutzer anlegen */
 .standard_fenster_content{
-	padding: 15px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .formular_bereich_neuer_benutzer{
 	margin-top: 15px;
+}
+
+.fehlermeldung_in_std_fenster{
+	margin-top:15px;
 }

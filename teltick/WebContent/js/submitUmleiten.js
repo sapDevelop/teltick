@@ -25,7 +25,12 @@ function submitUmleiten(sender, id)
 				
 		//Leitet alle Inputfelder über Ajax um
 		for (var i = 0; i < sender.elements.length; i++){
-			if(sender.elements[i].type != 'submit')  werte += '&' + sender.elements[i].name + '=' + encodeURIComponent(sender.elements[i].value);
+			if(
+					(sender.elements[i].type != 'submit' && sender.elements[i].type != 'radio' && sender.elements[i].type != 'checkbox') ||
+					((sender.elements[i].type == 'radio' || sender.elements[i].type == 'checkbox' ) && sender.elements[i].checked == true)
+			){
+				werte += '&' + sender.elements[i].name + '=' + encodeURIComponent(sender.elements[i].value);
+			}
 		}
 		
 		var url = sender.method == 'get' & werte != '' ? sender.action + '?' + werte : sender.action;
