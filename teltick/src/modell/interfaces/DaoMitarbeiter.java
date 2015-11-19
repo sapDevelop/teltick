@@ -26,5 +26,5 @@ public interface DaoMitarbeiter{
 	
 	public boolean zugangsdatenRichtig(String login_name, char[] passwort);
 	
-	public Vector<Mitarbeiter> getAlleMitarbeiter();
+	public Vector<Mitarbeiter> getAlleMitarbeiter(boolean mitAdmin);
 }

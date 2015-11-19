@@ -37,4 +37,19 @@
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>
 	</tag>
+	<tag>
+		<name>forEachMitarbeiter</name>
+		<tag-class>tags.forEachMitarbeiterTag</tag-class>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>mitAdmin</name>
+			<required>false</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+	</tag>
 </taglib>

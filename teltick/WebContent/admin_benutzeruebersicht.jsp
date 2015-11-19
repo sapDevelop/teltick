@@ -1,9 +1,11 @@
+<%@page import="modell.entitaeten.interfaces.Mitarbeiter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="WEB-INF/tagsMRechte.tld" prefix="m" %>
-<jsp:useBean id="angemeldeterMitarbeiter" class="modell.entitaeten.implementierung.ImpMitarbeiter" scope="session" />
+<%@ taglib uri="WEB-INF/tags.tld" prefix="teltick" %>
+<jsp:useBean id="daoMitarbeiter" class="modell.implementierung.ImpDaoMitarbeiter" scope="page" />
 
 <%-- Id des Divs, wo mit Ajax die Antwort reingeschrieben werden soll (Nur die Ziffer) --%>
 <c:out value="${ param.ajax_id}" />
@@ -37,27 +39,33 @@
 							</div>
 						</div>
 						
-						<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ param.id }" />_1" value="1" />
-						<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ param.id }" />_1" onclick="button_enable('<c:out value="${ param.id }" />');" >
-							<div class="div_tabelle_zelle" >
-								Tester
-							</div>
-							<div class="div_tabelle_zelle" >
-								Otto
-							</div>
-							<div class="div_tabelle_zelle" >
-								Lotto
-							</div>
-							<div class="div_tabelle_zelle" >
-								o.t@tester.de
-							</div>
-							<div class="div_tabelle_zelle" >
-								Benutzerverwaltung
-							</div>
-						</label>
+						<!-- Gibt die Mitarbeiter des Systems aus -->
+						<teltick:forEachMitarbeiter var="m" mitAdmin="false" >
+							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" value="1" />
+							<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" onclick="button_enable('<c:out value="${ m.mitarbeiterId }" />');" >
+								<div class="div_tabelle_zelle" >
+									<c:out value="${ m.loginName }" />
+								</div>
+								<div class="div_tabelle_zelle" >
+									<c:out value="${ m.vorname }" />
+								</div>
+								<div class="div_tabelle_zelle" >
+									<c:out value="${ m.name }" />
+								</div>
+								<div class="div_tabelle_zelle" >
+									<c:out value="${ m.email }" />
+								</div>
+								<div class="div_tabelle_zelle" >
+									<c:if test="${ fn:length(m.rechte) == 0 }" >-keine-</c:if>
+									<c:forEach var="recht" items="${m.rechte }">
+										<c:out value="${ recht.bezeichung} " />
+									</c:forEach>
+								</div>
+							</label>
+						</teltick:forEachMitarbeiter>
 						
-					</div>
-					
+						
+					</div>				
 				</div>
 			</div>
 			<div class="admin_benutzeruebersicht_content_bereich_buttons" >

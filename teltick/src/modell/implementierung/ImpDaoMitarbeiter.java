@@ -304,7 +304,7 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 	}
 
 	@Override
-	public Vector<Mitarbeiter> getAlleMitarbeiter() {
+	public Vector<Mitarbeiter> getAlleMitarbeiter(boolean mitAdmin) {
 		
 		Vector<Mitarbeiter> mitarbeiter = new Vector<Mitarbeiter>();
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
@@ -313,7 +313,7 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			Connection verbindung = dbZugriff1.verbinden();
 						
 			//Lädt den Mitarbeiter aus der DB
-			String abfrage = "select *  from mitarbeiter";
+			String abfrage =  mitAdmin ? "select * from mitarbeiter" : "select * from mitarbeiter where login_name != 'Admin'";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			ResultSet result = pstmt.executeQuery();
 			while(result.next()){
@@ -327,7 +327,6 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return mitarbeiter;
 	}
 

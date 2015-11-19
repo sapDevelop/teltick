@@ -41,6 +41,10 @@ html body{
 	background-color: #3E0A55;
 	font-size: 16px;
 	touch-action: none;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;	
+	background-image: url('../bilder/hintergrund.JPG');
 }
 
 .bereich_fenster_buttons{
@@ -312,8 +316,12 @@ input{
 	display: table;
 }
 
-.benutzer_radio:checked + .div_tabelle_zeile, .benutzer_radio + .div_tabelle_zeile:hover{
+.benutzer_radio:checked + .div_tabelle_zeile{
 	background-color: #C7BFD9;
+}
+
+.benutzer_radio + .div_tabelle_zeile:hover{
+	background-color: #90C9CB;
 }
 
 #admin_benutzeruebersicht_liste_tabelle .div_tabelle_zeile{
