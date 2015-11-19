@@ -220,5 +220,7 @@ function task_leiste_icon_clicked(sender){
 	fenster_in_vodergrund_holen(fenster_id);
 }
 
+
+
 document.onmousedown=selectmouse;
 document.onmouseup=verschiebevorgangBeenden;

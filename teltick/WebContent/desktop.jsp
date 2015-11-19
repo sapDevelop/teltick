@@ -18,7 +18,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="startknopf_button_leiste">
+	<div id="startknopf_button_leiste" aria-haspopup="true">
 		<span title="Startmen&uuml; anzeigen" >TelTick</span>
 		<div class="menue">
 			<div class="platzhalter_menu_leiste"></div>

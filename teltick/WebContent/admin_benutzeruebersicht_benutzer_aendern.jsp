@@ -16,7 +16,7 @@
 					<b>Neuen Benutzer anlegen</b>
 				</c:when>
 				<c:otherwise>
-					<b>Benutzer ändern</b>
+					<b>Benutzer bearbeiten</b>
 				</c:otherwise>
 			</c:choose>
 			<div class="formular_bereich_neuer_benutzer" >
@@ -48,7 +48,7 @@
 							<input type="submit" value="Anlegen" class="" title="Anlegen" onclick="submit_button=this.value;" />
 						</c:when>
 						<c:otherwise>
-							<input type="submit" value="Ändern" class="" title="Ändern" onclick="submit_button=this.value;" />
+							<input type="submit" value="Übernehmen" class="" title="Übernehmen" onclick="submit_button=this.value;" />
 						</c:otherwise>
 					</c:choose>
 					<input type="submit" value="Abbrechen" class="" title="Abbrechen" onclick="submit_button=this.value;" />

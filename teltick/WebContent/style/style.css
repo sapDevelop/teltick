@@ -40,6 +40,7 @@
 html body{
 	background-color: #3E0A55;
 	font-size: 16px;
+	touch-action: none;
 }
 
 .bereich_fenster_buttons{

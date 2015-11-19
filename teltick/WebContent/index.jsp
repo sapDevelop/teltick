@@ -14,7 +14,7 @@
 		<script type="text/javascript" src="js/admin_benutzer_uebersicht.js" ></script>
 		<jsp:useBean id="angemeldeterMitarbeiter" class="modell.entitaeten.implementierung.ImpMitarbeiter" scope="session" />
 	</head>
-	<body onload="uhr_starten();" >
+	<body onload="uhr_starten();"  >
 		<c:choose>
 			<%-- Wenn der Mitarbeiter angemeldet ist wird der Desktop angezeigt --%>
 			
