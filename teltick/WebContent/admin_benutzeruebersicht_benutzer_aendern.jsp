@@ -11,6 +11,15 @@
 <m:hatZugriffrechteFenster fensterId="0" >
 	<form action="BenutzerverwaltungController" method="post"  name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
 		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
+		
+		<%-- Zeigt eine Fehlermeldung an, wenn die Eingaben ungültig waren --%>
+		<c:if test="${fehlermeldung != null}" >
+			<teltick:meldungsbox hoehe="200px" icon="fehler" breite="505px" titel="Eingabe ungültig">
+				<c:out value="${fehlermeldung}" />
+			</teltick:meldungsbox>
+		</c:if>
+		
+		
 		<div class="standard_fenster_content">
 			<c:choose>
 				<c:when test="${requestScope.vorgang == 'neuerBenutzer' }">
@@ -23,18 +32,18 @@
 			<div class="formular_bereich_neuer_benutzer" >
 				<div class="neuerbenutzer_formularzeile">
 					<label for="login_name_<c:out value="${param.id}" />" >Login-Name:</label>
-					<input type="text" name="login_name_<c:out value="${param.id}" />" />
+					<input type="text" name="login_name_<c:out value="${param.id}" />" value="<c:if test="${editUser != null}" ><c:out value="${editUser.loginName}" /></c:if>" />
 				</div>
 				<div class="neuerbenutzer_formularzeile">
 					<label for="vorname_<c:out value="${param.id}" />" >Vorname:</label>
-					<input type="text" name="vorname_<c:out value="${param.id}" />"  class="neuerbenutzer_namenfelder" />
+					<input type="text" name="vorname_<c:out value="${param.id}" />"  class="neuerbenutzer_namenfelder" value="<c:if test="${editUser != null}" ><c:out value="${editUser.vorname}" /></c:if>" />
 				
 					<label for="name_<c:out value="${param.id}" />" class="neuerbenutzer_label_name" >Name:</label>
-					<input type="text" name="name_<c:out value="${param.id}" />" class="neuerbenutzer_namenfelder" />
+					<input type="text" name="name_<c:out value="${param.id}" />" class="neuerbenutzer_namenfelder" value="<c:if test="${editUser != null}" ><c:out value="${editUser.name}" /></c:if>" />
 				</div>
 				<div class="neuerbenutzer_formularzeile">
 					<label for="email_<c:out value="${param.id}" />" >Email:</label>
-					<input type="email" name="email_<c:out value="${param.id}" />" />
+					<input type="email" name="email_<c:out value="${param.id}" />"  value="<c:if test="${editUser != null}" ><c:out value="${editUser.email}" /></c:if>" />
 				</div>
 				<div class="neuerbenutzer_formularzeile">
 					<label for="passwort_<c:out value="${param.id}" />" >Passwort:</label>

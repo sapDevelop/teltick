@@ -40,7 +40,7 @@
 						</div>
 						
 						<!-- Gibt die Mitarbeiter des Systems aus -->
-						<teltick:forEachMitarbeiter var="m" mitAdmin="true" >
+						<teltick:forEachMitarbeiter var="m" mitAdmin="false" >
 							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" value="<c:out value="${ m.mitarbeiterId }" />" />
 							<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" onclick="button_enable('<c:out value="${ param.id }" />');" >
 								<div class="div_tabelle_zelle" >
@@ -71,8 +71,8 @@
 			<div class="admin_benutzeruebersicht_content_bereich_buttons" >
 				<div class="admin_benutzeruebersicht_platzierung" >
 					<input type="submit" value="Neuer Benutzer" name="submit"  class="button_benutzerverwaltung" title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;"  />
-					<input type="submit" value="Benutzer bearbeiten" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer ändern" disabled="disabled"  id="button_benutzerverwaltung_aendern_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
-					<input type="submit" value="Benutzer löschen" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer löschen" disabled="disabled" id="button_benutzerverwaltung_loeschen_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
+					<input type="submit" value="Bearbeiten" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer ändern" disabled="disabled"  id="button_benutzerverwaltung_aendern_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
+					<input type="submit" value="Entfernen" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer löschen" disabled="disabled" id="button_benutzerverwaltung_loeschen_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
 				</div>
 			</div>
 		</div>

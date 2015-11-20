@@ -14,6 +14,7 @@ public class MeldungsboxTag extends BodyTagSupport {
 	private static final long serialVersionUID = 1L;
 	private String icon, titel;
 	private String breite, hoehe;
+	
 
 	public String getIcon() {
 		return icon;

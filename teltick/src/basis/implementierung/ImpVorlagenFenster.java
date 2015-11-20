@@ -31,7 +31,7 @@ String iconName = icon + ".png";
 		}
 		
 		String ausgabe = selvet_taskleistenicon
-				+"<div class=\"fenster\" id=\"fenster_"+ fensterZaehlVariable.intValue() + "\" style=\"left:120px; top:120px;min-width:"+ breite + ";min-height:"+ hoehe +"; z-index:3\" >"
+				+"<div class=\"fenster\" id=\"fenster_"+ fensterZaehlVariable.intValue() + "\" style=\"left:0px; top:100px;min-width:"+ breite + ";min-height:"+ hoehe +"; z-index:3;\" >"
 				+"	<div class=\"fenster_kopf\" >"
 				+"		<img class=\"icon_fenster\" src=\"bilder/fenstericons/" + iconName + "\" /> <span class=\"meldungsfenster_titel\">"+ titel + "</span>"
 				+"		<span class=\"bereich_fenster_buttons\" >"
@@ -52,7 +52,5 @@ String iconName = icon + ".png";
 		
 		return ausgabe;		
 	}
-
-
 
 }

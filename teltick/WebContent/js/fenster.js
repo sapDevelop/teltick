@@ -14,14 +14,36 @@ var fenster_maximiert = '';
 function movemouse(e)
 {
   if (verschieben)
-  {
-	  var fenster_breite = window.innerWidth
-	  	|| document.documentElement.clientWidth
-	  	|| document.body.clientWidth; 
+  {	  
+	  //Bestimmt das Parentobjekt (Wenn sie das Fenster in einen Fenster befindet)
+	  var parentWindow= '';
+	  var w = dobj;
+	  var topelement = nn6 ? "HTML" : "BODY";
+	  do
+	  {
+	    w = nn6 ? w.parentNode : w.parentElement;
+	  }while (w.tagName != topelement && w.className != "fenster");
 	  
-	  var fenster_hoehe = window.innerHeight
-	  	|| document.documentElement.clientHeight
-	  	|| document.body.clientHeight; 
+	  
+	  
+	  var fenster_breite = '';
+	  var fenster_hoehe = '';
+	  
+	  //Fenster ist alleinstehenend
+	  if (w.className !='fenster' ){
+		  fenster_breite = window.innerWidth
+	  		|| document.documentElement.clientWidth
+	  		|| document.body.clientWidth; 
+	  
+		  fenster_hoehe = window.innerHeight
+	  		|| document.documentElement.clientHeight
+	  		|| document.body.clientHeight;
+	  }
+	  //Fenster befindet sich in einen anderen Fenster
+	  else{
+		  fenster_breite = parseInt(w.style.minWidth);
+		  fenster_hoehe = parseInt(w.style.minHeight);
+	  }
 	  
 	var left_neu = nn6 ? tx + e.clientX - x : tx + event.clientX - x;
 	var top_neu = nn6 ? ty + e.clientY - y : ty + event.clientY - y;
@@ -30,7 +52,7 @@ function movemouse(e)
 	
 	var pos_groesser_desktop_hoehe = parseInt(parseInt(dobj.style.top)+parseInt(dobj.style.minHeight));
 	var fenster_koord_unten = top_neu+parseInt(dobj.style.minHeight);
-	
+		
     if (left_neu > 0 && (fenster_koord_rechts  <  fenster_breite || (fenster_breite < pos_groesser_desktop_breite && fenster_koord_rechts < pos_groesser_desktop_breite) )){
     	dobj.style.left = left_neu + "px";
     }

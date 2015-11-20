@@ -58,4 +58,4 @@ SET SCHEMA PUBLIC
 INSERT INTO MITARBEITER VALUES(0,'admin@admin.de','Max','Admin','Mustermann','161ebd7d45089b3446ee4e0d86dbcf92')
 INSERT INTO MITARBEITER VALUES(1,'otto.lotto@tester.de','Otto','Otto','Lotto','161ebd7d45089b3446ee4e0d86dbcf92')
 INSERT INTO RECHTE VALUES(0,'Benutzerverwaltung',0,TRUE,0)
-INSERT INTO FENSTER VALUES(0,600,360,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp','bilder/fenstericons/benutzerverwaltung.png')
+INSERT INTO FENSTER VALUES(0,600,350,NULL,'Benutzerverwaltung','admin_benutzeruebersicht.jsp','bilder/fenstericons/benutzerverwaltung.png')

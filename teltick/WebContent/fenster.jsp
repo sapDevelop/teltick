@@ -36,7 +36,7 @@
 <div 
 	class="fenster" 
 	id="fenster_<c:out value="${id }" />"
-	style="left:<c:out value="${left}" />; top:<c:out value="${top}" />;min-width: <c:out value="${minWidth}" />;min-height: <c:out value="${minHeight}" />; z-index:<c:out value="${z_index}" />;"
+	style="left:<c:out value="${left}" />; top:<c:out value="${top}" />;min-width: <c:out value="${minWidth}" />;width: <c:out value="${minWidth}" />;min-height: <c:out value="${minHeight}" />; z-index:<c:out value="${z_index}" />;"
 >
 	<div class="fenster_kopf" >
 		<img class="icon_fenster" src="<c:out value="${icon}" />" />

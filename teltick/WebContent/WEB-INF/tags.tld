@@ -36,6 +36,16 @@
 			<required>true</required>
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>
+		<attribute>
+			<name>parentFensterBreite</name>
+			<required>false</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+		<attribute>
+			<name>parentFensterHoehe</name>
+			<required>false</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
 	</tag>
 	<tag>
 		<name>forEachMitarbeiter</name>
