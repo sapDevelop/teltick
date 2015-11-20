@@ -1,5 +1,7 @@
 package test.modell;
 
+import java.util.Vector;
+
 import modell.entitaeten.interfaces.Fenster;
 import modell.factory.DaoFensterFactory;
 import modell.interfaces.DaoFenster;
@@ -20,5 +22,14 @@ public class TestDaoFenster {
 		DaoFenster dao = DaoFensterFactory.getInstance();
 		Fenster f = dao.getFenster(0);
 		Assert.assertNotNull(f);
+	}
+	
+	@Test
+	public void GetAlleFensterTest(){
+		DaoFenster dao = DaoFensterFactory.getInstance();
+		Vector<Fenster> f = dao.getAlleFenster();
+		Assert.assertEquals(f.size(), 1);
+		System.out.println(f.get(0).getTitel());
+		Assert.assertEquals(f.get(0).getTitel(), "Benutzerverwaltung");
 	}
 }

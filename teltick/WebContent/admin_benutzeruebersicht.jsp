@@ -40,8 +40,8 @@
 						</div>
 						
 						<!-- Gibt die Mitarbeiter des Systems aus -->
-						<teltick:forEachMitarbeiter var="m" mitAdmin="false" >
-							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" value="1" />
+						<teltick:forEachMitarbeiter var="m" mitAdmin="true" >
+							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" value="<c:out value="${ m.mitarbeiterId }" />" />
 							<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" onclick="button_enable('<c:out value="${ param.id }" />');" >
 								<div class="div_tabelle_zelle" >
 									<c:out value="${ m.loginName }" />
@@ -58,7 +58,7 @@
 								<div class="div_tabelle_zelle" >
 									<c:if test="${ fn:length(m.rechte) == 0 }" >-keine-</c:if>
 									<c:forEach var="recht" items="${m.rechte }">
-										<c:out value="${ recht.bezeichung} " />
+										<c:out value="${ recht.zugehoerigesFenster.titel } " />
 									</c:forEach>
 								</div>
 							</label>

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Vector;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +19,10 @@ import logger.LogFactory;
 import modell.entitaeten.factory.FensterFactory;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.entitaeten.interfaces.Recht;
+import modell.factory.DaoFensterFactory;
+import modell.factory.DaoMitarbeiterFactory;
+import modell.interfaces.DaoFenster;
 
 /**
  * Servlet implementation class BenutzerverwaltungController
@@ -61,11 +66,24 @@ public class BenutzerverwaltungController extends HttpServlet {
 						log.info("BenutzerverwaltungController > Button: \"Neuer Benutzer\" geklickt");
 						pfad_inc_jsp = "admin_benutzeruebersicht_benutzer_aendern.jsp";
 						request.setAttribute("vorgang", "neuerBenutzer");
+						
+						//alle Rechte, für die Rechteliste ermitteln
+						request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster()); 
+						
 					break;
 					case "Benutzer bearbeiten":
 						log.info("BenutzerverwaltungController > Button: \"Benutzer ändern\" geklickt");
 						pfad_inc_jsp = "admin_benutzeruebersicht_benutzer_aendern.jsp";
 						request.setAttribute("vorgang", "aenderBenutzer");
+						
+						//alle Rechte, für die Rechteliste ermitteln
+						request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster());
+						
+						if (request.getParameter("benutzer_radio") != null ){
+							log.info("BenutzerverwaltungController > Benutzer wird an die JSP-Seite übertragen " + request.getParameter("benutzer_radio"));
+							Mitarbeiter m1 =  DaoMitarbeiterFactory.getInstance().getMitarbeiter(Integer.valueOf(request.getParameter("benutzer_radio")));
+							request.setAttribute("editUser", m1);
+						}
 					break;
 					case "Aktualisieren":
 					case "Abbrechen":

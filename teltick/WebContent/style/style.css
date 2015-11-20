@@ -297,7 +297,7 @@ input{
 .neuerbenutzer_box_rechte{
 	background-color: #fff;
 	border: 1px  inset;
-	height: 60px;
+	height: 80px;
 	color: black;
 	overflow: scroll;
 	width: 540px;
@@ -434,6 +434,7 @@ input{
 .icon_task_leiste{
 	padding: 5px;
 	border-radius: 6px 6px 6px 6px;
+	height: 22.5px;
 }
 
 .icon_task_leiste:hover{
@@ -458,4 +459,20 @@ input{
 
 .fehlermeldung_in_std_fenster{
 	margin-top:15px;
+}
+
+.tabelle_rechte{
+	display: table;
+}
+
+.label_rechte, .checlbox_rechte{
+	display: table-cell;
+}
+
+.neuerbenutzer_box_rechte #admin_benutzeruebersicht_liste_tabelle{
+	width: 542px;
+}
+
+.div_tabelle_zeile .ueberschrift_checkbox{
+	width: 16px;
 }

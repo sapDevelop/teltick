@@ -1,3 +1,4 @@
+<%@page import="modell.entitaeten.interfaces.Fenster"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -41,6 +42,30 @@
 				</div>
 				<div class="neuerbenutzer_ueberschrift_bereich_rechte">Rechte:</div>
 				<div class="neuerbenutzer_box_rechte" >
+				
+					<div id="admin_benutzeruebersicht_liste_tabelle" >
+						<div class="div_tabelle_zeile" >
+							<div class="div_tabelle_zelle div_tabelle_zelle_kopf ueberschrift_checkbox" >
+								
+							</div>
+							<div class="div_tabelle_zelle div_tabelle_zelle_kopf" >
+								Bezeichnung
+							</div>
+						</div>
+					
+						<c:forEach var="rechtFenster" items="${listeRechte}">
+							<div class="div_tabelle_zeile" >
+								<input type="checkbox" value="<c:out value="${rechtFenster.id}" />" name="rechte_<c:out value="${param.id}" />" id="rechte_<c:out value="${rechtFenster.id}" />" class="checkbox_rechte" 
+									<c:if test="${editUser != null}" >
+										<m:hatZugriffrechteFenster fensterId="${rechtFenster.id}"  benutzer="${editUser}" >
+											checked="checked"
+										</m:hatZugriffrechteFenster>
+									</c:if>
+								 />
+								<label for="rechte_<c:out value="${rechtFenster.id}" />" class="label_rechte" ><c:out value="${rechtFenster.titel}" /></label>
+							</div>
+						</c:forEach>
+					</div>
 				</div>
 				<div class="button_box_rechts">
 					<c:choose>
