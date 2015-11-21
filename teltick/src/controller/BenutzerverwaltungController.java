@@ -118,6 +118,14 @@ public class BenutzerverwaltungController extends HttpServlet {
 						log.info("Button: \"Anlegen\" geklickt");
 						pfad_inc_jsp = contBenutzerAnlegen(request, response);
 					break;
+					
+					/*
+					 * #################### Funktion: Benutzer ändern
+					 */
+					case "Speichern":
+						log.info("Button \"Änderung speichern\" geklickt.");
+						pfad_inc_jsp = contBenutzerAendern(request, response);
+					break;
 				}
 								
 				if (pfad_inc_jsp != null){
@@ -245,32 +253,119 @@ public class BenutzerverwaltungController extends HttpServlet {
 		return jsp_file;
 	}
 	
+	private String contBenutzerAendern(HttpServletRequest request, HttpServletResponse response){
+		
+		String jsp_file = "";
+		
+		//überprüft, ob alle wichtigen Felder ausgefüllt sind
+		if ( request.getParameter("id") != null && request.getParameter("mitarbeiter_id") != null){
+			
+			FeldFehlermeldung[] arrPflichtfelder = {
+				FeldFehlermeldungFactory.getInstance("Login-Name", "ein", "login_name"),
+				FeldFehlermeldungFactory.getInstance("Vorname", "ein", "vorname"),
+				FeldFehlermeldungFactory.getInstance("Name", "ein", "name"),
+				FeldFehlermeldungFactory.getInstance("Email-Adresse", "eine", "email"),
+			};
+			
+			EingabePruefung eingabePruefung1 = FehlermeldungPflichtfeldNichtAusgefuelltSingletonFactory.getInstance();
+			
+			//Erstellt eine Fehlermeldung, wenn nicht alle Felder ausgefüllt sind
+			Vector<FeldFehlermeldung> nichtAusgefuellteFelder = eingabePruefung1.getVectorNichtausgefuellteFelder(arrPflichtfelder, request);
+			String meldung = eingabePruefung1.getMeldungPflichtfelderNichtAusgefuellt(nichtAusgefuellteFelder);
+			
+			//Vector der die Feldnamen enthält, die rot markiert werden sollen
+			Vector<String> feldnamenUnalsgefuellteFelder = eingabePruefung1.getVectorFeldnamenNichtAusgefuellteFelder(nichtAusgefuellteFelder);
+			
+			boolean fehler = false;
+			if (meldung != ""){
+				fehler = true;
+			}
+			//Überprüft, ob die Email-Adresse um gültigen Format ist
+			else if (!eingabePruefung1.emailAdresseGueltig(request.getParameter("email"))){
+				meldung = "Email-Format ist ungültig.";
+				feldnamenUnalsgefuellteFelder.add("email");
+				fehler = true;
+			}
+			
+			//legt aus den Eingabewerten ein Objekt des Typs "Mitarbeiter" an
+			DaoMitarbeiter daoMAendern = DaoMitarbeiterFactory.getInstance();
+			Mitarbeiter werteAendernM = daoMAendern.getMitarbeiter(Integer.valueOf(request.getParameter("mitarbeiter_id")));
+			werteAendernM.setEmail(request.getParameter("email"));
+			werteAendernM.setLoginName(request.getParameter("login_name"));
+			werteAendernM.setName(request.getParameter("name"));
+			werteAendernM.setVorname(request.getParameter("vorname"));
+			
+			//fügt den Mitarbeiter seine Rechte hinzu
+			fuegeMitarbeiterRechteDesFormularHinzu(werteAendernM,request);
+			
+			
+			//Zeigt auf dem Desktop eine Fehlermeldung an, wenn die Eingabe nicht gültig war
+			if (fehler){
+				//Übergibt an die JSP-Seite die Fehlermeldung
+				request.setAttribute("fehlermeldung", meldung);
+				
+				request.setAttribute("vorgang", "neuerBenutzer");
+				
+				//alle Rechte, für die Rechteliste ermitteln
+				request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster());
+				
+				//Übergibt an die JSP-Seite, welche Felder rot markiert werden sollen
+				request.setAttribute("felderFehler", feldnamenUnalsgefuellteFelder);
+				
+				/*
+				 * Alte Eingabe in einen Obekt von Typ-Mitarbeiter speichern, 
+				 * damit die Werter auf der JSP-Seite mit der Programmierung der Änderungsfunktion angezeigt werden kann
+				 */
+				request.setAttribute("editUser", werteAendernM);
+				
+				jsp_file = "admin_benutzeruebersicht_benutzer_aendern.jsp";
+			}
+			//Wenn die ganze Eingabe gültig war, wird der Benutzer angelegt
+			else{
+				if ( request.getParameter("passwort") != "" )
+					werteAendernM.setPasswort(Md5HashVerfahrenSingletonFactory.getInstance().chiffriereText(request.getParameter("passwort")).toCharArray());
+				
+				//ändert den Mitarbeiter in der DB ab
+				daoMAendern.update(werteAendernM);
+				log.info("Mitarbeiter wird in der Datenbank geändert.");
+				
+				
+				jsp_file = "admin_benutzeruebersicht.jsp";
+				log.info("Benutzerübersicht wird geladen.");
+			}
+		}else{
+			log.error("Fenster-Id wurde nicht übermittelt-> Fenster: Benutzerverwaltung (Benutzeranlegen)");
+		}
+		
+		return jsp_file;
+	}
+	
 	/**
 	 * Fügt den Mitarbeiter die im Formular angekreuzten Rechte hinzu
 	 * @param m der Mitarbeiter
 	 */
 	private void fuegeMitarbeiterRechteDesFormularHinzu(Mitarbeiter m, HttpServletRequest request){
+		
 		String[] angekreuzteRechte = request.getParameterValues("rechte");
-		
-		log.info("Mitarbeiter werden Rechte hinzugefügt.");
-		
 		Vector<Recht> vectMitarbeiterRechte = new Vector<Recht>();
-		for(String fensterId : angekreuzteRechte){
-			Recht recht1 = RechtFactory.getInstance();
-			Fenster fensterRecht = FensterFactory.getInstance();
-			
-			fensterRecht.setId(Integer.valueOf(fensterId));
-			
-			recht1.setAutostart(false);
-			recht1.setBezeichung("siehe Fenster");
-			recht1.setZugehoerigesFenster(fensterRecht);
-			
-			vectMitarbeiterRechte.add(recht1);
-			
-			log.info("Hinzugefügtes Recht: " + fensterId);
-			
+		if ( angekreuzteRechte != null){
+			log.info("Mitarbeiter werden Rechte hinzugefügt.");
+			for(String fensterId : angekreuzteRechte){
+				Recht recht1 = RechtFactory.getInstance();
+				Fenster fensterRecht = FensterFactory.getInstance();
+				
+				fensterRecht.setId(Integer.valueOf(fensterId));
+				
+				recht1.setAutostart(false);
+				recht1.setBezeichung("siehe Fenster");
+				recht1.setZugehoerigesFenster(fensterRecht);
+				
+				vectMitarbeiterRechte.add(recht1);
+				
+				log.info("Hinzugefügtes Recht: " + fensterId);
+				
+			}
 		}
-		
 		m.setRechte(vectMitarbeiterRechte);
 	}
 }

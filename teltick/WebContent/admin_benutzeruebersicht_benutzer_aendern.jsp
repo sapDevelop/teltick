@@ -12,6 +12,11 @@
 	<form action="BenutzerverwaltungController" method="post"  name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
 		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
 		
+		<c:if test="${editUser != null && requestScope.vorgang != 'neuerBenutzer'}" >
+			<!-- Fügt die Mitarbeiter-Id des Benutzers zum Formular hinzu -->
+			<input type="hidden" name="mitarbeiter_id" value="<c:out value="${editUser.mitarbeiterId}" />" />
+		</c:if>
+		
 		<%-- Zeigt eine Fehlermeldung an, wenn die Eingaben ungültig waren --%>
 		<c:if test="${fehlermeldung != null}" >
 			<teltick:meldungsbox hoehe="160px" icon="fehler" breite="500px" titel="Eingabe ungültig">
@@ -96,7 +101,7 @@
 							<input type="submit" value="Anlegen" class="" title="Anlegen" onclick="submit_button=this.value;" />
 						</c:when>
 						<c:otherwise>
-							<input type="submit" value="Übernehmen" class="" title="Übernehmen" onclick="submit_button=this.value;" />
+							<input type="submit" value="Speichern" class="" title="Speichern" onclick="submit_button=this.value;" />
 						</c:otherwise>
 					</c:choose>
 					<input type="submit" value="Abbrechen" class="" title="Abbrechen" onclick="submit_button=this.value;" />

@@ -297,7 +297,7 @@ input{
 .neuerbenutzer_box_rechte{
 	background-color: #fff;
 	border: 1px  inset;
-	height: 80px;
+	height: 105px;
 	color: black;
 	overflow: scroll;
 	width: 540px;
@@ -473,7 +473,6 @@ input{
 
 .neuerbenutzer_box_rechte #admin_benutzeruebersicht_liste_tabelle{
 	width: 542px;
-	height: 105px;
 }
 
 .div_tabelle_zeile .ueberschrift_checkbox{
