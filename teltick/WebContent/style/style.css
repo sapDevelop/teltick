@@ -482,3 +482,13 @@ input{
 .neuerbenutzer_formularzeile input{
 	border: 1px solid;
 }
+
+.bestaetigungsbox_bereich_button{
+	margin-top: 15px;
+	float: right;
+	padding-right: 10px;
+}
+
+.bestaetigungsbox_bereich_button input{
+	width: 132px;
+}
