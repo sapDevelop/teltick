@@ -23,6 +23,7 @@ import basis.interfaces.FeldFehlermeldung;
 import logger.LogFactory;
 import modell.entitaeten.factory.FensterFactory;
 import modell.entitaeten.factory.MitarbeiterFactory;
+import modell.entitaeten.factory.RechtFactory;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Recht;
@@ -189,7 +190,9 @@ public class BenutzerverwaltungController extends HttpServlet {
 			werteNeuerM.setLoginName(request.getParameter("login_name"));
 			werteNeuerM.setName(request.getParameter("name"));
 			werteNeuerM.setVorname(request.getParameter("vorname"));
-			werteNeuerM.setRechte(new Vector<Recht>());
+			
+			//fügt den Mitarbeiter seine Rechte hinzu
+			fuegeMitarbeiterRechteDesFormularHinzu(werteNeuerM,request);
 			
 			
 			//Zeigt auf dem Desktop eine Fehlermeldung an, wenn die Eingabe nicht gültig war
@@ -223,6 +226,15 @@ public class BenutzerverwaltungController extends HttpServlet {
 				daoMNeu.speicherInDB(werteNeuerM);
 				log.info("Neuer Mitarbeiter wird in der Datenbank angelegt.");
 				
+				//lädt den angelegten Mitarbeiter von der Datenbank, um die Mitarbeiter-ID zu erhalten
+				werteNeuerM = daoMNeu.getMitarbeiter(werteNeuerM.getLoginName(), werteNeuerM.getPasswort());
+				
+				//fügt den Mitarbeiter seine Rechte hinzu
+				log.info("Lädt den neuen Mitarbeiter aus der Datenbank.");
+				fuegeMitarbeiterRechteDesFormularHinzu(werteNeuerM,request);
+				log.info("Fügt den neuen Mitarbeiter die angekreuzten Rechte hinzu.");
+				daoMNeu.updateRechteMitarbeiter(werteNeuerM);
+				
 				jsp_file = "admin_benutzeruebersicht.jsp";
 				log.info("Benutzerübersicht wird geladen.");
 			}
@@ -231,5 +243,34 @@ public class BenutzerverwaltungController extends HttpServlet {
 		}
 		
 		return jsp_file;
+	}
+	
+	/**
+	 * Fügt den Mitarbeiter die im Formular angekreuzten Rechte hinzu
+	 * @param m der Mitarbeiter
+	 */
+	private void fuegeMitarbeiterRechteDesFormularHinzu(Mitarbeiter m, HttpServletRequest request){
+		String[] angekreuzteRechte = request.getParameterValues("rechte");
+		
+		log.info("Mitarbeiter werden Rechte hinzugefügt.");
+		
+		Vector<Recht> vectMitarbeiterRechte = new Vector<Recht>();
+		for(String fensterId : angekreuzteRechte){
+			Recht recht1 = RechtFactory.getInstance();
+			Fenster fensterRecht = FensterFactory.getInstance();
+			
+			fensterRecht.setId(Integer.valueOf(fensterId));
+			
+			recht1.setAutostart(false);
+			recht1.setBezeichung("siehe Fenster");
+			recht1.setZugehoerigesFenster(fensterRecht);
+			
+			vectMitarbeiterRechte.add(recht1);
+			
+			log.info("Hinzugefügtes Recht: " + fensterId);
+			
+		}
+		
+		m.setRechte(vectMitarbeiterRechte);
 	}
 }

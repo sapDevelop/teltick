@@ -58,7 +58,7 @@
 								<div class="div_tabelle_zelle" >
 									<c:if test="${ fn:length(m.rechte) == 0 }" >-keine-</c:if>
 									<c:forEach var="recht" items="${m.rechte }">
-										<c:out value="${ recht.zugehoerigesFenster.titel } " />
+										<c:out value="${ recht.zugehoerigesFenster.titel }" />;
 									</c:forEach>
 								</div>
 							</label>

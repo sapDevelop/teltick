@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
+import org.apache.log4j.Logger;
+
+import controller.BenutzerverwaltungController;
+import logger.LogFactory;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Recht;
@@ -18,6 +22,8 @@ import modell.interfaces.DaoMitarbeiter;
 
 public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 
+	private static Logger log = LogFactory.getInstance(ImpDaoMitarbeiter.class.getName());
+	
 	@Override
 	public Mitarbeiter getMitarbeiter(int id) {
 		Mitarbeiter m = null;
@@ -289,6 +295,8 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			
 			verbindung.close();
 		}catch (SQLException e) {
+			log.error(e.getMessage());
+			
 			fehler = true;
 			if (verbindung != null){
 				try {
