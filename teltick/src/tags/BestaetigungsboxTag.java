@@ -2,11 +2,11 @@ package tags;
 
 import java.io.IOException;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
-
 
 import basis.factory.VorlagenFensterFactory;
 
@@ -18,8 +18,7 @@ public class BestaetigungsboxTag extends BodyTagSupport {
 	private boolean submitUmleiten = false;
 	private String dialogKennung;
 	
-	
-			
+
 	public String getDialogKennung() {
 		return dialogKennung;
 	}
@@ -87,7 +86,7 @@ public class BestaetigungsboxTag extends BodyTagSupport {
 
 	@Override
 	public int doEndTag() throws JspException {
-		
+				
 		//Bestimmt die Id des Div, wo das Ergebnis der Berabeitung angezeigt werden soll,
 		//falls der Submit umgeleitet werden soll
 		int id = -1;
@@ -103,9 +102,9 @@ public class BestaetigungsboxTag extends BodyTagSupport {
 		}
 		
 		int idFensterUmleitung = !submitUmleiten ? -1 : Integer.valueOf(pageContext.getRequest().getParameter("id"));
-		
+			
 		String body = getBodyContent().getString();
-		String meldungsbox =  VorlagenFensterFactory.getInstance().getBestaetigungsBox(body, titel, breite, hoehe, icon, pageContext.getSession(), false,methode, aktion, dialogKennung ,idFensterUmleitung);
+		String meldungsbox =  VorlagenFensterFactory.getInstance().getBestaetigungsBox(body, titel, breite, hoehe, icon, pageContext.getSession(), false,methode, aktion, dialogKennung ,pageContext.getRequest(),idFensterUmleitung);
 		
 		JspWriter out = getBodyContent().getEnclosingWriter();
 		try {

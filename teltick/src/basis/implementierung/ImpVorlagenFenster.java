@@ -1,10 +1,19 @@
 package basis.implementierung;
 
+import java.util.Enumeration;
+
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
+
+import logger.LogFactory;
+
+import org.apache.log4j.Logger;
 
 import basis.interfaces.VorlagenFenster;
 
 public class ImpVorlagenFenster implements VorlagenFenster{
+	
+	private static Logger log = LogFactory.getInstance(ImpVorlagenFenster.class.getName());
 
 	@Override
 	public String getMeldungsbox(String content, String titel, String breite,	String hoehe, String icon, HttpSession session, boolean betriebenAufServlet) {
@@ -53,7 +62,10 @@ public class ImpVorlagenFenster implements VorlagenFenster{
 	}
 
 	@Override
-	public String getBestaetigungsBox(String content, String titel,	String breite, String hoehe, String icon, HttpSession session, boolean betriebenAufServlet, String methode, String aktion,String dialogKennung, int submitUmleitenNachFensterId) {
+	public String getBestaetigungsBox(String content, String titel,	String breite, String hoehe, String icon, HttpSession session, boolean betriebenAufServlet, String methode, String aktion,String dialogKennung, ServletRequest request,int submitUmleitenNachFensterId) {
+		
+		log.info("Bestätigungsbox wird angezeigt.");
+		
 		String iconName = icon + ".png";
 		
 		String submitUmleiten = submitUmleitenNachFensterId == -1 ? "" : "onsubmit=\"return submitUmleiten(this, '"+ submitUmleitenNachFensterId +"');\"";
@@ -90,8 +102,26 @@ public class ImpVorlagenFenster implements VorlagenFenster{
 				+"	<div class=\"content content_meldungsbox\" id=\"fenster_content_"+ fensterZaehlVariable.intValue() +"\" >"
 				+ 		content
 				+"	</div>"
-				+"	<form method=\""+ methode +"\" action=\""+ aktion +"\" class=\"bestaetigungsbox_bereich_button\" onreset=\"fenster_schliessen('fenster_"+ fensterZaehlVariable.intValue() +"');\"  "+ submitUmleiten +" >"
-				+"		<input type=\"hidden\" value=\" "+ dialogKennung +"\"  name=\"dialogKennung\"  />"
+				+"	<form method=\""+ methode +"\" action=\""+ aktion +"\" class=\"bestaetigungsbox_bereich_button\" onreset=\"fenster_schliessen('fenster_"+ fensterZaehlVariable.intValue() +"');\"  "+ submitUmleiten +" >";
+		
+			//Übernimmt alle Parameter für die aktuelle Anfrage
+		
+			log.info("Box übernimmt die Request-Parameter des Parents.");
+			log.info("Folgende Parameter werden übernommen:");
+			Enumeration<String> enm=request.getParameterNames();
+			while(enm.hasMoreElements()){
+				String parameterName = enm.nextElement();
+				String wert = request.getParameter(parameterName);
+				if (!parameterName.equals("submit")){
+					ausgabe += "<input type=\"hidden\" value=\""+convertToHtmlSpecialChars(wert)+ "\"  name=\""+convertToHtmlSpecialChars(parameterName)+ "\"  />";
+					log.info(parameterName + ": " + wert);
+				}
+			}
+			log.info("Ende: Parameterübernahme");
+		
+		
+		 	ausgabe += "" 
+				+"		<input type=\"hidden\" value=\""+ dialogKennung +"\"  name=\"dialogKennung\"  />"
 				+"		<input type=\"submit\" value=\"Ja\"  title=\"Ja\" name=\"submit\" onclick=\"submit_button=this.value;\" />"
 				+"		<input type=\"reset\" value=\"Nein\"  title=\"Nein\" name=\"Abbrechen\" />"
 				+"	</form>"
@@ -103,8 +133,12 @@ public class ImpVorlagenFenster implements VorlagenFenster{
 	}
 
 	@Override
-	public String getBestaetigungsBox(String content, String titel,	String breite, String hoehe, String icon, HttpSession session,boolean betriebenAufServlet, String methode, String aktion, String dialogKennung) {
-		return getBestaetigungsBox(content, titel, breite, hoehe, icon, session, betriebenAufServlet, methode, aktion,dialogKennung, -1);
+	public String getBestaetigungsBox(String content, String titel,	String breite, String hoehe, String icon, HttpSession session,boolean betriebenAufServlet, String methode, String aktion, String dialogKennung, ServletRequest request) {
+		return getBestaetigungsBox(content, titel, breite, hoehe, icon, session, betriebenAufServlet, methode, aktion,dialogKennung,request, -1);
+	}
+	
+	public String convertToHtmlSpecialChars( String input){
+		return input.replace("\"", "&quote;").replace("<", "&lt;").replace(">", "&gt;");
 	}
 
 }

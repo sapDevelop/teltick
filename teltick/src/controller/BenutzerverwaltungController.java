@@ -136,6 +136,24 @@ public class BenutzerverwaltungController extends HttpServlet {
 					log.info("Button \"Änderung speichern\" geklickt.");
 					pfad_inc_jsp = contBenutzerAendern(request, response);
 				break;
+				
+				/*
+				 * #################### Bestätigungsbox: Ja-Button wurde geklickt
+				 */
+				case "Ja":
+					log.info("Bestätigungsbox: \"Ja-Button\" wurde geklickt");
+					//Bestimmt von welcher Funktions aus die Bestätigungsbox aufgerufen wurde
+					if ( request.getParameter("dialogKennung") != null){
+						log.info("Erkennung, welche Funktion die Bestätigung gesendet hat:");
+						switch(request.getParameter("dialogKennung")){
+							//Sender: Löschfunktion
+							case "sicherheitsfrage_benutzer_loeschen":
+								log.info("Sender: Benutzerlöschfunktion");
+								pfad_inc_jsp = contBenutzerLoeschen(request, response);
+							break;
+						}
+					}
+				break;
 			}
 							
 			if (pfad_inc_jsp != null){
@@ -386,5 +404,34 @@ public class BenutzerverwaltungController extends HttpServlet {
 			}
 		}
 		m.setRechte(vectMitarbeiterRechte);
+	}
+	
+	/**
+	 * Löscht den als Parameter übergebenen Benutzer
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	private String contBenutzerLoeschen(HttpServletRequest request, HttpServletResponse response){
+		log.info("Benutzerlöschmethode gestartet.");
+		if (request.getParameter("benutzer_radio") != null){
+			DaoMitarbeiter dao = DaoMitarbeiterFactory.getInstance();
+			Mitarbeiter m = dao.getMitarbeiter(Integer.valueOf(request.getParameter("benutzer_radio")));
+			if (m != null){
+				log.info("Löschvorgang für den Benutzer \"" + request.getParameter("benutzer_radio") + "\" gestartet.");
+				if (!dao.loescheVonDB(m)){
+					log.info("Der Benutzer \"" + request.getParameter("benutzer_radio") + "\" konnte nicht gelöscht werden.");
+					request.setAttribute("fehlermeldung", "Der angewählte Benutzer konnte nicht gelöscht werden.");
+				}
+			}else{
+				log.info("Benutzer \"" + request.getParameter("benutzer_radio") + "\" konnte nicht gefunden werden.");
+				request.setAttribute("fehlermeldung", "Der angewählte Benutzer konnte nicht gefunden werden.");
+			}
+		}else{
+			log.info("Kein Benutzer angegeben, der gelöscht werden soll.");
+			request.setAttribute("fehlermeldung", "Kein Benutzer angegeben, der gelöscht werden soll.");
+		}
+		
+		return "admin_benutzeruebersicht.jsp";
 	}
 }

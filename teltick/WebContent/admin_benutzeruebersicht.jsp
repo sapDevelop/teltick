@@ -18,10 +18,17 @@
 			Wollen Sie den Benutzer wirklich löschen?
 		</teltick:bestaetigungsbox>
 	</c:if>
+	
+	<%-- Zeigt eine Fehlermeldung an, wenn die Eingaben ungültig waren --%>
+	<c:if test="${fehlermeldung != null}" >
+		<teltick:meldungsbox hoehe="160px" icon="fehler" breite="500px" titel="Eingabe ungültig">
+			<c:out value="${fehlermeldung}" />
+		</teltick:meldungsbox>
+	</c:if>
 
 	<form action="BenutzerverwaltungController" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
 		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
-				
+						
 		<div class="admin_benutzeruebersicht_content_aufteiler">
 			<div class="admin_benutzeruebersicht_content_bereich_benutzerauflistung" >
 				<div class="ueberschrift_content_fenster">Benutzer:</div>
