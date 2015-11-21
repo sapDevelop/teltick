@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 
 import basis.factory.FehlermeldungPflichtfeldNichtAusgefuelltSingletonFactory;
 import basis.factory.FeldFehlermeldungFactory;
+import basis.factory.Md5HashVerfahrenSingletonFactory;
 import basis.interfaces.EingabePruefung;
 import basis.interfaces.FeldFehlermeldung;
 import logger.LogFactory;
@@ -28,6 +29,7 @@ import modell.entitaeten.interfaces.Recht;
 import modell.factory.DaoFensterFactory;
 import modell.factory.DaoMitarbeiterFactory;
 import modell.interfaces.DaoFenster;
+import modell.interfaces.DaoMitarbeiter;
 
 /**
  * Servlet implementation class BenutzerverwaltungController
@@ -181,6 +183,15 @@ public class BenutzerverwaltungController extends HttpServlet {
 				fehler = true;
 			}
 			
+			//legt aus den Eingabewerten ein Objekt des Typs "Mitarbeiter" an
+			Mitarbeiter werteNeuerM = MitarbeiterFactory.getInstance();
+			werteNeuerM.setEmail(request.getParameter("email"));
+			werteNeuerM.setLoginName(request.getParameter("login_name"));
+			werteNeuerM.setName(request.getParameter("name"));
+			werteNeuerM.setVorname(request.getParameter("vorname"));
+			werteNeuerM.setRechte(new Vector<Recht>());
+			
+			
 			//Zeigt auf dem Desktop eine Fehlermeldung an, wenn die Eingabe nicht gültig war
 			if (fehler){
 				//Übergibt an die JSP-Seite die Fehlermeldung
@@ -198,12 +209,6 @@ public class BenutzerverwaltungController extends HttpServlet {
 				 * Alte Eingabe in einen Obekt von Typ-Mitarbeiter speichern, 
 				 * damit die Werter auf der JSP-Seite mit der Programmierung der Änderungsfunktion angezeigt werden kann
 				 */
-				Mitarbeiter werteNeuerM = MitarbeiterFactory.getInstance();
-				werteNeuerM.setEmail(request.getParameter("email"));
-				werteNeuerM.setLoginName(request.getParameter("login_name"));
-				werteNeuerM.setName(request.getParameter("name"));
-				werteNeuerM.setVorname(request.getParameter("vorname"));
-				werteNeuerM.setRechte(new Vector<Recht>());
 				request.setAttribute("editUser", werteNeuerM);
 				
 				jsp_file = "admin_benutzeruebersicht_benutzer_aendern.jsp";
@@ -211,6 +216,15 @@ public class BenutzerverwaltungController extends HttpServlet {
 			//Wenn die ganze Eingabe gültig war, wird der Benutzer angelegt
 			else{
 				
+				werteNeuerM.setPasswort(Md5HashVerfahrenSingletonFactory.getInstance().chiffriereText(request.getParameter("passwort")).toCharArray());
+				
+				//speichert den Mitarbeiter in der DB ab
+				DaoMitarbeiter daoMNeu = DaoMitarbeiterFactory.getInstance();
+				daoMNeu.speicherInDB(werteNeuerM);
+				log.info("Neuer Mitarbeiter wird in der Datenbank angelegt.");
+				
+				jsp_file = "admin_benutzeruebersicht.jsp";
+				log.info("Benutzerübersicht wird geladen.");
 			}
 		}else{
 			log.error("Fenster-Id wurde nicht übermittelt-> Fenster: Benutzerverwaltung (Benutzeranlegen)");
