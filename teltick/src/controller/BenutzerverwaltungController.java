@@ -16,9 +16,12 @@ import javax.servlet.jsp.JspWriter;
 import org.apache.log4j.Logger;
 
 import basis.factory.FehlermeldungPflichtfeldNichtAusgefuelltSingletonFactory;
+import basis.factory.FeldFehlermeldungFactory;
 import basis.interfaces.EingabePruefung;
+import basis.interfaces.FeldFehlermeldung;
 import logger.LogFactory;
 import modell.entitaeten.factory.FensterFactory;
+import modell.entitaeten.factory.MitarbeiterFactory;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Recht;
@@ -66,7 +69,7 @@ public class BenutzerverwaltungController extends HttpServlet {
 				switch (request.getParameter("submit")){
 				
 					/*
-					 * Seite "Neuer Benutzer" laden
+					 * #################### Seite "Neuer Benutzer" laden
 					 */
 					case "Neuer Benutzer":
 						log.info("Button: \"Neuer Benutzer\" geklickt");
@@ -78,7 +81,7 @@ public class BenutzerverwaltungController extends HttpServlet {
 					break;
 					
 					/*
-					 * Seite "Benutzer bearbeiten"
+					 * #################### Seite "Benutzer bearbeiten" laden
 					 */
 					case "Bearbeiten":
 						log.info("Button: \"Benutzer ändern\" geklickt");
@@ -97,7 +100,7 @@ public class BenutzerverwaltungController extends HttpServlet {
 					break;
 					
 					/*
-					 * Funktion: Abbrechen, Seite aktualisieren
+					 * #################### Funktion: Abbrechen, Seite aktualisieren
 					 */
 					case "Aktualisieren":
 					case "Abbrechen":
@@ -106,7 +109,7 @@ public class BenutzerverwaltungController extends HttpServlet {
 					break;
 					
 					/*
-					 * Funktion: Benutzer anlegen
+					 * #################### Funktion: Benutzer anlegen
 					 */
 					case "Anlegen":
 						log.info("Button: \"Anlegen\" geklickt");
@@ -149,33 +152,59 @@ public class BenutzerverwaltungController extends HttpServlet {
 		
 		//überprüft, ob alle wichtigen Felder ausgefüllt sind
 		if ( request.getParameter("id") != null){
-			int id1 = Integer.valueOf(request.getParameter("id"));
-			String[][] arrPflichtfelder = {
-					{"ein", "Login-Name", "login_name_" + id1 }, 
-					{"ein", "Vorname", "vorname_" + id1 }, 
-					{"ein", "Name", "name_" + id1 },
-					{"eine", "Email-Adresse", "email_" + id1 },
-					{"ein", "Passwort", "passwort_" + id1 },
+			
+			FeldFehlermeldung[] arrPflichtfelder = {
+				FeldFehlermeldungFactory.getInstance("Login-Name", "ein", "login_name"),
+				FeldFehlermeldungFactory.getInstance("Vorname", "ein", "vorname"),
+				FeldFehlermeldungFactory.getInstance("Name", "ein", "name"),
+				FeldFehlermeldungFactory.getInstance("Email-Adresse", "eine", "email"),
+				FeldFehlermeldungFactory.getInstance("Passwort", "ein", "passwort")
 			};
+			
 			EingabePruefung eingabePruefung1 = FehlermeldungPflichtfeldNichtAusgefuelltSingletonFactory.getInstance();
-			String meldung = eingabePruefung1.getMeldungPflichtfelderNichtAusgefuellt(arrPflichtfelder, request);
+			
+			//Erstellt eine Fehlermeldung, wenn nicht alle Felder ausgefüllt sind
+			Vector<FeldFehlermeldung> nichtAusgefuellteFelder = eingabePruefung1.getVectorNichtausgefuellteFelder(arrPflichtfelder, request);
+			String meldung = eingabePruefung1.getMeldungPflichtfelderNichtAusgefuellt(nichtAusgefuellteFelder);
+			
+			//Vector der die Feldnamen enthält, die rot markiert werden sollen
+			Vector<String> feldnamenUnalsgefuellteFelder = eingabePruefung1.getVectorFeldnamenNichtAusgefuellteFelder(nichtAusgefuellteFelder);
+			
 			boolean fehler = false;
 			if (meldung != ""){
 				fehler = true;
 			}
 			//Überprüft, ob die Email-Adresse um gültigen Format ist
-			else if (!eingabePruefung1.emailAdresseGueltig(request.getParameter("email_" + id1))){
-				meldung = "Die Email-Adresse ist nicht im g&uuml;ltigen Format.";
+			else if (!eingabePruefung1.emailAdresseGueltig(request.getParameter("email"))){
+				meldung = "Email-Format ist ungültig.";
+				feldnamenUnalsgefuellteFelder.add("email");
 				fehler = true;
 			}
 			
 			//Zeigt auf dem Desktop eine Fehlermeldung an, wenn die Eingabe nicht gültig war
 			if (fehler){
+				//Übergibt an die JSP-Seite die Fehlermeldung
 				request.setAttribute("fehlermeldung", meldung);
+				
 				request.setAttribute("vorgang", "neuerBenutzer");
 				
 				//alle Rechte, für die Rechteliste ermitteln
-				request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster()); 	
+				request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster());
+				
+				//Übergibt an die JSP-Seite, welche Felder rot markiert werden sollen
+				request.setAttribute("felderFehler", feldnamenUnalsgefuellteFelder);
+				
+				/*
+				 * Alte Eingabe in einen Obekt von Typ-Mitarbeiter speichern, 
+				 * damit die Werter auf der JSP-Seite mit der Programmierung der Änderungsfunktion angezeigt werden kann
+				 */
+				Mitarbeiter werteNeuerM = MitarbeiterFactory.getInstance();
+				werteNeuerM.setEmail(request.getParameter("email"));
+				werteNeuerM.setLoginName(request.getParameter("login_name"));
+				werteNeuerM.setName(request.getParameter("name"));
+				werteNeuerM.setVorname(request.getParameter("vorname"));
+				werteNeuerM.setRechte(new Vector<Recht>());
+				request.setAttribute("editUser", werteNeuerM);
 				
 				jsp_file = "admin_benutzeruebersicht_benutzer_aendern.jsp";
 			}

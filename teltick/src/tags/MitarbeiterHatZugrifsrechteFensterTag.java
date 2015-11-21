@@ -9,7 +9,6 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 
 import org.apache.log4j.Logger;
 
-import controller.BenutzerverwaltungController;
 import logger.LogFactory;
 import modell.entitaeten.factory.FensterFactory;
 import modell.entitaeten.interfaces.Fenster;

@@ -476,3 +476,7 @@ input{
 .div_tabelle_zeile .ueberschrift_checkbox{
 	width: 16px;
 }
+
+.neuerbenutzer_formularzeile input{
+	border: 1px solid;
+}

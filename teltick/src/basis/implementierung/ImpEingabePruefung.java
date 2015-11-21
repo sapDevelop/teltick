@@ -9,53 +9,18 @@ import logger.LogFactory;
 import org.apache.log4j.Logger;
 
 import basis.interfaces.EingabePruefung;
+import basis.interfaces.FeldFehlermeldung;
 
 public class ImpEingabePruefung  implements EingabePruefung{
 	
 	private static Logger log = LogFactory.getInstance(ImpEingabePruefung.class.getName());
 
-	/**
-	 * erstellt eine Fehlermeldung, wenn nicht alle Pflichtfelder ausgefüllt wind
-	 */
+	
 	@Override
-	public String getMeldungPflichtfelderNichtAusgefuellt(String[][] arrArtikelFeldbezeichnungMeldungswort, HttpServletRequest request) {
+	public String getMeldungPflichtfelderNichtAusgefuellt(FeldFehlermeldung[] arrArtikelFeldbezeichnungMeldungswort, HttpServletRequest request) {
 		
-		Vector<String[]> vectFehler = new Vector<String[]>();
-		String meldung = "";
-		String loggerFeldnamenTmp = "";
-		
-		log.info("Es wird überprüft, ob alle Pflichtfelder ausgefüllt sind.");
-		
-		//überprüft, welche Felder nicht ausgefüllt sind
-		for (int i = 0; i < arrArtikelFeldbezeichnungMeldungswort.length; i++){
-			if (request.getParameter(arrArtikelFeldbezeichnungMeldungswort[i][2]) == ""){
-				vectFehler.add(arrArtikelFeldbezeichnungMeldungswort[i]);
-				loggerFeldnamenTmp += (loggerFeldnamenTmp == "") ? arrArtikelFeldbezeichnungMeldungswort[i][2] : ", " + arrArtikelFeldbezeichnungMeldungswort[i][2];
-			}
-		}
-		
-		//erstellt die Fehlermeldung für die nicht ausgefüllten Felder
-		if ( vectFehler.size() > 0 ){
-			meldung = "Bitte geben Sie ";
-			for ( int i = 0; i < vectFehler.size(); i++){
-				if ( i > 0 && i != (vectFehler.size()-1)){
-					meldung += ", ";
-				}else if (i > 0 && i == (vectFehler.size()-1)){
-					meldung += " und ";
-				}
-				meldung += vectFehler.get(i)[0] + " " + vectFehler.get(i)[1];
-			}
-			meldung += " an.";
-		}
-		
-		//Logger protokoliert den Vorgang
-		if (loggerFeldnamenTmp == ""){
-			log.info("Es sind alle Pflichtfelder ausgefüllt.");
-		}else{
-			log.info("Folgende Pflichtfelder sind nicht ausgefüllt: " + loggerFeldnamenTmp);
-		}
-		
-		return meldung;
+		Vector<FeldFehlermeldung> vectFehler = getVectorNichtausgefuellteFelder(arrArtikelFeldbezeichnungMeldungswort, request);
+		return getMeldungPflichtfelderNichtAusgefuellt(vectFehler);
 	}
 	
 	@Override
@@ -78,5 +43,61 @@ public class ImpEingabePruefung  implements EingabePruefung{
 		
 		// Mindestens zwei Zeichen für die Endung
 		return dot+2 < len;
+	}
+
+	@Override
+	public Vector<FeldFehlermeldung> getVectorNichtausgefuellteFelder(FeldFehlermeldung[] arrArtikelFeldbezeichnungMeldungswort, HttpServletRequest request) {
+		
+		Vector<FeldFehlermeldung> vectFehler = new Vector<FeldFehlermeldung>();
+		
+		log.info("Es wird überprüft, ob alle Pflichtfelder ausgefüllt sind.");
+		String loggerFeldnamenTmp = "";
+		//überprüft, welche Felder nicht ausgefüllt sind
+		for (int i = 0; i < arrArtikelFeldbezeichnungMeldungswort.length; i++){
+			if (request.getParameter(arrArtikelFeldbezeichnungMeldungswort[i].getFeldname()) == ""){
+				vectFehler.add(arrArtikelFeldbezeichnungMeldungswort[i]);
+				loggerFeldnamenTmp += (loggerFeldnamenTmp == "") ? arrArtikelFeldbezeichnungMeldungswort[i].getFeldname() : ", " + arrArtikelFeldbezeichnungMeldungswort[i].getFeldname();
+			}
+		}
+		
+		//Logger protokoliert den Vorgang
+		if (loggerFeldnamenTmp == ""){
+			log.info("Es sind alle Pflichtfelder ausgefüllt.");
+		}else{
+			log.info("Folgende Pflichtfelder sind nicht ausgefüllt: " + loggerFeldnamenTmp);
+		}
+		
+		// TODO Auto-generated method stub
+		return vectFehler;
+	}
+
+	@Override
+	public String getMeldungPflichtfelderNichtAusgefuellt(Vector<FeldFehlermeldung> vectorNichtAusgefuellteFelder) {
+		String meldung = "";
+	
+		//erstellt die Fehlermeldung für die nicht ausgefüllten Felder
+		if ( vectorNichtAusgefuellteFelder.size() > 0 ){
+			meldung = "Bitte geben Sie ";
+			for ( int i = 0; i < vectorNichtAusgefuellteFelder.size(); i++){
+				if ( i > 0 && i != (vectorNichtAusgefuellteFelder.size()-1)){
+					meldung += ", ";
+				}else if (i > 0 && i == (vectorNichtAusgefuellteFelder.size()-1)){
+					meldung += " und ";
+				}
+				meldung += vectorNichtAusgefuellteFelder.get(i).getArtikel() + " " + vectorNichtAusgefuellteFelder.get(i).getMeldungswort();
+			}
+			meldung += " an.";
+		}
+		
+		return meldung;
+	}
+
+	@Override
+	public Vector<String> getVectorFeldnamenNichtAusgefuellteFelder(Vector<FeldFehlermeldung> felderNichtAusgefuellteFelder) {
+		Vector<String> v = new Vector<String>();
+		for(FeldFehlermeldung feld : felderNichtAusgefuellteFelder ){
+			v.add(feld.getFeldname());
+		}
+		return v;
 	}
 }

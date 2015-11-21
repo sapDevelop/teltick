@@ -35,7 +35,6 @@ String iconName = icon + ".png";
 				+"	<div class=\"fenster_kopf\" >"
 				+"		<img class=\"icon_fenster\" src=\"bilder/fenstericons/" + iconName + "\" /> <span class=\"meldungsfenster_titel\">"+ titel + "</span>"
 				+"		<span class=\"bereich_fenster_buttons\" >"
-				+"			<span onclick=\"fenster_minimieren('fenster_"+ fensterZaehlVariable.intValue() +"');\" class=\"fensterbutton fensterbutton_minimieren\" title=\"Minimieren\" ></span>"
 				+"			<span onclick=\"fenster_schliessen('fenster_"+ fensterZaehlVariable.intValue() +"');\" class=\"fensterbutton fensterbutton_schliessen\" title=\"Schlie&szlig;en\" ></span>"
 				+"		</span>"
 				+"		<div class=\"clear_right\" ></div>"

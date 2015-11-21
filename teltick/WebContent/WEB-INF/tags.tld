@@ -12,6 +12,8 @@
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>
 	</tag>
+	
+	
 	<tag>
 		<name>meldungsbox</name>
 		<tag-class>tags.MeldungsboxTag</tag-class>
@@ -36,17 +38,9 @@
 			<required>true</required>
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>
-		<attribute>
-			<name>parentFensterBreite</name>
-			<required>false</required>
-			<rtextprvalue>true</rtextprvalue>
-		</attribute>
-		<attribute>
-			<name>parentFensterHoehe</name>
-			<required>false</required>
-			<rtextprvalue>true</rtextprvalue>
-		</attribute>
 	</tag>
+	
+	
 	<tag>
 		<name>forEachMitarbeiter</name>
 		<tag-class>tags.forEachMitarbeiterTag</tag-class>
@@ -62,4 +56,21 @@
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>
 	</tag>
+	
+	<tag>
+		<name>wennEintragInVector</name>
+		<tag-class>tags.EintragInVector</tag-class>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>vector</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+		<attribute>
+			<name>eintrag</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+	</tag>
+	
 </taglib>
