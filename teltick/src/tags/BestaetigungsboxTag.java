@@ -15,7 +15,7 @@ public class BestaetigungsboxTag extends BodyTagSupport {
 	private String icon, titel;
 	private String breite, hoehe;
 	private String aktion, methode;
-	private int submitUmleitenNachFensterId = -1;
+	private boolean submitUmleiten = false;
 	private String dialogKennung;
 	
 	
@@ -28,12 +28,12 @@ public class BestaetigungsboxTag extends BodyTagSupport {
 		this.dialogKennung = dialogKennung;
 	}
 
-	public int getSubmitUmleitenNachFensterId() {
-		return submitUmleitenNachFensterId;
+	public boolean isSubmitUmleiten() {
+		return submitUmleiten;
 	}
 
-	public void setSubmitUmleitenNachFensterId(int submitUmleitenNachFensterId) {
-		this.submitUmleitenNachFensterId = submitUmleitenNachFensterId;
+	public void setSubmitUmleiten(boolean submitUmleiten) {
+		this.submitUmleiten = submitUmleiten;
 	}
 
 	public String getAktion() {
@@ -88,9 +88,24 @@ public class BestaetigungsboxTag extends BodyTagSupport {
 	@Override
 	public int doEndTag() throws JspException {
 		
+		//Bestimmt die Id des Div, wo das Ergebnis der Berabeitung angezeigt werden soll,
+		//falls der Submit umgeleitet werden soll
+		int id = -1;
+		if (submitUmleiten){
+			if ( pageContext.getRequest().getParameter("id") != null){
+				id = Integer.valueOf(pageContext.getRequest().getParameter("id"));
+			}else if(pageContext.getRequest().getAttribute("id") != null){
+				id = (int) pageContext.getRequest().getAttribute("id");
+			}
+			else if(pageContext.getSession().getAttribute("id") != null){
+				id = (int) pageContext.getSession().getAttribute("id");
+			}
+		}
+		
+		int idFensterUmleitung = !submitUmleiten ? -1 : Integer.valueOf(pageContext.getRequest().getParameter("id"));
 		
 		String body = getBodyContent().getString();
-		String meldungsbox =  VorlagenFensterFactory.getInstance().getBestaetigungsBox(body, titel, breite, hoehe, icon, pageContext.getSession(), false,methode, aktion, dialogKennung ,submitUmleitenNachFensterId);
+		String meldungsbox =  VorlagenFensterFactory.getInstance().getBestaetigungsBox(body, titel, breite, hoehe, icon, pageContext.getSession(), false,methode, aktion, dialogKennung ,idFensterUmleitung);
 		
 		JspWriter out = getBodyContent().getEnclosingWriter();
 		try {

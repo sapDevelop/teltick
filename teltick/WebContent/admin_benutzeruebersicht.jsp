@@ -11,8 +11,17 @@
 <c:out value="${ param.ajax_id}" />
 
 <m:hatZugriffrechteFenster fensterId="0" >
+
+	<%-- Zeigt die Sicherheitsfrage an, ob der Benutzer wirklich gelöscht werden soll --%>
+	<c:if test="${scherheitsfrage_loeschen != null}" >
+		<teltick:bestaetigungsbox aktion="BenutzerverwaltungController" hoehe="150px" methode="post" icon="frage" breite="300px" dialogKennung="sicherheitsfrage_benutzer_loeschen"  titel="Benutzer löschen?" submitUmleiten="true" >
+			Wollen Sie den Benutzer wirklich löschen?
+		</teltick:bestaetigungsbox>
+	</c:if>
+
 	<form action="BenutzerverwaltungController" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
 		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
+				
 		<div class="admin_benutzeruebersicht_content_aufteiler">
 			<div class="admin_benutzeruebersicht_content_bereich_benutzerauflistung" >
 				<div class="ueberschrift_content_fenster">Benutzer:</div>
@@ -41,7 +50,9 @@
 						
 						<!-- Gibt die Mitarbeiter des Systems aus -->
 						<teltick:forEachMitarbeiter var="m" mitAdmin="false" >
-							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" value="<c:out value="${ m.mitarbeiterId }" />" />
+							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" value="<c:out value="${ m.mitarbeiterId }" />" 
+								<c:if test="${param.benutzer_radio != null && param.benutzer_radio ==  m.mitarbeiterId}">checked="checked"</c:if>
+							/>
 							<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_1" onclick="button_enable('<c:out value="${ param.id }" />');" >
 								<div class="div_tabelle_zelle" >
 									<c:out value="${ m.loginName }" />

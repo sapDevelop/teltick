@@ -74,7 +74,7 @@
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>
 		<attribute>
-			<name>submitUmleitenNachFensterId</name>
+			<name>submitUmleiten</name>
 			<required>false</required>
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>

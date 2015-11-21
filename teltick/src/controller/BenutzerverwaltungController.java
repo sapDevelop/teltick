@@ -61,94 +61,98 @@ public class BenutzerverwaltungController extends HttpServlet {
 		//Überprüft, ob der Benutzer überhaubt die Rechte hat die Rechte zu verwalten
 		HttpSession session = request.getSession();
 		Mitarbeiter m = (Mitarbeiter) session.getAttribute("angemeldeterMitarbeiter");
-		if (request.getParameter("id") != null){
-			Fenster f = FensterFactory.getInstance();
-			f.setId(0);
-			if (m != null && m.zugriffsRechtFenster(f) ){
+		
+		Fenster f = FensterFactory.getInstance();
+		f.setId(0);
+		if (m != null && m.zugriffsRechtFenster(f) ){
+			
+			String pfad_inc_jsp = null;
+			
+			//Bestimmt, welche Button geklickt wurde
+			switch (request.getParameter("submit")){
+			
+				/*
+				 * #################### Seite "Neuer Benutzer" laden
+				 */
+				case "Neuer Benutzer":
+					log.info("Button: \"Neuer Benutzer\" geklickt");
+					pfad_inc_jsp = "admin_benutzeruebersicht_benutzer_aendern.jsp";
+					request.setAttribute("vorgang", "neuerBenutzer");
+					
+					//alle Rechte, für die Rechteliste ermitteln
+					request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster()); 	
+				break;
 				
-				String pfad_inc_jsp = null;
+				/*
+				 * #################### Seite "Benutzer bearbeiten" laden
+				 */
+				case "Bearbeiten":
+					log.info("Button: \"Benutzer ändern\" geklickt");
+					pfad_inc_jsp = "admin_benutzeruebersicht_benutzer_aendern.jsp";
+					request.setAttribute("vorgang", "aenderBenutzer");
+					
+					//alle Rechte, für die Rechteliste ermitteln
+					request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster());
+					
+					//Übergibt an die JSP-Seite, welche Benutzer bearbeitet werden soll
+					if (request.getParameter("benutzer_radio") != null ){
+						log.info("Benutzer wird an die JSP-Seite übertragen " + request.getParameter("benutzer_radio"));
+						Mitarbeiter m1 =  DaoMitarbeiterFactory.getInstance().getMitarbeiter(Integer.valueOf(request.getParameter("benutzer_radio")));
+						request.setAttribute("editUser", m1);
+					}
+				break;
 				
-				//Bestimmt, welche Button geklickt wurde
-				switch (request.getParameter("submit")){
+				/*
+				 * #################### Sicherheitsfrage "Benutzer löschen" anzeigen
+				 */
+				case "Entfernen":
+					log.info("Button: \"Benutzer entfernen\" geklickt");
+					request.setAttribute("scherheitsfrage_loeschen", "anzeigen");
+					log.info("Link zur Anzeige der Sicherheitsfrage, ob der Benutzer wirklich gelöscht werden soll wird aufgerufen.");
+					pfad_inc_jsp = "admin_benutzeruebersicht.jsp";
+				break;
 				
-					/*
-					 * #################### Seite "Neuer Benutzer" laden
-					 */
-					case "Neuer Benutzer":
-						log.info("Button: \"Neuer Benutzer\" geklickt");
-						pfad_inc_jsp = "admin_benutzeruebersicht_benutzer_aendern.jsp";
-						request.setAttribute("vorgang", "neuerBenutzer");
-						
-						//alle Rechte, für die Rechteliste ermitteln
-						request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster()); 	
-					break;
-					
-					/*
-					 * #################### Seite "Benutzer bearbeiten" laden
-					 */
-					case "Bearbeiten":
-						log.info("Button: \"Benutzer ändern\" geklickt");
-						pfad_inc_jsp = "admin_benutzeruebersicht_benutzer_aendern.jsp";
-						request.setAttribute("vorgang", "aenderBenutzer");
-						
-						//alle Rechte, für die Rechteliste ermitteln
-						request.setAttribute("listeRechte", DaoFensterFactory.getInstance().getAlleFenster());
-						
-						//Übergibt an die JSP-Seite, welche Benutzer bearbeitet werden soll
-						if (request.getParameter("benutzer_radio") != null ){
-							log.info("Benutzer wird an die JSP-Seite übertragen " + request.getParameter("benutzer_radio"));
-							Mitarbeiter m1 =  DaoMitarbeiterFactory.getInstance().getMitarbeiter(Integer.valueOf(request.getParameter("benutzer_radio")));
-							request.setAttribute("editUser", m1);
-						}
-					break;
-					
-					/*
-					 * #################### Funktion: Abbrechen, Seite aktualisieren
-					 */
-					case "Aktualisieren":
-					case "Abbrechen":
-						log.info("Button: Aktualisieren bzw. Abbrechen geklickt");
-						pfad_inc_jsp = "admin_benutzeruebersicht.jsp";
-					break;
-					
-					/*
-					 * #################### Funktion: Benutzer anlegen
-					 */
-					case "Anlegen":
-						log.info("Button: \"Anlegen\" geklickt");
-						pfad_inc_jsp = contBenutzerAnlegen(request, response);
-					break;
-					
-					/*
-					 * #################### Funktion: Benutzer ändern
-					 */
-					case "Speichern":
-						log.info("Button \"Änderung speichern\" geklickt.");
-						pfad_inc_jsp = contBenutzerAendern(request, response);
-					break;
-				}
-								
-				if (pfad_inc_jsp != null){
-					log.info("Für den Button entsprechende JSP-Seite wird geladen.");
-					RequestDispatcher rd = request.getRequestDispatcher(pfad_inc_jsp);
-					rd.forward(request, response);
-				}
+				/*
+				 * #################### Funktion: Abbrechen, Seite aktualisieren
+				 */
+				case "Aktualisieren":
+				case "Abbrechen":
+					log.info("Button: Aktualisieren bzw. Abbrechen geklickt");
+					pfad_inc_jsp = "admin_benutzeruebersicht.jsp";
+				break;
+				
+				/*
+				 * #################### Funktion: Benutzer anlegen
+				 */
+				case "Anlegen":
+					log.info("Button: \"Anlegen\" geklickt");
+					pfad_inc_jsp = contBenutzerAnlegen(request, response);
+				break;
+				
+				/*
+				 * #################### Funktion: Benutzer ändern
+				 */
+				case "Speichern":
+					log.info("Button \"Änderung speichern\" geklickt.");
+					pfad_inc_jsp = contBenutzerAendern(request, response);
+				break;
 			}
-			//Wenn der Benutzer keine Berechtigung hat
-			else if (m!= null){
-				log.info("Benutzer hat keine Berechtigung das Fenster zu öffnen.");
-				out.println(request.getParameter("id")+"\n<div class=\"fehlermeldung_in_std_fenster\">Sie haben keine Berechtigung dieses Fenster zu &ouml;ffnen.</div>");
-			}
-			//Wenn die Session abgelaufen ist
-			else{
-				log.info("Session abgelaufen.");
-				out.println(request.getParameter("id")+"\n<div class=\"fehlermeldung_in_std_fenster\">Sitzung ist abgelaufen. Sie m&uuml;ssen angemeldet sein, um ein Fenster &ouml;ffnen zu k&ouml;nnen.</div>");
+							
+			if (pfad_inc_jsp != null){
+				log.info("Für den Button entsprechende JSP-Seite wird geladen.");
+				RequestDispatcher rd = request.getRequestDispatcher(pfad_inc_jsp);
+				rd.forward(request, response);
 			}
 		}
-		//Gibt eine Meldung aus, wenn der Benutzer keine Rechte hat
+		//Wenn der Benutzer keine Berechtigung hat
+		else if (m!= null){
+			log.info("Benutzer hat keine Berechtigung das Fenster zu öffnen.");
+			out.println(request.getParameter("id")+"\n<div class=\"fehlermeldung_in_std_fenster\">Sie haben keine Berechtigung dieses Fenster zu &ouml;ffnen.</div>");
+		}
+		//Wenn die Session abgelaufen ist
 		else{
-			log.info("Keine Fenster-ID übertragen.");
-			out.println(request.getParameter("id")+"\n<div class=\"fehlermeldung_in_std_fenster\">Es wurde keine Fenster-Id &uuml;bertragen.</div>");
+			log.info("Session abgelaufen.");
+			out.println(request.getParameter("id")+"\n<div class=\"fehlermeldung_in_std_fenster\">Sitzung ist abgelaufen. Sie m&uuml;ssen angemeldet sein, um ein Fenster &ouml;ffnen zu k&ouml;nnen.</div>");
 		}
 	}
 
