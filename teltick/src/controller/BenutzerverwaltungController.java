@@ -191,6 +191,12 @@ public class BenutzerverwaltungController extends HttpServlet {
 				feldnamenUnalsgefuellteFelder.add("email");
 				fehler = true;
 			}
+			//Überprüft, ob der Benutzername schon belegt ist
+			else if (DaoMitarbeiterFactory.getInstance().inDBvorhanden(request.getParameter("login_name"))){
+				fehler = true;
+				meldung ="Der Login-Name ist bereits von einen anderen Mitarbeiter belegt.";
+				feldnamenUnalsgefuellteFelder.add("login_name");
+			}
 			
 			//legt aus den Eingabewerten ein Objekt des Typs "Mitarbeiter" an
 			Mitarbeiter werteNeuerM = MitarbeiterFactory.getInstance();
@@ -256,6 +262,7 @@ public class BenutzerverwaltungController extends HttpServlet {
 	private String contBenutzerAendern(HttpServletRequest request, HttpServletResponse response){
 		
 		String jsp_file = "";
+		DaoMitarbeiter daoMAendern = DaoMitarbeiterFactory.getInstance();
 		
 		//überprüft, ob alle wichtigen Felder ausgefüllt sind
 		if ( request.getParameter("id") != null && request.getParameter("mitarbeiter_id") != null){
@@ -286,9 +293,17 @@ public class BenutzerverwaltungController extends HttpServlet {
 				feldnamenUnalsgefuellteFelder.add("email");
 				fehler = true;
 			}
+			//Überprüft, ob der Benutzername schon belegt ist
+			else{
+				Mitarbeiter werteAendernM = daoMAendern.getMitarbeiter(Integer.valueOf(request.getParameter("mitarbeiter_id")));
+				if ( !werteAendernM.getLoginName().equals(request.getParameter("login_name"))&& daoMAendern.inDBvorhanden(request.getParameter("login_name"))){
+					fehler = true;
+					meldung ="Der Login-Name ist bereits von einen anderen Mitarbeiter belegt.";
+					feldnamenUnalsgefuellteFelder.add("login_name");
+				}
+			}
 			
 			//legt aus den Eingabewerten ein Objekt des Typs "Mitarbeiter" an
-			DaoMitarbeiter daoMAendern = DaoMitarbeiterFactory.getInstance();
 			Mitarbeiter werteAendernM = daoMAendern.getMitarbeiter(Integer.valueOf(request.getParameter("mitarbeiter_id")));
 			werteAendernM.setEmail(request.getParameter("email"));
 			werteAendernM.setLoginName(request.getParameter("login_name"));
