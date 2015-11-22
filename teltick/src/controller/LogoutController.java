@@ -45,7 +45,7 @@ public class LogoutController extends HttpServlet {
 		if (m != null){
 			m.setAngemeldet(false);
 			session.setAttribute("angemeldeterMitarbeiter", m);
-
+ 
 			request.setAttribute("username", m.getLoginName());
 
 			log.info("User: " +  m.getLoginName() + " hat sich abgemeldet!");

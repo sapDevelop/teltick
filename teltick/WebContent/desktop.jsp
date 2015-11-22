@@ -23,8 +23,7 @@
 		<div class="menue">
 			<div class="platzhalter_menu_leiste"></div>
 			<div class="menu_content">
-				<teltick:icons ort="test"/>
-				<input type="button" onclick="oeffne_fenster(0);"  value="Benutzerverwaltung" />
+				<teltick:icons ort="angemeldeterMitarbeiter"/>
 			</div>
 		</div>
 	</div>

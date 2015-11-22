@@ -5,6 +5,10 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+import modell.entitaeten.interfaces.Fenster;
+import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.entitaeten.interfaces.Recht;
+
 public class TagIcon extends TagSupport {
 	
 	/**
@@ -27,18 +31,23 @@ public class TagIcon extends TagSupport {
 		
 		JspWriter out = pageContext.getOut();
 		
-		try {
-			for(int i = 0; i<10; i++)
-			{
-				out.println("Hello World");
-				
-			}
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Mitarbeiter m = (Mitarbeiter) pageContext.getSession().getAttribute("angemeldeterMitarbeiter");
 		
+		for (int i = 0; i < m.getRechte().size(); i++)
+					{
+			
+				Recht r = m.getRechte().get(i);
+				
+				Fenster f = r.getZugehoerigesFenster();		
+				
+				try {
+					out.println("<img src=\"" + f.getIcon() + "\" alt=\"" + f.getTitel() + "\" onclick=\"oeffne_fenster(" + f.getId() + ");\" title=\""+ f.getTitel() + "\"/>" );
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+		}	
 		return EVAL_PAGE;
 	}
 
