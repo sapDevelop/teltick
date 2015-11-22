@@ -448,6 +448,19 @@ input{
 	background-color: #C7BFD9;
 }
 
+.icon_start_leiste{
+	padding: 5px;
+	border-radius: 6px 6px 6px 6px;
+	height: 22.5px;
+}
+
+.icon_start_leiste:hover{
+	color: #176265;
+	background-color: #D5D5D5;
+}
+
+
+
 /* Fenster Benutzer anlegen */
 .standard_fenster_content{
 	padding-top: 15px;
