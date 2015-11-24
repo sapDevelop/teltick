@@ -43,7 +43,12 @@
 			<tr>
 				<td VALIGN="TOP">Zugewiesen:</td>
 				<td><select>
-						<option value="<c:out value="${angemeldeterMitarbeiter.vorname} ${angemeldeterMitarbeiter.name}" />">>Mich< (<c:out value="${angemeldeterMitarbeiter.vorname} ${angemeldeterMitarbeiter.name}" />)</option>
+						<option
+							value="<c:out value="${angemeldeterMitarbeiter.vorname} ${angemeldeterMitarbeiter.name}" />"><b>Mich:</b>
+							(
+							<c:out
+								value="${angemeldeterMitarbeiter.vorname} ${angemeldeterMitarbeiter.name}" />)
+						</option>
 						<teltick:forEachMitarbeiter var="m" mitAdmin="false">
 							<option value="<c:out value="${ m.vorname } ${ m.name }" />"><c:out
 									value="${ m.vorname } ${ m.name }" /></option>

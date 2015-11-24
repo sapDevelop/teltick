@@ -513,7 +513,7 @@ input{
 .neuesTicketBeschreibung{
 	width: 460px;
 	height: 120px;
-	
+	resize: none;
 	overflow:scroll;
 	
 	
