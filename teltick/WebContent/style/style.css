@@ -505,3 +505,16 @@ input{
 .bestaetigungsbox_bereich_button input{
 	width: 132px;
 }
+
+.neuesTicketTitel{
+	width: 460px;
+}
+
+.neuesTicketBeschreibung{
+	width: 460px;
+	height: 120px;
+	
+	overflow:scroll;
+	
+	
+}

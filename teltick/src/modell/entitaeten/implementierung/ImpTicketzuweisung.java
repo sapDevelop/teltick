@@ -9,50 +9,44 @@ public class ImpTicketzuweisung implements Ticketzuweisung {
 
 	@Override
 	public int getZuweisungsId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return zuweisungsId;
 	}
 
 	@Override
 	public void setZuweisungsId(int zuweisungsId) {
-		// TODO Auto-generated method stub
+		this.zuweisungsId = zuweisungsId;
 
 	}
 
 	@Override
 	public void setZeitpunkt(String zeitpunkt) {
-		// TODO Auto-generated method stub
+		this.zeitpunkt = zeitpunkt;
 
 	}
 
 	@Override
 	public String getZeitpunkt() {
-		// TODO Auto-generated method stub
-		return null;
+		return zeitpunkt;
 	}
 
 	@Override
 	public void setMitarbeiterId(int mitarbeiterId) {
-		// TODO Auto-generated method stub
-
+		this.mitarbeiterId = mitarbeiterId;
 	}
 
 	@Override
 	public int getMitarbeiterId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mitarbeiterId;
 	}
 
 	@Override
 	public void setTicketId(int ticketId) {
-		// TODO Auto-generated method stub
-
+		this.ticketId = ticketId;
 	}
 
 	@Override
 	public int getTicketId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ticketId;
 	}
 
 }
