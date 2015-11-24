@@ -1,5 +1,2 @@
 /*C3*/SET SCHEMA PUBLIC
-DELETE FROM FENSTER WHERE FENSTER_ID=1
-INSERT INTO FENSTER VALUES(1,600,390,NULL,'Neues Ticket','neuesTicket.jsp','bilder/fenstericons/neues_ticket.png')
-COMMIT
 DISCONNECT

@@ -13,11 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import basis.factory.VorlagenFensterFactory;
+import logger.LogFactory;
 import tags.MeldungsboxTag;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
+import modell.entitaeten.interfaces.Ticket;
 import modell.factory.DaoFensterFactory;
+import modell.factory.DaoTicketFactory;
+import modell.implementierung.ImpDaoTicket;
+import modell.interfaces.DaoTicket;
 
 /**
  * Servlet implementation class NeuesFensterController
@@ -25,6 +32,8 @@ import modell.factory.DaoFensterFactory;
 @WebServlet("/NeuesFenster")
 public class NeuesFensterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static Logger log = LogFactory.getInstance(NeuesFensterController.class.getName());
        
  	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -89,6 +98,15 @@ public class NeuesFensterController extends HttpServlet {
 				
 				//Fensterzählvariable in der Session ablegen
 				session.setAttribute("fensterZaehlVariable", fensterZaehlVariable);
+				
+				//Wenn Fenster = neues Ticket (1)
+				if(f.getId() == 1)
+				{
+					Ticket t = DaoTicketFactory.getInstance().setLeeresTicket(m);
+					request.setAttribute("neuesTicketId", t.getTicketId());
+					log.info("Fenster Neues Ticket geoeffnet. TicketId: " + t.getTicketId());
+				}
+				
 				
 				RequestDispatcher rd = request.getRequestDispatcher("./fenster.jsp");
 				rd.forward(request, response);

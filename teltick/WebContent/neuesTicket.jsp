@@ -19,8 +19,11 @@
 		</teltick:meldungsbox>
 	</c:if>
 
-	<form action="BenutzerverwaltungController" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
-		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
-		<h1>Neues Ticket</h1>			
+	<form action="NeusTicketController" method="post">
+		
+		<h1>Ticket: <c:out value="${neuesTicketId}"/></h1>	
+		
+		<input type="text"  />
+				
 	</form>
 </m:hatZugriffrechteFenster>

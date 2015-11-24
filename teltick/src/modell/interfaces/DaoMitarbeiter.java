@@ -1,7 +1,6 @@
 package modell.interfaces;
 
 import java.util.Vector;
-
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Recht;
 
