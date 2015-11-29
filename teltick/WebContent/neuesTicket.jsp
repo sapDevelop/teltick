@@ -20,11 +20,13 @@
 		</teltick:meldungsbox>
 	</c:if>
 
-	<form action="NeuesTicketController" method="post" action="./NeuesTicketController">
+	<form action="NeuesTicketController" method="post"
+		action="./NeuesTicketController">
 
 		<div class="ueberschrift_content_neuesTicket">Titel:</div>
 
-		<input type="text" id="titel" class="input_titel_neuesTicket" maxlength="70" />
+		<input type="text" id="titel" class="input_titel_neuesTicket"
+			maxlength="70" />
 
 		<div class="ueberschrift_content_neuesTicket">Beschreibung:</div>
 
@@ -33,14 +35,15 @@
 
 		<div class="ueberschrift_content_neuesTicket">
 			Zugewiesen: <select class="select_zuweisung">
-			
-				
+
+
 				<teltick:forEachMitarbeiter var="m" mitAdmin="false">
-					<option value="<c:out value="${ m.vorname } ${ m.name }"/>" <c:if test="${angemeldeterMitarbeiter.vorname == m.vorname}">selected</c:if> ><c:if test="${angemeldeterMitarbeiter.vorname == m.vorname}">Mich:</c:if>
-					<c:out
-							value="${ m.vorname } ${ m.name }" /></option>
+					<option value="<c:out value="${ m.vorname } ${ m.name }"/>"
+						<c:if test="${angemeldeterMitarbeiter.vorname == m.vorname}">selected</c:if>><c:if
+							test="${angemeldeterMitarbeiter.vorname == m.vorname}">Mich:</c:if>
+						<c:out value="${ m.vorname } ${ m.name }" /></option>
 				</teltick:forEachMitarbeiter>
-				
+
 			</select>
 		</div>
 		<div class="ueberschrift_content_neuesTicket">
