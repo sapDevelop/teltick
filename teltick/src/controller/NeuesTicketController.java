@@ -7,12 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
+import logger.LogFactory;
+
 /**
  * Servlet implementation class NeuesTicketController
  */
 @WebServlet("/NeuesTicketController")
 public class NeuesTicketController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static Logger log = LogFactory.getInstance(NeuesTicketController.class.getName());
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,7 +41,8 @@ public class NeuesTicketController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		log.info("NeuesTicketController aufgerufen");
+		
 	}
 
 }

@@ -20,49 +20,40 @@
 		</teltick:meldungsbox>
 	</c:if>
 
-	<form action="NeusTicketController" method="post">
+	<form action="NeuesTicketController" method="post" action="./NeuesTicketController">
 
-		<div class="neuesTicketKopf">
-			<h2>
-				Ticket:
-				<c:out value="#${neuesTicketId}" />
-			</h2>
+		<div class="ueberschrift_content_neuesTicket">Titel:</div>
+
+		<input type="text" id="titel" class="input_titel_neuesTicket" maxlength="70" />
+
+		<div class="ueberschrift_content_neuesTicket">Beschreibung:</div>
+
+		<textarea id="beschreibung" class="textarea_neuesTicket_beschreibung"
+			cols="35" rows="4"></textarea>
+
+		<div class="ueberschrift_content_neuesTicket">
+			Zugewiesen: <select class="select_zuweisung">
+			
+				
+				<teltick:forEachMitarbeiter var="m" mitAdmin="false">
+					<option value="<c:out value="${ m.vorname } ${ m.name }"/>" <c:if test="${angemeldeterMitarbeiter.vorname == m.vorname}">selected</c:if> ><c:if test="${angemeldeterMitarbeiter.vorname == m.vorname}">Mich:</c:if>
+					<c:out
+							value="${ m.vorname } ${ m.name }" /></option>
+				</teltick:forEachMitarbeiter>
+				
+			</select>
 		</div>
-		<table>
-			<tr>
-				<td VALIGN="TOP">Titel:</td>
-				<td><input type="text" id="titel" class="neuesTicketTitel"
-					maxlength="70" /></td>
-			</tr>
-			<tr>
-				<td VALIGN="TOP">Beschreibung:</td>
-				<td><textarea id="beschreibung" class="neuesTicketBeschreibung"
-						cols="35" rows="4"></textarea></td>
+		<div class="ueberschrift_content_neuesTicket">
+			Priorität: <select class="select_prio">
+				<option value="null" selected></option>
+				<option value="hoch">hoch</option>
+				<option value="normal">normal</option>
+				<option value="gering">gering</option>
+			</select>
+		</div>
 
-			</tr>
-			<tr>
-				<td VALIGN="TOP">Zugewiesen:</td>
-				<td><select>
-						<option
-							value="<c:out value="${angemeldeterMitarbeiter.vorname} ${angemeldeterMitarbeiter.name}" />"><b>Mich:</b>
-							(
-							<c:out
-								value="${angemeldeterMitarbeiter.vorname} ${angemeldeterMitarbeiter.name}" />)
-						</option>
-						<teltick:forEachMitarbeiter var="m" mitAdmin="false">
-							<option value="<c:out value="${ m.vorname } ${ m.name }" />"><c:out
-									value="${ m.vorname } ${ m.name }" /></option>
-
-						</teltick:forEachMitarbeiter>
-
-
-
-				</select></td>
-			</tr>
-		</table>
-
-
-
+		<input type="submit" value="Ticket anlegen"
+			class="button_ticket_anlegen" title="Neues Ticket anlegen" />
 
 	</form>
 </m:hatZugriffrechteFenster>

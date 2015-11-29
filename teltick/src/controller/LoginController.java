@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
+
 import basis.factory.Md5HashVerfahrenSingletonFactory;
 import basis.interfaces.HashVerfahren;
 import logger.LogFactory;
@@ -52,6 +54,7 @@ public class LoginController extends HttpServlet {
 		
 		DaoMitarbeiter dao = DaoMitarbeiterFactory.getInstance();
 		Mitarbeiter m = dao.getMitarbeiter(username, passwordChar );
+		
 		
 		//Abfragen ob Benutzer vorhanden
 		if ( m != null ){
