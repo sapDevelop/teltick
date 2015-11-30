@@ -130,32 +130,32 @@ public class ImpDaoTicket implements DaoTicket {
 			e.printStackTrace();
 		}
 		
-//		try {
-//			Connection verbindung = dbZugriff1.verbinden();
-//
-//			//Lädt Ticket anhand der TicketId aus der DB
-//			String abfrage = "select ticket_id  from ticket where titel= ? AND beschreibung = ?;";
-//			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
-//			pstmt.setString(1, t.getTitel());
-//			pstmt.setString(1, t.getBeschreibung());
-//			ResultSet result = pstmt.executeQuery();
-//
-//			while(result.next()){
-//				tr	 = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
-//				}
-//
-//			verbindung.close();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+
+			//Lädt Ticket anhand der TicketId aus der DB
+			String abfrage = "select ticket_id  from ticket where titel= ? AND beschreibung = ?;";
+			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
+			pstmt.setString(1, t.getTitel());
+			pstmt.setString(2, t.getBeschreibung());
+			ResultSet result = pstmt.executeQuery();
+
+			while(result.next()){
+				tr	 = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
+				}
+
+			verbindung.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
 		
 		
 
-		return 2;
+		return tr.getTicketId();
 	}
 	
 	@Override

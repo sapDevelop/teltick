@@ -50,7 +50,7 @@
 		
 		while (result.next())
 		{
-			out.println(result.getString("titel")+ "\n");
+			out.println(result.getString("erstelldatum")+ "\n");
 		}
 		
 	    

@@ -144,19 +144,19 @@ public class NeuesTicketController extends HttpServlet {
 			}else  {
 
 
-
-				//Ticket in DB schreiben
-				int ticketId = DaoTicketFactory.getInstance().setTicket(t);
-
-				//Ticketzuweisung in DB schreiben
-				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
-				tz.setMitarbeiterId(m.getMitarbeiterId());
-				tz.setTicketId(ticketId);
-				tz.setZeitpunkt(time);
-				DaoTicketFactory.getInstance().setZuweisung(tz);
-
-				log.info("Ticket angelegt(ID):" + ticketId);
-
+//
+//				//Ticket in DB schreiben
+//				int ticketId = DaoTicketFactory.getInstance().setTicket(t);
+//
+//				//Ticketzuweisung in DB schreiben
+//				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
+//				tz.setMitarbeiterId(m.getMitarbeiterId());
+//				tz.setTicketId(ticketId);
+//				tz.setZeitpunkt(time);
+//				DaoTicketFactory.getInstance().setZuweisung(tz);
+//
+//				log.info("Ticket angelegt(ID):" + ticketId);
+//
 
 				//Weiter leiten an ticket anzeigen
 				jsp_file = "ticketAnzeigen.jsp";
