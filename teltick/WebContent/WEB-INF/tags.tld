@@ -102,6 +102,23 @@
 	</tag>
 	
 	<tag>
+		<name>forEachRecht</name>
+		<tag-class>tags.forEachRechtTag</tag-class>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>mitarbeiterId</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
 		<name>wennEintragInVector</name>
 		<tag-class>tags.EintragInVector</tag-class>
 		<bodycontent>JSP</bodycontent>

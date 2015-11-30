@@ -21,6 +21,7 @@ public class forEachMitarbeiterTag extends LoopTagSupport{
 	private static final long serialVersionUID = 1L;
 	private boolean mitAdmin = true;
 	private Iterator<Mitarbeiter> itMitarbeiter;
+	
 
 	public boolean isMitAdmin() {
 		return mitAdmin;

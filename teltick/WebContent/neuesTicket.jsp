@@ -34,14 +34,18 @@
 			cols="35" rows="4"></textarea>
 
 		<div class="ueberschrift_content_neuesTicket">
-			Zugewiesen: <select class="select_zuweisung">
+			Zugewiesen: ${m.mitarbeiterId} <select class="select_zuweisung">
 
 
-				<teltick:forEachMitarbeiter var="m" mitAdmin="false">
-					<option value="<c:out value="${ m.vorname } ${ m.name }"/>"
-						<c:if test="${angemeldeterMitarbeiter.vorname == m.vorname}">selected</c:if>><c:if
-							test="${angemeldeterMitarbeiter.vorname == m.vorname}">Mich:</c:if>
-						<c:out value="${ m.vorname } ${ m.name }" /></option>
+				<teltick:forEachMitarbeiter var="m" mitAdmin="true">
+					<teltick:forEachRecht var="r" mitarbeiterId="${m.mitarbeiterId}">
+						<c:if test="${r.fensterId == 1}">
+							<option value="<c:out value="${ m.vorname } ${ m.name }"/>"
+								<c:if test="${angemeldeterMitarbeiter.vorname == m.vorname}">selected</c:if>><c:if
+									test="${angemeldeterMitarbeiter.vorname == m.vorname}">Mich:</c:if>
+								<c:out value="${ m.vorname } ${ m.name }" /></option>
+						</c:if>
+					</teltick:forEachRecht>
 				</teltick:forEachMitarbeiter>
 
 			</select>
