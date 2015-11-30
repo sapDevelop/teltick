@@ -137,7 +137,7 @@ public class NeuesTicketController extends HttpServlet {
 				 */
 				request.setAttribute("Ticket", t);
 
-				jsp_file = "ticketAnzeigen.jsp";
+				jsp_file = "neuesTicket.jsp";
 
 
 
