@@ -1,15 +1,16 @@
 package modell.entitaeten.interfaces;
 
+import java.sql.Timestamp;
+
 public interface Ticket {
 
 	public int getTicketId();
 	
 	public void setTicketId(int ticketId);
 
-	//timesstamp?
-	public String getErstelldatum();
+	public Timestamp getErstelldatum();
 
-	public void setErstelldatum(String erstelldatum);
+	public void setErstelldatum(Timestamp erstelldatum);
 
 	public String getBeschreibung();
 

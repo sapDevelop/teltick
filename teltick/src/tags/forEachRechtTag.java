@@ -14,9 +14,13 @@ import modell.interfaces.DaoMitarbeiter;
 public class forEachRechtTag extends LoopTagSupport {
 
 	private static final long serialVersionUID = 1L;
+	
 	/**
-	 * 
+	 * For-Each-Schleife, die alle Rechte für einen Mitarbeiter durchläuft
+	 * @author Robin Hake
+	 *
 	 */
+	
 	private int mitarbeiterId;
 	private Vector<Recht> r;
 	private Iterator<Recht> ri;

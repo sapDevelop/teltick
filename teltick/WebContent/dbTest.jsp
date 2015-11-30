@@ -30,7 +30,7 @@
    DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance(); 
    try {
 		
-	   int update = 1;
+	   int update = 13;
 	   Connection verbindung = dbZugriff1.verbinden();
 	   if (update == 1)
 	   {
@@ -43,14 +43,14 @@
 		   
 	   {
 		//Lädt den Mitarbeiter aus der DB
-		String abfrage = "select *  from fenster";
+		String abfrage = "select *  from ticket";
 		
 		PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 		ResultSet result = pstmt.executeQuery();
 		
 		while (result.next())
 		{
-			out.println(result.getString("icon")+ "\n");
+			out.println(result.getString("titel")+ "\n");
 		}
 		
 	    

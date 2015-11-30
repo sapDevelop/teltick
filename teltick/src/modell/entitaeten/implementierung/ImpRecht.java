@@ -42,16 +42,4 @@ public class ImpRecht implements Recht {
 	public void setZugehoerigesFenster(Fenster zugehoerigesFenster) {
 		this.zugehoerigesFenster = zugehoerigesFenster;
 	}
-
-	@Override
-	public void setFensterId(int fensterId) {
-		this.fensterId = fensterId;
-		
-	}
-
-	@Override
-	public int getFensterId() {
-		return fensterId;
-	}
-	
 }

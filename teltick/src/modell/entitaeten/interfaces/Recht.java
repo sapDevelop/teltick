@@ -15,10 +15,6 @@ public interface Recht {
 	public void setIndexDb(int indexDb); 
 	
 	public Fenster getZugehoerigesFenster(); 
-		
-	public void setFensterId(int fensterId);
-	
-	public int getFensterId();
 	
 	public void setZugehoerigesFenster(Fenster zugehoerigesFenster); 	
 	

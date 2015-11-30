@@ -1,5 +1,7 @@
 package modell.entitaeten.interfaces;
 
+import java.sql.Timestamp;
+
 public interface Ticketzuweisung {
 	
 
@@ -8,9 +10,9 @@ public interface Ticketzuweisung {
 
 	public int getZuweisungsId();
 	
-	public void setZeitpunkt(String zeitpunkt);
+	public void setZeitpunkt(Timestamp time);
 	
-	public String getZeitpunkt();
+	public Timestamp getZeitpunkt();
 	
 	public void setMitarbeiterId(int mitarbeiterId);
 	
