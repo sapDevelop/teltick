@@ -43,14 +43,14 @@
 		   
 	   {
 		//Lädt den Mitarbeiter aus der DB
-		String abfrage = "select *  from ticket";
+		String abfrage = "select * from ticket where titel = 'titel1' order by erstelldatum desc limit 1";
 		
 		PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 		ResultSet result = pstmt.executeQuery();
 		
 		while (result.next())
 		{
-			out.println(result.getString("erstelldatum")+ "\n");
+			out.println(result.getString("ticket_id")+ "\n");
 		}
 		
 	    
@@ -62,6 +62,7 @@
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+		out.println(e);
 	}
    
    

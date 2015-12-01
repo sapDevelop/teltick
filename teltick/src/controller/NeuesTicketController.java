@@ -101,6 +101,9 @@ public class NeuesTicketController extends HttpServlet {
 			Timestamp time = DatumFactory.getInstance().getDatum();
 
 			//Ticketdaten setzten
+			
+			System.out.println("Titel Daten: " + request.getParameter("titel"));
+			
 			Ticket t = TicketFactory.getInstance();
 			t.setTitel(request.getParameter("titel"));
 			t.setBeschreibung(request.getParameter("beschreibung"));
@@ -144,19 +147,21 @@ public class NeuesTicketController extends HttpServlet {
 			}else  {
 
 
-//
-//				//Ticket in DB schreiben
-//				int ticketId = DaoTicketFactory.getInstance().setTicket(t);
-//
-//				//Ticketzuweisung in DB schreiben
-//				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
-//				tz.setMitarbeiterId(m.getMitarbeiterId());
-//				tz.setTicketId(ticketId);
-//				tz.setZeitpunkt(time);
-//				DaoTicketFactory.getInstance().setZuweisung(tz);
-//
-//				log.info("Ticket angelegt(ID):" + ticketId);
-//
+
+				//Ticket in DB schreiben
+				boolean noFehler = DaoTicketFactory.getInstance().setTicket(t);
+				
+				int ticketId = DaoTicketFactory.getInstance().getTicketId(t);
+
+				//Ticketzuweisung in DB schreiben
+				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
+				tz.setMitarbeiterId(m.getMitarbeiterId());
+				tz.setTicketId(ticketId);
+				tz.setZeitpunkt(time);
+				DaoTicketFactory.getInstance().setZuweisung(tz);
+
+				log.info("Ticket angelegt(ID):" + ticketId);
+
 
 				//Weiter leiten an ticket anzeigen
 				jsp_file = "ticketAnzeigen.jsp";

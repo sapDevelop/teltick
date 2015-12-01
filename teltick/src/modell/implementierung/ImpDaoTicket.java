@@ -105,10 +105,10 @@ public class ImpDaoTicket implements DaoTicket {
 	}
 
 	@Override
-	public int setTicket(Ticket t) {
+	public boolean setTicket(Ticket t) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 
-		Ticket tr = null;
+		
 		boolean fehler = false;
 
 		try {
@@ -116,7 +116,7 @@ public class ImpDaoTicket implements DaoTicket {
 			String anfrage = "insert into ticket ( erstelldatum, beschreibung, titel, verfasser) values (?, ?, ?, ?)";
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
 
-			
+			System.out.println("Imp Dao Ticket Titel: " + t.getTitel());
 			pstmt.setTimestamp(1, t.getErstelldatum());
 			pstmt.setString(2, t.getBeschreibung());
 			pstmt.setString(3, t.getTitel());
@@ -130,16 +130,26 @@ public class ImpDaoTicket implements DaoTicket {
 			e.printStackTrace();
 		}
 		
+		return !fehler;
+	}
+	
+	
+	public int getTicketId(Ticket t){
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		Ticket tr = null;
+		
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
 			//Lädt Ticket anhand der TicketId aus der DB
-			String abfrage = "select ticket_id  from ticket where titel= ? AND beschreibung = ?;";
+			String abfrage = "select *  from ticket where titel = ? AND beschreibung = ? order by erstelldatum desc limit 1";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setString(1, t.getTitel());
 			pstmt.setString(2, t.getBeschreibung());
 			ResultSet result = pstmt.executeQuery();
-
+			
+			tr = TicketFactory.getInstance();
+			
 			while(result.next()){
 				tr	 = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
 				}
@@ -149,13 +159,9 @@ public class ImpDaoTicket implements DaoTicket {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-
+		System.out.println("Ticket ID :" + tr.getTicketId() +  tr.getErstelldatum());
 		return tr.getTicketId();
+		
 	}
 	
 	@Override

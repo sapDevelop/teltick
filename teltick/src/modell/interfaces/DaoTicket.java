@@ -9,8 +9,10 @@ import modell.entitaeten.interfaces.Ticketzuweisung;
 public interface DaoTicket {
 	
 	//Ticket um die TicketID zu sichern
-	int setTicket(Ticket t);
+	public boolean setTicket(Ticket t);
 	
+	public int getTicketId(Ticket t);
+		
 	public boolean updateTicket(Ticket t);
 		
 	public Ticket getTicket(int id);
