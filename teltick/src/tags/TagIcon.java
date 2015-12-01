@@ -4,7 +4,6 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
-
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Recht;
@@ -41,12 +40,11 @@ public class TagIcon extends TagSupport {
 				Fenster f = r.getZugehoerigesFenster();		
 				
 				try {
-					out.println("<img src=\"" + f.getIcon() + "\" alt=\"" + f.getTitel() + "\" onclick=\"oeffne_fenster(" + f.getId() + ");\" title=\""+ f.getTitel() + "\"  height=\"42\" width=\"42\" class=\"icon_start_leiste icon_start_leiste_markiert\"/>" );
+					out.println("<img src=\"" + f.getIcon() + "\" alt=\"" + f.getTitel() + "\" onclick=\"oeffne_fenster(" + f.getId() + ");\" title=\""+ f.getTitel() + "\" class=\"icon_start_leiste icon_start_leiste_markiert\"/>" );
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//
 		}	
 		return EVAL_PAGE;
 	}
