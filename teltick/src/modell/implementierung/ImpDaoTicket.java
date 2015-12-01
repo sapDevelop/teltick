@@ -249,8 +249,5 @@ public class ImpDaoTicket implements DaoTicket {
 		return null;
 	}
 
-	
-
-	
 
 }
