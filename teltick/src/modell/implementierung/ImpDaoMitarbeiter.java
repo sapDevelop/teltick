@@ -95,13 +95,19 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			String anfrage1 = "delete from rechte where mitarbeiter_id = ?";
 			PreparedStatement pstmt1 = verbindung.prepareStatement(anfrage1);
 			pstmt1.setInt(1, r.getMitarbeiterId());
+			log.info("Lösche Rechte des Mitarbeiters " + r.getMitarbeiterId());
 			pstmt1.executeUpdate();
+			log.info("Rechtelöschen erfolgreich: " + r.getMitarbeiterId());
 			
 			String anfrage = "delete from mitarbeiter where mitarbeiter_id = ?";
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
 			
 			pstmt.setInt(1, r.getMitarbeiterId());
+			
+			log.info("Lösche Mitarbeiter " + r.getMitarbeiterId());
+			
 			pstmt.executeUpdate();
+			log.info("Mitarbeiterlöschen erfolgreich: " + r.getMitarbeiterId());
 			
 			verbindung.commit();
 		

@@ -28,7 +28,7 @@ public class ImpDaoTicket implements DaoTicket {
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
-			//Lädt Ticket anhand der TicketId aus der DB
+			//Lï¿½dt Ticket anhand der TicketId aus der DB
 			String abfrage = "select *  from ticket where ticket_id = ?";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setInt(1,id);
@@ -56,7 +56,7 @@ public class ImpDaoTicket implements DaoTicket {
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
-			//Lädt Ticket anhand der TicketId aus der DB
+			//Lï¿½dt Ticket anhand der TicketId aus der DB
 			String abfrage = "select *  from ticket;";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			ResultSet result = pstmt.executeQuery();
@@ -140,7 +140,7 @@ public class ImpDaoTicket implements DaoTicket {
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
-			//Lädt Ticket anhand der TicketId aus der DB
+			//Lï¿½dt Ticket anhand der TicketId aus der DB
 			String abfrage = "select *  from ticket where titel = ? AND beschreibung = ? order by erstelldatum desc limit 1";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setString(1, t.getTitel());
@@ -235,7 +235,7 @@ public class ImpDaoTicket implements DaoTicket {
 //		try {
 //			Connection verbindung = dbZugriff1.verbinden();
 //
-//			//Lädt Ticket anhand der TicketId aus der DB
+//			//Lï¿½dt Ticket anhand der TicketId aus der DB
 //			String abfrage = "select ticket_id from ticket ORDER BY ticket_id desc LIMIT 1;";
 //			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 //			ResultSet result = pstmt.executeQuery();
@@ -266,8 +266,27 @@ public class ImpDaoTicket implements DaoTicket {
 
 	@Override
 	public boolean loescheTicket(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+
+		
+		boolean fehler = false;
+
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+			String anfrage = "delete from ticket where ticket_id = ?";
+			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
+
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+
+			verbindung.close();
+		}catch (SQLException e) {
+			fehler = true;
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return !fehler;
 	}
 
 	@Override
