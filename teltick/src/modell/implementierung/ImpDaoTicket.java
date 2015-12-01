@@ -116,7 +116,6 @@ public class ImpDaoTicket implements DaoTicket {
 			String anfrage = "insert into ticket ( erstelldatum, beschreibung, titel, verfasser) values (?, ?, ?, ?)";
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
 
-			System.out.println("Imp Dao Ticket Titel: " + t.getTitel());
 			pstmt.setTimestamp(1, t.getErstelldatum());
 			pstmt.setString(2, t.getBeschreibung());
 			pstmt.setString(3, t.getTitel());
@@ -159,7 +158,6 @@ public class ImpDaoTicket implements DaoTicket {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Ticket ID :" + tr.getTicketId() +  tr.getErstelldatum());
 		return tr.getTicketId();
 		
 	}

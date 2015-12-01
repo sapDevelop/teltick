@@ -101,16 +101,13 @@ public class NeuesTicketController extends HttpServlet {
 			Timestamp time = DatumFactory.getInstance().getDatum();
 
 			//Ticketdaten setzten
-			
-			System.out.println("Titel Daten: " + request.getParameter("titel"));
-			
 			Ticket t = TicketFactory.getInstance();
 			t.setTitel(request.getParameter("titel"));
 			t.setBeschreibung(request.getParameter("beschreibung"));
 			t.setVerfasserId(m.getMitarbeiterId());
 			t.setErstelldatum(time);
 
-
+			request.setAttribute("Ticket", t);
 
 			boolean fehler = false;
 			if (meldung != ""){
@@ -130,15 +127,11 @@ public class NeuesTicketController extends HttpServlet {
 				//Übergibt an die JSP-Seite, welche Felder rot markiert werden sollen
 				request.setAttribute("felderFehler", feldnamenUnalsgefuellteFelder);
 
-
-
-
-
 				/*
 				 * Alte Eingabe in einen Obekt von Typ-Mitarbeiter speichern, 
 				 * damit die Werter auf der JSP-Seite mit der Programmierung der Änderungsfunktion angezeigt werden kann
 				 */
-				request.setAttribute("Ticket", t);
+				
 
 				jsp_file = "neuesTicket.jsp";
 

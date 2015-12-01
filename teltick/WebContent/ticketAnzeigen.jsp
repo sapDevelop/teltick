@@ -5,4 +5,7 @@
 <%-- Id des Divs, wo mit Ajax die Antwort reingeschrieben werden soll (Nur die Ziffer) --%>
 <c:out value="${ param.ajax_id}" />
 
-<h1>Hallo</h1>
+<div class="ueberschrift_content_neuesTicket">Titel:</div>
+<div class="ueberschrift_content_neuesTicket"><c:out value="${Ticket.titel }"></c:out></div>
+<div class="ueberschrift_content_neuesTicket">Beschreibung:</div>
+<div class="ueberschrift_content_neuesTicket"><c:out value="${Ticket.beschreibung }"></c:out></div>
