@@ -34,7 +34,9 @@ import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Ticket;
 import modell.entitaeten.interfaces.Ticketzuweisung;
 import modell.factory.DaoFensterFactory;
+import modell.factory.DaoMitarbeiterFactory;
 import modell.factory.DaoTicketFactory;
+import modell.interfaces.DaoMitarbeiter;
 
 /**
  * Servlet implementation class NeuesTicketController
@@ -105,7 +107,7 @@ public class NeuesTicketController extends HttpServlet {
 			t.setTitel(request.getParameter("titel"));
 			t.setBeschreibung(request.getParameter("beschreibung"));
 			t.setVerfasserId(m.getMitarbeiterId());
-			t.setErstelldatum(time);
+			t.setErstelldatum(time);	
 
 			request.setAttribute("Ticket", t);
 
@@ -148,14 +150,19 @@ public class NeuesTicketController extends HttpServlet {
 
 				//Ticketzuweisung in DB schreiben
 				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
-				tz.setMitarbeiterId(m.getMitarbeiterId());
+				tz.setMitarbeiterId(Integer.valueOf(request.getParameter("zugewiesen")));
 				tz.setTicketId(ticketId);
 				tz.setZeitpunkt(time);
 				DaoTicketFactory.getInstance().setZuweisung(tz);
+				
+				t.setZuweisung(tz);
 
 				log.info("Ticket angelegt(ID):" + ticketId);
-
-
+				
+				DaoMitarbeiter dm = DaoMitarbeiterFactory.getInstance();
+				Mitarbeiter mZuweisung = dm.getMitarbeiter(Integer.valueOf(request.getParameter("zugewiesen")));
+				request.setAttribute("Zuweisung", mZuweisung.getVorname() + " " + mZuweisung.getName());
+				
 				//Weiter leiten an ticket anzeigen
 				jsp_file = "ticketAnzeigen.jsp";
 			}

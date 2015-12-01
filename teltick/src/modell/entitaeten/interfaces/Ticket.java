@@ -24,4 +24,8 @@ public interface Ticket {
 
 	public void setVerfasserId(int verfasserId);
 
+	void setZuweisung(Ticketzuweisung ticketzuweisung);
+
+	Ticketzuweisung getZuweisung();
+
 }

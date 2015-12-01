@@ -51,7 +51,7 @@
 				<teltick:forEachMitarbeiter var="m" mitAdmin="true">
 					<teltick:forEachRecht var="r" mitarbeiterId="${m.mitarbeiterId}">
 						<c:if test="${r.zugehoerigesFenster.id == 1}">
-							<option value="<c:out value="${ m.vorname } ${ m.name }"/>"
+							<option value="<c:out value="${ m.mitarbeiterId}"/>"
 								<c:if test="${angemeldeterMitarbeiter.vorname == m.vorname }">selected</c:if>><c:if
 									test="${angemeldeterMitarbeiter.vorname == m.vorname}">Mich:</c:if>
 								<c:out value="${ m.vorname } ${ m.name }" /></option>

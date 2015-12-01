@@ -9,3 +9,5 @@
 <div class="ueberschrift_content_neuesTicket"><c:out value="${Ticket.titel }"></c:out></div>
 <div class="ueberschrift_content_neuesTicket">Beschreibung:</div>
 <div class="ueberschrift_content_neuesTicket"><c:out value="${Ticket.beschreibung }"></c:out></div>
+<div class="ueberschrift_content_neuesTicket">Zuweisung:</div>
+<div class="ueberschrift_content_neuesTicket"><c:out value="${requestScope.Zuweisung}"></c:out></div>

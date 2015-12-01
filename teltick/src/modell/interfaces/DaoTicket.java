@@ -26,6 +26,8 @@ public interface DaoTicket {
 	public boolean setZuweisung(Ticketzuweisung tz);
 
 	public Ticketzuweisung getZuweisung(Ticket t);
+
+	boolean loescheZuweisung(int ticketId);
 	
 	
 }
