@@ -17,7 +17,7 @@ public class ImpRowMappingTicket implements RowMappingTicket{
 	public Ticket mapRow(ResultSet dbResult) throws SQLException {
 		
 		Ticket t = TicketFactory.getInstance();
-		t.setErstelldatum(dbResult.getString("erstelldatum"));
+		t.setErstelldatum(dbResult.getTimestamp("erstelldatum"));
 		t.setBeschreibung(dbResult.getString("beschreibung"));
 		t.setTitel(dbResult.getString("titel"));
 		t.setVerfasserId(dbResult.getInt("verfasser"));

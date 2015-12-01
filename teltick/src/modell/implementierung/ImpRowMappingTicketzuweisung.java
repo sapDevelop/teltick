@@ -17,7 +17,7 @@ public class ImpRowMappingTicketzuweisung implements RowMappingTicketzuweisung {
 		
 		Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
 		tz.setZuweisungsId(dbResult.getInt("zuweisungs_id"));
-		tz.setZeitpunkt(dbResult.getString("zeitpunkt"));
+		tz.setZeitpunkt(dbResult.getTimestamp("zeitpunkt"));
 		tz.setMitarbeiterId(dbResult.getInt("mitarbeiter_id"));
 		tz.setTicketId(dbResult.getInt("ticket_id"));
 		

@@ -1,11 +1,14 @@
 package modell.entitaeten.implementierung;
 
+import java.sql.Timestamp;
+
 import modell.entitaeten.interfaces.Ticket;
 
 public class ImpTicket implements Ticket {
 	
 	private int ticketId,verfasserId;
-	private String erstelldatum, beschreibung, titel;
+	private String beschreibung, titel;
+	private Timestamp erstelldatum;
 
 	@Override
 	public int getTicketId() {
@@ -19,12 +22,12 @@ public class ImpTicket implements Ticket {
 	}
 
 	@Override
-	public String getErstelldatum() {
+	public Timestamp getErstelldatum() {
 		return erstelldatum;
 	}
 
 	@Override
-	public void setErstelldatum(String erstelldatum) {
+	public void setErstelldatum(Timestamp erstelldatum) {
 		this.erstelldatum = erstelldatum;
 	}
 
@@ -57,9 +60,5 @@ public class ImpTicket implements Ticket {
 	public void setVerfasserId(int verfasserId) {
 		this.verfasserId = verfasserId;
 	}
-
-	
-
-
 
 }

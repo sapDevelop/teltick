@@ -9,6 +9,7 @@ public class ImpRecht implements Recht {
 	private boolean autostart;
 	private int indexDb;
 	private Fenster zugehoerigesFenster;
+	private int fensterId;
 	
 	public String getBezeichung() {
 		return bezeichung;
@@ -41,5 +42,4 @@ public class ImpRecht implements Recht {
 	public void setZugehoerigesFenster(Fenster zugehoerigesFenster) {
 		this.zugehoerigesFenster = zugehoerigesFenster;
 	}
-	
 }

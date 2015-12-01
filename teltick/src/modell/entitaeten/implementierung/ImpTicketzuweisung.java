@@ -1,11 +1,13 @@
 package modell.entitaeten.implementierung;
 
+import java.sql.Timestamp;
+
 import modell.entitaeten.interfaces.Ticketzuweisung;
 
 public class ImpTicketzuweisung implements Ticketzuweisung {
 
 	private int zuweisungsId, mitarbeiterId, ticketId;
-	private String zeitpunkt;
+	private Timestamp zeitpunkt;
 
 	@Override
 	public int getZuweisungsId() {
@@ -19,13 +21,13 @@ public class ImpTicketzuweisung implements Ticketzuweisung {
 	}
 
 	@Override
-	public void setZeitpunkt(String zeitpunkt) {
+	public void setZeitpunkt(Timestamp zeitpunkt) {
 		this.zeitpunkt = zeitpunkt;
 
 	}
 
 	@Override
-	public String getZeitpunkt() {
+	public Timestamp getZeitpunkt() {
 		return zeitpunkt;
 	}
 
