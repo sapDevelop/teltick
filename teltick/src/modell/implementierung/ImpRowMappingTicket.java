@@ -21,6 +21,7 @@ public class ImpRowMappingTicket implements RowMappingTicket{
 		t.setBeschreibung(dbResult.getString("beschreibung"));
 		t.setTitel(dbResult.getString("titel"));
 		t.setVerfasserId(dbResult.getInt("verfasser"));
+		t.setTicketId(dbResult.getInt("ticket_id"));
 		
 		return t;
 	}

@@ -3,12 +3,14 @@ package modell.entitaeten.implementierung;
 import java.sql.Timestamp;
 
 import modell.entitaeten.interfaces.Ticket;
+import modell.entitaeten.interfaces.Ticketzuweisung;
 
 public class ImpTicket implements Ticket {
 	
 	private int ticketId,verfasserId;
 	private String beschreibung, titel;
 	private Timestamp erstelldatum;
+	private Ticketzuweisung ticketzuweisung;
 
 	@Override
 	public int getTicketId() {
@@ -60,5 +62,14 @@ public class ImpTicket implements Ticket {
 	public void setVerfasserId(int verfasserId) {
 		this.verfasserId = verfasserId;
 	}
-
+	
+	@Override
+	public void setZuweisung(Ticketzuweisung ticketzuweisung){
+		this.ticketzuweisung = ticketzuweisung;
+	}
+	
+	@Override
+	public Ticketzuweisung getZuweisung(){
+		return ticketzuweisung;
+	}
 }

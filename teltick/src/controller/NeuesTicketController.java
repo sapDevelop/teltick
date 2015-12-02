@@ -34,7 +34,9 @@ import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Ticket;
 import modell.entitaeten.interfaces.Ticketzuweisung;
 import modell.factory.DaoFensterFactory;
+import modell.factory.DaoMitarbeiterFactory;
 import modell.factory.DaoTicketFactory;
+import modell.interfaces.DaoMitarbeiter;
 
 /**
  * Servlet implementation class NeuesTicketController
@@ -105,9 +107,9 @@ public class NeuesTicketController extends HttpServlet {
 			t.setTitel(request.getParameter("titel"));
 			t.setBeschreibung(request.getParameter("beschreibung"));
 			t.setVerfasserId(m.getMitarbeiterId());
-			t.setErstelldatum(time);
+			t.setErstelldatum(time);	
 
-
+			request.setAttribute("Ticket", t);
 
 			boolean fehler = false;
 			if (meldung != ""){
@@ -127,15 +129,11 @@ public class NeuesTicketController extends HttpServlet {
 				//Übergibt an die JSP-Seite, welche Felder rot markiert werden sollen
 				request.setAttribute("felderFehler", feldnamenUnalsgefuellteFelder);
 
-
-
-
-
 				/*
 				 * Alte Eingabe in einen Obekt von Typ-Mitarbeiter speichern, 
 				 * damit die Werter auf der JSP-Seite mit der Programmierung der Änderungsfunktion angezeigt werden kann
 				 */
-				request.setAttribute("Ticket", t);
+				
 
 				jsp_file = "neuesTicket.jsp";
 
@@ -144,20 +142,27 @@ public class NeuesTicketController extends HttpServlet {
 			}else  {
 
 
-//
-//				//Ticket in DB schreiben
-//				int ticketId = DaoTicketFactory.getInstance().setTicket(t);
-//
-//				//Ticketzuweisung in DB schreiben
-//				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
-//				tz.setMitarbeiterId(m.getMitarbeiterId());
-//				tz.setTicketId(ticketId);
-//				tz.setZeitpunkt(time);
-//				DaoTicketFactory.getInstance().setZuweisung(tz);
-//
-//				log.info("Ticket angelegt(ID):" + ticketId);
-//
 
+				//Ticket in DB schreiben
+				boolean noFehler = DaoTicketFactory.getInstance().setTicket(t);
+				
+				int ticketId = DaoTicketFactory.getInstance().getTicketId(t);
+
+				//Ticketzuweisung in DB schreiben
+				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
+				tz.setMitarbeiterId(Integer.valueOf(request.getParameter("zugewiesen")));
+				tz.setTicketId(ticketId);
+				tz.setZeitpunkt(time);
+				DaoTicketFactory.getInstance().setZuweisung(tz);
+				
+				t.setZuweisung(tz);
+
+				log.info("Ticket angelegt(ID):" + ticketId);
+				
+				DaoMitarbeiter dm = DaoMitarbeiterFactory.getInstance();
+				Mitarbeiter mZuweisung = dm.getMitarbeiter(Integer.valueOf(request.getParameter("zugewiesen")));
+				request.setAttribute("Zuweisung", mZuweisung.getVorname() + " " + mZuweisung.getName());
+				
 				//Weiter leiten an ticket anzeigen
 				jsp_file = "ticketAnzeigen.jsp";
 			}

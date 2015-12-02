@@ -105,10 +105,10 @@ public class ImpDaoTicket implements DaoTicket {
 	}
 
 	@Override
-	public int setTicket(Ticket t) {
+	public boolean setTicket(Ticket t) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 
-		Ticket tr = null;
+		
 		boolean fehler = false;
 
 		try {
@@ -116,7 +116,6 @@ public class ImpDaoTicket implements DaoTicket {
 			String anfrage = "insert into ticket ( erstelldatum, beschreibung, titel, verfasser) values (?, ?, ?, ?)";
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
 
-			
 			pstmt.setTimestamp(1, t.getErstelldatum());
 			pstmt.setString(2, t.getBeschreibung());
 			pstmt.setString(3, t.getTitel());
@@ -130,16 +129,26 @@ public class ImpDaoTicket implements DaoTicket {
 			e.printStackTrace();
 		}
 		
+		return !fehler;
+	}
+	
+	
+	public int getTicketId(Ticket t){
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		Ticket tr = null;
+		
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
 			//Lädt Ticket anhand der TicketId aus der DB
-			String abfrage = "select ticket_id  from ticket where titel= ? AND beschreibung = ?;";
+			String abfrage = "select *  from ticket where titel = ? AND beschreibung = ? order by erstelldatum desc limit 1";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setString(1, t.getTitel());
 			pstmt.setString(2, t.getBeschreibung());
 			ResultSet result = pstmt.executeQuery();
-
+			
+			tr = TicketFactory.getInstance();
+			
 			while(result.next()){
 				tr	 = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
 				}
@@ -149,13 +158,8 @@ public class ImpDaoTicket implements DaoTicket {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-
 		return tr.getTicketId();
+		
 	}
 	
 	@Override
@@ -184,71 +188,29 @@ public class ImpDaoTicket implements DaoTicket {
 		return !fehler;
 	}
 	
-	
-	//Legt ein leeres Ticket an um die durch "auto increment" enstandene id als ticket id zu reservieren
-//		@Override
-//		public Ticket setLeeresTicket(Mitarbeiter m) {
-//			
-//			DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
-//			Ticket t = TicketFactory.getInstance();
-//
-//			try {
-//				Connection verbindung = dbZugriff1.verbinden();
-//
-//				
-//				String insert = "insert into ticket (verfasser) values (?)";
-//				PreparedStatement pstmt = verbindung.prepareStatement(insert);
-//				pstmt.setInt(1, m.getMitarbeiterId());
-//				pstmt.executeUpdate();
-//				
-//				
-//				String abfrage = "select ticket_id from ticket ORDER BY ticket_id desc LIMIT 1;";
-//				pstmt = verbindung.prepareStatement(abfrage);
-//				ResultSet result = pstmt.executeQuery();
-//				
-//				while(result.next()){
-//					
-//					t.setTicketId(result.getInt("ticket_id"));
-//				}
-//				
-//				verbindung.close();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//
-//			return t;
-//		}
-	
+	@Override
+	public boolean loescheZuweisung(int ticketId) {
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 
-//	@Override
-//	public int getNextFreeId() {
-//		
-//
-//		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
-//		int lastId = 99999999;
-//
-//		try {
-//			Connection verbindung = dbZugriff1.verbinden();
-//
-//			//Lädt Ticket anhand der TicketId aus der DB
-//			String abfrage = "select ticket_id from ticket ORDER BY ticket_id desc LIMIT 1;";
-//			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
-//			ResultSet result = pstmt.executeQuery();
-//
-//			while(result.next()){
-//				
-//				lastId = 1 + result.getInt("ticket_id");
-//			}
-//			
-//			verbindung.close();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		return lastId;
-//	}
+		boolean fehler = false;
+
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+			String anfrage = "delete from ticketzuweisung where ticket_id = ?";
+			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
+
+			pstmt.setInt(1, ticketId);
+			pstmt.executeUpdate();
+
+			verbindung.close();
+		}catch (SQLException e) {
+			fehler = true;
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return !fehler;
+	}
 
 	@Override
 	public Vector<Ticket> getTicketsFromMitarbeiter(Mitarbeiter m) {
@@ -256,14 +218,29 @@ public class ImpDaoTicket implements DaoTicket {
 		return null;
 	}
 
-	
-
-	
 
 	@Override
-	public boolean loescheTicket(int id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean loescheTicket(int ticketId) {
+		
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+
+		boolean fehler = false;
+
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+			String anfrage = "delete from ticket where ticket_id = ?";
+			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
+
+			pstmt.setInt(1, ticketId);
+			pstmt.executeUpdate();
+
+			verbindung.close();
+		}catch (SQLException e) {
+			fehler = true;
+			e.printStackTrace();
+		}
+
+		return !fehler;
 	}
 
 	@Override
@@ -272,8 +249,5 @@ public class ImpDaoTicket implements DaoTicket {
 		return null;
 	}
 
-	
-
-	
 
 }

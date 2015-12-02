@@ -33,12 +33,16 @@
 		<div class="ueberschrift_content_neuesTicket">Titel:</div>
 
 		<input type="text" name="titel" class="input_titel_neuesTicket"
-			maxlength="70" value="<c:if test="${Ticket != null}" ><c:out value="${Ticket.titel}" /></c:if>"/>
+			maxlength="70" value="<c:if test="${Ticket != null}" ><c:out value="${Ticket.titel}" /> </c:if>"
+			<teltick:wennEintragInVector vector="felderFehler" eintrag="titel">style="border-color:red;"</teltick:wennEintragInVector>
+			 />
 
 		<div class="ueberschrift_content_neuesTicket">Beschreibung:</div>
 
 		<textarea name="beschreibung" class="textarea_neuesTicket_beschreibung"
-			cols="35" rows="4" value="<c:if test="${Ticket != null}" ><c:out value="${Ticket.beschreibung}" /></c:if>"></textarea>
+			cols="35" rows="4" value=""
+			<teltick:wennEintragInVector vector="felderFehler" eintrag="beschreibung">style="border-color:red;"</teltick:wennEintragInVector>
+			><c:if test="${Ticket != null}" ><c:out value="${Ticket.beschreibung}" /></c:if></textarea>
 
 		<div class="ueberschrift_content_neuesTicket">
 			Zugewiesen: ${m.mitarbeiterId} <select name="zugewiesen" class="select_zuweisung">
@@ -47,7 +51,7 @@
 				<teltick:forEachMitarbeiter var="m" mitAdmin="true">
 					<teltick:forEachRecht var="r" mitarbeiterId="${m.mitarbeiterId}">
 						<c:if test="${r.zugehoerigesFenster.id == 1}">
-							<option value="<c:out value="${ m.vorname } ${ m.name }"/>"
+							<option value="<c:out value="${ m.mitarbeiterId}"/>"
 								<c:if test="${angemeldeterMitarbeiter.vorname == m.vorname }">selected</c:if>><c:if
 									test="${angemeldeterMitarbeiter.vorname == m.vorname}">Mich:</c:if>
 								<c:out value="${ m.vorname } ${ m.name }" /></option>
