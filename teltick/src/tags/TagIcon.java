@@ -46,19 +46,33 @@ public class TagIcon extends TagSupport {
 						case "startmenue":
 							tagClassSchrift = "icon_text_kombination_-_text_startmenu";
 						break;
+						case "desktop":
+							tagClassSchrift = "icon_text_kombination_-_text_desktop";
+							tagClassKombination = "desktop_icons";
+						break;
 					}
 					String ausgabe = ""
 							+ "<span class=\"icon_text_kombination " + tagClassKombination + "\" onclick=\"oeffne_fenster(" + f.getId() + ");\" title=\""+ f.getTitel() + "\" >"
-							+ "		<img src=\"" + f.getIcon() + "\" alt=\"" + f.getTitel() + "\"  class=\"icon_text_kombination_-_icon\"/>"
+							+ "		<div><img src=\"" + f.getIcon() + "\" alt=\"" + f.getTitel() + "\"  class=\"icon_text_kombination_-_icon\"/></div>"
 							+ "		<div class=\"icon_text_kombination_-_text "+ tagClassSchrift +"\">" + f.getTitel() + "</div>"
 							+ "</span>";
 					
 					out.println(ausgabe);
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		}	
+		}
+		if (ort.equals("desktop")){
+			try {
+				out.println("<div class=\"clear_left\"></div>");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		return EVAL_PAGE;
 	}
 

@@ -27,4 +27,8 @@
 		</div>
 	</div>
 </div>
-<div id="fenster_bereich_desktop"></div>
+<div id="fenster_bereich_desktop">
+	<div class="bereich_desktop_icons" >
+		<teltick:icons ort="desktop" />
+	</div>
+</div>

@@ -58,6 +58,9 @@ html body{
 	clear: right;
 }
 
+.clear_left{
+	clear: left;
+}
 
 .fensterbutton{
 	background-image: url('../bilder/fenster_button1.png');
@@ -545,9 +548,10 @@ input{
 }
 
 .icon_text_kombination_-_icon{
-	display: inline-block;
+	display: block;
 	text-align: center;
 	height: 26px;
+	margin: 0px auto;
 }
 
 .icon_text_kombination{
@@ -569,4 +573,25 @@ input{
 
 .icon_text_kombination_-_text_startmenu{
 	color: black;
-}	
+	text-shadow: 2px 2px 2px #fff;
+}
+
+.icon_text_kombination_-_text_desktop{
+	color:#fff;
+}
+
+.desktop_icons{
+	width: 128px;
+	display: block;
+	margin-top: 10px;
+	text-shadow: 2px 2px 2px #000;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: pointer;
+}
+
+.bereich_desktop_icons{
+	padding-top: 15px;
+}
