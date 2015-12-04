@@ -179,7 +179,7 @@ html body{
 .menue{
 	
 	position: absolute;
-	width: 640px;
+	width: 350px;
 	z-index: 99999;
 	margin-left: -5px;
 	visibility: hidden;
@@ -215,7 +215,7 @@ html body{
 .menu_content{
 	border: 1px solid;
 	min-height: 64px;
-	color: #fff;
+	color: #6F2E9B;
 	border-color: #6F2E9B;
 	background-color: #C7BFD9;
 	box-shadow: 2px 2px 2px grey;
@@ -454,7 +454,7 @@ input{
 .icon_start_leiste{
 	padding: 5px;
 	border-radius: 6px 6px 6px 6px;
-	height: 40px;
+	height: 26px;
 }
 
 .icon_start_leiste:hover{
@@ -539,3 +539,34 @@ input{
 	width: 420px;
 }
 
+.start_menue_icon_auflistung{
+	margin-top: 10px;
+	text-align: center;
+}
+
+.icon_text_kombination_-_icon{
+	display: inline-block;
+	text-align: center;
+	height: 26px;
+}
+
+.icon_text_kombination{
+	display: inline-block;
+	padding: 5px;
+}
+
+.icon_text_kombination_-_text{
+	font-size: 10px;
+	text-align: center;
+	letter-spacing: 0px;
+}
+
+.icon_text_kombination:hover{
+	color: #176265;
+	background-color: #D5D5D5;
+	border-radius: 6px;
+}	
+
+.icon_text_kombination_-_text_startmenu{
+	color: black;
+}	

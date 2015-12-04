@@ -40,7 +40,20 @@ public class TagIcon extends TagSupport {
 				Fenster f = r.getZugehoerigesFenster();		
 				
 				try {
-					out.println("<img src=\"" + f.getIcon() + "\" alt=\"" + f.getTitel() + "\" onclick=\"oeffne_fenster(" + f.getId() + ");\" title=\""+ f.getTitel() + "\" class=\"icon_start_leiste icon_start_leiste_markiert\"/>" );
+					String tagClassKombination = "";
+					String tagClassSchrift = "";
+					switch (ort){
+						case "startmenue":
+							tagClassSchrift = "icon_text_kombination_-_text_startmenu";
+						break;
+					}
+					String ausgabe = ""
+							+ "<span class=\"icon_text_kombination " + tagClassKombination + "\" onclick=\"oeffne_fenster(" + f.getId() + ");\" title=\""+ f.getTitel() + "\" >"
+							+ "		<img src=\"" + f.getIcon() + "\" alt=\"" + f.getTitel() + "\"  class=\"icon_text_kombination_-_icon\"/>"
+							+ "		<div class=\"icon_text_kombination_-_text "+ tagClassSchrift +"\">" + f.getTitel() + "</div>"
+							+ "</span>";
+					
+					out.println(ausgabe);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
