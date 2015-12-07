@@ -95,6 +95,7 @@ public class NeuesFensterController extends HttpServlet {
 				request.setAttribute("minWidth", new String(f.getMinBreite() + "px"));
 				request.setAttribute("minHeight", new String (f.getMinHoehe() + "px"));
 				request.setAttribute("icon", f.getIcon());
+				request.setAttribute("fensterId", fensterId);
 				
 				//Fensterzählvariable in der Session ablegen
 				session.setAttribute("fensterZaehlVariable", fensterZaehlVariable);

@@ -539,3 +539,31 @@ input{
 	width: 420px;
 }
 
+/* Fenster Ticket anzeigen */
+.ueberschrift_content_TicketAnzeigen_Neu {
+	font-size: 14px;
+	margin-top: 10px;
+	color: green;
+}
+
+.ueberschrift_contentTicketAnzeigen {
+	font-size: 18px;
+	margin-top: 10px;
+	
+}
+
+.inhalt_contentTicketAnzeigen {
+	font-size: 16px;
+	margin-top: 5px;
+	background-color: white;
+	padding: 4px;
+	border-radius: 2px;
+	border: 1px solid gray;
+	
+}
+
+.inhalt_contentTicketAnzeigen_beschreibung {
+	overflow: scroll;
+    max-height: 150px;
+}
+

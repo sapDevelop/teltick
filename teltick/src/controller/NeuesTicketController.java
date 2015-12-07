@@ -109,7 +109,7 @@ public class NeuesTicketController extends HttpServlet {
 			t.setVerfasserId(m.getMitarbeiterId());
 			t.setErstelldatum(time);	
 
-			request.setAttribute("Ticket", t);
+			
 
 			boolean fehler = false;
 			if (meldung != ""){
@@ -133,7 +133,7 @@ public class NeuesTicketController extends HttpServlet {
 				 * Alte Eingabe in einen Obekt von Typ-Mitarbeiter speichern, 
 				 * damit die Werter auf der JSP-Seite mit der Programmierung der Änderungsfunktion angezeigt werden kann
 				 */
-				
+				request.setAttribute("Ticket", t);
 
 				jsp_file = "neuesTicket.jsp";
 
@@ -147,6 +147,8 @@ public class NeuesTicketController extends HttpServlet {
 				boolean noFehler = DaoTicketFactory.getInstance().setTicket(t);
 				
 				int ticketId = DaoTicketFactory.getInstance().getTicketId(t);
+				
+				t.setTicketId(ticketId);
 
 				//Ticketzuweisung in DB schreiben
 				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
@@ -162,6 +164,9 @@ public class NeuesTicketController extends HttpServlet {
 				DaoMitarbeiter dm = DaoMitarbeiterFactory.getInstance();
 				Mitarbeiter mZuweisung = dm.getMitarbeiter(Integer.valueOf(request.getParameter("zugewiesen")));
 				request.setAttribute("Zuweisung", mZuweisung.getVorname() + " " + mZuweisung.getName());
+				
+				
+				request.setAttribute("Ticket", t);
 				
 				//Weiter leiten an ticket anzeigen
 				jsp_file = "ticketAnzeigen.jsp";

@@ -62,7 +62,7 @@
 			</select>
 		</div>
 		<div class="ueberschrift_content_neuesTicket">
-			Priorität: <select name="prio" class="select_prio">
+			Priorität:  <select name="prio" class="select_prio">
 				<option value="null" selected></option>
 				<option value="hoch">hoch</option>
 				<option value="normal">normal</option>
