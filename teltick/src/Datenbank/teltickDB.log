@@ -1,2 +1,5 @@
 /*C3*/SET SCHEMA PUBLIC
+DELETE FROM FENSTER WHERE FENSTER_ID=2
+INSERT INTO FENSTER VALUES(2,600,390,NULL,'Tickets lesen','ticketAnzeigenVerwaltung.jsp','bilder/fenstericons/ticket_verwaltung.png')
+COMMIT
 DISCONNECT

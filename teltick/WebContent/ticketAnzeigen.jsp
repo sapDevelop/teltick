@@ -24,19 +24,26 @@
 	<c:out value="${fensterId }"></c:out>
 </div>
 <div class="ueberschrift_contentTicketAnzeigen">Beschreibung:</div>
-<div class="inhalt_contentTicketAnzeigen inhalt_contentTicketAnzeigen_beschreibung">
+<div
+	class="inhalt_contentTicketAnzeigen inhalt_contentTicketAnzeigen_beschreibung">
 	<c:out value="${Ticket.beschreibung }"></c:out>
 </div>
-<div  class="ueberschrift_contentTicketAnzeigen">
-<div class="ueberschrift_contentTicketAnzeigen" style="float:left; margin-top: 8px;">Zugewiesen an:&nbsp;&nbsp;</div>
-<div class="inhalt_contentTicketAnzeigen" style="float:left; width 300px" >
-	<c:out value="${requestScope.Zuweisung}"></c:out>
-</div>
-</div>
-<div class="ueberschrift_contentTicketAnzeigen" style=" margin-bottom: 5px;">		
-<input type="submit" value="Fenster schließen"
-			class="button_ticket_anlegen" title="Fenster schließen" onclick="fenster_schliessen('fenster_<c:out value="${ param.ajax_id}" />');"/>
 
-<input type="submit" value="Neues Ticket"
-			class="button_ticket_anlegen" title="Neues Ticket" onclick="oeffne_fenster(1); fenster_schliessen('fenster_<c:out value="${ param.ajax_id}" />');"/>
-</div>	
+<div class="ueberschrift_contentTicketAnzeigen">
+	<div class="ueberschrift_contentTicketAnzeigen"
+		style="float: left; margin-top: 8px;">Zugewiesen an:&nbsp;&nbsp;</div>
+	<div class="inhalt_contentTicketAnzeigen" style="float: left;">
+		<c:out value="${requestScope.Zuweisung}"></c:out>
+	</div>
+</div>
+<div class="clear_right" ></div>
+
+<div style="">
+	<input type="submit" value="Neues Ticket"
+			class="" title="Neues Ticket" onclick="oeffne_fenster(1); fenster_schliessen('fenster_<c:out value="${ param.ajax_id}" />');"/>
+	
+
+		<input type="submit" value="Fenster schließen"
+			class="" title="Fenster schließen" onclick="fenster_schliessen('fenster_<c:out value="${ param.ajax_id}" />');"/>
+</div>
+
