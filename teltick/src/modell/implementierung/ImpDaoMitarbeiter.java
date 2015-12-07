@@ -71,10 +71,19 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 			pstmt.setString(3, r.getLoginName());
 			pstmt.setString(4, r.getName());
 			pstmt.setString(5, new String(r.getPasswort()));
+			
+			log.info("Mitarbeiter \"" + r.getLoginName() + "\" wird in der DB gespeichert.");
 			pstmt.executeUpdate();
 			
-			
 			verbindung.close();
+			log.info("Speichervorgang erfolgreich");
+			
+			//ließt die Mitarbeiter_Id aus der Datenbank aus und übergibt diese der Referenze r
+			Mitarbeiter m_erstellt = getMitarbeiter(r.getLoginName(), r.getPasswort());
+			r.setMitarbeiterId(m_erstellt.getMitarbeiterId());
+			log.info("Den Mitarbeiter \"" + r.getLoginName() + "\" wurde die ID \"" + r.getMitarbeiterId() + "\" vergeben.");
+				
+			
 		}catch (SQLException e) {
 			fehler = true;
 			// TODO Auto-generated catch block

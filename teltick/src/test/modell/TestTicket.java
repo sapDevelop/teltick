@@ -65,25 +65,13 @@ public class TestTicket {
 	dm.speicherInDB(m);
 	dm.updateRechteMitarbeiter(m);
 	
-	//Mitarbeiter ID ermitteln
-	Vector<Mitarbeiter> vm = dm.getAlleMitarbeiter(true);
-	
-	int mId = 999;
-	for(int i = 0; i<vm.size(); i++)
-	{
-		if(vm.get(i).getLoginName().equals("test")&& vm.get(i).getVorname().equals("testv")&&vm.get(i).getName().equals("testn"))
-		{
-			mId = vm.get(i).getMitarbeiterId();
-		}
-	}
-	m.setMitarbeiterId(mId);
 	
 	//Ticket anlegen
 	Ticket t1 = TicketFactory.getInstance();
 	t1.setTitel("titel2");
 	t1.setBeschreibung("beschreibung2");
 	t1.setErstelldatum(DatumFactory.getInstance().getDatum());
-	t1.setVerfasserId(mId);
+	t1.setVerfasserId(m.getMitarbeiterId());
 	
 	//Ticket speichern
 	DaoTicket dt = DaoTicketFactory.getInstance();
@@ -94,7 +82,7 @@ public class TestTicket {
 	
 	//Ticketzuweisung setzten
 	Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
-	tz.setMitarbeiterId(mId);
+	tz.setMitarbeiterId(m.getMitarbeiterId());
 	tz.setTicketId(ticketId);
 	tz.setZeitpunkt(DatumFactory.getInstance().getDatum());
 	
@@ -104,17 +92,17 @@ public class TestTicket {
 	//Ticket wieder aus der DB holen
 	Ticket t2 = dt.getTicket(ticketId);
 	
-	//Benutzer und Ticket wieder löschen
-	dt.loescheZuweisung(ticketId);
-	dt.loescheTicket(ticketId);
-	dm.loescheVonDB(m);
+	//Benutzer und Ticket wieder lÃ¶schen
+	Assert.assertTrue(dt.loescheZuweisung(ticketId));
+	Assert.assertTrue(dt.loescheTicket(ticketId));
+	Assert.assertTrue(dm.loescheVonDB(m));
 	
 	
 	//Vergleiche
 	Assert.assertTrue(noFehler);
 	Assert.assertEquals(t1.getTitel(), t2.getTitel());
 	Assert.assertEquals(t1.getBeschreibung(), t2.getBeschreibung());
-	Assert.assertEquals(mId, t2.getVerfasserId());
+	Assert.assertEquals(m.getMitarbeiterId(), t2.getVerfasserId());
 	Assert.assertEquals(ticketId, t2.getTicketId());
 	
 	}

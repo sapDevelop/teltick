@@ -58,6 +58,9 @@ html body{
 	clear: right;
 }
 
+.clear_left{
+	clear: left;
+}
 
 .fensterbutton{
 	background-image: url('../bilder/fenster_button1.png');
@@ -179,7 +182,7 @@ html body{
 .menue{
 	
 	position: absolute;
-	width: 640px;
+	width: 350px;
 	z-index: 99999;
 	margin-left: -5px;
 	visibility: hidden;
@@ -215,7 +218,7 @@ html body{
 .menu_content{
 	border: 1px solid;
 	min-height: 64px;
-	color: #fff;
+	color: #6F2E9B;
 	border-color: #6F2E9B;
 	background-color: #C7BFD9;
 	box-shadow: 2px 2px 2px grey;

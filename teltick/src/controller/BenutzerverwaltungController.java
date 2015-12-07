@@ -262,8 +262,6 @@ public class BenutzerverwaltungController extends HttpServlet {
 				daoMNeu.speicherInDB(werteNeuerM);
 				log.info("Neuer Mitarbeiter wird in der Datenbank angelegt.");
 				
-				//lädt den angelegten Mitarbeiter von der Datenbank, um die Mitarbeiter-ID zu erhalten
-				werteNeuerM = daoMNeu.getMitarbeiter(werteNeuerM.getLoginName(), werteNeuerM.getPasswort());
 				
 				//fügt den Mitarbeiter seine Rechte hinzu
 				log.info("Lädt den neuen Mitarbeiter aus der Datenbank.");

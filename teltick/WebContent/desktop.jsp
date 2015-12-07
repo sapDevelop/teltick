@@ -20,18 +20,15 @@
 	<div class="menue">
 		<div class="platzhalter_menu_leiste"></div>
 		<div class="menu_content">
-			<table>
-				<tr>
-					<th>Anwendung öffnen:</th>
-				</tr>
-				<tr>
-					<th><teltick:icons ort="angemeldeterMitarbeiter" /></th>
-				</tr>
-
-
-			</table>
-			
+			<div>Anwendung öffnen:</div>
+			<div class="start_menue_icon_auflistung" >
+				<teltick:icons ort="startmenue" />
+			</div>
 		</div>
 	</div>
 </div>
-<div id="fenster_bereich_desktop"></div>
+<div id="fenster_bereich_desktop">
+	<div class="bereich_desktop_icons" >
+		<teltick:icons ort="desktop" />
+	</div>
+</div>
