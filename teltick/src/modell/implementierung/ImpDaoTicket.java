@@ -216,8 +216,34 @@ public class ImpDaoTicket implements DaoTicket {
 
 	@Override
 	public Vector<Ticket> getTicketsFromMitarbeiter(Mitarbeiter m) {
-		// TODO Auto-generated method stub
-		return null;
+		Vector<Ticket> ticket = new Vector<Ticket>();
+
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+
+			//Lädt Ticket anhand der TicketId aus der DB
+			String abfrage = "SELECT * "
+						+ "FROM ticket, ticketzuweisung "
+						+ "WHERE ticket.ticket_id=ticketzuweisung.ticket_id "
+						+ "AND ticketzuweisung.mitarbeiter_id=?; ";
+			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
+			pstmt.setInt(1, m.getMitarbeiterId());
+			ResultSet result = pstmt.executeQuery();
+
+			while(result.next()){
+				Ticket t = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
+				ticket.add(t);
+			}
+
+			verbindung.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return ticket;
 	}
 
 

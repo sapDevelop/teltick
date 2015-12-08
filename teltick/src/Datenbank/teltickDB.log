@@ -1,3 +1,0 @@
-/*C3*/SET SCHEMA PUBLIC
-alter table ticket alter column beschreibung clob
-DISCONNECT

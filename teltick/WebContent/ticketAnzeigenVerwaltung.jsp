@@ -38,9 +38,8 @@
 								Erstelldatum
 							</div>
 						</div>
-						
 						<!-- Gibt die Tickets aus -->
-						<teltick:TicketTag stat="0" var="t">
+						<teltick:TicketTag stat="${param.ticketauswahl}" var="t">
 							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_<c:out value="${ param.id }" />" value="<c:out value="${ t.ticketId  }" />" 
 								<c:if test="${param.benutzer_radio != null && param.benutzer_radio ==  t.ticketId }">checked="checked"</c:if>
 							/>
@@ -65,15 +64,15 @@
 					</div>				
 				</div>
 			</div>
-			<div class="admin_benutzeruebersicht_content_bereich_buttons" >
+			<div class="ticket_verwaltung_content_bereich_buttons" >
 				<div class="admin_benutzeruebersicht_platzierung" >
 				<div class="button_benutzerverwaltung">
-				<input type="radio"	value="Eigene Tickets" name="submit"  title="Neuen Benutzer hinzufügen" onclick="" /><a>Eigene Tickets</a>
-					
+				<input type="radio"	value="Eigene Tickets" name="submit"  title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;" checked="checked"/><a>Eigene Tickets</a>
+				<input type="radio"	value="Alle Tickets" name="submit"  title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;" /><a>Alle Tickets</a>	
 				</div>
-					<input type="submit" value="Neuer Benutzer" name="submit"  class="button_benutzerverwaltung" title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;"  />
+					<input type="submit" value="Anzeigen" name="submit"  class="button_benutzerverwaltung" title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;"  />
 					<input type="submit" value="Bearbeiten" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer ändern" disabled="disabled"  id="button_benutzerverwaltung_aendern_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
-					<input type="submit" value="Entfernen" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer löschen" disabled="disabled" id="button_benutzerverwaltung_loeschen_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
+					
 				</div>
 			</div>
 		</div>

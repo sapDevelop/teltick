@@ -142,6 +142,7 @@
 			<name>stat</name>
 			<required>true</required>
 			<rtextprvalue>true</rtextprvalue>
+			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
 			<name>var</name>

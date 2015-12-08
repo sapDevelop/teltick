@@ -60,24 +60,28 @@ public class TicketTag extends LoopTagSupport {
 	
 	@Override
 	public int doStartTag() throws JspException {
-		
 				
-//		DaoMitarbeiter dao = DaoMitarbeiterFactory.getInstance();
-//		itMitarbeiter = dao.getAlleMitarbeiter(mitAdmin).iterator();
-		
 		
 		if(stat == 0){
 				
-			// value == 0 -> Alle Mitarbeiter
-				
+			// Eigene Tickets
+			
+			Mitarbeiter m = (Mitarbeiter) pageContext.getSession().getAttribute("angemeldeterMitarbeiter");
+						
 			DaoTicket daoT = DaoTicketFactory.getInstance();
-			itTicket = daoT.getAlleTickets().iterator();
+			itTicket = daoT.getTicketsFromMitarbeiter(m).iterator();
 			
 		} else if (stat == 1)
 		{
 			
-		} else if (stat == 2) {
 			
+			
+		} else  {
+			
+			// Alle Tickets
+			
+						DaoTicket daoT = DaoTicketFactory.getInstance();
+						itTicket = daoT.getAlleTickets().iterator();
 		}
 		
 		return super.doStartTag();

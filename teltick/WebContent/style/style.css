@@ -680,3 +680,9 @@ input{
 .contentTicketAnzeigen_inlineBlock {
 	display:inline-block;
 }
+
+.ticket_verwaltung_content_bereich_buttons{
+	display: table-cell;
+	width: 143px;
+	vertical-align: top;
+}
