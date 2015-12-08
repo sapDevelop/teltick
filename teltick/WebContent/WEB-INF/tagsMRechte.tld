@@ -17,6 +17,12 @@
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
+		<attribute>
+			<name>sonderRechte</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
 	</tag>
 	<tag>
 		<name>hatKeineZugriffrechteFenster</name>

@@ -28,4 +28,12 @@ public interface Ticket {
 
 	Ticketzuweisung getZuweisung();
 
+	void setUhrzeit(String uhrzeit);
+
+	String getUhrzeit();
+
+	void setDatum(String datum);
+
+	String getDatum();
+
 }

@@ -2,6 +2,7 @@ package modell.implementierung;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import modell.entitaeten.factory.TicketFactory;
 import modell.entitaeten.interfaces.Fenster;
@@ -18,6 +19,8 @@ public class ImpRowMappingTicket implements RowMappingTicket{
 		
 		Ticket t = TicketFactory.getInstance();
 		t.setErstelldatum(dbResult.getTimestamp("erstelldatum"));
+		t.setDatum(new SimpleDateFormat("dd.MM.yyyyy").format(dbResult.getTimestamp("erstelldatum")));
+		t.setUhrzeit(new SimpleDateFormat("HH:mm").format(dbResult.getTimestamp("erstelldatum")));
 		t.setBeschreibung(dbResult.getString("beschreibung"));
 		t.setTitel(dbResult.getString("titel"));
 		t.setVerfasserId(dbResult.getInt("verfasser"));

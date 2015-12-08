@@ -20,7 +20,10 @@ public class MitarbeiterHatZugrifsrechteFensterTag  extends BodyTagSupport{
 	private static final long serialVersionUID = 1L;
 	private int fensterId;
 	private Mitarbeiter benutzer;
+	private boolean sonderRechte;
 	
+	
+
 	private static Logger log = LogFactory.getInstance(MitarbeiterHatZugrifsrechteFensterTag.class.getName());
 
 	@Override
@@ -33,7 +36,7 @@ public class MitarbeiterHatZugrifsrechteFensterTag  extends BodyTagSupport{
 		
 		Fenster f = FensterFactory.getInstance();
 		f.setId(fensterId);
-		if (m != null && m.zugriffsRechtFenster(f) ){
+		if (m != null && (m.zugriffsRechtFenster(f)||sonderRechte) ){
 			
 			try {
 				out.print(getBodyContent().getString());
@@ -47,11 +50,21 @@ public class MitarbeiterHatZugrifsrechteFensterTag  extends BodyTagSupport{
 	}
 	
 	//public 
+	
+	
 
 	@Override
 	public int doStartTag() throws JspException {
 				
 		return EVAL_BODY_BUFFERED; 
+	}
+	
+	public boolean isSonderRechte() {
+		return sonderRechte;
+	}
+
+	public void setSonderRechte(boolean sonderRechte) {
+		this.sonderRechte = sonderRechte;
 	}
 
 	public int getFensterId() {

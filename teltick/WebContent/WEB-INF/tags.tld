@@ -134,4 +134,38 @@
 		</attribute>
 	</tag>
 	
+	<tag>
+		<name>TicketTag</name>
+		<tag-class>tags.TicketTag</tag-class>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>stat</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>MitarbeiterZuTicketTag</name>
+		<tag-class>tags.MitarbeiterZuTicketTag</tag-class>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>ticketId</name>
+			<required>true</required>
+			<rtextprvalue>true</rtextprvalue>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+	</tag>
+	
+	
+	
+	
+	
+	
+	
 </taglib>

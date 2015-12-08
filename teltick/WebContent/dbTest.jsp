@@ -43,14 +43,14 @@
 		   
 	   {
 		//Lädt den Mitarbeiter aus der DB
-		String abfrage = "select * from ticket where titel = 'titel1' order by erstelldatum desc limit 1";
+		String abfrage = "select * from fenster";
 		
 		PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 		ResultSet result = pstmt.executeQuery();
 		
 		while (result.next())
 		{
-			out.println(result.getString("ticket_id")+ "\n");
+			out.println("$$" + result.getString("jsp_datei")+ "$$" + "\n");
 		}
 		
 	    
