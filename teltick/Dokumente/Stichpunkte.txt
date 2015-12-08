@@ -1,0 +1,7 @@
+- Design-Entwurf
+- ERD
+- Architektur- Factory-Plattern
+- Warum der Desktop
+- welche Use-Case umgesetzt
+- Projektautteilung
+- Fazit
