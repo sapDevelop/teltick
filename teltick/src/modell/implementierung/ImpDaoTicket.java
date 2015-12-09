@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import modell.entitaeten.factory.TicketFactory;
+import modell.entitaeten.factory.TicketzuweisungFactory;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Ticket;
 import modell.entitaeten.interfaces.Ticketzuweisung;
 import modell.factory.HSqlDbZugriffFactory;
 import modell.factory.RowMappingMitarbeiterSingletonFactory;
 import modell.factory.RowMappingTicketSingletonFactory;
+import modell.factory.RowMappingTicketzuweisungSingletonFactory;
 import modell.interfaces.DBZugriff;
 import modell.interfaces.DaoTicket;
 
@@ -214,8 +216,34 @@ public class ImpDaoTicket implements DaoTicket {
 
 	@Override
 	public Vector<Ticket> getTicketsFromMitarbeiter(Mitarbeiter m) {
-		// TODO Auto-generated method stub
-		return null;
+		Vector<Ticket> ticket = new Vector<Ticket>();
+
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+
+			//Lädt Ticket anhand der TicketId aus der DB
+			String abfrage = "SELECT * "
+						+ "FROM ticket, ticketzuweisung "
+						+ "WHERE ticket.ticket_id=ticketzuweisung.ticket_id "
+						+ "AND ticketzuweisung.mitarbeiter_id=?; ";
+			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
+			pstmt.setInt(1, m.getMitarbeiterId());
+			ResultSet result = pstmt.executeQuery();
+
+			while(result.next()){
+				Ticket t = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
+				ticket.add(t);
+			}
+
+			verbindung.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return ticket;
 	}
 
 
@@ -242,12 +270,45 @@ public class ImpDaoTicket implements DaoTicket {
 
 		return !fehler;
 	}
+	
+	@Override
+	public Ticketzuweisung getTicketzuweisung(int ticketId) {
+		
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		Ticketzuweisung tzr = null;
+		boolean fehler = false;
+
+		try {
+			Connection verbindung = dbZugriff1.verbinden();
+			String anfrage = "select * from ticketzuweisung where ticket_id = ?;";
+			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
+			pstmt.setInt(1, ticketId);
+			ResultSet result = pstmt.executeQuery();
+			
+			 tzr = TicketzuweisungFactory.getInstance();
+			
+			while(result.next()){
+				tzr	 = RowMappingTicketzuweisungSingletonFactory.getInstance().mapRow(result);
+				}
+
+			verbindung.close();
+		}catch (SQLException e) {
+			fehler = true;
+			e.printStackTrace();
+		}
+		
+		return tzr;
+		
+
+	}
 
 	@Override
 	public Ticketzuweisung getZuweisung(Ticket t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 
 }

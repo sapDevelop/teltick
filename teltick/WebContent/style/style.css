@@ -524,13 +524,9 @@ input{
 }
 
 .button_ticket_anlegen{
-	margin-top: 70px;
-	float: right;
-	margin-right: 5px;
-	width: 132px;
-	display: block;
-	margin: 5px auto;
-	
+	float:right;
+	margin-top: 60px; 
+	padding-bottom: 10px; 
 }
 
 .ueberschrift_content_neuesTicket{
@@ -539,7 +535,7 @@ input{
 }
 
 .input_titel_neuesTicket{
-	width: 420px;
+	width: 565px;
 }
 
 .start_menue_icon_auflistung{
@@ -599,4 +595,94 @@ input{
 
 .input_titel_neuesTicket, .textarea_neuesTicket_beschreibung{
 	border-style: solid;
+}
+
+/* Fenster Ticket anzeigen */
+.ueberschrift_content_TicketAnzeigen_Neu {
+	font-size: 14px;
+	margin-top: 5px;
+	color: green;
+}
+
+.ueberschrift_contentTicketAnzeigen {
+	font-size: 18px;
+	margin-top: 10px;
+	
+}
+
+.inhalt_contentTicketAnzeigen {
+	font-size: 16px;
+	margin-top: 5px;
+	background-color: white;
+	padding: 4px;
+	border-radius: 2px;
+	border: 1px solid gray;
+	
+}
+
+.inhalt_contentTicketAnzeigen_beschreibung {
+	overflow: scroll;
+    height: 140px;
+    margin-top: 5px;
+}
+
+
+/* Fenster Ticket Verwaltung */
+
+.uebersicht_ticket_content_aufteiler {
+	display: table;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.uebersicht_ticket_content_bereich_ticketauflistung {
+	display: table-cell;
+	width: 260px;
+	vertical-align: top;
+}
+
+#uebersicht_ticket_liste{
+	margin-top: 5px;
+	height: 240px;
+	border: 1px inset;
+	background-color: white;
+	overflow: scroll;
+	width:437px;
+}
+
+
+#uebersicht_ticket_liste_tabelle {
+	display: table;
+}
+
+#uebersicht_ticket_liste_tabelle .div_tabelle_zeile{
+	display: table-row;
+}
+
+#uebersicht_ticket_liste_tabelle .div_tabelle_zelle{
+	display: table-cell;
+	padding: 5px;
+	vertical-align: middle;
+	border: 1px solid #888A85;
+	white-space:nowrap;
+}
+
+#uebersicht_ticket_liste_tabelle .div_tabelle_zelle_kopf{
+		background-color: #D7D7D7; 
+}
+
+.button_ticket_anzeigen {
+	float:right;
+	margin-top: 60px; 
+	padding-bottom: 10px; 
+}
+
+.contentTicketAnzeigen_inlineBlock {
+	display:inline-block;
+}
+
+.ticket_verwaltung_content_bereich_buttons{
+	display: table-cell;
+	width: 143px;
+	vertical-align: top;
 }

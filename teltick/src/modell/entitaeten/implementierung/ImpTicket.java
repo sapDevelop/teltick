@@ -8,10 +8,29 @@ import modell.entitaeten.interfaces.Ticketzuweisung;
 public class ImpTicket implements Ticket {
 	
 	private int ticketId,verfasserId;
-	private String beschreibung, titel;
+	private String beschreibung, titel, datum, uhrzeit;
+	
+
 	private Timestamp erstelldatum;
 	private Ticketzuweisung ticketzuweisung;
 
+	@Override
+	public String getDatum() {
+		return datum;
+	}
+	@Override
+	public void setDatum(String datum) {
+		this.datum = datum;
+	}
+	@Override
+	public String getUhrzeit() {
+		return uhrzeit;
+	}
+	@Override
+	public void setUhrzeit(String uhrzeit) {
+		this.uhrzeit = uhrzeit;
+	}
+	
 	@Override
 	public int getTicketId() {
 		return ticketId;

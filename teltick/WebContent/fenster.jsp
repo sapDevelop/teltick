@@ -48,7 +48,7 @@
 		</span>
 		<div class="clear_right" ></div>
 	</div>
-	<div class="content" id="fenster_content_<c:out value="${id }" />">
+	<div class="content" id="fenster_content_<c:out value="${id}"/>">
 		<jsp:include page="${inhalt}" >
 			<jsp:param value="${id}" name="id"/>
 		</jsp:include>

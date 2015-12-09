@@ -165,6 +165,7 @@ public class NeuesTicketController extends HttpServlet {
 				Mitarbeiter mZuweisung = dm.getMitarbeiter(Integer.valueOf(request.getParameter("zugewiesen")));
 				request.setAttribute("Zuweisung", mZuweisung.getVorname() + " " + mZuweisung.getName());
 				
+				request.setAttribute("RechtTicketvorschau", true);
 				
 				request.setAttribute("Ticket", t);
 				

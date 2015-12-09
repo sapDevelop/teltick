@@ -16,7 +16,7 @@ public class ImpRowMappingTicketzuweisung implements RowMappingTicketzuweisung {
 	public Ticketzuweisung mapRow(ResultSet dbResult) throws SQLException {
 		
 		Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
-		tz.setZuweisungsId(dbResult.getInt("zuweisungs_id"));
+		tz.setZuweisungsId(dbResult.getInt("zuweisung_id"));
 		tz.setZeitpunkt(dbResult.getTimestamp("zeitpunkt"));
 		tz.setMitarbeiterId(dbResult.getInt("mitarbeiter_id"));
 		tz.setTicketId(dbResult.getInt("ticket_id"));

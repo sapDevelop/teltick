@@ -22,25 +22,18 @@
 	<form action="NeuesTicketController" method="post"
 		action="./NeuesTicketController" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
 		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
-		
-		
-		
-	
-		
-		
-		
 
 		<div class="ueberschrift_content_neuesTicket">Titel:</div>
 
 		<input type="text" name="titel" class="input_titel_neuesTicket"
-			maxlength="70" value="<c:if test="${Ticket != null}" ><c:out value="${Ticket.titel}" /> </c:if>"
+			maxlength="73" value="<c:if test="${Ticket != null}" ><c:out value="${Ticket.titel}" /> </c:if>"
 			<teltick:wennEintragInVector vector="felderFehler" eintrag="titel">style="border-color:red;"</teltick:wennEintragInVector>
 			 />
 
 		<div class="ueberschrift_content_neuesTicket">Beschreibung:</div>
 
 		<textarea name="beschreibung" class="textarea_neuesTicket_beschreibung"
-			cols="35" rows="4" value=""
+			 maxlength="800"
 			<teltick:wennEintragInVector vector="felderFehler" eintrag="beschreibung">style="border-color:red;"</teltick:wennEintragInVector>
 			><c:if test="${Ticket != null}" ><c:out value="${Ticket.beschreibung}" /></c:if></textarea>
 
@@ -69,9 +62,10 @@
 				<option value="gering">gering</option>
 			</select>
 		</div>
-
-		<input type="submit" value="Ticket anlegen"
-			class="button_ticket_anlegen" title="Neues Ticket anlegen"/>
-
+		<div class="button_ticket_anlegen">
+			<input type="submit" value="Ticket anlegen"
+				 title="Neues Ticket anlegen"/>
+		</div>
+		<div class="clear_right" ></div>
 	</form>
 </m:hatZugriffrechteFenster>
