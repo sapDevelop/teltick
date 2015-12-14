@@ -11,7 +11,7 @@
 		<link rel="stylesheet"  href="style/style.css" type='text/css'  />
 		<script type="text/javascript" src="js/fenster.js" ></script>
 		<script type="text/javascript" src="js/submitUmleiten.js" ></script>
-		<script type="text/javascript" src="js/admin_benutzer_uebersicht.js" ></script>
+		<script type="text/javascript" src="js/fensterFunktionen.js" ></script>
 	</head>
 	<body onload="uhr_starten();"  >
 		<c:choose>

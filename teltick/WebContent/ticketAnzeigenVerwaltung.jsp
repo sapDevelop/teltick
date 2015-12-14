@@ -14,7 +14,7 @@
 
 	
 
-	<form action="" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
+	<form action="TicketVerwaltungController" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
 		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
 						
 		<div class="uebersicht_ticket_content_aufteiler">
@@ -22,7 +22,6 @@
 				<div id="uebersicht_ticket_liste" >
 				
 					<div id="uebersicht_ticket_liste_tabelle">
-					
 					
 						<div class="div_tabelle_zeile" >
 							<div class="div_tabelle_zelle div_tabelle_zelle_kopf" >
@@ -39,12 +38,10 @@
 							</div>
 						</div>
 						<!-- Gibt die Tickets aus -->
-						<teltick:TicketTag stat="${param.ticketauswahl}" var="t">
-							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_<c:out value="${ param.id }" />" value="<c:out value="${ t.ticketId  }" />" 
-								<c:if test="${param.benutzer_radio != null && param.benutzer_radio ==  t.ticketId }">checked="checked"</c:if>
-							/>
-							<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ t.ticketId  }" />_<c:out value="${ param.id }" />" onclick="button_enable('<c:out value="${ param.id }" />');" >
-								<div class="div_tabelle_zelle" >
+						<teltick:TicketTag stat="${requestScope.ticketauswahl}" var="t">
+								<input type="radio" name="ticket_radio" class="ticket_radio" id="ticket_radio_<c:out value="${ t.ticketId }" />_<c:out value="${ param.id }" />" value="<c:out value="${ t.ticketId }" />"  />
+							<label class="div_tabelle_zeile" for="ticket_radio_<c:out value="${ t.ticketId }" />_<c:out value="${ param.id }" />" onclick="button_enable_ticketanzeigen('<c:out value="${ param.id }" />');" >
+							<div class="div_tabelle_zelle" >
 									#<c:out value="${ t.ticketId }" />
 								</div>
 								<div class="div_tabelle_zelle" >
@@ -65,19 +62,27 @@
 				</div>
 			</div>
 			<div class="ticket_verwaltung_content_bereich_buttons" >
-				<div class="admin_benutzeruebersicht_platzierung" >
-				<div class="button_benutzerverwaltung">
-				<input type="radio"	value="Eigene Tickets" name="submit"  title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;" checked="checked"/><a>Eigene Tickets</a>
-				<input type="radio"	value="Alle Tickets" name="submit"  title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;" /><a>Alle Tickets</a>	
+				<div class="admin_ticketanzeigen_platzierung" >
+				<div class="buttonaufteilung_ticketanzeigen">
+				<label for="Eigene Tickets">
+				<input type="radio"	value="Eigene Tickets" name="AuswahlAenderung" id="Eigene Tickets"   onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click(); " <c:if test="${requestScope.radioButton.equals('Eigene Tickets')||empty requestScope.radioButton }">checked</c:if>/>Eigene Tickets
+				</label>
+				<label for="Alle Tickets">
+				<input type="radio"	value="Alle Tickets" name="AuswahlAenderung" id="Alle Tickets"  title="Neuen Benutzer hinzufügen" onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();" <c:if test="${requestScope.radioButton.equals('Alle Tickets')}">checked</c:if> /><a>Alle Tickets</a>	
+				</label>
 				</div>
-					<input type="submit" value="Anzeigen" name="submit"  class="button_benutzerverwaltung" title="Neuen Benutzer hinzufügen" onclick="submit_button=this.value;"  />
-					<input type="submit" value="Bearbeiten" name="submit"  class="button_benutzerverwaltung" title="Markierten Benutzer ändern" disabled="disabled"  id="button_benutzerverwaltung_aendern_<c:out value="${ param.id }" />"  onclick="submit_button=this.value;" />
-					
+				<hr>
+				<div class="buttonaufteilung_ticketanzeigen">
+					<input type="submit" value="Anzeigen" name="submit"  class="button_ticketanzeigen" disabled="disabled" onclick="submit_button=this.value;" id="button_ticketanzeigen_<c:out value="${ param.id }" />"  />
+					<input type="submit" value="Bearbeiten" name="submit"  class="button_ticketanzeigen"  disabled="disabled" onclick="submit_button=this.value;"  />
+				
+				</div>
 				</div>
 			</div>
 		</div>
 		<input type="reset" value="Schließen" class="button_schliessen_benutzerverwaltung button_benutzerverwaltung" title="Schließen" />
-		<input type="submit" value="Aktualisieren" class="button_schliessen_benutzerverwaltung button_benutzerverwaltung" title="Aktualisieren" onclick="submit_button=this.value;" />
+		<input type="submit"  id="submit_<c:out value="${ param.id }" />" value="AuswahlAenderung" name="submit" class="button_nonvisible button_ticketanzeigen" title="Aktualisieren" onclick="submit_button=this.value;"/>
+		
 		<div class="clear_right" ></div>
 	</form>
 </m:hatZugriffrechteFenster>
