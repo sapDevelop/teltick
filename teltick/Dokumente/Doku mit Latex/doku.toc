@@ -1,4 +1,10 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Aufgabenstellung}{2}{section.1}
 \contentsline {section}{\numberline {2}Projektplanung}{2}{section.2}
-\contentsline {section}{\numberline {3}Literaturverzeichnis}{3}{section.3}
+\contentsline {subsection}{\numberline {2.1}Anforderungsanalyse}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Erster Designentwurf}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Datenbankentwurf}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Architektur}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Der Desktopansatz}{5}{subsection.2.5}
+\contentsline {section}{\numberline {3}Implementierung}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Umsetzung des Desktops}{5}{subsection.3.1}
