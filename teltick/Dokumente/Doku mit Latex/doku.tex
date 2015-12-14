@@ -98,7 +98,9 @@ Zu Beginn der Projektplanung wurde mit Hilfe eines Use-Case-Diagramms ermittelt 
 
 \begin{figure}[H]
 	\begin{center}
-	\fcolorbox{Grau}{black}{\includegraphics[width=110mm]{Bilder/UseCaseAnforderungsanalyse.png}}
+	%\fcolorbox{Grau}{black}{
+	\includegraphics[width=110mm]{Bilder/UseCaseAnforderungsanalyse.png}
+	%}
 	\end{center}
 	\caption{Anforderungsanalyse als Use-Case-Diagramm}
 \end{figure}
@@ -141,19 +143,21 @@ Die \textit{Tabelle 1} beschreibt wofür welche Relation in der Datenbank benöt
 
 \begin{figure}[H]
 	\begin{center}
-		\fcolorbox{Grau}{Grau}{\includegraphics[width=120mm]{Bilder/erd.pdf}}
+		%\fcolorbox{Grau}{Grau}{
+		\includegraphics[width=120mm]{Bilder/erd.pdf}
+		%}
 	\end{center}
 	\caption{Datenbankstruktur}
 \end{figure}
-
-
 
 \subsection{Architektur}
 Als Architektur-Modell wurde das MVC-Modell (\textbf{M}odel, \textbf{V}iew, \textbf{C}ontrol) gewählt. Hierbei handelt es sich, wie in der Aufgabenstellung erwünscht, um ein Dreischichtenmodell. Das Use-Case-Diagramm der \textit{Abbildung 4} beschreibt wofür genau welche Schicht zuständig ist.
 
 \begin{figure}[H]
 	\begin{center}
-		\fcolorbox{Grau}{Grau}{\includegraphics[width=130mm]{Bilder/MVC-Modell.png}}
+		%\fcolorbox{Grau}{Grau}{
+		\includegraphics[width=130mm]{Bilder/MVC-Modell.png}
+		%}
 	\end{center}
 	\caption{MVC-Modell}
 \end{figure}
@@ -161,10 +165,42 @@ Als Architektur-Modell wurde das MVC-Modell (\textbf{M}odel, \textbf{V}iew, \tex
 Die \textit{Abbildung 5} stellt da, wie das MVC-Modell beim Projekt umgesetzt wurde. Die \glqq Views\grqq{} wurden im Projekt durch JSP-Seiten umgesetzt, die \glqq Controllers\grqq{} durch Servlets und das \glqq Model\grqq{} durch DAO-Objekte. Diese DAO-Objekte mappen die Datenbank in normale Java-Objekte, sodass der Anwendungsentwickler wie gewohnt mit Java-Klassen arbeiten kann und nicht im Quellcode direkt Datenbankabfragen senden muss. Dafür bieten die DAO-Objekte einfache \glqq Store\grqq{}- und \glqq Load\grqq{}-Methoden. Diese Methoden mappen ein Java-Objekt dann in der Datenbank. 
 \begin{figure}[H]
 	\begin{center}
-		\fcolorbox{Grau}{Grau}{\includegraphics[width=140mm]{Bilder/archDiagramm.png}}
+		%\fcolorbox{Grau}{Grau}{
+		\includegraphics[width=130mm]{Bilder/archDiagramm.png}
+		%}
 	\end{center}
 	\caption{Architektur des Projektes}
 \end{figure}
+
+\subsection{Der Desktopansatz}
+Beim Projekt wurde sich entschlossen ein Desktop-Fenster-Ansatz zu benutzen, da dieses eine gute Möglichkeit ist ein Projekt möglich erweiterbar zu programmieren. Es bietet die Möglichkeit ein Projekt modular erweiterbar zu gestalten. Soll eine neues Modul zum Projekt hinzugefügt werden muss nur auf den Desktop ein neues Icon hinzugefügt werden, welches ein Fenster mit den neuen Module öffnet. Somit können Module auch problemlos ausgetauscht werden.
+
+
+\section{Implementierung}
+In diesem Abschnitt wird beschrieben, wie Einzelheiten des Projekts in JavaEE umgesetzt wurden. Es wird auf den Desktop-Aufbau und der Umsetzung der ausgewählten USE-Cases eingegangen.
+
+\subsection{Umsetzung des Desktops}
+Der Desktop besteht, wie in der \textit{Abbildung 7} gezeigt aus mehreren verschachtelten JSP-Dateien. Nach dem Anmelden wird standardmäßig nur die \glqq desktop.jsp\grqq{} geladen. Die Verschaltung wird erstellt wenn der Benutzer, wie bei \textit{Abbildung 6} ein neues Fenster öffnet.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=220mm,angle=90]{Bilder/fenster_oeffnen.png}
+	\end{center}
+	\caption{Öffnen eines neuen Fensters}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		%\fcolorbox{Grau}{Grau}{
+		\includegraphics[width=110mm]{Bilder/desktop.jpg}
+		%}
+	\end{center}
+	\caption{Aufbau des Desktops}
+\end{figure}
+
+
+
+
 
 %\section{Literaturverzeichnis}
 
