@@ -155,9 +155,8 @@ public class NeuesTicketController extends HttpServlet {
 				tz.setMitarbeiter(DaoMitarbeiterFactory.getInstance().getMitarbeiter(Integer.valueOf(request.getParameter("zugewiesen"))));
 				tz.setTicket(DaoTicketFactory.getInstance().getTicket(ticketId));
 				tz.setZeitpunkt(time);
-				DaoTicketFactory.getInstance().setZuweisung(tz);
+				DaoTicketFactory.getInstance().setTicketzuweisung(tz);
 				
-				t.setZuweisung(tz);
 
 				log.info("Ticket angelegt(ID):" + ticketId);
 				
@@ -165,6 +164,7 @@ public class NeuesTicketController extends HttpServlet {
 				request.setAttribute("RechtTicketvorschau", true);
 				
 				request.setAttribute("Ticket", t);
+				request.setAttribute("Zuweisung", tz);
 				
 				//Weiter leiten an ticket anzeigen
 				jsp_file = "ticketAnzeigen.jsp";

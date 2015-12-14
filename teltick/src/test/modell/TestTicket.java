@@ -86,7 +86,7 @@ public class TestTicket {
 	tz.setTicket(t1);
 	tz.setZeitpunkt(DatumFactory.getInstance().getDatum());
 	
-	dt.setZuweisung(tz);
+	dt.setTicketzuweisung(tz);
 	
 	
 	//Ticket wieder aus der DB holen

@@ -14,7 +14,6 @@ public class ImpTicket implements Ticket {
 	
 
 	private Timestamp erstelldatum;
-	private Ticketzuweisung ticketzuweisung;
 
 	@Override
 	public String getDatum() {
@@ -84,13 +83,6 @@ public class ImpTicket implements Ticket {
 	public void setVerfasser(Mitarbeiter verfasser) {
 		this.verfasser = verfasser;
 	}
-	@Override
-	public void setZuweisung(Ticketzuweisung ticketzuweisung){
-		this.ticketzuweisung = ticketzuweisung;
-	}
 	
-	@Override
-	public Ticketzuweisung getZuweisung(){
-		return ticketzuweisung;
-	}
+	
 }

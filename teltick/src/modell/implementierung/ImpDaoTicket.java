@@ -46,6 +46,7 @@ public class ImpDaoTicket implements DaoTicket {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 		return t;
 	}
@@ -168,7 +169,7 @@ public class ImpDaoTicket implements DaoTicket {
 	}
 	
 	@Override
-	public boolean setZuweisung(Ticketzuweisung tz) {
+	public boolean setTicketzuweisung(Ticketzuweisung tz) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 
 		boolean fehler = false;
@@ -305,11 +306,7 @@ public class ImpDaoTicket implements DaoTicket {
 
 	}
 
-	@Override
-	public Ticketzuweisung getZuweisung(Ticket t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	
 

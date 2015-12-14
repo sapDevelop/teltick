@@ -20,10 +20,6 @@ public interface Ticket {
 
 	public void setTitel(String titel);
 
-	void setZuweisung(Ticketzuweisung ticketzuweisung);
-
-	Ticketzuweisung getZuweisung();
-
 	void setUhrzeit(String uhrzeit);
 
 	String getUhrzeit();
@@ -35,5 +31,4 @@ public interface Ticket {
 	Mitarbeiter getVerfasser();
 
 	void setVerfasser(Mitarbeiter verfasser);
-
 }

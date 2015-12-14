@@ -18,6 +18,7 @@ import modell.entitaeten.factory.FensterFactory;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Ticket;
+import modell.entitaeten.interfaces.Ticketzuweisung;
 import modell.factory.DaoFensterFactory;
 import modell.factory.DaoMitarbeiterFactory;
 import modell.factory.DaoTicketFactory;
@@ -98,6 +99,7 @@ public class TicketVerwaltungController extends HttpServlet {
 
 				log.info("Ticket anzeigen wurde geklickt");
 				Ticket t;
+				Ticketzuweisung tz;
 				pfad_inc_jsp = "ticketAnzeigen.jsp";
 				int ticketId = -1;
 				ticketId = Integer.valueOf(request.getParameter("ticket_radio"));
@@ -110,11 +112,9 @@ public class TicketVerwaltungController extends HttpServlet {
 					t = DaoTicketFactory.getInstance().getTicket(ticketId);
 					request.setAttribute("Ticket", t);
 					
-					DaoMitarbeiter dm = DaoMitarbeiterFactory.getInstance();
-					log.info(t.getZuweisung());
+					tz =  DaoTicketFactory.getInstance().getTicketzuweisung(ticketId);
+					request.setAttribute("Zuweisung", tz);
 					
-//					Mitarbeiter mZuweisung = dm.getMitarbeiter(t.getZuweisung().getMitarbeiterId());
-//					request.setAttribute("Zuweisung", mZuweisung.getVorname() + " " + mZuweisung.getName());
 					
 					
 				}else

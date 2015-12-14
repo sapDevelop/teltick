@@ -8,6 +8,7 @@ import modell.entitaeten.factory.TicketFactory;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Ticket;
 import modell.factory.DaoMitarbeiterFactory;
+import modell.factory.DaoTicketFactory;
 import modell.interfaces.RowMappingTicket;
 
 public class ImpRowMappingTicket implements RowMappingTicket{
@@ -26,7 +27,7 @@ public class ImpRowMappingTicket implements RowMappingTicket{
 		t.setTitel(dbResult.getString("titel"));
 		t.setVerfasser(DaoMitarbeiterFactory.getInstance().getMitarbeiter(dbResult.getInt("verfasser")));
 		t.setTicketId(dbResult.getInt("ticket_id"));
-		
+				
 		return t;
 	}
 	
