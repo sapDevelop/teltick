@@ -2,13 +2,15 @@ package modell.entitaeten.implementierung;
 
 import java.sql.Timestamp;
 
+import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Ticket;
 import modell.entitaeten.interfaces.Ticketzuweisung;
 
 public class ImpTicket implements Ticket {
 	
-	private int ticketId,verfasserId;
+	private int ticketId;
 	private String beschreibung, titel, datum, uhrzeit;
+	private Mitarbeiter verfasser;
 	
 
 	private Timestamp erstelldatum;
@@ -72,16 +74,16 @@ public class ImpTicket implements Ticket {
 		this.titel = titel;
 	}
 
-	@Override
-	public int getVerfasserId() {
-		return verfasserId;
-	}
 
 	@Override
-	public void setVerfasserId(int verfasserId) {
-		this.verfasserId = verfasserId;
+	public Mitarbeiter getVerfasser() {
+		return verfasser;
 	}
 	
+	@Override
+	public void setVerfasser(Mitarbeiter verfasser) {
+		this.verfasser = verfasser;
+	}
 	@Override
 	public void setZuweisung(Ticketzuweisung ticketzuweisung){
 		this.ticketzuweisung = ticketzuweisung;

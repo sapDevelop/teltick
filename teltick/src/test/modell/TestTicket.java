@@ -71,7 +71,7 @@ public class TestTicket {
 	t1.setTitel("titel2");
 	t1.setBeschreibung("beschreibung2");
 	t1.setErstelldatum(DatumFactory.getInstance().getDatum());
-	t1.setVerfasserId(m.getMitarbeiterId());
+	t1.setVerfasser(m);
 	
 	//Ticket speichern
 	DaoTicket dt = DaoTicketFactory.getInstance();
@@ -82,8 +82,8 @@ public class TestTicket {
 	
 	//Ticketzuweisung setzten
 	Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
-	tz.setMitarbeiterId(m.getMitarbeiterId());
-	tz.setTicketId(ticketId);
+	tz.setMitarbeiter(m);
+	tz.setTicket(t1);
 	tz.setZeitpunkt(DatumFactory.getInstance().getDatum());
 	
 	dt.setZuweisung(tz);
@@ -102,7 +102,7 @@ public class TestTicket {
 	Assert.assertTrue(noFehler);
 	Assert.assertEquals(t1.getTitel(), t2.getTitel());
 	Assert.assertEquals(t1.getBeschreibung(), t2.getBeschreibung());
-	Assert.assertEquals(m.getMitarbeiterId(), t2.getVerfasserId());
+	Assert.assertEquals(m.getMitarbeiterId(), t2.getVerfasser().getMitarbeiterId());
 	Assert.assertEquals(ticketId, t2.getTicketId());
 	
 	}

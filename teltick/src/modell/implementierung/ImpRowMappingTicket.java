@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import modell.entitaeten.factory.TicketFactory;
 import modell.entitaeten.interfaces.Fenster;
 import modell.entitaeten.interfaces.Ticket;
+import modell.factory.DaoMitarbeiterFactory;
 import modell.interfaces.RowMappingTicket;
 
 public class ImpRowMappingTicket implements RowMappingTicket{
@@ -23,7 +24,7 @@ public class ImpRowMappingTicket implements RowMappingTicket{
 		t.setUhrzeit(new SimpleDateFormat("HH:mm").format(dbResult.getTimestamp("erstelldatum")));
 		t.setBeschreibung(dbResult.getString("beschreibung"));
 		t.setTitel(dbResult.getString("titel"));
-		t.setVerfasserId(dbResult.getInt("verfasser"));
+		t.setVerfasser(DaoMitarbeiterFactory.getInstance().getMitarbeiter(dbResult.getInt("verfasser")));
 		t.setTicketId(dbResult.getInt("ticket_id"));
 		
 		return t;

@@ -110,7 +110,9 @@ public class TicketVerwaltungController extends HttpServlet {
 					t = DaoTicketFactory.getInstance().getTicket(ticketId);
 					request.setAttribute("Ticket", t);
 					
-//					DaoMitarbeiter dm = DaoMitarbeiterFactory.getInstance();
+					DaoMitarbeiter dm = DaoMitarbeiterFactory.getInstance();
+					log.info(t.getZuweisung());
+					
 //					Mitarbeiter mZuweisung = dm.getMitarbeiter(t.getZuweisung().getMitarbeiterId());
 //					request.setAttribute("Zuweisung", mZuweisung.getVorname() + " " + mZuweisung.getName());
 					

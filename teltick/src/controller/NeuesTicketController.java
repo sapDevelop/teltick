@@ -106,7 +106,7 @@ public class NeuesTicketController extends HttpServlet {
 			Ticket t = TicketFactory.getInstance();
 			t.setTitel(request.getParameter("titel"));
 			t.setBeschreibung(request.getParameter("beschreibung"));
-			t.setVerfasserId(m.getMitarbeiterId());
+			t.setVerfasser(m);
 			t.setErstelldatum(time);	
 
 			
@@ -152,8 +152,8 @@ public class NeuesTicketController extends HttpServlet {
 
 				//Ticketzuweisung in DB schreiben
 				Ticketzuweisung tz = TicketzuweisungFactory.getInstance();
-				tz.setMitarbeiterId(Integer.valueOf(request.getParameter("zugewiesen")));
-				tz.setTicketId(ticketId);
+				tz.setMitarbeiter(DaoMitarbeiterFactory.getInstance().getMitarbeiter(Integer.valueOf(request.getParameter("zugewiesen"))));
+				tz.setTicket(DaoTicketFactory.getInstance().getTicket(ticketId));
 				tz.setZeitpunkt(time);
 				DaoTicketFactory.getInstance().setZuweisung(tz);
 				
@@ -161,10 +161,7 @@ public class NeuesTicketController extends HttpServlet {
 
 				log.info("Ticket angelegt(ID):" + ticketId);
 				
-				DaoMitarbeiter dm = DaoMitarbeiterFactory.getInstance();
-				Mitarbeiter mZuweisung = dm.getMitarbeiter(Integer.valueOf(request.getParameter("zugewiesen")));
-				request.setAttribute("Zuweisung", mZuweisung.getVorname() + " " + mZuweisung.getName());
-				
+								
 				request.setAttribute("RechtTicketvorschau", true);
 				
 				request.setAttribute("Ticket", t);

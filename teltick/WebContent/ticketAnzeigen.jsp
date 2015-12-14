@@ -54,7 +54,7 @@
 	
 		<div class="ueberschrift_contentTicketAnzeigen contentTicketAnzeigen_inlineBlock">Zugewiesen an:&nbsp;&nbsp;</div>
 		<div class="inhalt_contentTicketAnzeigen contentTicketAnzeigen_inlineBlock">
-			<c:out value="${requestScope.Zuweisung}"></c:out>
+			<c:out value="${Ticket.ticketzuweisung.mitarbeiter.vorname}"></c:out> <c:out value="${Ticket.ticketzuweisung.mitarbeiter.name}"></c:out>
 		</div>
 	
 	<div class="button_ticket_anzeigen">

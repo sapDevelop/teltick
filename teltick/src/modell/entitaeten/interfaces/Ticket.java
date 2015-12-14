@@ -20,10 +20,6 @@ public interface Ticket {
 
 	public void setTitel(String titel);
 
-	public int getVerfasserId();
-
-	public void setVerfasserId(int verfasserId);
-
 	void setZuweisung(Ticketzuweisung ticketzuweisung);
 
 	Ticketzuweisung getZuweisung();
@@ -35,5 +31,9 @@ public interface Ticket {
 	void setDatum(String datum);
 
 	String getDatum();
+
+	Mitarbeiter getVerfasser();
+
+	void setVerfasser(Mitarbeiter verfasser);
 
 }

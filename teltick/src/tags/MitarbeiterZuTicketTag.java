@@ -36,7 +36,7 @@ public class MitarbeiterZuTicketTag extends TagSupport {
 		
 		DaoTicket daoT = DaoTicketFactory.getInstance();
 		Ticketzuweisung tz = daoT.getTicketzuweisung(ticketId);
-		Mitarbeiter m = DaoMitarbeiterFactory.getInstance().getMitarbeiter(tz.getMitarbeiterId());
+		Mitarbeiter m = DaoMitarbeiterFactory.getInstance().getMitarbeiter(tz.getMitarbeiter().getMitarbeiterId());
 		
 		
 		
