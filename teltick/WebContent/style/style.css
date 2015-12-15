@@ -34,7 +34,8 @@
 	padding: 8px;
 	color: #000;
 	cursor: move;
-	background-color:#C7BFD9;
+	/*background-color:#C7BFD9;*/
+	background-color: #FAC152;
 }
 
 html body{
