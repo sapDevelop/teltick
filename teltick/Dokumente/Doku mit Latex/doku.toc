@@ -5,6 +5,7 @@
 \contentsline {subsection}{\numberline {2.2}Erster Designentwurf}{3}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Datenbankentwurf}{3}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Architektur}{4}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Der Desktopansatz}{5}{subsection.2.5}
-\contentsline {section}{\numberline {3}Implementierung}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Umsetzung des Desktops}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {2.5}Factory Pattern}{5}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Der Desktopansatz}{6}{subsection.2.6}
+\contentsline {section}{\numberline {3}Implementierung}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Umsetzung des Desktops}{6}{subsection.3.1}

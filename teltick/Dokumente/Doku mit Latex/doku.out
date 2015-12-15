@@ -4,6 +4,7 @@
 \BOOKMARK [2][-]{subsection.2.2}{Erster Designentwurf}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Datenbankentwurf}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{Architektur}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.5}{Der Desktopansatz}{section.2}% 7
-\BOOKMARK [1][-]{section.3}{Implementierung}{}% 8
-\BOOKMARK [2][-]{subsection.3.1}{Umsetzung des Desktops}{section.3}% 9
+\BOOKMARK [2][-]{subsection.2.5}{Factory Pattern}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Der Desktopansatz}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Implementierung}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Umsetzung des Desktops}{section.3}% 10
