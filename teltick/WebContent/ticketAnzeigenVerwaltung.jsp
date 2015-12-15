@@ -67,21 +67,22 @@
 			<div class="ticket_verwaltung_content_bereich_buttons">
 				<div class="admin_ticketanzeigen_platzierung">
 					<div class="buttonaufteilung_ticketanzeigen">
-						<label for="Eigene_Tickets_<c:out value="${param.ajax_id}"/>">
+						<div class="BereichRadioAuswahlAendern">
 							<input type="radio" value="Eigene Tickets"
-							name="AuswahlAenderung"
-							id="Eigene_Tickets_<c:out value="${param.ajax_id}"/>"
-							onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click(); "
-							<c:if test="${requestScope.radioButton.equals('Eigene Tickets')||empty requestScope.radioButton }">checked</c:if> />Eigene
-							Tickets
-						</label> <label for="Alle_Tickets_<c:out value="${param.ajax_id}"/>">
+								name="AuswahlAenderung"
+								id="Eigene_Tickets_<c:out value="${param.ajax_id}"/>"
+								onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click(); "
+								<c:if test="${requestScope.radioButton.equals('Eigene Tickets')||empty requestScope.radioButton }">checked</c:if> />
+							<label for="Eigene_Tickets_<c:out value="${param.ajax_id}"/>">Eigene Tickets</label> 
+						</div>
+						<div class="BereichRadioAuswahlAendern">
 							<input type="radio" value="Alle Tickets" name="AuswahlAenderung"
-							id="Alle_Tickets_<c:out value="${param.ajax_id}"/>"
-							title="Neuen Benutzer hinzufügen"
-							onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
-							<c:if test="${requestScope.radioButton.equals('Alle Tickets')}">checked</c:if> /><a>Alle
-								Tickets</a>
-						</label>
+								id="Alle_Tickets_<c:out value="${param.ajax_id}"/>"
+								title="Neuen Benutzer hinzufügen"
+								onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
+								<c:if test="${requestScope.radioButton.equals('Alle Tickets')}">checked</c:if> />
+							<label for="Alle_Tickets_<c:out value="${param.ajax_id}"/>">Alle Tickets</label>
+						</div>
 					</div>
 					<hr>
 					<div class="buttonaufteilung_ticketanzeigen">

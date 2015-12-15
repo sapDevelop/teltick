@@ -37,8 +37,9 @@
 			<teltick:wennEintragInVector vector="felderFehler" eintrag="beschreibung">style="border-color:red;"</teltick:wennEintragInVector>
 			><c:if test="${Ticket != null}" ><c:out value="${Ticket.beschreibung}" /></c:if></textarea>
 
-		<div class="ueberschrift_content_neuesTicket">
-			Zugewiesen: ${m.mitarbeiterId} <select name="zugewiesen" class="select_zuweisung">
+		<div class="bereich_comboboxen_neuesTicket">
+			<span class="label_comboboxen_neuesTicket">Zugewiesen:</span>
+			${m.mitarbeiterId} <select name="zugewiesen" class="select_zuweisung">
 
 
 				<teltick:forEachMitarbeiter var="m" mitAdmin="true">
@@ -54,8 +55,9 @@
 
 			</select>
 		</div>
-		<div class="ueberschrift_content_neuesTicket">
-			Priorität:  <select name="prio" class="select_prio">
+		<div class="bereich_comboboxen_neuesTicket">
+			<span class="label_comboboxen_neuesTicket">Priorität:</span>
+			<select name="prio" class="select_prio">
 				<option value="null" selected></option>
 				<option value="hoch">hoch</option>
 				<option value="normal">normal</option>
