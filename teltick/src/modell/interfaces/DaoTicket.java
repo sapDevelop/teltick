@@ -23,14 +23,10 @@ public interface DaoTicket {
 	
 	public boolean loescheTicket(int id);
 	
-	public boolean setZuweisung(Ticketzuweisung tz);
-
-	public Ticketzuweisung getZuweisung(Ticket t);
-
 	boolean loescheZuweisung(int ticketId);
 
-
 	public Ticketzuweisung getTicketzuweisung(int ticketId);
-	
+
+	boolean setTicketzuweisung(Ticketzuweisung tz);
 	
 }

@@ -58,8 +58,7 @@
 						<!-- Gibt die Mitarbeiter des Systems aus -->
 						<teltick:forEachMitarbeiter var="m" mitAdmin="false" >
 							<input type="radio" name="benutzer_radio" class="benutzer_radio" id="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_<c:out value="${ param.id }" />" value="<c:out value="${ m.mitarbeiterId }" />" 
-								<c:if test="${param.benutzer_radio != null && param.benutzer_radio ==  m.mitarbeiterId}">checked="checked"</c:if>
-							/>
+								<c:if test="${param.benutzer_radio != null && param.benutzer_radio ==  m.mitarbeiterId}">checked="checked"</c:if>/>
 							<label class="div_tabelle_zeile" for="benutzer_radio_<c:out value="${ m.mitarbeiterId }" />_<c:out value="${ param.id }" />" onclick="button_enable('<c:out value="${ param.id }" />');" >
 								<div class="div_tabelle_zelle" >
 									<c:out value="${ m.loginName }" />
