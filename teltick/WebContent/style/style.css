@@ -718,7 +718,7 @@ input{
 	height: 60px;
 }
 
-.admin_ticketanzeigen_platzierung{
+.ticketanzeigen_platzierung{
 	margin-top: 30px;
 	padding-left: 5px;
 	padding-right: 5px;
@@ -728,4 +728,10 @@ input{
 .button_nonvisible {
 	visibility: hidden;
 	
+}
+
+.button_schliessen_ticketanzeigen{
+	margin-top: 30px;
+	float: right;
+	margin-right: 5px;
 }
