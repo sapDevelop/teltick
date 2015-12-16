@@ -47,7 +47,7 @@
 			<div class="ticket_verwaltung_content_bereich_buttons">
 				<div class="ticketanzeigen_platzierung">
 					<div class="buttonaufteilung_ticketanzeigen">
-						<label for="Eigene_Tickets_<c:out value="${param.ajax_id}"/>">
+						<label for="Eigene_Tickets_<c:out value="${param.ajax_id}"/>" style="text-align: center;">
 							<input type="radio" value="Eigene Tickets" name="AuswahlAenderung" id="Eigene_Tickets_<c:out value="${param.ajax_id}"/>" onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click(); " <c:if test="${requestScope.radioButton.equals('Eigene Tickets')||requestScope.ticketauswahl_speicher.equals('Eigene Tickets')||empty requestScope.radioButton }">checked</c:if> />
 							Eigene Tickets
 						</label> 
