@@ -34,7 +34,8 @@
 	padding: 8px;
 	color: #000;
 	cursor: move;
-	background-color:#C7BFD9;
+	/*background-color:#C7BFD9;*/
+	background-color: #0bb;
 }
 
 html body{
@@ -529,13 +530,32 @@ input{
 	padding-bottom: 10px; 
 }
 
-.ueberschrift_content_neuesTicket{
+.ueberschrift_content_neuesTicket, .bereich_comboboxen_neuesTicket{
 	font-size: 14px;
 	margin-top: 10px;
 }
 
+.label_comboboxen_neuesTicket{
+	width:90px;
+	display: inline-block;
+}
+
+
 .input_titel_neuesTicket{
 	width: 565px;
+}
+
+.BereichRadioAuswahlAendern label, .BereichRadioAuswahlAendern input{
+	display: table-cell;
+}
+
+.BereichRadioAuswahlAendern input{
+	width: 20px;
+}
+
+.BereichRadioAuswahlAendern{
+	display: table;
+	margin-top: 2px;
 }
 
 .start_menue_icon_auflistung{
@@ -594,7 +614,7 @@ input{
 }
 
 .input_titel_neuesTicket, .textarea_neuesTicket_beschreibung{
-	border-style: solid;
+	border: solid 1px black;
 }
 
 /* Fenster Ticket anzeigen */
