@@ -571,6 +571,10 @@ input{
 	margin: 0px auto;
 }
 
+.admin_ticketanzeigen_platzierung{
+	margin-left: 6px;
+}
+
 .icon_text_kombination{
 	display: inline-block;
 	padding: 5px;
