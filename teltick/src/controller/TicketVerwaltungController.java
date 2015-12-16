@@ -45,6 +45,7 @@ public class TicketVerwaltungController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		log.info("Get aufgerufen -> Weiterleitung zur Startseite");
+		
 		response.sendRedirect("./");
 	}
 
@@ -138,6 +139,21 @@ public class TicketVerwaltungController extends HttpServlet {
 				break;
 
 			}
+			
+			//Übergeben des zuletzt gesetzten wertes für "Alle Tickets" oder "Eigene Tickets" anzeigen
+			
+			switch (request.getParameter("AuswahlAenderung")) {
+			case "Eigene Tickets":
+				
+				request.setAttribute("ticketauswahl_speicher", "Eigene Tickets");
+				break;
+
+			case "Alle Tickets":
+				
+				request.setAttribute("ticketauswahl_speicher", "Alle Tickets");
+				break;
+			}
+			
 
 			if (pfad_inc_jsp != null){
 				log.info("Für den Button entsprechende JSP-Seite wird geladen.");

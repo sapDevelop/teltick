@@ -50,7 +50,7 @@
 					/>
 				
 					<label for="name_<c:out value="${param.id}" />" class="neuerbenutzer_label_name" >Name:</label>
-					<input type="text" name="name" id="name_<c:out value="${param.id}" />" class="neuerbenutzer_namenfelder" 
+					<input type="text" name="name" id="name_<c:out value="${param.id}" />" autocomplete="off" class="neuerbenutzer_namenfelder" 
 						value="<c:if test="${editUser != null}" ><c:out value="${editUser.name}" /></c:if>"
 						<teltick:wennEintragInVector vector="felderFehler" eintrag="name">style="border-color:red;"</teltick:wennEintragInVector>
 					/>
