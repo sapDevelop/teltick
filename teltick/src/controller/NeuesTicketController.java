@@ -84,6 +84,8 @@ public class NeuesTicketController extends HttpServlet {
 		//Ueberpruefen ob alle Felder gesetzt
 		if ( request.getParameter("id") != null && m != null && m.zugriffsRechtFenster(f)){
 
+			System.out.println("\n\n Test: *" + request.getParameter("titel") + "* Test\n\n ");
+			
 			FeldFehlermeldung[] arrPflichtfelder = {
 					FeldFehlermeldungFactory.getInstance("Titel", "einen", "titel"),
 					FeldFehlermeldungFactory.getInstance("Beschreibung", "eine", "beschreibung"),
@@ -97,8 +99,6 @@ public class NeuesTicketController extends HttpServlet {
 
 			//Vector der die Feldnamen enthält, die rot markiert werden sollen
 			Vector<String> feldnamenUnalsgefuellteFelder = eingabePruefung1.getVectorFeldnamenNichtAusgefuellteFelder(nichtAusgefuellteFelder);
-
-			
 
 			Timestamp time = DatumFactory.getInstance().getDatum();
 
@@ -128,7 +128,7 @@ public class NeuesTicketController extends HttpServlet {
 
 				//Übergibt an die JSP-Seite, welche Felder rot markiert werden sollen
 				request.setAttribute("felderFehler", feldnamenUnalsgefuellteFelder);
-
+				
 				/*
 				 * Alte Eingabe in einen Obekt von Typ-Mitarbeiter speichern, 
 				 * damit die Werter auf der JSP-Seite mit der Programmierung der Änderungsfunktion angezeigt werden kann

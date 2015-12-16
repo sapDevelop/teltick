@@ -66,7 +66,8 @@
 		</div>
 		<div class="button_ticket_anlegen">
 			<input type="submit" value="Ticket anlegen"
-				 title="Neues Ticket anlegen"/>
+				 title="Neues Ticket anlegen"
+				 />
 		</div>
 		<div class="clear_right" ></div>
 	</form>
