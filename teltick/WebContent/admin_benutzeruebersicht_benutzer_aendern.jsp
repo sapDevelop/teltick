@@ -57,14 +57,14 @@
 				</div>
 				<div class="neuerbenutzer_formularzeile">
 					<label for="email_<c:out value="${param.id}" />" >Email:</label>
-					<input type="text" name="email" id="email_<c:out value="${param.id}" autocomplete="off" />"  
+					<input type="text" name="email" id="email_<c:out value="${param.id}" />"  
 						value="<c:if test="${editUser != null}" ><c:out value="${editUser.email}" /></c:if>"
 						<teltick:wennEintragInVector vector="felderFehler" eintrag="email">style="border-color:red;"</teltick:wennEintragInVector>
 					 />
 				</div>
 				<div class="neuerbenutzer_formularzeile">
 					<label for="passwort_<c:out value="${param.id}" />" >Passwort:</label>
-					<input type="password" name="passwort" autocomplete="off" id="passwort_<c:out value="${param.id}" />" 
+					<input type="password" name="passwort" id="passwort_<c:out value="${param.id}" />" 
 						<teltick:wennEintragInVector vector="felderFehler" eintrag="passwort">style="border-color:red;"</teltick:wennEintragInVector> 
 					/>
 				</div>
