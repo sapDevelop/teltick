@@ -144,7 +144,7 @@ Die \textit{Tabelle 1} beschreibt wofür welche Relation in der Datenbank benöt
 \begin{figure}[H]
 	\begin{center}
 		%\fcolorbox{Grau}{Grau}{
-		\includegraphics[width=120mm]{Bilder/erd.pdf}
+		\includegraphics[width=110mm]{Bilder/erd.pdf}
 		%}
 	\end{center}
 	\caption{Datenbankstruktur}
@@ -156,7 +156,7 @@ Als Architektur-Modell wurde das MVC-Modell (\textbf{M}odel, \textbf{V}iew, \tex
 \begin{figure}[H]
 	\begin{center}
 		%\fcolorbox{Grau}{Grau}{
-		\includegraphics[width=130mm]{Bilder/MVC-Modell.png}
+		\includegraphics[width=124mm]{Bilder/MVC-Modell.png}
 		%}
 	\end{center}
 	\caption{MVC-Modell}
@@ -166,13 +166,24 @@ Die \textit{Abbildung 5} stellt da, wie das MVC-Modell beim Projekt umgesetzt wu
 \begin{figure}[H]
 	\begin{center}
 		%\fcolorbox{Grau}{Grau}{
-		\includegraphics[width=130mm]{Bilder/archDiagramm.png}
+		\includegraphics[width=110mm]{Bilder/archDiagramm.png}
 		%}
 	\end{center}
 	\caption{Architektur des Projektes}
 \end{figure}
 
 \subsection{Factory Pattern}
+Um Klassen möglichst austauschbar in das Projekt einzubinden, wurde auf die Verwendung des \glqq new-Operators\grqq{} verzichtet. Wie in der \textit{Abbildung 6} zu sehen ist werden beim Projekt \glqq Factory-Klassen\grqq{} verwendet um Klassen zu instanziieren. Soll eine Klasse ausgetauscht werden muss nur die Factory-Klasse angepasst werden und in der neuen Klasse das Interface implementiert sein.
+
+\begin{figure}[H]
+	\begin{center}
+		%\fcolorbox{Grau}{Grau}{
+		\includegraphics[width=120mm]{Bilder/FactoryPattern.png}
+		%}
+	\end{center}
+	\caption{FactoryPattern}
+\end{figure}
+
 
 \subsection{Der Desktopansatz}
 Beim Projekt wurde sich entschlossen ein Desktop-Fenster-Ansatz zu benutzen, da dieses eine gute Möglichkeit ist ein Projekt möglich erweiterbar zu programmieren. Es bietet die Möglichkeit ein Projekt modular erweiterbar zu gestalten. Soll eine neues Modul zum Projekt hinzugefügt werden muss nur auf den Desktop ein neues Icon hinzugefügt werden, welches ein Fenster mit den neuen Module öffnet. Somit können Module auch problemlos ausgetauscht werden.
@@ -182,7 +193,19 @@ Beim Projekt wurde sich entschlossen ein Desktop-Fenster-Ansatz zu benutzen, da 
 In diesem Abschnitt wird beschrieben, wie Einzelheiten des Projekts in JavaEE umgesetzt wurden. Es wird auf den Desktop-Aufbau und der Umsetzung der ausgewählten USE-Cases eingegangen.
 
 \subsection{Umsetzung des Desktops}
-Der Desktop besteht, wie in der \textit{Abbildung 7} gezeigt aus mehreren verschachtelten JSP-Dateien. Nach dem Anmelden wird standardmäßig nur die \glqq desktop.jsp\grqq{} geladen. Die Verschaltung wird erstellt wenn der Benutzer, wie bei \textit{Abbildung 6} ein neues Fenster öffnet.
+Der Desktop besteht, wie in der \textit{Abbildung 7} gezeigt aus mehreren verschachtelten JSP-Dateien. Nach dem Anmelden wird standardmäßig nur die \glqq desktop.jsp\grqq{} geladen. Die Verschaltung wird erstellt wenn der Benutzer, wie bei \textit{Abbildung 8} ein neues Fenster öffnet.
+
+\begin{figure}[H]
+	\begin{center}
+		%\fcolorbox{Grau}{Grau}{
+		\includegraphics[width=100mm]{Bilder/desktop.jpg}
+		%}
+	\end{center}
+	\caption{Aufbau des Desktops}
+\end{figure}
+
+Die in den Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen Submit des Formulars nicht die ganze Seite neu geladen wird, sondern nur das Fenster direkt, wird beim Submit die Funktion \glqq submitUmleiten\grqq{} aufgerufen. Diese leitet den Submit via Ajax um, sodass nur das Formular neugeladen wird und das Ergebnis im Fenster zu sehen ist.
+
 
 \begin{figure}[H]
 	\begin{center}
@@ -191,16 +214,6 @@ Der Desktop besteht, wie in der \textit{Abbildung 7} gezeigt aus mehreren versch
 	\caption{Öffnen eines neuen Fensters}
 \end{figure}
 
-\begin{figure}[H]
-	\begin{center}
-		%\fcolorbox{Grau}{Grau}{
-		\includegraphics[width=110mm]{Bilder/desktop.jpg}
-		%}
-	\end{center}
-	\caption{Aufbau des Desktops}
-\end{figure}
-
-Die in den Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen Submit des Formulars nicht die ganze Seite neu geladen wird, sondern nur das Fenster direkt, wird beim Submit die Funktion \glqq submitUmleiten\grqq{} aufgerufen. Diese leitet den Submit via Ajax um, sodass nur das Formular neugeladen wird.
 
 
 
