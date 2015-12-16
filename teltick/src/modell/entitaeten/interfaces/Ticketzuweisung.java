@@ -13,13 +13,15 @@ public interface Ticketzuweisung {
 	public void setZeitpunkt(Timestamp time);
 	
 	public Timestamp getZeitpunkt();
+
+	Mitarbeiter getMitarbeiter();
+
+	void setMitarbeiter(Mitarbeiter mitarbeiter);
+
+	Ticket getTicket();
+
+	void setTicket(Ticket ticket);
 	
-	public void setMitarbeiterId(int mitarbeiterId);
-	
-	public int getMitarbeiterId();
-	
-	public void setTicketId(int ticketId);
-	
-	public int getTicketId();
+
 	
 }

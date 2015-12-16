@@ -11,6 +11,7 @@ import modell.entitaeten.factory.TicketzuweisungFactory;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Ticket;
 import modell.entitaeten.interfaces.Ticketzuweisung;
+import modell.factory.DaoMitarbeiterFactory;
 import modell.factory.HSqlDbZugriffFactory;
 import modell.factory.RowMappingMitarbeiterSingletonFactory;
 import modell.factory.RowMappingTicketSingletonFactory;
@@ -45,6 +46,7 @@ public class ImpDaoTicket implements DaoTicket {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 		return t;
 	}
@@ -117,11 +119,13 @@ public class ImpDaoTicket implements DaoTicket {
 			Connection verbindung = dbZugriff1.verbinden();
 			String anfrage = "insert into ticket ( erstelldatum, beschreibung, titel, verfasser) values (?, ?, ?, ?)";
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
+			
+			
 
 			pstmt.setTimestamp(1, t.getErstelldatum());
 			pstmt.setString(2, t.getBeschreibung());
 			pstmt.setString(3, t.getTitel());
-			pstmt.setInt(4, t.getVerfasserId());
+			pstmt.setInt(4, t.getVerfasser().getMitarbeiterId());
 			pstmt.executeUpdate();
 
 			verbindung.close();
@@ -165,7 +169,7 @@ public class ImpDaoTicket implements DaoTicket {
 	}
 	
 	@Override
-	public boolean setZuweisung(Ticketzuweisung tz) {
+	public boolean setTicketzuweisung(Ticketzuweisung tz) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 
 		boolean fehler = false;
@@ -176,8 +180,8 @@ public class ImpDaoTicket implements DaoTicket {
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
 
 			pstmt.setTimestamp(1, tz.getZeitpunkt());
-			pstmt.setInt(2, tz.getMitarbeiterId());
-			pstmt.setInt(3, tz.getTicketId());
+			pstmt.setInt(2, tz.getMitarbeiter().getMitarbeiterId());
+			pstmt.setInt(3, tz.getTicket().getTicketId());
 			pstmt.executeUpdate();
 
 			verbindung.close();
@@ -302,11 +306,7 @@ public class ImpDaoTicket implements DaoTicket {
 
 	}
 
-	@Override
-	public Ticketzuweisung getZuweisung(Ticket t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	
 

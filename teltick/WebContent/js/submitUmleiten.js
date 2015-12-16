@@ -72,3 +72,10 @@ function anfrageResult(){
 		document.getElementById(id_content).innerHTML = result;
 	}
 }
+
+function test(id)
+{
+	document.getElementById(id).s
+ alert('test');
+
+}
