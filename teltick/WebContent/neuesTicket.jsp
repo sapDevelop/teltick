@@ -26,7 +26,7 @@
 		<div class="ueberschrift_content_neuesTicket">Titel:</div>
 
 		<input type="text" name="titel" class="input_titel_neuesTicket"
-			maxlength="73" value="<c:if test="${Ticket != null}" ><c:out value="${Ticket.titel}" /> </c:if>"
+			maxlength="73" value="<c:if test="${Ticket != null}" ><c:out value="${Ticket.titel}" /></c:if>"
 			<teltick:wennEintragInVector vector="felderFehler" eintrag="titel">style="border-color:red;"</teltick:wennEintragInVector>
 			 />
 
@@ -66,7 +66,8 @@
 		</div>
 		<div class="button_ticket_anlegen">
 			<input type="submit" value="Ticket anlegen"
-				 title="Neues Ticket anlegen"/>
+				 title="Neues Ticket anlegen"
+				 />
 		</div>
 		<div class="clear_right" ></div>
 	</form>

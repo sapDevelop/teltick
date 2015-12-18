@@ -35,7 +35,8 @@
 	color: #000;
 	cursor: move;
 	/*background-color:#C7BFD9;*/
-	background-color: #0bb;
+	background-color: #000;
+	background: transparent linear-gradient(to bottom, #FFF, #D3D3D3) repeat scroll 0% 0%;
 }
 
 html body{
@@ -568,6 +569,10 @@ input{
 	text-align: center;
 	height: 26px;
 	margin: 0px auto;
+}
+
+.admin_ticketanzeigen_platzierung{
+	margin-left: 6px;
 }
 
 .icon_text_kombination{
