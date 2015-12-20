@@ -1,5 +1,6 @@
 package basis.implementierung;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,7 +55,7 @@ public class ImpEingabePruefung  implements EingabePruefung{
 		String loggerFeldnamenTmp = "";
 		//überprüft, welche Felder nicht ausgefüllt sind
 		for (int i = 0; i < arrArtikelFeldbezeichnungMeldungswort.length; i++){
-			if (leerzeichenEntfernen(request.getParameter(arrArtikelFeldbezeichnungMeldungswort[i].getFeldname())).equals("")){
+			if (request.getParameter(arrArtikelFeldbezeichnungMeldungswort[i].getFeldname()).trim().equals("")){
 				vectFehler.add(arrArtikelFeldbezeichnungMeldungswort[i]);
 				loggerFeldnamenTmp += (loggerFeldnamenTmp == "") ? arrArtikelFeldbezeichnungMeldungswort[i].getFeldname() : ", " + arrArtikelFeldbezeichnungMeldungswort[i].getFeldname();
 			}
@@ -99,15 +100,5 @@ public class ImpEingabePruefung  implements EingabePruefung{
 			v.add(feld.getFeldname());
 		}
 		return v;
-	}
-	
-	public String leerzeichenEntfernen(String text) {
-		for (int i = 0; i < 4; i++) {
-			int index = text.indexOf(" ");
-			if (index == 0) {
-				text = text.substring(1, text.length());
-			}
-		}
-		return text;
 	}
 }
