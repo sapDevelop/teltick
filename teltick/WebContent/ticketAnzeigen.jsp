@@ -8,9 +8,9 @@
 
 
 <m:hatZugriffrechteFenster fensterId="2" sonderRechte="${requestScope.RechtTicketvorschau}">
-	<form action="TicketVerwaltungController?ticketauswahl_speicher=<c:out value="${requestScope.ticketauswahl_speicher}" />" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
+	<form action="TicketVerwaltungController?ticketauswahl_speicher=<c:out value="${requestScope.radioButton}" />" method="post" onreset="fenster_schliessen('fenster_<c:out value="${ param.id }" />');" name="form_<c:out value="${param.id}" />" id="form_<c:out value="${param.id}" />" onsubmit="return submitUmleiten(this, '<c:out value="${param.id}" />');" >
 		<input type="hidden" value="<c:out value="${param.id}" />" name="id" />
-		<input type="hidden" value="<c:out value="${requestScope.ticketauswahl_speicher}" />" name="AuswahlAenderung" />
+		<input type="hidden" value="<c:out value="${requestScope.radioButton}" />" name="AuswahlAenderung" />
 		<%-- Zeigt eine Fehlermeldung an, wenn die Eingaben ungültig waren --%>
 		<c:if test="${fehlermeldung != null}" >
 			<teltick:meldungsbox hoehe="160px" icon="fehler" breite="500px" titel="Eingabe ungültig">

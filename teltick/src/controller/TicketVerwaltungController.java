@@ -145,12 +145,13 @@ public class TicketVerwaltungController extends HttpServlet {
 			switch (request.getParameter("AuswahlAenderung")) {
 			case "Eigene Tickets":
 				
-				request.setAttribute("ticketauswahl_speicher", "Eigene Tickets");
+				request.setAttribute("radioButton", "Eigene Tickets");
+				request.setAttribute("ticketauswahl", 0);
 				break;
 
 			case "Alle Tickets":
-				
-				request.setAttribute("ticketauswahl_speicher", "Alle Tickets");
+				request.setAttribute("radioButton", "Alle Tickets");
+				request.setAttribute("ticketauswahl", 2);
 				break;
 			}
 			
