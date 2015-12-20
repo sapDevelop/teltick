@@ -520,14 +520,13 @@ input{
 
 .textarea_neuesTicket_beschreibung{
 	width: 565px;
-	height: 140px;
+	height: 155px;
 	resize: none;
 	overflow:scroll;
 }
 
 .button_ticket_anlegen{
 	float:right;
-	margin-top: 60px; 
 	padding-bottom: 10px; 
 }
 
@@ -651,7 +650,7 @@ input{
 
 .inhalt_contentTicketAnzeigen_beschreibung {
 	overflow: scroll;
-    height: 140px;
+    height: 80px;
     margin-top: 5px;
 }
 
@@ -701,9 +700,9 @@ input{
 }
 
 .button_ticket_anzeigen {
-	float:right;
-	margin-top: 60px; 
-	padding-bottom: 10px; 
+	float:right; 
+	padding-bottom: 10px;
+	margin-top:60px; 
 }
 
 .contentTicketAnzeigen_inlineBlock {
