@@ -99,7 +99,7 @@ function fenster_schliessen(id_fenster){
 	document.getElementById(id_fenster).style.display='none';
 	var id = id_fenster.replace('fenster_', '');
 	var id_taskleiste = 'icon_task_leiste_' + id;
-	document.getElementById(id_taskleiste).style.display='none';
+	if (document.getElementById(id_taskleiste) != null) document.getElementById(id_taskleiste).style.display='none';
 	geschlossene_fenster[geschlossene_fenster.length] = id_fenster;
 }
 
@@ -141,7 +141,7 @@ function fenster_in_vodergrund_holen(id_fenster){
 	task_leiste_alte_markierung_loeschen();
 	var id = id_fenster.replace('fenster_', '');
 	var id_taskleiste = 'icon_task_leiste_' + id;
-	document.getElementById(id_taskleiste).className = 'icon_task_leiste icon_task_leiste_markiert';
+	if (document.getElementById(id_taskleiste) != null) document.getElementById(id_taskleiste).className = 'icon_task_leiste icon_task_leiste_markiert';
 }
 
 //Zeigt in der Startleiste die aktuelle Uhrzeit an
