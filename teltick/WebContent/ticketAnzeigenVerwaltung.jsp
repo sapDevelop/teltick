@@ -78,10 +78,18 @@
 						<div class="BereichRadioAuswahlAendern">
 							<input type="radio" value="Alle Tickets" name="AuswahlAenderung"
 								id="Alle_Tickets_<c:out value="${param.ajax_id}"/>"
-								title="Neuen Benutzer hinzufügen"
 								onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
 								<c:if test="${requestScope.radioButton.equals('Alle Tickets')}">checked</c:if> />
 							<label for="Alle_Tickets_<c:out value="${param.ajax_id}"/>">Alle Tickets</label>
+						</div>
+						<div class="BereichRadioAuswahlAendern">
+							<input type="radio" value="Ticket suchen" name="AuswahlAenderung"
+								id="Ticket_suchen_<c:out value="${param.ajax_id}"/>"
+								onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
+								<c:if test="${requestScope.radioButton.equals('Ticket suchen')}">checked</c:if> />
+							<label for="Ticket_suchen_<c:out value="${param.ajax_id}"/>">Ticket suchen</label>
+							<input type="text" >
+							<input type="button" value="Ticket Suchen">
 						</div>
 					</div>
 					<hr>
