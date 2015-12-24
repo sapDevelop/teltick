@@ -68,7 +68,7 @@
 				<div class="admin_ticketanzeigen_platzierung">
 					<div class="buttonaufteilung_ticketanzeigen">
 						<div class="BereichRadioAuswahlAendern">
-							<input type="radio" value="Eigene Tickets"
+							<input type="radio" value="Eigene Tickets" class="RadioInput"
 								name="AuswahlAenderung"
 								id="Eigene_Tickets_<c:out value="${param.ajax_id}"/>"
 								onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click(); "
@@ -76,20 +76,30 @@
 							<label for="Eigene_Tickets_<c:out value="${param.ajax_id}"/>">Eigene Tickets</label> 
 						</div>
 						<div class="BereichRadioAuswahlAendern">
-							<input type="radio" value="Alle Tickets" name="AuswahlAenderung"
+							<input type="radio" value="Alle Tickets" name="AuswahlAenderung"  class="RadioInput"
 								id="Alle_Tickets_<c:out value="${param.ajax_id}"/>"
 								onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
 								<c:if test="${requestScope.radioButton.equals('Alle Tickets')}">checked</c:if> />
 							<label for="Alle_Tickets_<c:out value="${param.ajax_id}"/>">Alle Tickets</label>
 						</div>
+						
+							
+						
+						
 						<div class="BereichRadioAuswahlAendern">
-							<input type="radio" value="Ticket suchen" name="AuswahlAenderung"
-								id="Ticket_suchen_<c:out value="${param.ajax_id}"/>"
-								onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
-								<c:if test="${requestScope.radioButton.equals('Ticket suchen')}">checked</c:if> />
-							<label for="Ticket_suchen_<c:out value="${param.ajax_id}"/>">Ticket suchen</label>
-							<input type="text" >
-							<input type="button" value="Ticket Suchen">
+							<div style="display: table-row;">
+								<input type="radio" value="Ticket suchen" name="AuswahlAenderung"  class="RadioInput"
+									id="Ticket_suchen_<c:out value="${param.ajax_id}"/>"
+									onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
+									<c:if test="${requestScope.radioButton.equals('Ticket suchen')}">checked</c:if> />
+								<label for="Ticket_suchen_<c:out value="${param.ajax_id}"/>">Ticket suchen</label>
+							</div>
+							<div style="display: table-row;">
+							<input type="text" class="input_ticketsuchen">
+							</div>
+							<div style="display: table-row; ">
+							<input type="button" value="Ticket Suchen" class="button_ticketsuchen">
+							</div>
 						</div>
 					</div>
 					<hr>

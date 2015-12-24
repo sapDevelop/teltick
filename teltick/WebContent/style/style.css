@@ -549,7 +549,7 @@ input{
 	display: table-cell;
 }
 
-.BereichRadioAuswahlAendern input{
+.RadioInput{
 	width: 20px;
 }
 
@@ -733,6 +733,23 @@ input{
 	display: block;
 	margin: 5px auto;
 	
+}
+
+.button_ticketsuchen{
+	width: 132px;
+	margin: 5px auto;
+	
+}
+
+.input_ticketsuchen{
+	width: 128px;
+	margin: 5px auto;
+	
+}
+
+
+.inputTicketSuchen {
+	width: 132px;
 }
 
 .buttonaufteilung_ticketanzeigen{
