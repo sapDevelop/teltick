@@ -84,7 +84,8 @@ public class TicketTag extends LoopTagSupport {
 			{
 				System.out.println("Suchbegriff" + suche );
 				DaoTicket daoT = DaoTicketFactory.getInstance();
-				itTicket = 
+				itTicket = daoT.getTicktSuche(suche).iterator();
+				//daoT.getTicktSuche(suche);
 			}
 			
 			

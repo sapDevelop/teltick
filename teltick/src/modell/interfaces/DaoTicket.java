@@ -29,4 +29,6 @@ public interface DaoTicket {
 
 	boolean setTicketzuweisung(Ticketzuweisung tz);
 	
+	public Vector<Ticket> getTicktSuche(String suche);
+	
 }
