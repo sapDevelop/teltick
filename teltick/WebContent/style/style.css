@@ -558,6 +558,10 @@ input{
 	margin-top: 2px;
 }
 
+.BereichRadioAuswahlAendernTicketSuchen {
+	margin-top: 10px;
+}
+
 .start_menue_icon_auflistung{
 	margin-top: 10px;
 	text-align: center;
@@ -736,13 +740,12 @@ input{
 }
 
 .button_ticketsuchen{
-	width: 132px;
+	width: 122px;
 	margin: 5px auto;
-	
 }
 
 .input_ticketsuchen{
-	width: 128px;
+	width: 118px;
 	margin: 5px auto;
 	
 }

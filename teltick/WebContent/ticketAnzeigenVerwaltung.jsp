@@ -84,20 +84,23 @@
 						</div>
 						
 							
+						<div style="margin-top:10px; background-color: #c7bfd9; border-radius: 5px; padding: 1px 5px 5px 5px; ">
 						
-						
-						<div class="BereichRadioAuswahlAendern">
-							<div style="display: table-row;">
+						<div class="BereichRadioAuswahlAendern BereichRadioAuswahlAendernTicketSuchen" >
+							
 								<input type="radio" value="Ticket suchen" name="AuswahlAenderung"  class="RadioInput"
 									id="Ticket_suchen_<c:out value="${param.ajax_id}"/>"
 									onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
 									<c:if test="${requestScope.radioButton.equals('Ticket suchen')}">checked</c:if> />
 								<label for="Ticket_suchen_<c:out value="${param.ajax_id}"/>">Ticket suchen</label>
-							</div>
-							<div style="display: table-row;">
+							
+						
+						</div>
+						
+							<div class="BereichRadioAuswahlAendern">
 							<input type="text" class="input_ticketsuchen">
 							</div>
-							<div style="display: table-row; ">
+							<div class="BereichRadioAuswahlAendern">
 							<input type="button" value="Ticket Suchen" class="button_ticketsuchen">
 							</div>
 						</div>
