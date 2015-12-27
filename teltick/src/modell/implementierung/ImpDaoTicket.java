@@ -306,6 +306,51 @@ public class ImpDaoTicket implements DaoTicket {
 
 	}
 
+	@Override
+	public Vector<Ticket> getTicktSuche(String suche) {
+		
+		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
+		
+		Vector<Ticket> ticket = new Vector<Ticket>();
+		String[] suchStrings = suche.split(" ");
+		
+		System.out.println("Anzahl der Suchwörter: " + suchStrings.length);
+		
+		for(int i = 0; i<suchStrings.length; i++)
+		{
+			System.out.println("Suche nach: " + suchStrings[i]);
+
+			try {
+				Connection verbindung = dbZugriff1.verbinden();
+
+				//Lädt Ticket anhand der TicketId aus der DB
+				String abfrage = "SELECT * "
+							+ "FROM ticket "
+							+ "WHERE ticket.TICKET_ID LIKE ?"
+							+ "OR ticket.beschreibung LIKE ?"
+							+ "OR ticket.titel LIKE ? ";
+				PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
+				pstmt.setString(1, "%" + suchStrings[i] +"%");
+				pstmt.setString(2, "%" + suchStrings[i] +"%");
+				pstmt.setString(3, "%" + suchStrings[i] +"%");
+				ResultSet result = pstmt.executeQuery();
+
+				while(result.next()){
+					Ticket t = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
+					ticket.add(t);
+				}
+
+				verbindung.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return ticket;
+	}
+
 	
 	
 	
