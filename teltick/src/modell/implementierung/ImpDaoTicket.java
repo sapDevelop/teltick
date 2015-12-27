@@ -46,11 +46,11 @@ public class ImpDaoTicket implements DaoTicket {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 
 		return t;
 	}
-	
+
 	@Override
 	public Vector<Ticket> getAlleTickets() {
 		Vector<Ticket> ticket = new Vector<Ticket>();
@@ -78,26 +78,26 @@ public class ImpDaoTicket implements DaoTicket {
 
 		return ticket;
 	}
-	
-	
-	
+
+
+
 	@Override
 	public boolean updateTicket(Ticket t) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 
 		boolean fehler = false;
-		
+
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
-			
+
 			String update = "update ticket set beschreibung = ?, titel = ? where ticket_id = ?";
 			PreparedStatement pstmt = verbindung.prepareStatement(update);
 			pstmt.setString(1, t.getBeschreibung());
 			pstmt.setString(2, t.getTitel());
 			pstmt.setInt(3, t.getTicketId());
 			pstmt.executeUpdate();
-			
+
 			verbindung.close();
 		} catch (SQLException e) {
 			fehler = true;
@@ -112,15 +112,15 @@ public class ImpDaoTicket implements DaoTicket {
 	public boolean setTicket(Ticket t) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 
-		
+
 		boolean fehler = false;
 
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 			String anfrage = "insert into ticket ( erstelldatum, beschreibung, titel, verfasser) values (?, ?, ?, ?)";
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
-			
-			
+
+
 
 			pstmt.setTimestamp(1, t.getErstelldatum());
 			pstmt.setString(2, t.getBeschreibung());
@@ -134,15 +134,15 @@ public class ImpDaoTicket implements DaoTicket {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return !fehler;
 	}
-	
-	
+
+
 	public int getTicketId(Ticket t){
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 		Ticket tr = null;
-		
+
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
@@ -152,12 +152,12 @@ public class ImpDaoTicket implements DaoTicket {
 			pstmt.setString(1, t.getTitel());
 			pstmt.setString(2, t.getBeschreibung());
 			ResultSet result = pstmt.executeQuery();
-			
+
 			tr = TicketFactory.getInstance();
-			
+
 			while(result.next()){
 				tr	 = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
-				}
+			}
 
 			verbindung.close();
 		} catch (SQLException e) {
@@ -165,9 +165,9 @@ public class ImpDaoTicket implements DaoTicket {
 			e.printStackTrace();
 		}
 		return tr.getTicketId();
-		
+
 	}
-	
+
 	@Override
 	public boolean setTicketzuweisung(Ticketzuweisung tz) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
@@ -193,7 +193,7 @@ public class ImpDaoTicket implements DaoTicket {
 
 		return !fehler;
 	}
-	
+
 	@Override
 	public boolean loescheZuweisung(int ticketId) {
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
@@ -229,9 +229,9 @@ public class ImpDaoTicket implements DaoTicket {
 
 			//Lädt Ticket anhand der TicketId aus der DB
 			String abfrage = "SELECT * "
-						+ "FROM ticket, ticketzuweisung "
-						+ "WHERE ticket.ticket_id=ticketzuweisung.ticket_id "
-						+ "AND ticketzuweisung.mitarbeiter_id=?; ";
+					+ "FROM ticket, ticketzuweisung "
+					+ "WHERE ticket.ticket_id=ticketzuweisung.ticket_id "
+					+ "AND ticketzuweisung.mitarbeiter_id=?; ";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setInt(1, m.getMitarbeiterId());
 			ResultSet result = pstmt.executeQuery();
@@ -253,7 +253,7 @@ public class ImpDaoTicket implements DaoTicket {
 
 	@Override
 	public boolean loescheTicket(int ticketId) {
-		
+
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 
 		boolean fehler = false;
@@ -274,10 +274,10 @@ public class ImpDaoTicket implements DaoTicket {
 
 		return !fehler;
 	}
-	
+
 	@Override
 	public Ticketzuweisung getTicketzuweisung(int ticketId) {
-		
+
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
 		Ticketzuweisung tzr = null;
 		boolean fehler = false;
@@ -288,34 +288,34 @@ public class ImpDaoTicket implements DaoTicket {
 			PreparedStatement pstmt = verbindung.prepareStatement(anfrage);
 			pstmt.setInt(1, ticketId);
 			ResultSet result = pstmt.executeQuery();
-			
-			 tzr = TicketzuweisungFactory.getInstance();
-			
+
+			tzr = TicketzuweisungFactory.getInstance();
+
 			while(result.next()){
 				tzr	 = RowMappingTicketzuweisungSingletonFactory.getInstance().mapRow(result);
-				}
+			}
 
 			verbindung.close();
 		}catch (SQLException e) {
 			fehler = true;
 			e.printStackTrace();
 		}
-		
+
 		return tzr;
-		
+
 
 	}
 
 	@Override
 	public Vector<Ticket> getTicktSuche(String suche) {
-		
+
 		DBZugriff dbZugriff1 = HSqlDbZugriffFactory.getInstance();
-		
+
 		Vector<Ticket> ticket = new Vector<Ticket>();
 		String[] suchStrings = suche.split(" ");
-		
+
 		System.out.println("Anzahl der Suchwörter: " + suchStrings.length);
-		
+
 		for(int i = 0; i<suchStrings.length; i++)
 		{
 			System.out.println("Suche nach: " + suchStrings[i]);
@@ -325,10 +325,10 @@ public class ImpDaoTicket implements DaoTicket {
 
 				//Lädt Ticket anhand der TicketId aus der DB
 				String abfrage = "SELECT * "
-							+ "FROM ticket "
-							+ "WHERE ticket.TICKET_ID LIKE ?"
-							+ "OR ticket.beschreibung LIKE ?"
-							+ "OR ticket.titel LIKE ? ";
+						+ "FROM ticket "
+						+ "WHERE ticket.TICKET_ID LIKE ?"
+						+ "OR ticket.beschreibung LIKE ?"
+						+ "OR ticket.titel LIKE ? ";
 				PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 				pstmt.setString(1, "%" + suchStrings[i] +"%");
 				pstmt.setString(2, "%" + suchStrings[i] +"%");
@@ -337,23 +337,37 @@ public class ImpDaoTicket implements DaoTicket {
 
 				while(result.next()){
 					Ticket t = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
-					ticket.add(t);
+					//Überprüfen ob schon vorhanden
+					boolean vorhanden = false;
+					for(int a = 0; a< ticket.size() && !vorhanden; a++)
+					{
+						if(t.getTicketId()== ticket.get(a).getTicketId())
+						{
+							vorhanden = true;
+						}
+					}
+
+					if(!vorhanden)
+					{
+						ticket.add(t);
+					}
 				}
+
 
 				verbindung.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
-		
+
 		return ticket;
 	}
 
-	
-	
-	
+
+
+
 
 
 }
