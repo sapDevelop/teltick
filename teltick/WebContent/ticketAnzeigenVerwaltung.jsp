@@ -34,7 +34,7 @@
 								Erstelldatum</div>
 						</div>
 						<!-- Gibt die Tickets aus -->
-						<teltick:TicketTag stat="${requestScope.ticketauswahl}" var="t">
+						<teltick:TicketTag stat="${requestScope.ticketauswahl}" var="t" suche="${param.TicketSuchenInput}">
 							<input type="radio" name="ticket_radio" class="ticket_radio"
 								id="ticket_radio_<c:out value="${ t.ticketId }" />_<c:out value="${ param.id }" />"
 								value="<c:out value="${ t.ticketId }" />" />
@@ -88,7 +88,7 @@
 						<div class="BereichRadioAuswahlAendern BereichRadioAuswahlAendernTicketSuchen" >
 							
 								<input type="radio" value="Ticket suchen" name="AuswahlAenderung" 
-										onchange="document.getElementById('Ticket_Suchen_Input_<c:out value="${ param.id }" />').disabled=false; document.getElementById('Ticket_Suchen_Button_<c:out value="${ param.id }" />').disabled=false;"
+										onchange="document.getElementById('Ticket_Suchen_Input_<c:out value="${ param.id }" />').disabled=false; document.getElementById('Ticket_Suchen_Button_<c:out value="${ param.id }" />').disabled=false; document.getElementById('submit_<c:out value="${ param.id }" />').click();"
 										<c:if test="${requestScope.radioButton.equals('Ticket suchen')}">checked</c:if>
 									id="Ticket_suchen_<c:out value="${param.id}"/>"
 									
@@ -99,18 +99,16 @@
 						</div>
 						
 							<div class="BereichRadioAuswahlAendern">
-							<input type="text" name="Ticket suchen input" class="input_ticketsuchen" id="Ticket_Suchen_Input_<c:out value="${param.id}"/>" 
+							<input type="text" name="TicketSuchenInput" class="input_ticketsuchen" id="Ticket_Suchen_Input_<c:out value="${param.id}"/>" value="<c:out value="${param.TicketSuchenInput}"/>"
 							<c:choose> 
-								<c:when test="${requestScope.radioButton.equals('Ticket suchen')}"> </c:when> 
+								<c:when test="${requestScope.radioButton.equals('Ticket suchen')}"> </c:when>  
 								<c:otherwise> disabled </c:otherwise>
 							</c:choose> >
 							</div>
 							<div class="BereichRadioAuswahlAendern">
-							<input type="button" value="Ticket Suchen" class="button_ticketsuchen" id="Ticket_Suchen_Button_<c:out value="${param.id}"/>"  onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
-							<c:choose> 
-								<c:when test="${requestScope.radioButton.equals('Ticket suchen')}"> </c:when> 
-								<c:otherwise> disabled </c:otherwise>
-							</c:choose> >
+							<input type="button" value="Ticket suchen" class="button_ticketsuchen" id="Ticket_Suchen_Button_<c:out value="${param.id}"/>"  onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
+							<c:if test="${!requestScope.radioButton.equals('Ticket suchen')}"> disabled</c:if>>
+						
 							
 							</div>
 						</div>

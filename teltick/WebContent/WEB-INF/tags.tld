@@ -149,6 +149,12 @@
 			<required>true</required>
 			<rtextprvalue>true</rtextprvalue>
 		</attribute>
+		<attribute>
+			<name>suche</name>
+			<required>false</required>
+			<rtextprvalue>true</rtextprvalue>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
 	</tag>
 	<tag>
 		<name>MitarbeiterZuTicketTag</name>

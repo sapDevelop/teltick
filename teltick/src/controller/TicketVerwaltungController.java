@@ -82,7 +82,7 @@ public class TicketVerwaltungController extends HttpServlet {
 					log.info("Radio Button geklickt: Eigene Tickets anzeigen");
 					pfad_inc_jsp = "ticketAnzeigenVerwaltung.jsp";
 					request.setAttribute("ticketauswahl", 0);
-					request.setAttribute("radioButton", "Eigene Tickets");
+					//request.setAttribute("radioButton", "Eigene Tickets");
 					break;
 
 				case "Alle Tickets":
@@ -90,12 +90,14 @@ public class TicketVerwaltungController extends HttpServlet {
 					log.info("Radio Button geklickt: Alle Tickets anzeigen");
 					pfad_inc_jsp = "ticketAnzeigenVerwaltung.jsp";
 					request.setAttribute("ticketauswahl", 2);
-					request.setAttribute("radioButton", "Alle Tickets");
+					//request.setAttribute("radioButton", "Alle Tickets");
 					break;
 				
 				case "Ticket suchen":
 					log.info("Suchen Button geklickt: Ticketssuchen");
-					log.info("Suchbegriff: " + request.getParameter("Ticket suchen input"));
+					log.info("Suchbegriff: " + request.getParameter("TicketSuchenInput"));
+					pfad_inc_jsp = "ticketAnzeigenVerwaltung.jsp";
+					request.setAttribute("ticketauswahl", 1);
 				}
 			
 				
@@ -161,7 +163,7 @@ public class TicketVerwaltungController extends HttpServlet {
 				
 			case "Ticket suchen":
 				request.setAttribute("radioButton", "Ticket suchen");
-				request.setAttribute("ticketauswahl", 3);
+				request.setAttribute("ticketauswahl", 1);
 				break;
 			}
 			

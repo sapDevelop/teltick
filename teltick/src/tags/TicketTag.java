@@ -27,10 +27,17 @@ public class TicketTag extends LoopTagSupport {
 	
 	private static final long serialVersionUID = 1L;
 	private int stat;
+	private String suche;
 	private Iterator<Ticket> itTicket;
 	
 	
+	public String getSuche() {
+		return suche;
+	}
 
+	public void setSuche(String suche) {
+		this.suche = suche;
+	}
 
 	public int getStat() {
 		return stat;
@@ -73,7 +80,12 @@ public class TicketTag extends LoopTagSupport {
 			
 		} else if (stat == 1)
 		{
-			
+			if(!suche.isEmpty())
+			{
+				System.out.println("Suchbegriff" + suche );
+				DaoTicket daoT = DaoTicketFactory.getInstance();
+				itTicket = 
+			}
 			
 			
 		} else  {
