@@ -83,8 +83,6 @@ public class NeuesTicketController extends HttpServlet {
 
 		//Ueberpruefen ob alle Felder gesetzt
 		if ( request.getParameter("id") != null && m != null && m.zugriffsRechtFenster(f)){
-
-			System.out.println("\n\n Test: *" + request.getParameter("titel") + "* Test\n\n ");
 			
 			FeldFehlermeldung[] arrPflichtfelder = {
 					FeldFehlermeldungFactory.getInstance("Titel", "einen", "titel"),
@@ -137,11 +135,7 @@ public class NeuesTicketController extends HttpServlet {
 
 				jsp_file = "neuesTicket.jsp";
 
-
-
 			}else  {
-
-
 
 				//Ticket in DB schreiben
 				boolean noFehler = DaoTicketFactory.getInstance().setTicket(t);

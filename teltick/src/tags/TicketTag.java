@@ -7,6 +7,10 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.jstl.core.LoopTagSupport;
 
+import org.apache.log4j.Logger;
+
+import controller.BenutzerverwaltungController;
+import logger.LogFactory;
 import modell.entitaeten.interfaces.Mitarbeiter;
 import modell.entitaeten.interfaces.Ticket;
 import modell.factory.DaoMitarbeiterFactory;
@@ -23,7 +27,7 @@ import modell.interfaces.DaoTicket;
 
 public class TicketTag extends LoopTagSupport {
 	
-	
+	private static Logger log = LogFactory.getInstance(LoopTagSupport.class.getName());
 	
 	private static final long serialVersionUID = 1L;
 	private int stat;
@@ -82,12 +86,10 @@ public class TicketTag extends LoopTagSupport {
 		{
 			if(!suche.isEmpty())
 			{
-				System.out.println("Suchbegriff" + suche );
+				log.info("Suchbegriff" + suche );
 				DaoTicket daoT = DaoTicketFactory.getInstance();
 				itTicket = daoT.getTicktSuche(suche).iterator();
-				//daoT.getTicktSuche(suche);
 			}
-			
 			
 		} else  {
 			

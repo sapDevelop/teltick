@@ -5,7 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
-
+import org.apache.log4j.Logger;
+import logger.LogFactory;
 import modell.entitaeten.factory.TicketFactory;
 import modell.entitaeten.factory.TicketzuweisungFactory;
 import modell.entitaeten.interfaces.Mitarbeiter;
@@ -20,6 +21,8 @@ import modell.interfaces.DBZugriff;
 import modell.interfaces.DaoTicket;
 
 public class ImpDaoTicket implements DaoTicket {
+	
+	private static Logger log = LogFactory.getInstance(ImpDaoTicket.class.getName());
 
 	@Override
 	public Ticket getTicket(int id) {
@@ -314,25 +317,31 @@ public class ImpDaoTicket implements DaoTicket {
 		Vector<Ticket> ticket = new Vector<Ticket>();
 		String[] suchStrings = suche.split(" ");
 
-		System.out.println("Anzahl der Suchwörter: " + suchStrings.length);
+		log.info("Anzahl der Suchwörter: " + suchStrings.length);
 
 		for(int i = 0; i<suchStrings.length; i++)
 		{
-			System.out.println("Suche nach: " + suchStrings[i]);
+			log.info("Suche nach: " + suchStrings[i]);
 
 			try {
 				Connection verbindung = dbZugriff1.verbinden();
 
 				//Lädt Ticket anhand der TicketId aus der DB
 				String abfrage = "SELECT * "
-						+ "FROM ticket "
-						+ "WHERE ticket.TICKET_ID LIKE ?"
-						+ "OR ticket.beschreibung LIKE ?"
-						+ "OR ticket.titel LIKE ? ";
+						+ "FROM ticket, ticketzuweisung, mitarbeiter "
+						+ "WHERE ticket.TICKET_ID LIKE ? "
+						+ "OR ticket.beschreibung LIKE ? "
+						+ "OR ticket.titel LIKE ? "
+						+ "AND ticket.ticket_id = ticketzuweisung.ticket_id "
+						+ "AND ticketzuweisung.mitarbeiter_id = mitarbeiter.mitarbeiter_id "
+						+ "OR mitarbeiter.vorname LIKE ? "
+						+ "OR mitarbeiter.name LIKE ? ";
 				PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 				pstmt.setString(1, "%" + suchStrings[i] +"%");
 				pstmt.setString(2, "%" + suchStrings[i] +"%");
 				pstmt.setString(3, "%" + suchStrings[i] +"%");
+				pstmt.setString(4, "%" + suchStrings[i] +"%");
+				pstmt.setString(5, "%" + suchStrings[i] +"%");
 				ResultSet result = pstmt.executeQuery();
 
 				while(result.next()){
