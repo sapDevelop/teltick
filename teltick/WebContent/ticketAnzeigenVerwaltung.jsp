@@ -82,26 +82,36 @@
 								<c:if test="${requestScope.radioButton.equals('Alle Tickets')}">checked</c:if> />
 							<label for="Alle_Tickets_<c:out value="${param.ajax_id}"/>">Alle Tickets</label>
 						</div>
-						
 							
-						<div style="margin-top:10px; background-color: #c7bfd9; border-radius: 5px; padding: 1px 5px 5px 5px; ">
+						<div class="Suchen_Box">
 						
 						<div class="BereichRadioAuswahlAendern BereichRadioAuswahlAendernTicketSuchen" >
 							
-								<input type="radio" value="Ticket suchen" name="AuswahlAenderung"  class="RadioInput"
-									id="Ticket_suchen_<c:out value="${param.ajax_id}"/>"
-									onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
-									<c:if test="${requestScope.radioButton.equals('Ticket suchen')}">checked</c:if> />
-								<label for="Ticket_suchen_<c:out value="${param.ajax_id}"/>">Ticket suchen</label>
+								<input type="radio" value="Ticket suchen" name="AuswahlAenderung" 
+										onchange="document.getElementById('Ticket_Suchen_Input_<c:out value="${ param.id }" />').disabled=false; document.getElementById('Ticket_Suchen_Button_<c:out value="${ param.id }" />').disabled=false;"
+										<c:if test="${requestScope.radioButton.equals('Ticket suchen')}">checked</c:if>
+									id="Ticket_suchen_<c:out value="${param.id}"/>"
+									
+									 />
+								<label for="Ticket_suchen_<c:out value="${param.id}"/>">Ticket suchen</label>
 							
 						
 						</div>
 						
 							<div class="BereichRadioAuswahlAendern">
-							<input type="text" class="input_ticketsuchen">
+							<input type="text" name="Ticket suchen input" class="input_ticketsuchen" id="Ticket_Suchen_Input_<c:out value="${param.id}"/>" 
+							<c:choose> 
+								<c:when test="${requestScope.radioButton.equals('Ticket suchen')}"> </c:when> 
+								<c:otherwise> disabled </c:otherwise>
+							</c:choose> >
 							</div>
 							<div class="BereichRadioAuswahlAendern">
-							<input type="button" value="Ticket Suchen" class="button_ticketsuchen">
+							<input type="button" value="Ticket Suchen" class="button_ticketsuchen" id="Ticket_Suchen_Button_<c:out value="${param.id}"/>"  onclick="document.getElementById('submit_<c:out value="${ param.id }" />').click();"
+							<c:choose> 
+								<c:when test="${requestScope.radioButton.equals('Ticket suchen')}"> </c:when> 
+								<c:otherwise> disabled </c:otherwise>
+							</c:choose> >
+							
 							</div>
 						</div>
 					</div>
@@ -110,7 +120,7 @@
 						<input type="submit" value="Anzeigen" name="submit"
 							class="button_ticketanzeigen" disabled="disabled"
 							onclick="submit_button=this.value;"
-							id="button_ticketanzeigen_<c:out value="${ param.id }" />" /> <input
+							id="button_ticketanzeigen_<c:out value="${param.id}" />" /> <input
 							type="submit" value="Bearbeiten" name="submit"
 							class="button_ticketanzeigen" disabled="disabled"
 							onclick="submit_button=this.value;" />
@@ -120,7 +130,7 @@
 			</div>
 		</div>
 		<input type="reset" value="Schließen"
-			class="button_schliessen_benutzerverwaltung button_benutzerverwaltung"
+			class="button_schliessen_ticketverwaltung"
 			title="Schließen" /> <input type="submit"
 			id="submit_<c:out value="${ param.id }" />" value="AuswahlAenderung"
 			name="submit" class="button_nonvisible button_ticketanzeigen"

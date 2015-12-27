@@ -779,3 +779,19 @@ input{
 	float: right;
 	margin-right: 5px;
 }
+
+.Suchen_Box {
+	margin-top:10px;
+	background-color: #c7bfd9;
+	border-radius: 2px;
+	padding: 1px 5px 5px 5px; 
+}
+
+.button_schliessen_ticketverwaltung {
+	margin-top: 50px;
+	float: right;
+	width: 132px;
+	display: block;
+	margin-right: -6px;
+}
+
