@@ -92,7 +92,12 @@ public class TicketVerwaltungController extends HttpServlet {
 					request.setAttribute("ticketauswahl", 2);
 					request.setAttribute("radioButton", "Alle Tickets");
 					break;
+				
+				case "Ticket suchen":
+					log.info("Suchen Button geklickt: Ticketssuchen");
+					log.info("Suchbegriff: " + request.getParameter("Ticket suchen input"));
 				}
+			
 				
 				break;
 
@@ -152,6 +157,11 @@ public class TicketVerwaltungController extends HttpServlet {
 			case "Alle Tickets":
 				request.setAttribute("radioButton", "Alle Tickets");
 				request.setAttribute("ticketauswahl", 2);
+				break;
+				
+			case "Ticket suchen":
+				request.setAttribute("radioButton", "Ticket suchen");
+				request.setAttribute("ticketauswahl", 3);
 				break;
 			}
 			
