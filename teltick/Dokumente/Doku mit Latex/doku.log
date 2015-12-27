@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.27)  27 DEC 2015 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.27)  27 DEC 2015 15:46
 entering extended mode
 **./doku.tex
 (doku.tex
@@ -871,13 +871,13 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 216.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 216.
- [6 <./Bilder/desktop.jpg>] <Bilder/ObjektDiagramm.png, id=123, 2068.72874pt x 
-1129.97156pt>
+ [6 <./Bilder/desktop.jpg>] <Bilder/ObjektDiagramm.png, id=123, 1725.44624pt x 
+1117.17375pt>
 File: Bilder/ObjektDiagramm.png Graphic file (type png)
 
 <use Bilder/ObjektDiagramm.png>
 Package pdftex.def Info: Bilder/ObjektDiagramm.png used on input line 219.
-(pdftex.def)             Requested size: 625.96062pt x 341.90797pt.
+(pdftex.def)             Requested size: 625.96062pt x 405.28474pt.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
 Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 223.
@@ -928,7 +928,7 @@ ec\dpi600\ecti1200.pk> <C:\Users\Robin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
 \pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Robin\AppData\Local\MiKTeX
 \2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Robin\AppData\Lo
 cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk>
-Output written on doku.pdf (9 pages, 1816772 bytes).
+Output written on doku.pdf (9 pages, 1822438 bytes).
 PDF statistics:
  400 PDF objects out of 1000 (max. 8388607)
  30 named destinations out of 1000 (max. 500000)
