@@ -325,6 +325,13 @@ public class ImpDaoTicket implements DaoTicket {
 
 			try {
 				Connection verbindung = dbZugriff1.verbinden();
+				
+				verbindung.setAutoCommit(false);
+				
+				String set = "SET IGNORECASE TRUE;";
+				PreparedStatement pstmt1 = verbindung.prepareStatement(set);
+				pstmt1.executeUpdate();
+				
 
 				//Lädt Ticket anhand der TicketId aus der DB
 				String abfrage = "SELECT * "
@@ -361,7 +368,12 @@ public class ImpDaoTicket implements DaoTicket {
 						ticket.add(t);
 					}
 				}
+				
+				String set2 = "SET IGNORECASE false;";
+				PreparedStatement pstmt2 = verbindung.prepareStatement(set2);
+				pstmt2.executeUpdate();
 
+				verbindung.commit();
 
 				verbindung.close();
 			} catch (SQLException e) {
