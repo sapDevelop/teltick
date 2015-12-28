@@ -336,7 +336,7 @@ public class ImpDaoTicket implements DaoTicket {
 						+ "WHERE "
 						+ "ticket.ticket_id = ticketzuweisung.ticket_id "
 						+ "AND ticketzuweisung.mitarbeiter_id = mitarbeiter.mitarbeiter_id "
-						+ "AND (ticket.beschreibung LIKE ? "
+						+ "AND (UCASE(ticket.beschreibung) LIKE ? "
 						+ "OR UCASE (ticket.titel) LIKE ? "
 						+ "OR UCASE (mitarbeiter.vorname) LIKE ? "
 						+ "OR UCASE (mitarbeiter.name) LIKE ? "
