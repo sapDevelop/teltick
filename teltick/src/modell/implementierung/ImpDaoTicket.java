@@ -34,7 +34,7 @@ public class ImpDaoTicket implements DaoTicket {
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
-			//Lädt Ticket anhand der TicketId aus der DB
+			//Lï¿½dt Ticket anhand der TicketId aus der DB
 			String abfrage = "select *  from ticket where ticket_id = ?";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setInt(1,id);
@@ -63,7 +63,7 @@ public class ImpDaoTicket implements DaoTicket {
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
-			//Lädt Ticket anhand der TicketId aus der DB
+			//Lï¿½dt Ticket anhand der TicketId aus der DB
 			String abfrage = "select *  from ticket;";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			ResultSet result = pstmt.executeQuery();
@@ -149,7 +149,7 @@ public class ImpDaoTicket implements DaoTicket {
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
-			//Lädt Ticket anhand der TicketId aus der DB
+			//Lï¿½dt Ticket anhand der TicketId aus der DB
 			String abfrage = "select *  from ticket where titel = ? AND beschreibung = ? order by erstelldatum desc limit 1";
 			PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
 			pstmt.setString(1, t.getTitel());
@@ -230,7 +230,7 @@ public class ImpDaoTicket implements DaoTicket {
 		try {
 			Connection verbindung = dbZugriff1.verbinden();
 
-			//Lädt Ticket anhand der TicketId aus der DB
+			//Lï¿½dt Ticket anhand der TicketId aus der DB
 			String abfrage = "SELECT * "
 					+ "FROM ticket, ticketzuweisung "
 					+ "WHERE ticket.ticket_id=ticketzuweisung.ticket_id "
@@ -317,7 +317,7 @@ public class ImpDaoTicket implements DaoTicket {
 		Vector<Ticket> ticket = new Vector<Ticket>();
 		String[] suchStrings = suche.split(" ");
 
-		log.info("Anzahl der Suchwörter: " + suchStrings.length);
+		log.info("Anzahl der Suchwï¿½rter: " + suchStrings.length);
 
 		for(int i = 0; i<suchStrings.length; i++)
 		{
@@ -328,32 +328,30 @@ public class ImpDaoTicket implements DaoTicket {
 				
 				verbindung.setAutoCommit(false);
 				
-				String set = "SET IGNORECASE TRUE;";
-				PreparedStatement pstmt1 = verbindung.prepareStatement(set);
-				pstmt1.executeUpdate();
 				
 
-				//Lädt Ticket anhand der TicketId aus der DB
+				//Lï¿½dt Ticket anhand der TicketId aus der DB
 				String abfrage = "SELECT * "
 						+ "FROM ticket, ticketzuweisung, mitarbeiter "
-						+ "WHERE ticket.TICKET_ID LIKE ? "
-						+ "OR ticket.beschreibung LIKE ? "
-						+ "OR ticket.titel LIKE ? "
-						+ "AND ticket.ticket_id = ticketzuweisung.ticket_id "
+						+ "WHERE "
+						+ "ticket.ticket_id = ticketzuweisung.ticket_id "
 						+ "AND ticketzuweisung.mitarbeiter_id = mitarbeiter.mitarbeiter_id "
-						+ "OR mitarbeiter.vorname LIKE ? "
-						+ "OR mitarbeiter.name LIKE ? ";
+						+ "AND (ticket.beschreibung LIKE ? "
+						+ "OR UCASE (ticket.titel) LIKE ? "
+						+ "OR UCASE (mitarbeiter.vorname) LIKE ? "
+						+ "OR UCASE (mitarbeiter.name) LIKE ? "
+						+ "OR ticket.ticket_id LIKE ? )";
 				PreparedStatement pstmt = verbindung.prepareStatement(abfrage);
-				pstmt.setString(1, "%" + suchStrings[i] +"%");
-				pstmt.setString(2, "%" + suchStrings[i] +"%");
-				pstmt.setString(3, "%" + suchStrings[i] +"%");
-				pstmt.setString(4, "%" + suchStrings[i] +"%");
+				pstmt.setString(1, "%" + suchStrings[i].toUpperCase() +"%");
+				pstmt.setString(2, "%" + suchStrings[i].toUpperCase() +"%");
+				pstmt.setString(3, "%" + suchStrings[i].toUpperCase() +"%");
+				pstmt.setString(4, "%" + suchStrings[i].toUpperCase() +"%");
 				pstmt.setString(5, "%" + suchStrings[i] +"%");
 				ResultSet result = pstmt.executeQuery();
 
 				while(result.next()){
 					Ticket t = RowMappingTicketSingletonFactory.getInstance().mapRow(result);
-					//Überprüfen ob schon vorhanden
+					//ï¿½berprï¿½fen ob schon vorhanden
 					boolean vorhanden = false;
 					for(int a = 0; a< ticket.size() && !vorhanden; a++)
 					{
@@ -368,10 +366,6 @@ public class ImpDaoTicket implements DaoTicket {
 						ticket.add(t);
 					}
 				}
-				
-				String set2 = "SET IGNORECASE false;";
-				PreparedStatement pstmt2 = verbindung.prepareStatement(set2);
-				pstmt2.executeUpdate();
 
 				verbindung.commit();
 
@@ -379,6 +373,7 @@ public class ImpDaoTicket implements DaoTicket {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				log.info(e.getMessage());
 			}
 
 		}
