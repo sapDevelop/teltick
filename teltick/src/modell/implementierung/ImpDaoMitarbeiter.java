@@ -100,6 +100,7 @@ public class ImpDaoMitarbeiter implements DaoMitarbeiter {
 		Connection verbindung = null;
 		try {
 			verbindung = dbZugriff1.verbinden();
+			verbindung.setAutoCommit(false);
 			
 			String anfrage1 = "delete from rechte where mitarbeiter_id = ?";
 			PreparedStatement pstmt1 = verbindung.prepareStatement(anfrage1);
