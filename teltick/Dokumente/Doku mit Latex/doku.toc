@@ -9,4 +9,6 @@
 \contentsline {subsection}{\numberline {2.6}Der Desktopansatz}{6}{subsection.2.6}
 \contentsline {section}{\numberline {3}Implementierung}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Umsetzung des Desktops}{6}{subsection.3.1}
-\contentsline {section}{\numberline {4}Projekt deployen}{9}{section.4}
+\contentsline {subsection}{\numberline {3.2}Ticket anlegen}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Objektdiagramm}{9}{subsection.3.3}
+\contentsline {section}{\numberline {4}Projekt deployen}{10}{section.4}
