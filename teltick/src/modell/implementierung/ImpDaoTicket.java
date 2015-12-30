@@ -326,11 +326,7 @@ public class ImpDaoTicket implements DaoTicket {
 			try {
 				Connection verbindung = dbZugriff1.verbinden();
 				
-				verbindung.setAutoCommit(false);
-				
-				
-
-				//Lï¿½dt Ticket anhand der TicketId aus der DB
+				//Lädt Ticket anhand der TicketId aus der DB
 				String abfrage = "SELECT * "
 						+ "FROM ticket, ticketzuweisung, mitarbeiter "
 						+ "WHERE "
@@ -367,17 +363,13 @@ public class ImpDaoTicket implements DaoTicket {
 					}
 				}
 
-				verbindung.commit();
-
 				verbindung.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				log.info(e.getMessage());
 			}
-
 		}
-
 		return ticket;
 	}
 
