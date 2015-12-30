@@ -88,7 +88,7 @@ Eingereicht am: {\today}
 
 
 \section{Aufgabenstellung}
-Als Abschlussarbeit des Moduls \glqq Programmiersprachen 3\grqq{} sieht die Prüfungsordnung die Abgabe eines in JavaEE implementierten Software-Projekts vor. Hierzu ist von den Professor Ralf Hesse eine Liste mit möglichen Abschlussthemen bereitgestellt worden. Von dieser Liste sollte sich ein Thema ausgesucht werden und zwei Anwendungsszenarien des Themas in einen Software-Prototyp umgesetzt werden. Der Software-Prototyp ist dabei auf Basis eines dreischichtigen Ansatz umzusetzen.  Die Gruppe Robin Hake und Benedikt Brüntrup entschloss sich das Thema \glqq Verwaltungssoftware für ein Call-Center\grqq{} umzusetzen.
+Als Abschlussarbeit des Moduls \glqq Programmiersprachen 3\grqq{} sieht die Prüfungsordnung die Abgabe eines in JavaEE implementierten Software-Projekts vor. Hierzu ist von Professor Ralf Hesse eine Liste mit möglichen Abschlussthemen bereitgestellt worden. Von dieser Liste sollte sich ein Thema ausgesucht werden und zwei Anwendungsszenarien des Themas in einen Software-Prototyp umgesetzt werden. Der Software-Prototyp ist dabei auf Basis eines dreischichtigen Ansatz umzusetzen.  Die Gruppe Robin Hake und Benedikt Brüntrup entschloss sich das Thema \glqq Verwaltungssoftware für ein Call-Center\grqq{} umzusetzen.
 
 \section{Projektplanung}
 Dieser Abschnitt beschreibt, wie bei der Projektplanung vorgegangen wurde. Es wird auf die  Anforderungsanalyse, den ersten Designentwurf, den Datenbankentwurf und das gewählte Entwurfsmuster eingegangen.
@@ -151,18 +151,7 @@ Die \textit{Tabelle 1} beschreibt wofür welche Relation in der Datenbank benöt
 \end{figure}
 
 \subsection{Architektur}
-Als Architektur-Modell wurde das MVC-Modell (\textbf{M}odel, \textbf{V}iew, \textbf{C}ontrol) gewählt. Hierbei handelt es sich, wie in der Aufgabenstellung erwünscht, um ein Dreischichtenmodell. Das Use-Case-Diagramm der \textit{Abbildung 4} beschreibt wofür genau welche Schicht zuständig ist.
-
-\begin{figure}[H]
-	\begin{center}
-		%\fcolorbox{Grau}{Grau}{
-		\includegraphics[width=124mm]{Bilder/MVC-Modell.png}
-		%}
-	\end{center}
-	\caption{MVC-Modell}
-\end{figure}
-
-Die \textit{Abbildung 5} stellt da, wie das MVC-Modell beim Projekt umgesetzt wurde. Die \glqq Views\grqq{} wurden im Projekt durch JSP-Seiten umgesetzt, die \glqq Controllers\grqq{} durch Servlets und das \glqq Model\grqq{} durch DAO-Objekte. Diese DAO-Objekte mappen die Datenbank in normale Java-Objekte, sodass der Anwendungsentwickler wie gewohnt mit Java-Klassen arbeiten kann und nicht im Quellcode direkt Datenbankabfragen senden muss. Dafür bieten die DAO-Objekte einfache \glqq Store\grqq{}- und \glqq Load\grqq{}-Methoden. Diese Methoden mappen ein Java-Objekt dann in der Datenbank. 
+Als Architektur-Modell wurde das MVC-Modell (\textbf{M}odel, \textbf{V}iew, \textbf{C}ontrol) gewählt. Die \textit{Abbildung 4} stellt da, wie das MVC-Modell im Projekt umgesetzt wurde. Die \glqq Views\grqq{} wurden im Projekt durch JSP-Seiten umgesetzt, die \glqq Controllers\grqq{} durch Servlets und das \glqq Model\grqq{} durch DAO-Objekte. Diese DAO-Objekte mappen die Datenbank in normale Java-Objekte, sodass der Anwendungsentwickler wie gewohnt mit Java-Klassen arbeiten kann und nicht im Quellcode direkt Datenbankabfragen senden muss. Dafür bieten die DAO-Objekte einfache \glqq Store\grqq{}- und \glqq Load\grqq{}-Methoden. Diese Methoden mappen ein Java-Objekt dann in der Datenbank. 
 \begin{figure}[H]
 	\begin{center}
 		%\fcolorbox{Grau}{Grau}{
@@ -173,7 +162,7 @@ Die \textit{Abbildung 5} stellt da, wie das MVC-Modell beim Projekt umgesetzt wu
 \end{figure}
 
 \subsection{Factory Pattern}
-Um Klassen möglichst austauschbar in das Projekt einzubinden, wurde auf die Verwendung des \glqq new-Operators\grqq{} verzichtet. Wie in der \textit{Abbildung 6} zu sehen ist werden beim Projekt \glqq Factory-Klassen\grqq{} verwendet um Klassen zu instanziieren. Soll eine Klasse ausgetauscht werden muss nur die Factory-Klasse angepasst werden und in der neuen Klasse das Interface implementiert sein.
+Um Klassen möglichst austauschbar in das Projekt einzubinden, wurde auf die Verwendung des \glqq new-Operators\grqq{} verzichtet. Wie in der \textit{Abbildung 5} zu sehen ist werden beim Projekt \glqq Factory-Klassen\grqq{} verwendet um Klassen zu instanziieren. Soll eine Klasse ausgetauscht werden muss nur die Factory-Klasse angepasst werden und in der neuen Klasse das Interface implementiert sein.
 
 \begin{figure}[H]
 	\begin{center}
@@ -188,12 +177,13 @@ Um Klassen möglichst austauschbar in das Projekt einzubinden, wurde auf die Ver
 \subsection{Der Desktopansatz}
 Beim Projekt wurde sich entschlossen ein Desktop-Fenster-Ansatz zu benutzen, da dieses eine gute Möglichkeit ist ein Projekt möglich erweiterbar zu programmieren. Es bietet die Möglichkeit ein Projekt modular erweiterbar zu gestalten. Soll eine neues Modul zum Projekt hinzugefügt werden muss nur auf den Desktop ein neues Icon hinzugefügt werden, welches ein Fenster mit den neuen Module öffnet. Somit können Module auch problemlos ausgetauscht werden.
 
-
+\pagebreak
 \section{Implementierung}
-In diesem Abschnitt wird beschrieben, wie Einzelheiten des Projekts in JavaEE umgesetzt wurden. Es wird auf den Desktop-Aufbau und auf die Umsetzung einiger Usecases eingegangen.
+In diesem Abschnitt wird beschrieben, wie Einzelheiten des Projekts in JavaEE umgesetzt wurden. Es wird auf den Desktop-Aufbau, Use Cases und auf das Objektmodell eingegangen.
+
 
 \subsection{Umsetzung des Desktops}
-Der Desktop besteht, wie in der \textit{Abbildung 7} gezeigt aus mehreren verschachtelten JSP-Dateien. Nach dem Anmelden wird standardmäßig nur die \glqq desktop.jsp\grqq{} geladen. Die Verschaltung wird erstellt wenn der Benutzer, wie bei \textit{Abbildung 8} ein neues Fenster öffnet.
+Der Desktop besteht, wie in der \textit{Abbildung 6} gezeigt aus mehreren verschachtelten JSP-Dateien. Nach dem Anmelden wird standardmäßig nur die \glqq desktop.jsp\grqq{} geladen. Die Verschaltung wird erstellt wenn der Benutzer, wie bei \textit{Abbildung 7} ein neues Fenster öffnet.
 
 \begin{figure}[H]
 	\begin{center}
@@ -214,13 +204,7 @@ Die in den Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen
 	\caption{Öffnen eines neuen Fensters}
 \end{figure}
 
-\subsection{Ticket anlegen}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=208mm,angle=90]{Bilder/TicketAnlegen.png}
-	\end{center}
-	\caption{Anlegen eines Tickets}
-\end{figure}
+
 
 
 \subsection{Objektdiagramm}
@@ -231,12 +215,82 @@ Die in den Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen
 	\caption{Objektdiagramm}
 \end{figure}
 
+ Das Objektdiagramm zeigt teile des modellierten Systems.
+
+
+\subsection{Use Cases}
+In der Anforderungsanalyse wurden mehrere Use Cases festgelegt. Es wurde sich dazu entschieden folgende Use Cases umzusetzten:
+\begin{itemize}
+\item Login\textbackslash Logout (Grundlegende Anforderung)
+\item Benutzerverwaltung
+\item Ticketverwaltung (Ticket anlegen, Ticket anzeigen, Suchen)
+\end{itemize}
+
+\subsubsection{Benutzerverwaltung}
+\begin{tabular}{|l|l|}
+\hline
+  Ziel: & ziel \\
+ \hline
+  Haupt-Anwender: & Anwender  \\
+   \hline
+  Auslöser: &  \\
+   \hline
+  Vorbedingungen: &  \\
+   \hline
+  Nachbedingungen: &  \\
+   \hline
+  Normalablauf: &  \\
+   \hline
+  Fehlerablauf: &  \\
+   \hline
+  Zusätzliche Abläufe: &  \\
+   \hline
+ \end{tabular}
+
+\subsubsection{Ticketverwaltung}
+\begin{tabular}{|l|l|}
+\hline
+  Use Case: & Ticket anlegen \\
+\hline \hline
+  Ziel: & Anlegen eines neuen Tickets\\
+ \hline
+  Haupt-Anwender: & Mitarbeiter  \\
+   \hline
+  Auslöser: & Button: "Neues Ticket anlegen" \\
+   \hline
+  Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Ticket anlegen  \\
+   \hline
+  Nachbedingungen: & Ticket erfolgreich angelegt \\
+   \hline
+  Normalablauf:
+ & 1. [AKTEUR]: Klick auf Button "Neues Ticket anlegen"  \\
+ & 2. [SYSTEM]: Öffnen des Formulars für ein neues Ticket  \\
+ & 3. [AKTEUR]: Ausfüllen des Formulars und Bestätigung  \\
+ & 4. [SYSTEM]: Überprüfung der Eingaben\\
+ & 5. [SYSTEM]: Weiterleitung zum Anzeigen des neuen Tickets\\
+ & 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
+   \hline
+  Fehlerablauf: & Fehlerbehandlung \glqq Formulareingaben unvollständig\grqq{}  \\
+ & Einsprung bei (4) \\
+ & 1. [SYSTEM]: Öffnen des Formulars für ein neues Ticket  \\
+ & 2. [SYSTEM]: Fehlermeldung welche Eingaben unvollständig waren  \\
+ & 3. [AKTEUR]: Vervollständigt seine Eingaben  \\
+ & 4. [SYSTEM]: Überprüfung der Eingaben\\
+ & 5. [SYSTEM]: Weiterleitung zum Anzeigen des neuen Tickets\\
+ & 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
+   \hline
+  Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
+ & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
+ & 2. [SYSTEM]: Schließt Fenster  \\
+   \hline
+ \end{tabular}
+
 \section{Projekt deployen}
 \begin{itemize}
-\item Das gegebene war-File muss im Tomcat Verzeichnis im Unterverzeichnis „webapps“ eingefügt werden.
-\item z.B.: „C:\textbackslash apache-tomcat \textbackslash webapps\textbackslash teltick.war“
+\item Das gegebene war-File muss im Tomcat Verzeichnis im Unterverzeichnis \glqq webapps\grqq{} eingefügt werden.
+\item z.B.: \glqq C:\textbackslash apache-tomcat \textbackslash webapps\textbackslash teltick.war\grqq{}
 \item Anschließend kann der Tomcat gestart werden.
-\item Es ist zu beachten das „Teltick“ in Java 8 und mit dem Tomcat 8 entwickelt wurde.
+\item Es ist zu beachten das \glqq Teltick\grqq{} in Java 8 und mit dem Tomcat 8 entwickelt wurde.
 \item Admin-Zugangsdaten:
   \begin{itemize}
          \item Benutzername: Admin
