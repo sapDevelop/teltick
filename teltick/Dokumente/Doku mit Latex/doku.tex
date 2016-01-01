@@ -64,7 +64,7 @@ Programmieren 3 \\
 \vspace{2cm}
 
 \begin{Large}
-\textbf {Implementierung eines Prototypen für eine Verwaltungssoftware für ein Call-Center} \\[0.35cm]
+\textbf {Implementierung eines Prototypen für eine Verwaltungssoftware fürr ein Call-Center} \\[0.35cm]
 \end{Large}
 Von \\[0.35cm]
 Robin Hake \\
@@ -118,7 +118,7 @@ Als nächstes wurde mit dem Programm PowerPoint ein erster Designentwurf für di
 
 \subsection{Datenbankentwurf}
 Nachdem das grundlegende Design der Webseite festgelegt worden war, wurde sich über die Datenhaltung Gedanken gemacht. Es wurde ermittelt welche Daten das Software-Projekt persistent speichern soll und wie diese Daten im Zusammenhang stehen. Aus dieser Erkenntnis wurde die in der \textit{Abbildung 3} gezeigte Datenbankstruktur festgelegt.
- 
+
 Die \textit{Tabelle 1} beschreibt wofür welche Relation in der Datenbank benötigt wird.
 \begin{table}[H]
 	\begin{center}
@@ -201,7 +201,7 @@ Die in den Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen
 	\begin{center}
 		\includegraphics[width=220mm,angle=90]{Bilder/fenster_oeffnen.png}
 	\end{center}
-	\caption{Öffnen eines neuen Fensters}
+	\caption{Ã–ffnen eines neuen Fensters}
 \end{figure}
 
 \subsection{Um gesetzte Use Cases}
@@ -209,8 +209,22 @@ In der Anforderungsanalyse wurden mehrere Use Cases festgelegt. Es wurde sich da
 \begin{itemize}
 \item Login\textbackslash Logout (Grundlegende Anforderung)
 \item Benutzerverwaltung
-\item Ticketverwaltung (Ticket anlegen, Ticket anzeigen, Suchen)
+\begin{itemize}
+\item Benutzer anlegen
+\item Benutzer ändern
+\item Benutzer löschen
+
 \end{itemize}
+\item Ticketverwaltung
+\begin{itemize}
+\item Ticket anlegen
+\item Ticket anzeigen
+\end{itemize}
+
+
+\end{itemize}
+
+Im folgendem werden Teile der Use Cases anhand von Tabellen näher erleutert.
 
 \subsubsection{Benutzerverwaltung}
 \begin{tabular}{|l|l|}
