@@ -88,26 +88,27 @@ Eingereicht am: {\today}
 
 
 \section{Aufgabenstellung}
-Als Abschlussarbeit des Moduls \glqq Programmiersprachen 3\grqq{} sieht die Prüfungsordnung die Abgabe eines in JavaEE implementierten Software-Projekts vor. Hierzu ist von Professor Ralf Hesse eine Liste mit möglichen Abschlussthemen bereitgestellt worden. Von dieser Liste sollte sich ein Thema ausgesucht werden und zwei Anwendungsszenarien des Themas in einen Software-Prototyp umgesetzt werden. Der Software-Prototyp ist dabei auf Basis eines dreischichtigen Ansatz umzusetzen.  Die Gruppe Robin Hake und Benedikt Brüntrup entschloss sich das Thema \glqq Verwaltungssoftware für ein Call-Center\grqq{} umzusetzen.
+Als Abschlussarbeit des Moduls \glqq Programmiersprachen 3\grqq{} sieht die Prüfungsordnung die Abgabe eines in JavaEE implementierten Software-Projekts vor. Von einer Auswahlliste sollte sich ein Thema ausgesucht werden und zwei Anwendungsszenarien des Themas in einen Software-Prototyp umgesetzt werden. Der Software-Prototyp war dabei auf Basis eines dreischichtigen Ansatz umzusetzen.  Die Gruppe Robin Hake und Benedikt Brüntrup entschloss sich das Thema \glqq Verwaltungssoftware für ein Call-Center\grqq{} umzusetzen.
 
 \section{Projektplanung}
 Dieser Abschnitt beschreibt, wie bei der Projektplanung vorgegangen wurde. Es wird auf die  Anforderungsanalyse, den ersten Designentwurf, den Datenbankentwurf und das gewählte Entwurfsmuster eingegangen.
 
 \subsection{Anforderungsanalyse}
-Zu Beginn der Projektplanung wurde mit Hilfe eines Use-Case-Diagramms ermittelt was das Projekt alles können soll. Die Ermittlungen haben ergeben, dass es einen Administrator und Standardbenutzer geben soll. Der Administrator soll Benutzer verwalten können und die Standardbenutzer sollen mit Tickets arbeiten können. Genauere Details zur Anforderungsanalyse kann den Use-Case-Diagramm der \textit{Abbildung 1} entnommen werden.
+Zu Beginn der Projektplanung wurde mit Hilfe eines Use-Case-Diagramms ermittelt was das Projekt alles können soll. Das Ergebnis der Anforderungsanalyse kann der \textit{Abbildung 1} entnommen werden.
 
 \begin{figure}[H]
 	\begin{center}
 	%\fcolorbox{Grau}{black}{
-	\includegraphics[width=110mm]{Bilder/UseCaseAnforderungsanalyse.png}
+	\includegraphics[width=100mm]{Bilder/UseCaseAnforderungsanalyse.png}
 	%}
 	\end{center}
 	\caption{Anforderungsanalyse als Use-Case-Diagramm}
 \end{figure}
 
+\newpage
 \subsection{Erster Designentwurf}
 
-Als nächstes wurde mit dem Programm PowerPoint ein erster Designentwurf für die Weboberfläche des Projektes entworfen. Hierbei wurde sich für ein fensterbasiertes Design entschlossen. Dieses bietet den Vorteil, dass das Projekt einfach erweitert werden kann. Soll das Software-Produkt eine neue Funktion haben kann einfach ein neues Fenster hinzugefügt werden. Die folgende Abbildung zeigt den ersten Designentwurf in PowerPoint.
+Als nächstes wurde mit dem Programm PowerPoint ein erster Designentwurf für die Weboberfläche des Projektes entworfen. Hierbei wurde sich für ein fensterbasiertes Design entschlossen. Mehr zum Desktop-Ansatz ist im \textit{Abschnitt 2.6} zu lesen. Die folgende Abbildung zeigt den ersten Designentwurf in PowerPoint.
 
 \begin{figure}[H]
 	\begin{center}
@@ -201,7 +202,7 @@ Die in den Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen
 	\begin{center}
 		\includegraphics[width=220mm,angle=90]{Bilder/fenster_oeffnen.png}
 	\end{center}
-	\caption{Ã–ffnen eines neuen Fensters}
+	\caption{Öffnen eines neuen Fensters}
 \end{figure}
 
 \subsection{Um gesetzte Use Cases}
@@ -235,7 +236,7 @@ Im folgendem werden Teile der Use Cases anhand von Tabellen näher erleutert.
  \hline
   Haupt-Anwender: & Admin, Mitarbeiter  \\
    \hline
-Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benutzer\grqq \\
+Auslöser: & Button: \glqq Benutzerverwaltung\grqq{} 	\rightarrow \glqq Neuer Benutzer\grqq \\
    \hline
   Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Benutzer anlegen  \\
    \hline
@@ -331,11 +332,7 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benu
  & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
  \end{tabular} 
- 
- 
- 
- 
- 
+  
 \subsubsection{Objektdiagramm}
 \begin{figure}[H]
 	\begin{center}
@@ -345,12 +342,17 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benu
 \end{figure}
 Das Objektdiagramm (siehe\textit{ Abbildung 8}) stellt dar, wie die erläuterten Use-Cases Softwaretechnisch umgesetzt wurden. Es definiert die einzelnen Objekte der Umsetzung und beschreibt, wie diese miteinander in Beziehung stehen.
 
-\section{Projekt deployen}
+\section{Projekt auf dem Server einrichten}
 \begin{itemize}
-\item Das gegebene war-File muss im Tomcat Verzeichnis im Unterverzeichnis \glqq webapps\grqq{} eingefügt werden.
-\item z.B.: \glqq C:\textbackslash apache-tomcat \textbackslash webapps\textbackslash teltick.war\grqq{}
+\item Systemvorraussetzung:
+\begin{itemize}
+	\item Tomcat 8 und Java 8 installiert
+\end{itemize}
+\item Das gegebene war-File muss beim Dokument-Root-Verzeichnis des Tomcats ins Unterverzeichnis \glqq webapps\grqq{} eingefügt werden.
+\begin{itemize}
+	\item z.B.: \glqq C:\textbackslash{}apache-tomcat\textbackslash{}webapps\textbackslash{}teltick.war\grqq{}
+\end{itemize}
 \item Anschließend kann der Tomcat gestart werden.
-\item Es ist zu beachten das \glqq Teltick\grqq{} in Java 8 und mit dem Tomcat 8 entwickelt wurde.
 \item Admin-Zugangsdaten:
   \begin{itemize}
          \item Benutzername: Admin
