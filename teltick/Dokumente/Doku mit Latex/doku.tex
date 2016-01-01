@@ -64,7 +64,7 @@ Programmieren 3 \\
 \vspace{2cm}
 
 \begin{Large}
-\textbf {Implementierung eines Prototypen für eine Verwaltungssoftware fürr ein Call-Center} \\[0.35cm]
+\textbf {Implementierung eines Prototypen für eine Verwaltungssoftware für ein Call-Center} \\[0.35cm]
 \end{Large}
 Von \\[0.35cm]
 Robin Hake \\
@@ -99,13 +99,12 @@ Zu Beginn der Projektplanung wurde mit Hilfe eines Use-Case-Diagramms ermittelt 
 \begin{figure}[H]
 	\begin{center}
 	%\fcolorbox{Grau}{black}{
-	\includegraphics[width=100mm]{Bilder/UseCaseAnforderungsanalyse.png}
+	\includegraphics[width=110mm]{Bilder/UseCaseAnforderungsanalyse.png}
 	%}
 	\end{center}
 	\caption{Anforderungsanalyse als Use-Case-Diagramm}
 \end{figure}
 
-\newpage
 \subsection{Erster Designentwurf}
 
 Als nächstes wurde mit dem Programm PowerPoint ein erster Designentwurf für die Weboberfläche des Projektes entworfen. Hierbei wurde sich für ein fensterbasiertes Design entschlossen. Mehr zum Desktop-Ansatz ist im \textit{Abschnitt 2.6} zu lesen. Die folgende Abbildung zeigt den ersten Designentwurf in PowerPoint.
@@ -152,7 +151,7 @@ Die \textit{Tabelle 1} beschreibt wofür welche Relation in der Datenbank benöt
 \end{figure}
 
 \subsection{Architektur}
-Als Architektur-Modell wurde das MVC-Modell (\textbf{M}odel, \textbf{V}iew, \textbf{C}ontrol) gewählt. Die \textit{Abbildung 4} stellt da, wie das MVC-Modell im Projekt umgesetzt wurde. Die \glqq Views\grqq{} wurden im Projekt durch JSP-Seiten umgesetzt, die \glqq Controllers\grqq{} durch Servlets und das \glqq Model\grqq{} durch DAO-Objekte. Diese DAO-Objekte mappen die Datenbank in normale Java-Objekte, sodass der Anwendungsentwickler wie gewohnt mit Java-Klassen arbeiten kann und nicht im Quellcode direkt Datenbankabfragen senden muss. Dafür bieten die DAO-Objekte einfache \glqq Store\grqq{}- und \glqq Load\grqq{}-Methoden. Diese Methoden mappen ein Java-Objekt dann in der Datenbank. 
+Als Architektur-Modell wurde das MVC-Modell (\textbf{M}odel, \textbf{V}iew, \textbf{C}ontrol) gewählt. Die \textit{Abbildung 4} stellt da, wie das MVC-Modell im Projekt umgesetzt wurde. Die \glqq Views\grqq{} wurden im Projekt durch JSP-Seiten umgesetzt, die \glqq Controller\grqq{} durch Servlets und das \glqq Model\grqq{} durch DAO-Objekte. Diese DAO-Objekte mappen die Datenbank in normale Java-Objekte, sodass der Anwendungsentwickler wie gewohnt mit Java-Klassen arbeiten kann und nicht im Quellcode direkt Datenbankabfragen senden muss. Dafür bieten die DAO-Objekte einfache \glqq Store\grqq{}- und \glqq Load\grqq{}-Methoden. Diese Methoden mappen dann ein Java-Objekt in der Datenbank. 
 \begin{figure}[H]
 	\begin{center}
 		%\fcolorbox{Grau}{Grau}{
@@ -176,7 +175,7 @@ Um Klassen möglichst austauschbar in das Projekt einzubinden, wurde auf die Ver
 
 
 \subsection{Der Desktopansatz}
-Beim Projekt wurde sich entschlossen ein Desktop-Fenster-Ansatz zu benutzen, da dieses eine gute Möglichkeit ist ein Projekt möglich erweiterbar zu programmieren. Es bietet die Möglichkeit ein Projekt modular erweiterbar zu gestalten. Soll eine neues Modul zum Projekt hinzugefügt werden muss nur auf den Desktop ein neues Icon hinzugefügt werden, welches ein Fenster mit den neuen Module öffnet. Somit können Module auch problemlos ausgetauscht werden.
+Beim Projekt wurde sich dazu entschieden einen Desktop-Fenster-Ansatz zu benutzen. Dies bietet den Vorteil, dass das Projekt modular erweiterbar ist. Soll eine neues Modul zum Projekt hinzugefügt werden, muss nur auf den Desktop ein neues Icon hinzugefügt werden, welches ein Fenster mit dem neuen Modul öffnet. Somit können Module auch problemlos ausgetauscht werden.
 
 \pagebreak
 \section{Implementierung}
@@ -184,7 +183,7 @@ In diesem Abschnitt wird beschrieben, wie Einzelheiten des Projekts in JavaEE um
 
 
 \subsection{Umsetzung des Desktops}
-Der Desktop besteht, wie in der \textit{Abbildung 6} gezeigt aus mehreren verschachtelten JSP-Dateien. Nach dem Anmelden wird standardmäßig nur die \glqq desktop.jsp\grqq{} geladen. Die Verschaltung wird erstellt wenn der Benutzer, wie bei \textit{Abbildung 7} ein neues Fenster öffnet.
+Der Desktop besteht, wie in der \textit{Abbildung 6} gezeigt, aus mehreren verschachtelten JSP-Dateien. Nach dem Anmelden wird standardmäßig nur die \glqq desktop.jsp\grqq{} geladen. Die Verschaltung wird erstellt wenn der Benutzer, wie bei \textit{Abbildung 7}, ein neues Fenster öffnet.
 
 \begin{figure}[H]
 	\begin{center}
@@ -195,7 +194,7 @@ Der Desktop besteht, wie in der \textit{Abbildung 6} gezeigt aus mehreren versch
 	\caption{Aufbau des Desktops}
 \end{figure}
 
-Die in den Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen Submit des Formulars nicht die ganze Seite neu geladen wird, sondern nur das Fenster direkt, wird beim Submit die Funktion \glqq submitUmleiten\grqq{} aufgerufen. Diese leitet den Submit via Ajax um, sodass nur das Formular neugeladen wird und das Ergebnis im Fenster zu sehen ist.
+Die in dem Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen Submit des Formulars nicht die ganze Seite neu geladen wird, sondern nur das Fenster direkt, wird beim Submit die Funktion \glqq submitUmleiten\grqq{} aufgerufen. Diese leitet den Submit via Ajax um, sodass nur das Formular neugeladen wird und das Ergebnis im Fenster zu sehen ist.
 
 
 \begin{figure}[H]
@@ -205,7 +204,7 @@ Die in den Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen
 	\caption{Öffnen eines neuen Fensters}
 \end{figure}
 
-\subsection{Um gesetzte Use Cases}
+\subsection{Use Cases (Umsetzung)}
 In der Anforderungsanalyse wurden mehrere Use Cases festgelegt. Es wurde sich dazu entschieden folgende Use Cases umzusetzten:
 \begin{itemize}
 \item Login\textbackslash Logout (Grundlegende Anforderung)
@@ -225,29 +224,35 @@ In der Anforderungsanalyse wurden mehrere Use Cases festgelegt. Es wurde sich da
 
 \end{itemize}
 
-Im folgendem werden Teile der Use Cases anhand von Tabellen näher erleutert.
+Im folgendem werden Teile der Use Cases anhand von Tabellen näher erläutert.
+
+
+
 
 \subsubsection{Benutzerverwaltung}
-\begin{tabular}{|l|l|}
-\hline
-\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Benutzer anlegen \\
-\hline \hline
-  Ziel: & Anlegen eines neuen Benutzers\\
- \hline
-  Haupt-Anwender: & Admin, Mitarbeiter  \\
-   \hline
-Auslöser: & Button: \glqq Benutzerverwaltung\grqq{} 	\rightarrow \glqq Neuer Benutzer\grqq \\
-   \hline
-  Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Benutzer anlegen  \\
-   \hline
-  Nachbedingungen: & Benutzer erfolgreich angelegt \\
-   \hline
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|p{3.8cm}|p{12cm}|}
+			\hline
+				\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Benutzer anlegen \\
+			\hline
+  				Ziel: & Anlegen eines neuen Benutzers\\
+ 			\hline
+  				Haupt-Anwender: & Admin, Mitarbeiter  \\
+   			\hline
+ 				Auslöser: & Button: \glqq Benutzerverwaltung\grqq , \glqq Neuer Benutzer\grqq \\
+   			\hline
+  				Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Benutzer anlegen  \\
+  			\hline
+  				Nachbedingungen: & Benutzer erfolgreich angelegt \\
+   			\hline
   Normalablauf:
  & 1. [AKTEUR]: Klick auf Button \glqq Neuer Benutzer\grqq  \\
- & 2. [SYSTEM]: Öffnen des Formulars für einen neuen Benutzer  \\
+ & 2. [SYSTEM]:  Öffnen des Formulars für einen neuen Benutzer  \\
  & 3. [AKTEUR]: Ausfüllen des Formulars und Bestätigung  \\
- & 4. [SYSTEM]: Überprüfung der Eingaben\\
- & 5. [SYSTEM]: Weiterleitung zur Benutzerübersicht\\
+ & 4. [SYSTEM]:  Überprüfung der Eingaben\\
+ & 5. [SYSTEM]:  Weiterleitung zur Benutzerübersicht\\
  & 6. [AKTEUR]: Ansicht des Benutzers, Fenster schließen\\
    \hline
   Fehlerablauf: & Fehlerbehandlung \glqq Formulareingaben unvollständig\grqq{}  \\
@@ -263,13 +268,20 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq{} 	\rightarrow \glqq Neuer Be
  & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
  & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
- \end{tabular}
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+
 
 \subsubsection{Ticketverwaltung}
-\begin{tabular}{|l|l|}
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|p{3.8cm}|p{12cm}|}
 \hline
 \cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Ticket anlegen \\
-\hline \hline
+\hline
   Ziel: & Anlegen eines neuen Tickets\\
  \hline
   Haupt-Anwender: & Mitarbeiter  \\
@@ -301,38 +313,44 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq{} 	\rightarrow \glqq Neuer Be
  & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
  & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
- \end{tabular}
+\end{tabular}
+	\end{center}
+\end{table}
  
-\vspace{10mm} 
+
  
-\begin{tabular}{|l|l|}
-\hline
-\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Ticket anzeigen \\
-\hline \hline
-  Ziel: & Anzeigen eines ausgewählten Tickets\\
- \hline
-  Haupt-Anwender: & Mitarbeiter  \\
-   \hline
-  Auslöser: & Button: \glqq Ticket lesen\grqq \\
-   \hline
-  Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Ticket lesen  \\
-   \hline
-  Nachbedingungen: & Ticket wurde erfolgreich angezeigt \\
-   \hline
-  Normalablauf:
- & 1. [AKTEUR]: Klick auf Button \glqq Ticket lesen\grqq  \\
- & 2. [SYSTEM]: Öffnen der Ticketverwaltung  \\
- & 3. [AKTEUR]: Auswählen des gewünschten Tickets (Filterauswahl)  \\
- & 4. [AKTEUR]: \glqq Anzeigen\grqq Button klicken   \\
- & 5. [SYSTEM]: Laden des gewünschten Tickets\\
- & 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
-   \hline
-  Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
- & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
- & 2. [SYSTEM]: Schließt Fenster  \\
-   \hline
- \end{tabular} 
-  
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|p{3.8cm}|p{12cm}|}
+		\hline
+			\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Ticket anzeigen \\
+		\hline
+  			Ziel: & Anzeigen eines ausgewählten Tickets\\
+ 		\hline
+  			Haupt-Anwender: & Mitarbeiter  \\
+   		\hline
+  			Auslöser: & Button: \glqq Ticket lesen\grqq \\
+   		\hline
+  			Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Ticket lesen  \\
+   		\hline
+  			Nachbedingungen: & Ticket wurde erfolgreich angezeigt \\
+   		\hline
+  			Normalablauf:
+ 			& 1. [AKTEUR]: Klick auf Button \glqq Ticket lesen\grqq  \\
+ 			& 2. [SYSTEM]: Öffnen der Ticketverwaltung  \\
+ 			& 3. [AKTEUR]: Auswählen des gewünschten Tickets (Filterauswahl)  \\
+ 			& 4. [AKTEUR]: \glqq Anzeigen\grqq  Button klicken   \\
+ 			& 5. [SYSTEM]: Laden des gewünschten Tickets\\
+ 			& 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
+   		\hline
+  			Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
+ 			& 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
+ 			& 2. [SYSTEM]: Schließt Fenster  \\
+   		\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+ 
 \subsubsection{Objektdiagramm}
 \begin{figure}[H]
 	\begin{center}
@@ -343,24 +361,22 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq{} 	\rightarrow \glqq Neuer Be
 Das Objektdiagramm (siehe\textit{ Abbildung 8}) stellt dar, wie die erläuterten Use-Cases Softwaretechnisch umgesetzt wurden. Es definiert die einzelnen Objekte der Umsetzung und beschreibt, wie diese miteinander in Beziehung stehen.
 
 \section{Projekt auf dem Server einrichten}
-\begin{itemize}
-\item Systemvorraussetzung:
-\begin{itemize}
-	\item Tomcat 8 und Java 8 installiert
-\end{itemize}
-\item Das gegebene war-File muss beim Dokument-Root-Verzeichnis des Tomcats ins Unterverzeichnis \glqq webapps\grqq{} eingefügt werden.
-\begin{itemize}
-	\item z.B.: \glqq C:\textbackslash{}apache-tomcat\textbackslash{}webapps\textbackslash{}teltick.war\grqq{}
-\end{itemize}
-\item Anschließend kann der Tomcat gestart werden.
-\item Admin-Zugangsdaten:
-  \begin{itemize}
-         \item Benutzername: Admin
-         \item Passwort: P@ssw0rd
-      \end{itemize}
-
-
-\end{itemize}
+	\begin{itemize}
+		\item Systemvorraussetzung:
+			\begin{itemize}
+				\item Tomcat 8 und Java 8 installiert
+			\end{itemize}
+		\item Das gegebene war-File muss beim \glqq DocumentRoot-Verzeichnis\grqq{} des Tomcats ins Unterverzeichnis \glqq webapps\grqq{} eingefügt werden.
+	\begin{itemize}
+		\item z.B.: \glqq C:\textbackslash{}apache-tomcat\textbackslash{}webapps\textbackslash{}teltick.war\grqq{}
+	\end{itemize}
+		\item Anschließend kann der Tomcat gestart werden.
+		\item Admin-Zugangsdaten:
+  		\begin{itemize}
+        	 \item Benutzername: Admin
+        	 \item Passwort: P@ssw0rd
+      	\end{itemize}
+	\end{itemize}
 
 
 %\section{Literaturverzeichnis}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2015.10.23)  1 JAN 2016 17:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2015.10.23)  1 JAN 2016 18:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -686,310 +686,282 @@ File: Bilder/UseCaseAnforderungsanalyse.png Graphic file (type png)
 <use Bilder/UseCaseAnforderungsanalyse.png>
 Package pdftex.def Info: Bilder/UseCaseAnforderungsanalyse.png used on input li
 ne 102.
-(pdftex.def)             Requested size: 284.52756pt x 221.81607pt.
+(pdftex.def)             Requested size: 312.9803pt x 243.999pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 108.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 108.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 108.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 111.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
 
 [2 <./Bilder/UseCaseAnforderungsanalyse.png>]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 109.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 109.
-
 <Bilder/designentwurf.jpg, id=103, 957.5775pt x 722.7pt>
 File: Bilder/designentwurf.jpg Graphic file (type jpg)
 
 <use Bilder/designentwurf.jpg>
-Package pdftex.def Info: Bilder/designentwurf.jpg used on input line 115.
+Package pdftex.def Info: Bilder/designentwurf.jpg used on input line 114.
 (pdftex.def)             Requested size: 278.837pt x 210.43777pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 119.
 
 <Bilder/erd.pdf, id=104, 796.9775pt x 597.23125pt>
 File: Bilder/erd.pdf Graphic file (type pdf)
  <use Bilder/erd.pdf>
-Package pdftex.def Info: Bilder/erd.pdf used on input line 148.
+Package pdftex.def Info: Bilder/erd.pdf used on input line 147.
 (pdftex.def)             Requested size: 312.9803pt x 234.53224pt.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
 
 <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 153.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 152.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 153.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 153.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 153.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 153.
+(babel)             in language  on input line 152.
  [3 <./Bilder/designentwurf.jpg>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 154.
+(babel)             in language  on input line 153.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 154.
+(babel)             in language  on input line 153.
 
 <Bilder/archDiagramm.png, id=111, 916.8654pt x 512.6352pt>
 File: Bilder/archDiagramm.png Graphic file (type png)
 
 <use Bilder/archDiagramm.png>
-Package pdftex.def Info: Bilder/archDiagramm.png used on input line 159.
+Package pdftex.def Info: Bilder/archDiagramm.png used on input line 158.
 (pdftex.def)             Requested size: 312.9803pt x 174.98982pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 165.
+(babel)             in language  on input line 164.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 165.
+(babel)             in language  on input line 164.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 167.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 166.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 167.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 167.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 167.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 167.
+(babel)             in language  on input line 166.
  [4 <./Bilder/erd.pdf> <./Bilder/archDiagramm.png>]
 <Bilder/FactoryPattern.png, id=131, 890.32625pt x 560.0925pt>
 File: Bilder/FactoryPattern.png Graphic file (type png)
 
 <use Bilder/FactoryPattern.png>
-Package pdftex.def Info: Bilder/FactoryPattern.png used on input line 171.
+Package pdftex.def Info: Bilder/FactoryPattern.png used on input line 170.
 (pdftex.def)             Requested size: 341.43306pt x 214.78592pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 178.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 178.
+(babel)             in language  on input line 177.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 182.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 181.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 181.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 181.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 181.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 181.
  [5 <./Bilder/FactoryPattern.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 181.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 181.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 186.
+(babel)             in language  on input line 185.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 186.
+(babel)             in language  on input line 185.
  <Bilder/desktop.jpg, id=138, 890.32625pt x 445.665pt>
 File: Bilder/desktop.jpg Graphic file (type jpg)
 
 <use Bilder/desktop.jpg>
-Package pdftex.def Info: Bilder/desktop.jpg used on input line 192.
+Package pdftex.def Info: Bilder/desktop.jpg used on input line 191.
 (pdftex.def)             Requested size: 284.52756pt x 142.4253pt.
 
 <Bilder/fenster_oeffnen.png, id=139, 2131.965pt x 1125.20375pt>
 File: Bilder/fenster_oeffnen.png Graphic file (type png)
 
 <use Bilder/fenster_oeffnen.png>
-Package pdftex.def Info: Bilder/fenster_oeffnen.png used on input line 203.
+Package pdftex.def Info: Bilder/fenster_oeffnen.png used on input line 202.
 (pdftex.def)             Requested size: 625.96062pt x 330.36984pt.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 207.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 206.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 207.
+(babel)             in language  on input line 206.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 207.
+(babel)             in language  on input line 206.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 207.
+(babel)             in language  on input line 206.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 207.
+(babel)             in language  on input line 206.
  [6 <./Bilder/desktop.jpg>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 207.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 207.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 211.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 210.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 211.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 211.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 211.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 211.
+(babel)             in language  on input line 210.
  [7 <./Bilder/fenster_oeffnen.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 211.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 210.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 211.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 210.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 232.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 232.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.239 ...qq Benutzerverwaltung\grqq{} 	\rightarrow
-                                                   \glqq Neuer Benutzer\grqq \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: Command \glqq invalid in math mode on input line 239.
-
-
-LaTeX Warning: Command \grqq invalid in math mode on input line 239.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.240    \hline
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (7.53722pt too wide) in paragraph at lines 231--267
-[] 
+Overfull \hbox (6.1831pt too wide) in paragraph at lines 236--272
+ [] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 268.
+(babel)             in language  on input line 278.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 268.
+(babel)             in language  on input line 278.
 
-Overfull \hbox (7.53722pt too wide) in paragraph at lines 269--305
-[] 
+Overfull \hbox (6.1831pt too wide) in paragraph at lines 281--317
+ [] 
  []
 
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
 <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 307.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 319.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 319.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 319.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 319.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 319.
  [8]
-Overfull \hbox (7.13724pt too wide) in paragraph at lines 308--335
-[][] 
+Overfull \hbox (6.1831pt too wide) in paragraph at lines 324--351
+ [] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 336.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 336.
+(babel)             in language  on input line 354.
 <Bilder/ObjektDiagramm.png, id=159, 1989.4325pt x 950.55125pt>
 File: Bilder/ObjektDiagramm.png Graphic file (type png)
 
 <use Bilder/ObjektDiagramm.png>
-Package pdftex.def Info: Bilder/ObjektDiagramm.png used on input line 339.
+Package pdftex.def Info: Bilder/ObjektDiagramm.png used on input line 357.
 (pdftex.def)             Requested size: 591.81732pt x 282.77438pt.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 343.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 361.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 343.
+(babel)             in language  on input line 361.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 343.
+(babel)             in language  on input line 361.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 343.
+(babel)             in language  on input line 361.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 343.
+(babel)             in language  on input line 361.
  [9]
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
 
 <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 344.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 362.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 344.
+(babel)             in language  on input line 362.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 344.
+(babel)             in language  on input line 362.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 344.
+(babel)             in language  on input line 362.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 344.
+(babel)             in language  on input line 362.
  [10 <./Bilder/ObjektDiagramm.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 345.
+(babel)             in language  on input line 363.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 345.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 379.
+(babel)             in language  on input line 363.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 395.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
 
 <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 379.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 395.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 379.
+(babel)             in language  on input line 395.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 379.
+(babel)             in language  on input line 395.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 379.
+(babel)             in language  on input line 395.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 379.
+(babel)             in language  on input line 395.
  [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 379.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 395.
  (./doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 379.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 379.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 395.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 395.
 Package rerunfilecheck Info: File `doku.out' has not changed.
-(rerunfilecheck)             Checksum: 43C1D9D5FEDADA66ED1FECE9BCA98D82;982.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 379.
+(rerunfilecheck)             Checksum: AF6B627E638575C49FF18CAA0FCF274E;984.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 395.
  ) 
 Here is how much of TeX's memory you used:
- 8197 strings out of 494907
- 120377 string characters out of 6177793
- 226004 words of memory out of 5000000
+ 8200 strings out of 494907
+ 120425 string characters out of 6177793
+ 232004 words of memory out of 5000000
  11300 multiletter control sequences out of 15000+600000
  12457 words of font info for 31 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 41i,16n,43p,728b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,16n,43p,727b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/benedikt/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </hom
 e/benedikt/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/benedi
 kt/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/benedikt/.texm
 f-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/benedikt/.texmf-var/fo
 nts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/benedikt/.texmf-var/fonts/pk/l
 jfour/jknappen/ec/ecrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb>
-Output written on doku.pdf (12 pages, 1737832 bytes).
+lic/amsfonts/cm/cmsy10.pfb>
+Output written on doku.pdf (12 pages, 1728558 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
+ 480 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
+ 40 named destinations out of 1000 (max. 500000)
  166 words of extra memory for PDF output out of 10000 (max. 10000000)
 
