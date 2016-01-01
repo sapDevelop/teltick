@@ -118,7 +118,7 @@ Als nächstes wurde mit dem Programm PowerPoint ein erster Designentwurf für di
 
 \subsection{Datenbankentwurf}
 Nachdem das grundlegende Design der Webseite festgelegt worden war, wurde sich über die Datenhaltung Gedanken gemacht. Es wurde ermittelt welche Daten das Software-Projekt persistent speichern soll und wie diese Daten im Zusammenhang stehen. Aus dieser Erkenntnis wurde die in der \textit{Abbildung 3} gezeigte Datenbankstruktur festgelegt.
-
+ 
 Die \textit{Tabelle 1} beschreibt wofür welche Relation in der Datenbank benötigt wird.
 \begin{table}[H]
 	\begin{center}
@@ -229,41 +229,58 @@ In der Anforderungsanalyse wurden mehrere Use Cases festgelegt. Es wurde sich da
 \subsubsection{Benutzerverwaltung}
 \begin{tabular}{|l|l|}
 \hline
-  Ziel: & ziel \\
+\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Benutzer anlegen \\
+\hline \hline
+  Ziel: & Anlegen eines neuen Benutzers\\
  \hline
-  Haupt-Anwender: & Anwender  \\
+  Haupt-Anwender: & Admin, Mitarbeiter  \\
    \hline
-  Auslöser: &  \\
+Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benutzer\grqq \\
    \hline
-  Vorbedingungen: &  \\
+  Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Benutzer anlegen  \\
    \hline
-  Nachbedingungen: &  \\
+  Nachbedingungen: & Benutzer erfolgreich angelegt \\
    \hline
-  Normalablauf: &  \\
+  Normalablauf:
+ & 1. [AKTEUR]: Klick auf Button \glqq Neuer Benutzer\grqq  \\
+ & 2. [SYSTEM]: Öffnen des Formulars für einen neuen Benutzer  \\
+ & 3. [AKTEUR]: Ausfüllen des Formulars und Bestätigung  \\
+ & 4. [SYSTEM]: Überprüfung der Eingaben\\
+ & 5. [SYSTEM]: Weiterleitung zur Benutzerübersicht\\
+ & 6. [AKTEUR]: Ansicht des Benutzers, Fenster schließen\\
    \hline
-  Fehlerablauf: &  \\
+  Fehlerablauf: & Fehlerbehandlung \glqq Formulareingaben unvollständig\grqq{}  \\
+ & Einsprung bei (4) \\
+ & 1. [SYSTEM]: Öffnen des Formulars für einen neuen Benutzer  \\
+ & 2. [SYSTEM]: Fehlermeldung welche Eingaben unvollständig waren  \\
+ & 3. [AKTEUR]: Vervollständigt seine Eingaben  \\
+ & 4. [SYSTEM]: Überprüfung der Eingaben\\
+ & 5. [SYSTEM]: Weiterleitung zur Benutzerübersicht\\
+ & 6. [AKTEUR]: Ansicht des Benutzers, Fenster schließen\\
    \hline
-  Zusätzliche Abläufe: &  \\
+  Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
+ & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
+ & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
  \end{tabular}
 
 \subsubsection{Ticketverwaltung}
 \begin{tabular}{|l|l|}
 \hline
-  Use Case: & Ticket anlegen \\
+\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Ticket anlegen \\
 \hline \hline
   Ziel: & Anlegen eines neuen Tickets\\
  \hline
   Haupt-Anwender: & Mitarbeiter  \\
    \hline
-  Auslöser: & Button: "Neues Ticket anlegen" \\
+  Auslöser: & Button: \glqq Neues Ticket anlegen\grqq \\
    \hline
   Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Ticket anlegen  \\
    \hline
   Nachbedingungen: & Ticket erfolgreich angelegt \\
    \hline
   Normalablauf:
- & 1. [AKTEUR]: Klick auf Button "Neues Ticket anlegen"  \\
+ & 1. [AKTEUR]: Klick auf Button \glqq Neues Ticket anlegen\grqq  \\
  & 2. [SYSTEM]: Öffnen des Formulars für ein neues Ticket  \\
  & 3. [AKTEUR]: Ausfüllen des Formulars und Bestätigung  \\
  & 4. [SYSTEM]: Überprüfung der Eingaben\\
