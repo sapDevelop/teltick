@@ -177,7 +177,6 @@ Um Klassen möglichst austauschbar in das Projekt einzubinden, wurde auf die Ver
 \subsection{Der Desktopansatz}
 Beim Projekt wurde sich dazu entschieden einen Desktop-Fenster-Ansatz zu benutzen. Dies bietet den Vorteil, dass das Projekt modular erweiterbar ist. Soll ein neues Modul zum Projekt hinzugefügt werden, muss nur auf den Desktop ein neues Icon hinzugefügt werden, welches ein Fenster mit dem neuen Modul öffnet. Somit können Module auch problemlos ausgetauscht werden.
 
-\pagebreak
 \section{Implementierung}
 In diesem Abschnitt wird beschrieben, wie Einzelheiten des Projekts in JavaEE umgesetzt wurden. Es wird auf den Desktop-Aufbau, Use Cases und auf das Objektmodell eingegangen.
 
@@ -197,13 +196,23 @@ Der Desktop besteht, wie in der \textit{Abbildung 6} gezeigt, aus mehreren versc
 Die in dem Fenster integrierten JSP-Dateien enthalten Formulare. Damit bei einen Submit des Formulars nicht die ganze Seite neu geladen wird, sondern nur das Fenster direkt, wird beim Submit die Funktion \glqq submitUmleiten\grqq{} aufgerufen. Diese leitet den Submit via Ajax um, sodass nur das Formular neugeladen wird und das Ergebnis im Fenster zu sehen ist.
 
 
+%\begin{figure}[H]
+%	\begin{center}
+%		\includegraphics[width=220mm,angle=90]{Bilder/fenster_oeffnen.png}
+%	\end{center}
+%	\caption{Öffnen eines neuen Fensters}
+%\end{figure}
+
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=220mm,angle=90]{Bilder/fenster_oeffnen.png}
+		%\fcolorbox{Grau}{Grau}{
+		\includegraphics[width=165mm]{Bilder/fenster_oeffnen_sd.png}
+		%}
 	\end{center}
 	\caption{Öffnen eines neuen Fensters}
 \end{figure}
 
+\newpage
 \subsection{Use Cases (Umsetzung)}
 In der Anforderungsanalyse wurden mehrere Use Cases festgelegt. Es wurde sich dazu entschieden folgende Use Cases umzusetzten:
 \begin{itemize}
@@ -265,7 +274,7 @@ Im folgendem werden Teile der Use Cases anhand von Tabellen näher erläutert.
  & 6. [AKTEUR]: Ansicht des Benutzers, Fenster schließen\\
    \hline
   Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
- & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
+ & 1. [AKTEUR]: Wählt Button zum Schließen des Fensters  \\
  & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
 		\end{tabular}
@@ -310,7 +319,7 @@ Im folgendem werden Teile der Use Cases anhand von Tabellen näher erläutert.
  & 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
    \hline
   Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
- & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
+ & 1. [AKTEUR]: Wählt Button zum Schließen des Fensters  \\
  & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
 \end{tabular}
@@ -344,7 +353,7 @@ Im folgendem werden Teile der Use Cases anhand von Tabellen näher erläutert.
  			& 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
    		\hline
   			Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
- 			& 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
+ 			& 1. [AKTEUR]: Wählt Button zum Schließen des Fensters  \\
  			& 2. [SYSTEM]: Schließt Fenster  \\
    		\hline
 		\end{tabular}
