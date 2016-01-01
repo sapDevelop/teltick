@@ -226,49 +226,62 @@ In der Anforderungsanalyse wurden mehrere Use Cases festgelegt. Es wurde sich da
 
 Im folgendem werden Teile der Use Cases anhand von Tabellen näher erleutert.
 
+
+
+
 \subsubsection{Benutzerverwaltung}
-\begin{tabular}{|l|l|}
-\hline
-\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Benutzer anlegen \\
-\hline \hline
-  Ziel: & Anlegen eines neuen Benutzers\\
- \hline
-  Haupt-Anwender: & Admin, Mitarbeiter  \\
-   \hline
-Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benutzer\grqq \\
-   \hline
-  Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Benutzer anlegen  \\
-   \hline
-  Nachbedingungen: & Benutzer erfolgreich angelegt \\
-   \hline
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|p{3.8cm}|p{12cm}|}
+			\hline 
+				\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Ticket anlegen \\
+			\hline 
+				Ziel: & Anlegen eines neuen Tickets\\
+			\hline
+				 Haupt-Anwender: & Mitarbeiter  \\
+			\hline
+  				Auslöser: & Button: \glqq Neues Ticket\grqq \\
+  			\hline
+  				Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Ticket anlegen  \\
+  			\hline
+  				Nachbedingungen: & Ticket erfolgreich angelegt \\
+			\hline
   Normalablauf:
- & 1. [AKTEUR]: Klick auf Button \glqq Neuer Benutzer\grqq  \\
- & 2. [SYSTEM]: Öffnen des Formulars für einen neuen Benutzer  \\
+ & 1. [AKTEUR]: Klick auf Button \glqq Neues Ticket\grqq  \\
+ & 2. [SYSTEM]: Öffnen des Formulars für ein neues Ticket  \\
  & 3. [AKTEUR]: Ausfüllen des Formulars und Bestätigung  \\
  & 4. [SYSTEM]: Überprüfung der Eingaben\\
- & 5. [SYSTEM]: Weiterleitung zur Benutzerübersicht\\
- & 6. [AKTEUR]: Ansicht des Benutzers, Fenster schließen\\
+ & 5. [SYSTEM]: Weiterleitung zum Anzeigen des neuen Tickets\\
+ & 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
    \hline
   Fehlerablauf: & Fehlerbehandlung \glqq Formulareingaben unvollständig\grqq{}  \\
  & Einsprung bei (4) \\
- & 1. [SYSTEM]: Öffnen des Formulars für einen neuen Benutzer  \\
+ & 1. [SYSTEM]: Öffnen des Formulars für ein neues Ticket  \\
  & 2. [SYSTEM]: Fehlermeldung welche Eingaben unvollständig waren  \\
  & 3. [AKTEUR]: Vervollständigt seine Eingaben  \\
  & 4. [SYSTEM]: Überprüfung der Eingaben\\
- & 5. [SYSTEM]: Weiterleitung zur Benutzerübersicht\\
- & 6. [AKTEUR]: Ansicht des Benutzers, Fenster schließen\\
+ & 5. [SYSTEM]: Weiterleitung zum Anzeigen des neuen Tickets\\
+ & 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
    \hline
   Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
  & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
  & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
- \end{tabular}
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+
 
 \subsubsection{Ticketverwaltung}
-\begin{tabular}{|l|l|}
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|p{3.8cm}|p{12cm}|}
 \hline
 \cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Ticket anlegen \\
-\hline \hline
+\hline
   Ziel: & Anlegen eines neuen Tickets\\
  \hline
   Haupt-Anwender: & Mitarbeiter  \\
@@ -300,14 +313,20 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benu
  & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
  & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
- \end{tabular}
+\end{tabular}
+	\end{center}
+\end{table}
  
-\vspace{10mm} 
+
  
-\begin{tabular}{|l|l|}
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|p{3.8cm}|p{12cm}|}
 \hline
+
 \cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Ticket anzeigen \\
-\hline \hline
+
+\hline
   Ziel: & Anzeigen eines ausgewählten Tickets\\
  \hline
   Haupt-Anwender: & Mitarbeiter  \\
@@ -330,7 +349,9 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benu
  & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
  & 2. [SYSTEM]: Schließt Fenster  \\
    \hline
- \end{tabular} 
+\end{tabular}
+	\end{center}
+\end{table}
  
  
  
