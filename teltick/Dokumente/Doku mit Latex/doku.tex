@@ -273,14 +273,14 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benu
  \hline
   Haupt-Anwender: & Mitarbeiter  \\
    \hline
-  Auslöser: & Button: \glqq Neues Ticket anlegen\grqq \\
+  Auslöser: & Button: \glqq Neues Ticket\grqq \\
    \hline
   Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Ticket anlegen  \\
    \hline
   Nachbedingungen: & Ticket erfolgreich angelegt \\
    \hline
   Normalablauf:
- & 1. [AKTEUR]: Klick auf Button \glqq Neues Ticket anlegen\grqq  \\
+ & 1. [AKTEUR]: Klick auf Button \glqq Neues Ticket\grqq  \\
  & 2. [SYSTEM]: Öffnen des Formulars für ein neues Ticket  \\
  & 3. [AKTEUR]: Ausfüllen des Formulars und Bestätigung  \\
  & 4. [SYSTEM]: Überprüfung der Eingaben\\
@@ -302,6 +302,40 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benu
    \hline
  \end{tabular}
  
+\vspace{10mm} 
+ 
+\begin{tabular}{|l|l|}
+\hline
+\cellcolor{Hellgrau}Use Case: & \cellcolor{Hellgrau}Ticket anzeigen \\
+\hline \hline
+  Ziel: & Anzeigen eines ausgewählten Tickets\\
+ \hline
+  Haupt-Anwender: & Mitarbeiter  \\
+   \hline
+  Auslöser: & Button: \glqq Ticket lesen\grqq \\
+   \hline
+  Vorbedingungen: & Mitarbeiter ist eingeloggt, hat Rechte zum Ticket lesen  \\
+   \hline
+  Nachbedingungen: & Ticket wurde erfolgreich angezeigt \\
+   \hline
+  Normalablauf:
+ & 1. [AKTEUR]: Klick auf Button \glqq Ticket lesen\grqq  \\
+ & 2. [SYSTEM]: Öffnen der Ticketverwaltung  \\
+ & 3. [AKTEUR]: Auswählen des gewünschten Tickets (Filterauswahl)  \\
+ & 4. [AKTEUR]: \glqq Anzeigen\grqq Button klicken   \\
+ & 5. [SYSTEM]: Laden des gewünschten Tickets\\
+ & 6. [AKTEUR]: Ansicht des Tickets, Fenster schließen\\
+   \hline
+  Zusätzliche Abläufe: & Abbruch der Bearbeitung \\
+ & 1. [AKTEUR]: Wählt Button zum schließen des Fensters  \\
+ & 2. [SYSTEM]: Schließt Fenster  \\
+   \hline
+ \end{tabular} 
+ 
+ 
+ 
+ 
+ 
 \subsubsection{Objektdiagramm}
 \begin{figure}[H]
 	\begin{center}
@@ -309,7 +343,7 @@ Auslöser: & Button: \glqq Benutzerverwaltung\grqq 	\rightarrow \glqq Neuer Benu
 	\end{center}
 	\caption{Objektdiagramm}
 \end{figure}
-Das folgende Objektdiagramm (siehe\textit{ Abbildung 8}) stellt da, wie die erläuterten Use-Cases Softwaretechnisch umgesetzt wurden. Es definiert die einzelnen Objekte der Umsetzung und beschreibt, wie diese miteinander in Beziehung stehen.
+Das Objektdiagramm (siehe\textit{ Abbildung 8}) stellt dar, wie die erläuterten Use-Cases Softwaretechnisch umgesetzt wurden. Es definiert die einzelnen Objekte der Umsetzung und beschreibt, wie diese miteinander in Beziehung stehen.
 
 \section{Projekt deployen}
 \begin{itemize}
