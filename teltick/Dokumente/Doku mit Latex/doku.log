@@ -1,12 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.27)  1 JAN 2016 19:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2015.10.23)  1 JAN 2016 21:23
 entering extended mode
-**./doku.tex
-(doku.tex
-LaTeX2e <2015/10/01> patch level 2
-Babel <3.9m> and hyphenation patterns for 69 languages loaded.
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**doku.tex
+(./doku.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 9 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size12.clo"
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -20,28 +22,18 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) ("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.st
-y"
-Package: babel 2015/08/03 3.9m The Babel package
-
-*************************************
-* Local config file bblopts.cfg used
-*
-
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\bblopts.c
-fg"
-File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-german\ngerm
-an.ldf"
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2014/09/25 3.9l The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngerman.ldf
 Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-german\ngerm
-anb.ldf"
+(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngermanb.ldf
 Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2015/08/03 3.9m Babel common definitions
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2014/09/25 3.9l Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
@@ -49,24 +41,23 @@ File: babel.def 2015/08/03 3.9m Babel common definitions
 \l@nswissgerman = a dialect from \language\l@ngerman 
 Package babel Info: Making " an active character on input line 88.
 )))
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
-File: utf8.def 2015/09/07 v1.1p UTF-8 support for inputenc
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
-File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
-   defining Unicode char U+00A0 (decimal 160)
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
-   defining Unicode char U+00AD (decimal 173)
    defining Unicode char U+00BB (decimal 187)
    defining Unicode char U+00BF (decimal 191)
    defining Unicode char U+00C0 (decimal 192)
@@ -187,10 +178,6 @@ File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+016F (decimal 367)
    defining Unicode char U+0170 (decimal 368)
    defining Unicode char U+0171 (decimal 369)
-   defining Unicode char U+0174 (decimal 372)
-   defining Unicode char U+0175 (decimal 373)
-   defining Unicode char U+0176 (decimal 374)
-   defining Unicode char U+0177 (decimal 375)
    defining Unicode char U+0178 (decimal 376)
    defining Unicode char U+0179 (decimal 377)
    defining Unicode char U+017A (decimal 378)
@@ -198,10 +185,6 @@ File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+017C (decimal 380)
    defining Unicode char U+017D (decimal 381)
    defining Unicode char U+017E (decimal 382)
-   defining Unicode char U+0218 (decimal 536)
-   defining Unicode char U+0219 (decimal 537)
-   defining Unicode char U+021A (decimal 538)
-   defining Unicode char U+021B (decimal 539)
    defining Unicode char U+200C (decimal 8204)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
@@ -220,12 +203,10 @@ File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
-File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
-   defining Unicode char U+00A0 (decimal 160)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00AD (decimal 173)
    defining Unicode char U+00B8 (decimal 184)
    defining Unicode char U+00BF (decimal 191)
    defining Unicode char U+00C5 (decimal 197)
@@ -243,14 +224,6 @@ File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+0142 (decimal 322)
    defining Unicode char U+0152 (decimal 338)
    defining Unicode char U+0153 (decimal 339)
-   defining Unicode char U+0174 (decimal 372)
-   defining Unicode char U+0175 (decimal 373)
-   defining Unicode char U+0176 (decimal 374)
-   defining Unicode char U+0177 (decimal 375)
-   defining Unicode char U+0218 (decimal 536)
-   defining Unicode char U+0219 (decimal 537)
-   defining Unicode char U+021A (decimal 538)
-   defining Unicode char U+021B (decimal 539)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
    defining Unicode char U+2018 (decimal 8216)
@@ -261,8 +234,8 @@ File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
-File: omsenc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -284,39 +257,34 @@ Now handling font encoding U ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) ("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.st
-y"
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
- ("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.def"
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\color.sty
-"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\color.cfg
-"
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 142.
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.
-def"
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infware
-rr.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds
-.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
 ))
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.
-sty"
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -327,32 +295,28 @@ sty"
 \f@ncyO@olf=\skip50
 \f@ncyO@orf=\skip51
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.
-sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.st
-y"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.
-sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\graphics.
-cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 94.
 )
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count89
 \float@exts=\toks17
@@ -360,22 +324,18 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks18
 \@floatcapt=\box27
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
-sty"
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.s
-ty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.
-sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.
-sty"
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count90
@@ -390,22 +350,19 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen112
 \Gm@layoutvoffset=\dimen113
 \Gm@dimlist=\toks19
-
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
-cfg"))
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\color.cfg
-"
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\colortbl\colortbl.
-sty"
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen114
 \extrarowheight=\dimen115
@@ -427,23 +384,20 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
-) ("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\helvet.st
-y"
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.
-sty"
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-
-hyperref.sty"
-Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-
-generic.sty"
-Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
 Package hobsub Info: Skipping package `ltxcmds' (already loaded).
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
@@ -472,7 +426,7 @@ Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
 Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
 Package: xcolor-patch 2011/01/30 xcolor patch
 Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
@@ -480,28 +434,24 @@ Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.s
-ty"
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions
-.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen116
 \Hy@linkcounter=\count94
 \Hy@pagecounter=\count95
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.de
-f"
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count96
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.
-cfg"
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4443.
@@ -512,7 +462,8 @@ Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count97
- ("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -537,15 +488,12 @@ LaTeX Info: Redefining \pageref on input line 6369.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.d
-ef"
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count102
 \c@bookmark@seq@number=\count103
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfile
-check.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
@@ -554,13 +502,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 25.
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption.st
-y"
-Package: caption 2015/09/17 v3.3-111 Customizing captions (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption3.s
-ty"
-Package: caption3 2015/09/20 v1.7-115 caption3 kernel (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen120
 \captionmargin@=\dimen121
@@ -573,8 +519,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \c@ContinuedFloat=\count104
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
-)
-No file doku.aux.
+) (./doku.aux)
 \openout1 = `doku.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -592,8 +537,7 @@ LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
-ii"
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count105
 \scratchdimen=\dimen127
@@ -606,7 +550,21 @@ ii"
 \MPnumerator=\count109
 \makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks23
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 )
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -643,13 +601,10 @@ ii"
 
 \AtBeginShipoutBox=\box29
 Package hyperref Info: Link coloring ON on input line 49.
-
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.s
-ty"
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettitl
-estring.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count111
@@ -657,6 +612,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 49.
 LaTeX Info: Redefining \pageref on input line 49.
 LaTeX Info: Redefining \nameref on input line 49.
+
+(./doku.out) (./doku.out)
 \@outlinefile=\write3
 \openout3 = `doku.out'.
 
@@ -672,11 +629,18 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 80.
  [1
 
-{C:/Users/Robin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./doku.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
+)
 \tf@toc=\write4
 \openout4 = `doku.toc'.
 
- <Bilder/HS_OWL_RGB_Rot.jpg, id=10, 5019.75375pt x 1002.74625pt>
+ <Bilder/HS_OWL_RGB_Rot.jpg, id=86, 5019.75375pt x 1002.74625pt>
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
 
 <use Bilder/HS_OWL_RGB_Rot.jpg>
@@ -716,7 +680,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 96.
 
-<Bilder/UseCaseAnforderungsanalyse.png, id=15, 1102.1175pt x 859.21pt>
+<Bilder/UseCaseAnforderungsanalyse.png, id=92, 1102.1175pt x 859.21pt>
 File: Bilder/UseCaseAnforderungsanalyse.png Graphic file (type png)
 
 <use Bilder/UseCaseAnforderungsanalyse.png>
@@ -741,7 +705,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 111.
 
 [2 <./Bilder/UseCaseAnforderungsanalyse.png>]
-<Bilder/designentwurf.jpg, id=30, 957.5775pt x 722.7pt>
+<Bilder/designentwurf.jpg, id=103, 957.5775pt x 722.7pt>
 File: Bilder/designentwurf.jpg Graphic file (type jpg)
 
 <use Bilder/designentwurf.jpg>
@@ -751,14 +715,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 119.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 125.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 125.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 125.
 
-<Bilder/erd.pdf, id=31, 796.9775pt x 597.23125pt>
+<Bilder/erd.pdf, id=104, 796.9775pt x 597.23125pt>
 File: Bilder/erd.pdf Graphic file (type pdf)
  <use Bilder/erd.pdf>
 Package pdftex.def Info: Bilder/erd.pdf used on input line 147.
@@ -782,7 +740,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 153.
 
-<Bilder/archDiagramm.png, id=39, 916.8654pt x 512.6352pt>
+<Bilder/archDiagramm.png, id=111, 916.8654pt x 512.6352pt>
 File: Bilder/archDiagramm.png Graphic file (type png)
 
 <use Bilder/archDiagramm.png>
@@ -805,7 +763,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 166.
  [4 <./Bilder/erd.pdf> <./Bilder/archDiagramm.png>]
-<Bilder/FactoryPattern.png, id=61, 890.32625pt x 560.0925pt>
+<Bilder/FactoryPattern.png, id=131, 890.32625pt x 560.0925pt>
 File: Bilder/FactoryPattern.png Graphic file (type png)
 
 <use Bilder/FactoryPattern.png>
@@ -815,206 +773,183 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 177.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 177.
-File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
- <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 181.
-(pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 181.
- [5 <./Bilder/FactoryPattern.png>]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 181.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 181.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 185.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 185.
- <Bilder/desktop.jpg, id=70, 890.32625pt x 445.665pt>
+(babel)             in language  on input line 184.
+
+<Bilder/desktop.jpg, id=132, 890.32625pt x 445.665pt>
 File: Bilder/desktop.jpg Graphic file (type jpg)
-
-<use Bilder/desktop.jpg>
-Package pdftex.def Info: Bilder/desktop.jpg used on input line 191.
+ <use Bilder/desktop.jpg>
+Package pdftex.def Info: Bilder/desktop.jpg used on input line 190.
 (pdftex.def)             Requested size: 284.52756pt x 142.4253pt.
-
-<Bilder/fenster_oeffnen.png, id=71, 2131.965pt x 1125.20375pt>
-File: Bilder/fenster_oeffnen.png Graphic file (type png)
-
-<use Bilder/fenster_oeffnen.png>
-Package pdftex.def Info: Bilder/fenster_oeffnen.png used on input line 202.
-(pdftex.def)             Requested size: 625.96062pt x 330.36984pt.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
- <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 206.
+
+<use Bilder/HS_OWL_RGB_Rot.jpg>
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 195.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 206.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 206.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 206.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 206.
- [6 <./Bilder/desktop.jpg>]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 207.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 207.
+(babel)             in language  on input line 195.
+ [5 <./Bilder/FactoryPattern.png>]
+<Bilder/fenster_oeffnen_sd.png, id=139, 1342.01375pt x 739.76375pt>
+File: Bilder/fenster_oeffnen_sd.png Graphic file (type png)
+
+<use Bilder/fenster_oeffnen_sd.png>
+Package pdftex.def Info: Bilder/fenster_oeffnen_sd.png used on input line 209.
+(pdftex.def)             Requested size: 469.47046pt x 258.78574pt.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 210.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 215.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 210.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 210.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 210.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 210.
- [7 <./Bilder/fenster_oeffnen.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 210.
+(babel)             in language  on input line 215.
+ [6 <./Bilder/desktop.jpg> <./Bilder/fenster_oeffnen_sd.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 216.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 216.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 219.
 
-("C:\Users\Robin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 210.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 219.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 232.
+(babel)             in language  on input line 241.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 232.
+(babel)             in language  on input line 241.
 
-Overfull \hbox (6.1831pt too wide) in paragraph at lines 236--272
+Overfull \hbox (6.1831pt too wide) in paragraph at lines 245--281
  [] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 278.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 278.
+(babel)             in language  on input line 287.
 
-Overfull \hbox (6.1831pt too wide) in paragraph at lines 281--317
+Overfull \hbox (6.1831pt too wide) in paragraph at lines 290--326
  [] 
  []
 
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
 <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 319.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 328.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 319.
+(babel)             in language  on input line 328.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 319.
+(babel)             in language  on input line 328.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 319.
+(babel)             in language  on input line 328.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 319.
- [8]
-Overfull \hbox (6.1831pt too wide) in paragraph at lines 324--351
+(babel)             in language  on input line 328.
+ [7]
+Overfull \hbox (6.1831pt too wide) in paragraph at lines 333--360
  [] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 354.
+(babel)             in language  on input line 363.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 354.
-<Bilder/ObjektDiagramm.png, id=94, 1989.4325pt x 950.55125pt>
+(babel)             in language  on input line 363.
+<Bilder/ObjektDiagramm.png, id=155, 1989.4325pt x 950.55125pt>
 File: Bilder/ObjektDiagramm.png Graphic file (type png)
 
 <use Bilder/ObjektDiagramm.png>
-Package pdftex.def Info: Bilder/ObjektDiagramm.png used on input line 357.
+Package pdftex.def Info: Bilder/ObjektDiagramm.png used on input line 366.
 (pdftex.def)             Requested size: 591.81732pt x 282.77438pt.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
  <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 361.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 370.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 361.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 361.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 361.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 361.
- [9]
+(babel)             in language  on input line 370.
+ [8]
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
 
 <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 362.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 371.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 362.
+(babel)             in language  on input line 371.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 362.
+(babel)             in language  on input line 371.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 362.
+(babel)             in language  on input line 371.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 362.
- [10 <./Bilder/ObjektDiagramm.png>]
+(babel)             in language  on input line 371.
+ [9 <./Bilder/ObjektDiagramm.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 363.
+(babel)             in language  on input line 372.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 363.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 381.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 381.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 400.
+(babel)             in language  on input line 372.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 404.
 File: Bilder/HS_OWL_RGB_Rot.jpg Graphic file (type jpg)
 
 <use Bilder/HS_OWL_RGB_Rot.jpg>
-Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 400.
+Package pdftex.def Info: Bilder/HS_OWL_RGB_Rot.jpg used on input line 404.
 (pdftex.def)             Requested size: 113.81102pt x 22.72147pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 400.
+(babel)             in language  on input line 404.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 400.
+(babel)             in language  on input line 404.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 400.
+(babel)             in language  on input line 404.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 400.
- [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 400.
- (doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 400.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 400.
-
-
-Package rerunfilecheck Warning: File `doku.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `doku.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  6EA7094E2DB0F0A88B2293CEF686E02D;1042.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 400.
+(babel)             in language  on input line 404.
+ [10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 404.
+ (./doku.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 404.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 404.
+Package rerunfilecheck Info: File `doku.out' has not changed.
+(rerunfilecheck)             Checksum: AF6B627E638575C49FF18CAA0FCF274E;984.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 404.
  ) 
 Here is how much of TeX's memory you used:
- 8100 strings out of 493634
- 120863 string characters out of 3135238
- 234196 words of memory out of 3000000
- 11340 multiletter control sequences out of 15000+200000
- 12457 words of font info for 31 fonts, out of 3000000 for 9000
- 1025 hyphenation exceptions out of 8191
- 41i,16n,43p,729b,395s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Robin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecbx1200.pk> <C:\Users\Robin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecrm1095.pk> <C:\Users\Robin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Robin\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Robin\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Robin\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk><C:/Users/Robin/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on doku.pdf (12 pages, 1745140 bytes).
+ 8199 strings out of 494907
+ 120433 string characters out of 6177793
+ 232004 words of memory out of 5000000
+ 11300 multiletter control sequences out of 15000+600000
+ 12457 words of font info for 31 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 41i,16n,43p,727b,364s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/benedikt/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </hom
+e/benedikt/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/benedi
+kt/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/benedikt/.texm
+f-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/benedikt/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/benedikt/.texmf-var/fonts/pk/l
+jfour/jknappen/ec/ecrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb>
+Output written on doku.pdf (11 pages, 1697910 bytes).
 PDF statistics:
- 407 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 477 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 
