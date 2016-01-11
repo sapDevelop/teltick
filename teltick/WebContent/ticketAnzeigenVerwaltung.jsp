@@ -99,7 +99,7 @@
 						</div>
 						
 							<div class="BereichRadioAuswahlAendern">
-							<input type="text" name="TicketSuchenInput" class="input_ticketsuchen" id="Ticket_Suchen_Input_<c:out value="${param.id}"/>" value="<c:out value="${param.TicketSuchenInput}"/>"
+							<input type="text" name="TicketSuchenInput" class="input_ticketsuchen" onkeydown="if (event.keyCode == 13)document.getElementById('submit_<c:out value="${ param.id }" />').click();" id="Ticket_Suchen_Input_<c:out value="${param.id}"/>" value="<c:out value="${param.TicketSuchenInput}"/>"
 							<c:choose> 
 								<c:when test="${requestScope.radioButton.equals('Ticket suchen')}"> </c:when>  
 								<c:otherwise> disabled </c:otherwise>
