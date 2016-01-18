@@ -6,6 +6,7 @@ import java.util.Vector;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.jstl.core.LoopTagSupport;
+import javax.xml.ws.Response;
 
 import org.apache.log4j.Logger;
 
@@ -84,13 +85,19 @@ public class TicketTag extends LoopTagSupport {
 			
 		} else if (stat == 1)
 		{
+			suche = suche.trim();
 			if(!suche.isEmpty())
 			{
 				log.info("Suchbegriff" + suche );
 				DaoTicket daoT = DaoTicketFactory.getInstance();
-				itTicket = daoT.getTicktSuche(suche).iterator();
-			}
-			
+				Vector<Ticket> ticketV = daoT.getTicktSuche(suche);
+				itTicket = ticketV.iterator();
+				log.info("Treferanzahl:" + ticketV.size());
+				if(ticketV.size()== 0)
+				{
+					pageContext.setAttribute("meldungSuchbegriffNichtGefunden", true);
+				}
+			}			
 		} else  {
 			
 			// Alle Tickets

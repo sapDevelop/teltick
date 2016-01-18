@@ -58,9 +58,14 @@
 								</div>
 
 							</label>
+							
+							
 						</teltick:TicketTag>
-
-
+							<c:if test="${meldungSuchbegriffNichtGefunden}" >
+								<teltick:meldungsbox hoehe="160px" icon="fehler" breite="500px" titel="Keine Suchergebnisse">
+									Es wurden keine Tickets zum Suchebegriff gefunden!
+								</teltick:meldungsbox>
+							</c:if>
 					</div>
 				</div>
 			</div>
