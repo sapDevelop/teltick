@@ -69,7 +69,7 @@ public class TicketVerwaltungController extends HttpServlet {
 
 			String pfad_inc_jsp = null;
 			
-			//Wechler Button wurde gedrückt
+			//Wechler Button wurde gedrï¿½ckt
 			
 			log.info("test:" + request.getParameter("submit"));
 
@@ -147,7 +147,7 @@ public class TicketVerwaltungController extends HttpServlet {
 
 			}
 			
-			//Übergeben des zuletzt gesetzten wertes für "Alle Tickets" oder "Eigene Tickets" anzeigen
+			//ï¿½bergeben des zuletzt gesetzten wertes fï¿½r "Alle Tickets" oder "Eigene Tickets" anzeigen
 			
 			switch (request.getParameter("AuswahlAenderung")) {
 			case "Eigene Tickets":
@@ -169,7 +169,7 @@ public class TicketVerwaltungController extends HttpServlet {
 			
 
 			if (pfad_inc_jsp != null){
-				log.info("Für den Button entsprechende JSP-Seite wird geladen.");
+				log.info("FÃ¼r den Button entsprechende JSP-Seite wird geladen.");
 				RequestDispatcher rd = request.getRequestDispatcher(pfad_inc_jsp);
 				rd.forward(request, response);
 			}
